@@ -1,0 +1,105 @@
+######################### Challonge #########################
+
+### Solution 1 ###
+
+Kawada6 (14.0), Solosion (10.0), oolli (9.0), chommy (7.0)
+chemist (11.5), Lightning (9.5), benevelante (9.5), Bommie (9.5)
+rorf (12.0), Komari (10.5), miiarad (10.0), psirockin (7.5)
+Nephirea (14.0), PotassiumF (9.5), Patoche49 (8.5), arpia97 (7.5)
+thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0)
+Floth (13.0), yasashiikumo (10.0), ChrisLefko (9.5), Catge (7.5)
+
+### Solution 2 ###
+
+rorf (12.0), Komari (10.5), yasashiikumo (10.0), psirockin (7.5)
+chemist (11.5), Lightning (9.5), benevelante (9.5), PotassiumF (9.5)
+Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5)
+Floth (13.0), miiarad (10.0), Bommie (9.5), Kyuuuu (7.5)
+thaleko (18.5), oolli (9.0), chommy (7.0), anicomi (5.0)
+Nephirea (14.0), ChrisLefko (9.5), Patoche49 (8.5), arpia97 (7.5)
+
+### Solution 3 ###
+
+rorf (12.0), Komari (10.5), Bommie (9.5), psirockin (7.5)
+Nephirea (14.0), miiarad (10.0), Patoche49 (8.5), arpia97 (7.5)
+Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5)
+thaleko (18.5), oolli (9.0), Kyuuuu (7.5), anicomi (5.0)
+chemist (11.5), Lightning (9.5), ChrisLefko (9.5), PotassiumF (9.5)
+Floth (13.0), yasashiikumo (10.0), benevelante (9.5), chommy (7.0)
+
+### Solution 4 ###
+
+Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), Kyuuuu (7.5)
+Nephirea (14.0), benevelante (9.5), nefregar (8.5), arpia97 (7.5)
+chemist (11.5), Solosion (10.0), Bommie (9.5), Patoche49 (8.5)
+Floth (13.0), yasashiikumo (10.0), Lightning (9.5), psirockin (7.5)
+thaleko (18.5), PotassiumF (9.5), chommy (7.0), anicomi (5.0)
+rorf (12.0), Komari (10.5), miiarad (10.0), Catge (7.5)
+
+### Solution 5 ###
+
+Floth (13.0), miiarad (10.0), Lightning (9.5), psirockin (7.5)
+Nephirea (14.0), benevelante (9.5), PotassiumF (9.5), chommy (7.0)
+Komari (10.5), yasashiikumo (10.0), Solosion (10.0), Bommie (9.5)
+Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), arpia97 (7.5)
+rorf (12.0), chemist (11.5), Patoche49 (8.5), Catge (7.5)
+thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0)
+
+
+######################### Discord #########################
+
+### Solution 1 ###
+
+Kawada6 (14.0), Solosion (10.0), oolli (9.0), chommy (7.0) | Total = 40.0 | Guesses = [5554]
+chemist (11.5), Lightning (9.5), benevelante (9.5), Bommie (9.5) | Total = 40.0 | Guesses = [5555]
+rorf (12.0), Komari (10.5), miiarad (10.0), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
+Nephirea (14.0), PotassiumF (9.5), Patoche49 (8.5), arpia97 (7.5) | Total = 39.5 | Guesses = [5554]
+thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0) | Total = 39.5 | Guesses = [5542]
+Floth (13.0), yasashiikumo (10.0), ChrisLefko (9.5), Catge (7.5) | Total = 40.0 | Guesses = [5554]
+
+### Solution 2 ###
+
+rorf (12.0), Komari (10.5), yasashiikumo (10.0), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
+chemist (11.5), Lightning (9.5), benevelante (9.5), PotassiumF (9.5) | Total = 40.0 | Guesses = [5555]
+Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5) | Total = 40.0 | Guesses = [5554]
+Floth (13.0), miiarad (10.0), Bommie (9.5), Kyuuuu (7.5) | Total = 40.0 | Guesses = [5554]
+thaleko (18.5), oolli (9.0), chommy (7.0), anicomi (5.0) | Total = 39.5 | Guesses = [5542]
+Nephirea (14.0), ChrisLefko (9.5), Patoche49 (8.5), arpia97 (7.5) | Total = 39.5 | Guesses = [5554]
+
+### Solution 3 ###
+
+rorf (12.0), Komari (10.5), Bommie (9.5), psirockin (7.5) | Total = 39.5 | Guesses = [5554]
+Nephirea (14.0), miiarad (10.0), Patoche49 (8.5), arpia97 (7.5) | Total = 40.0 | Guesses = [5554]
+Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5) | Total = 40.0 | Guesses = [5554]
+thaleko (18.5), oolli (9.0), Kyuuuu (7.5), anicomi (5.0) | Total = 40.0 | Guesses = [5542]
+chemist (11.5), Lightning (9.5), ChrisLefko (9.5), PotassiumF (9.5) | Total = 40.0 | Guesses = [5555]
+Floth (13.0), yasashiikumo (10.0), benevelante (9.5), chommy (7.0) | Total = 39.5 | Guesses = [5554]
+
+### Solution 4 ###
+
+Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), Kyuuuu (7.5) | Total = 40.0 | Guesses = [5554]
+Nephirea (14.0), benevelante (9.5), nefregar (8.5), arpia97 (7.5) | Total = 39.5 | Guesses = [5554]
+chemist (11.5), Solosion (10.0), Bommie (9.5), Patoche49 (8.5) | Total = 39.5 | Guesses = [5555]
+Floth (13.0), yasashiikumo (10.0), Lightning (9.5), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
+thaleko (18.5), PotassiumF (9.5), chommy (7.0), anicomi (5.0) | Total = 40.0 | Guesses = [5542]
+rorf (12.0), Komari (10.5), miiarad (10.0), Catge (7.5) | Total = 40.0 | Guesses = [5554]
+
+### Solution 5 ###
+
+Floth (13.0), miiarad (10.0), Lightning (9.5), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
+Nephirea (14.0), benevelante (9.5), PotassiumF (9.5), chommy (7.0) | Total = 40.0 | Guesses = [5554]
+Komari (10.5), yasashiikumo (10.0), Solosion (10.0), Bommie (9.5) | Total = 40.0 | Guesses = [5555]
+Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), arpia97 (7.5) | Total = 40.0 | Guesses = [5554]
+rorf (12.0), chemist (11.5), Patoche49 (8.5), Catge (7.5) | Total = 39.5 | Guesses = [5554]
+thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0) | Total = 39.5 | Guesses = [5542]
+
+Average: 39.8333
+
+[Challonge](YOUR_CHALLONGE_URL)
+```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
+Distribution of guesses:
+8.5≥: 5 Guesses
+7-8: 4 Guesses
+5.5-6.5: 3 Guesses
+3.5-5: 2 Guesses
+0-3: 1 Guess

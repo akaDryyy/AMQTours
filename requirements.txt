@@ -1,0 +1,11 @@
+aiohttp
+trueskill
+beautifulsoup4
+mpmath
+python-dateutil
+Brotli
+lxml
+certifi
+curl-cffi
+requests
+PuLP

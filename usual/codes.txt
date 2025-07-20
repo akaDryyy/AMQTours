@@ -1,0 +1,23 @@
+######################### Challonge #########################
+
+hmsuis (9.172) yokipi (8.605) Kirox (7.318) spanky (5.994)
+cafezinho (8.950) Dry (7.797) kabigon (7.564) Selaph (6.762)
+peeku (12.472) MD22 (6.453) Solosion (6.117) janoxx (6.019)
+eternity (15.645) Saiki (8.426) yasashiikumo (5.914) azure10 (1.036)
+
+######################### Discord #########################
+
+hmsuis (9.172) yokipi (8.605) Kirox (7.318) spanky (5.994) | Total = 31.089 | Guesses = [4433]
+cafezinho (8.950) Dry (7.797) kabigon (7.564) Selaph (6.762) | Total = 31.073 | Guesses = [4333]
+peeku (12.472) MD22 (6.453) Solosion (6.117) janoxx (6.019) | Total = 31.061 | Guesses = [4333]
+eternity (15.645) Saiki (8.426) yasashiikumo (5.914) azure10 (1.036) | Total = 31.021 | Guesses = [4332]
+
+Average: 31.061
+
+[Challonge](https://challonge.com/pbznj12e)
+```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
+Random NGMC guess distributions:
+≥8.5: 4 guesses
+4.5-8.49: 3 guesses
+0.5-4.49: 2 guesses
+≤0.49: 1 guess
