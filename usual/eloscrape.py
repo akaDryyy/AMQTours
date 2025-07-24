@@ -16,7 +16,7 @@ from curl_cffi.requests import AsyncSession
 import gspread, os
 StoreElos=716533894
 DIRECTORY = os.path.dirname(__file__)
-
+alises_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
 PROXY_SERVER = '' # get from tsui if necessary
 TEAMSIZE = 4
 
@@ -163,7 +163,7 @@ async def main():
     init_timezones()
 
     aliases = {}
-    with open('aliases.txt', 'r', encoding='utf-8') as f:
+    with open(alises_path, 'r', encoding='utf-8') as f:
         # tab-separated list of aliases, where every line has all names of one player 
         # first of each line should be the main name (current bot name)
         for line in f:

@@ -3,10 +3,12 @@ import argparse, json, os
 
 blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
 whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
+alises_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
 ranks_path = os.path.abspath("ranks.txt")
-elo_path =os.path.abspath("elos.json")
+elo_path = os.path.abspath("elos.json")
 players_path = os.path.abspath("players.txt")
 codes_path = os.path.abspath("codes.txt")
+think_time = 25000
 
 parser = argparse.ArgumentParser(description="AMQ Tours")
 parser.add_argument('--size', '-s',
@@ -45,6 +47,16 @@ with open(elo_path, 'r') as f:
 
 ranks = {player: rank for player, rank in ranks.items()}
 
+aliases = {}
+with open(alises_path, 'r', encoding='utf-8') as f:
+    # tab-separated list of aliases, where every line has all names of one player 
+    # first of each line should be the main name (current bot name)
+    for line in f:
+        alias_list = line.split('\t')
+        main_name = alias_list[0].strip().lower()
+        for alias in alias_list:
+            aliases[alias.strip().lower()] = main_name
+
 players = {}
 with open(players_path, 'r') as file:
     for player in file.read().split(','):
@@ -54,17 +66,25 @@ with open(players_path, 'r') as file:
         if player_key in ranks:
             new_player = {player: ranks[player_key]}
             players.update(new_player)
+        # Check aliases
+        elif player_key in aliases:
+            main_name = aliases[player_key]
+            if main_name in ranks:
+                players[player] = ranks[main_name]
+            else:
+                input(f"[WARN] Alias '{player}' maps to '{main_name}', but '{main_name}' not in ranks. Press Enter to continue.")
         else:
-            input(f"[WARN] Player '{player}' not found, enter to continue")
+            input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to continue.")
 
-players = dict(sorted(players.items(), key=lambda x:x[1], reverse=True))
+players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
 players = list(players.items())
 
 with open(blacklist_path, "r") as f:
     blacklist = json.load(f)
-
+blacklist = [[a.lower(), b.lower()] for a, b in blacklist]
 with open(whitelist_path, "r") as f:
     whitelist = json.load(f)
+whitelist = [[a.lower(), b.lower()] for a, b in whitelist]
 
 nums = [val for _, val in players]
 n = len(nums)
@@ -118,7 +138,7 @@ for total in totals:
 prob += z - y
 
 # Solve. Edit maxNodes to reduce thinking time
-prob.solve(PULP_CBC_CMD(maxNodes=25000))
+prob.solve(PULP_CBC_CMD(maxNodes=think_time))
 
 # Collect partitions safely
 partitions = [[] for _ in range(k)]

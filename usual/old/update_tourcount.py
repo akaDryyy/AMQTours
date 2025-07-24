@@ -38,7 +38,6 @@ for player in PLAYER_LIST:
     if player not in players:
         players[player] = 0
 
-
 for tour in ELO_HISTORY:
     for item in tour:
         if item == 'player':
