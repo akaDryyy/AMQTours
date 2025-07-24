@@ -2,98 +2,78 @@
 
 ### Solution 1 ###
 
-Kawada6 (14.0), Solosion (10.0), oolli (9.0), chommy (7.0)
-chemist (11.5), Lightning (9.5), benevelante (9.5), Bommie (9.5)
-rorf (12.0), Komari (10.5), miiarad (10.0), psirockin (7.5)
-Nephirea (14.0), PotassiumF (9.5), Patoche49 (8.5), arpia97 (7.5)
-thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0)
-Floth (13.0), yasashiikumo (10.0), ChrisLefko (9.5), Catge (7.5)
+neoburnz (16.5) bella (16.5) pile (12.5) mitsorubi (4.5)
+sniparook (17.0) apurplenose (15.0) skychael (10.0) md22 (8.5)
+sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0)
+watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5)
 
 ### Solution 2 ###
 
-rorf (12.0), Komari (10.5), yasashiikumo (10.0), psirockin (7.5)
-chemist (11.5), Lightning (9.5), benevelante (9.5), PotassiumF (9.5)
-Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5)
-Floth (13.0), miiarad (10.0), Bommie (9.5), Kyuuuu (7.5)
-thaleko (18.5), oolli (9.0), chommy (7.0), anicomi (5.0)
-Nephirea (14.0), ChrisLefko (9.5), Patoche49 (8.5), arpia97 (7.5)
+sniparook (17.0) neoburnz (16.5) pile (12.5) mitsorubi (4.5)
+bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5)
+sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0)
+watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5)
 
 ### Solution 3 ###
 
-rorf (12.0), Komari (10.5), Bommie (9.5), psirockin (7.5)
-Nephirea (14.0), miiarad (10.0), Patoche49 (8.5), arpia97 (7.5)
-Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5)
-thaleko (18.5), oolli (9.0), Kyuuuu (7.5), anicomi (5.0)
-chemist (11.5), Lightning (9.5), ChrisLefko (9.5), PotassiumF (9.5)
-Floth (13.0), yasashiikumo (10.0), benevelante (9.5), chommy (7.0)
+sakurabarola (18.0) neoburnz (16.5) mahzrunner (11.5) mitsorubi (4.5)
+bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5)
+sniparook (17.0) kar72 (16.0) pile (12.5) tsuni (5.0)
+watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5)
 
 ### Solution 4 ###
 
-Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), Kyuuuu (7.5)
-Nephirea (14.0), benevelante (9.5), nefregar (8.5), arpia97 (7.5)
-chemist (11.5), Solosion (10.0), Bommie (9.5), Patoche49 (8.5)
-Floth (13.0), yasashiikumo (10.0), Lightning (9.5), psirockin (7.5)
-thaleko (18.5), PotassiumF (9.5), chommy (7.0), anicomi (5.0)
-rorf (12.0), Komari (10.5), miiarad (10.0), Catge (7.5)
+kar72 (16.0) moosepi (14.0) hmsuis (10.5) skychael (10.0)
+sakurabarola (18.0) pile (12.5) alkios (11.0) md22 (8.5)
+sniparook (17.0) neoburnz (16.5) mahzrunner (11.5) tsuni (5.0)
+bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5)
 
 ### Solution 5 ###
 
-Floth (13.0), miiarad (10.0), Lightning (9.5), psirockin (7.5)
-Nephirea (14.0), benevelante (9.5), PotassiumF (9.5), chommy (7.0)
-Komari (10.5), yasashiikumo (10.0), Solosion (10.0), Bommie (9.5)
-Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), arpia97 (7.5)
-rorf (12.0), chemist (11.5), Patoche49 (8.5), Catge (7.5)
-thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0)
+sakurabarola (18.0) sniparook (17.0) skychael (10.0) tsuni (5.0)
+bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5)
+neoburnz (16.5) moosepi (14.0) mahzrunner (11.5) md22 (8.5)
+kar72 (16.0) pile (12.5) alkios (11.0) hmsuis (10.5)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-Kawada6 (14.0), Solosion (10.0), oolli (9.0), chommy (7.0) | Total = 40.0 | Guesses = [5554]
-chemist (11.5), Lightning (9.5), benevelante (9.5), Bommie (9.5) | Total = 40.0 | Guesses = [5555]
-rorf (12.0), Komari (10.5), miiarad (10.0), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
-Nephirea (14.0), PotassiumF (9.5), Patoche49 (8.5), arpia97 (7.5) | Total = 39.5 | Guesses = [5554]
-thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0) | Total = 39.5 | Guesses = [5542]
-Floth (13.0), yasashiikumo (10.0), ChrisLefko (9.5), Catge (7.5) | Total = 40.0 | Guesses = [5554]
+neoburnz (16.5) bella (16.5) pile (12.5) mitsorubi (4.5) | Total = 50.0 | Guesses = [5552]
+sniparook (17.0) apurplenose (15.0) skychael (10.0) md22 (8.5) | Total = 50.5 | Guesses = [5555]
+sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0) | Total = 50.5 | Guesses = [5552]
+watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
 
 ### Solution 2 ###
 
-rorf (12.0), Komari (10.5), yasashiikumo (10.0), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
-chemist (11.5), Lightning (9.5), benevelante (9.5), PotassiumF (9.5) | Total = 40.0 | Guesses = [5555]
-Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5) | Total = 40.0 | Guesses = [5554]
-Floth (13.0), miiarad (10.0), Bommie (9.5), Kyuuuu (7.5) | Total = 40.0 | Guesses = [5554]
-thaleko (18.5), oolli (9.0), chommy (7.0), anicomi (5.0) | Total = 39.5 | Guesses = [5542]
-Nephirea (14.0), ChrisLefko (9.5), Patoche49 (8.5), arpia97 (7.5) | Total = 39.5 | Guesses = [5554]
+sniparook (17.0) neoburnz (16.5) pile (12.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
+bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5) | Total = 50.0 | Guesses = [5555]
+sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0) | Total = 50.5 | Guesses = [5552]
+watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
 
 ### Solution 3 ###
 
-rorf (12.0), Komari (10.5), Bommie (9.5), psirockin (7.5) | Total = 39.5 | Guesses = [5554]
-Nephirea (14.0), miiarad (10.0), Patoche49 (8.5), arpia97 (7.5) | Total = 40.0 | Guesses = [5554]
-Kawada6 (14.0), Solosion (10.0), nefregar (8.5), Catge (7.5) | Total = 40.0 | Guesses = [5554]
-thaleko (18.5), oolli (9.0), Kyuuuu (7.5), anicomi (5.0) | Total = 40.0 | Guesses = [5542]
-chemist (11.5), Lightning (9.5), ChrisLefko (9.5), PotassiumF (9.5) | Total = 40.0 | Guesses = [5555]
-Floth (13.0), yasashiikumo (10.0), benevelante (9.5), chommy (7.0) | Total = 39.5 | Guesses = [5554]
+sakurabarola (18.0) neoburnz (16.5) mahzrunner (11.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
+bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5) | Total = 50.0 | Guesses = [5555]
+sniparook (17.0) kar72 (16.0) pile (12.5) tsuni (5.0) | Total = 50.5 | Guesses = [5552]
+watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
 
 ### Solution 4 ###
 
-Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), Kyuuuu (7.5) | Total = 40.0 | Guesses = [5554]
-Nephirea (14.0), benevelante (9.5), nefregar (8.5), arpia97 (7.5) | Total = 39.5 | Guesses = [5554]
-chemist (11.5), Solosion (10.0), Bommie (9.5), Patoche49 (8.5) | Total = 39.5 | Guesses = [5555]
-Floth (13.0), yasashiikumo (10.0), Lightning (9.5), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
-thaleko (18.5), PotassiumF (9.5), chommy (7.0), anicomi (5.0) | Total = 40.0 | Guesses = [5542]
-rorf (12.0), Komari (10.5), miiarad (10.0), Catge (7.5) | Total = 40.0 | Guesses = [5554]
+kar72 (16.0) moosepi (14.0) hmsuis (10.5) skychael (10.0) | Total = 50.5 | Guesses = [5555]
+sakurabarola (18.0) pile (12.5) alkios (11.0) md22 (8.5) | Total = 50.0 | Guesses = [5555]
+sniparook (17.0) neoburnz (16.5) mahzrunner (11.5) tsuni (5.0) | Total = 50.0 | Guesses = [5552]
+bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
 
 ### Solution 5 ###
 
-Floth (13.0), miiarad (10.0), Lightning (9.5), psirockin (7.5) | Total = 40.0 | Guesses = [5554]
-Nephirea (14.0), benevelante (9.5), PotassiumF (9.5), chommy (7.0) | Total = 40.0 | Guesses = [5554]
-Komari (10.5), yasashiikumo (10.0), Solosion (10.0), Bommie (9.5) | Total = 40.0 | Guesses = [5555]
-Kawada6 (14.0), ChrisLefko (9.5), oolli (9.0), arpia97 (7.5) | Total = 40.0 | Guesses = [5554]
-rorf (12.0), chemist (11.5), Patoche49 (8.5), Catge (7.5) | Total = 39.5 | Guesses = [5554]
-thaleko (18.5), nefregar (8.5), Kyuuuu (7.5), anicomi (5.0) | Total = 39.5 | Guesses = [5542]
+sakurabarola (18.0) sniparook (17.0) skychael (10.0) tsuni (5.0) | Total = 50.0 | Guesses = [5552]
+bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
+neoburnz (16.5) moosepi (14.0) mahzrunner (11.5) md22 (8.5) | Total = 50.5 | Guesses = [5555]
+kar72 (16.0) pile (12.5) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
 
-Average: 39.8333
+Average: 50.25
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

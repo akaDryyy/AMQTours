@@ -4,14 +4,16 @@ from copy import deepcopy
 
 blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
 whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
+alises_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
 ranks_path = os.path.abspath("ranks.txt")
-elo_path =os.path.abspath("elos.json")
+elo_path = os.path.abspath("elos.json")
 players_path = os.path.abspath("players.txt")
 codes_path = os.path.abspath("codes.txt")
 team_size = 4
 gamemode = "40"
 max_solutions = 5
 optimal_value = None
+think_time = 25000
 found_solutions = []
 
 parser = argparse.ArgumentParser(description="AMQ Tours")
@@ -42,6 +44,16 @@ with open(ranks_path, 'r') as file:
 
 ranks = {player: rank for player, rank in ranks.items()}
 
+aliases = {}
+with open(alises_path, 'r', encoding='utf-8') as f:
+    # tab-separated list of aliases, where every line has all names of one player 
+    # first of each line should be the main name (current bot name)
+    for line in f:
+        alias_list = line.split('\t')
+        main_name = alias_list[0].strip().lower()
+        for alias in alias_list:
+            aliases[alias.strip().lower()] = main_name
+
 players = {}
 with open(players_path, 'r') as file:
     for player in file.read().split(','):
@@ -51,17 +63,25 @@ with open(players_path, 'r') as file:
         if player_key in ranks:
             new_player = {player: ranks[player_key]}
             players.update(new_player)
+        # Check aliases
+        elif player_key in aliases:
+            main_name = aliases[player_key]
+            if main_name in ranks:
+                players[player] = ranks[main_name]
+            else:
+                input(f"[WARN] Alias '{player}' maps to '{main_name}', but '{main_name}' not in ranks. Press Enter to continue.")
         else:
-            input(f"[WARN] Player '{player}' not found, enter to continue")
+            input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to continue.")
 
-players = dict(sorted(players.items(), key=lambda x:x[1], reverse=True))
+players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
 players = list(players.items())
 
 with open(blacklist_path, "r") as f:
     blacklist = json.load(f)
-
+blacklist = [[a.lower(), b.lower()] for a, b in blacklist]
 with open(whitelist_path, "r") as f:
     whitelist = json.load(f)
+whitelist = [[a.lower(), b.lower()] for a, b in whitelist]
 
 nums = [val for _, val in players]
 n = len(nums)
@@ -116,7 +136,7 @@ prob += z - y
 
 # Solve. Edit maxNodes to reduce thinking time
 for s in range(max_solutions):
-    prob.solve(PULP_CBC_CMD(maxNodes=10000))
+    prob.solve(PULP_CBC_CMD(maxNodes=think_time))
 
     if prob.status != 1:
         break
@@ -146,7 +166,7 @@ for idx, sol in enumerate(found_solutions, 1):
         team_map[p].append((name, p_values[name]))
 
     for i, team in enumerate(team_map):
-        members = ", ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+        members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
         total = sum(v for _, v in team)
         print(f"{members} | Total = {total:.1f}")
     
@@ -201,7 +221,7 @@ for idx, sol in enumerate(found_solutions, 1):
         team_map[p].append((name, p_values[name]))
 
     for i, team in enumerate(team_map):
-        members = ", ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+        members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
         total = sum(v for _, v in team)
         team_msg = f"{members}\n"
         print(team_msg)
@@ -225,7 +245,7 @@ for idx, sol in enumerate(found_solutions, 1):
         team_map[p].append((name, p_values[name]))
     avg = 0
     for i, team in enumerate(team_map):
-        members = ", ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+        members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
         guess_str = "".join(get_guess(val) for _, val in sorted(team, key=lambda x: x[1], reverse=True))
         total = sum(v for _, v in team)
         team_msg = f"{members} | Total = {total:.1f} | Guesses = [{guess_str}]\n"
