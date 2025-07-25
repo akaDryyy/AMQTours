@@ -19,6 +19,8 @@ ELO calculation + balance scripts for NGMC
 - `-m quag` to change the code to quag. Defaults to usual
 4. output will be put in `codes.txt` with already the correct lobby codes
 
+USE NGMGUIsolver TO OPEN A CONFIGURABLE GRAPHICAL INTERFACE INSTEAD
+
 ## USAGE NOTES
 
 - challonge team names 

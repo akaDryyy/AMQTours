@@ -13,6 +13,8 @@ Balance script for NGMC
 - `-m 30` to change the code to 0-30. Defaults to 0-40, supports: 30, 35, 40, 45, 50
 4. output will be put in `codes.txt` with already the correct lobby codes
 
+USE NGMGUIsolver TO OPEN A CONFIGURABLE GRAPHICAL INTERFACE INSTEAD
+
 ## FILE DESCRIPTIONS
 
 - `NGMsolverwatched.py` -- balance with ranks

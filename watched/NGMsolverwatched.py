@@ -6,29 +6,36 @@ blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
 whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
 alises_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
 ranks_path = os.path.abspath("ranks.txt")
-elo_path = os.path.abspath("elos.json")
 players_path = os.path.abspath("players.txt")
 codes_path = os.path.abspath("codes.txt")
 team_size = 4
 gamemode = "40"
 max_solutions = 5
 optimal_value = None
-think_time = 25000
+think_time = 15000
 found_solutions = []
 
 parser = argparse.ArgumentParser(description="AMQ Tours")
 parser.add_argument('--size', '-s',
                     help="Define the size of each team",
+                    default=4,
                     required=False)
 parser.add_argument('--mode', '-m', 
                     choices=['30', '35', '40', '45', '50'],
+                    default='40',
                     required=False,
-                    help="Define the tour mode, currently usual or quag")
+                    help="Define the tour difficulty range")
+parser.add_argument('--thinktime', '-t',
+                    help="Define how long should the script take to find solutions. Less think time might result in less team options provided.",
+                    default=15000,
+                    required=False)
 args = parser.parse_args()
 if args.size:
     team_size = int(args.size)
 if args.mode:
     gamemode = args.mode
+if args.thinktime:
+    think_time = args.thinktime
 
 # Obtain the players
 ranks = {}

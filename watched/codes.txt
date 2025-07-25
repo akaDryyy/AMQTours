@@ -78,8 +78,9 @@ Average: 50.25
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
-8.5≥: 5 Guesses
-7-8: 4 Guesses
-5.5-6.5: 3 Guesses
-3.5-5: 2 Guesses
-0-3: 1 Guess
+    8.5≥: 5 Guesses
+    7-8: 4 Guesses
+    5.5-6.5: 3 Guesses
+    3.5-5: 2 Guesses
+    0-3: 1 Guess
+    

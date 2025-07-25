@@ -9,3 +9,4 @@ certifi
 curl-cffi
 requests
 PuLP
+Gooey 
