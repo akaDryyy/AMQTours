@@ -6,40 +6,29 @@ ELO calculation + balance scripts for NGMC
 
 ### eloscrape.py 
 
-1. (FIRST TIME ONLY) install python if you hadn't already and `pip install -r requirements.txt`, or run the provided `setup.bat` file
-2. put ALL tours that you want to count towards elo in `tourlist.txt`.
-3. run the script 
-4. if you get ssl errors run `eloscrape_insecure.py` instead
+1. put ALL tours that you want to count towards elo in `tourlist.txt`.
+2. run the script 
+3. if you get ssl errors run `eloscrape_insecure.py` instead
 
-### NGMbalance_v3.5 
+### NGMsolver.py
 
-1. install python 
-2. get the latest `elos.json` 
-3. get `ranks.txt` (the script uses this for players w/o a rating yet) and fill `players.txt` with the players you want to balance 
-4. run the script
-
-### NGMbsolver.py
-
-1. install python 
-2. get the latest `elos.json` 
-3. get `ranks.txt` (the script uses this for players w/o a rating yet) and fill `players.txt` with the players you want to balance 
-4. run the script
+1. get the latest `elos.json` 
+2. get `ranks.txt` (the script uses this for players w/o a rating yet) and fill `players.txt` with the players you want to balance. If you have team requests, fill `whitelist.json` in the above folder with the names of the players you want to put in the same team, follow the provided format, the name must match the one in `elos.json` or `aliases.txt`. If you want to team up 3 players simply do ['playerA', 'playerB'], ['playerB', 'playerC']. 
+3. run the script
 - `-s 3` to change the team size to 3, or any desired number. Defaults to 4
 - `-m quag` to change the code to quag. Defaults to usual
+4. output will be put in `codes.txt` with already the correct lobby codes
 
 ## USAGE NOTES
 
 - challonge team names 
-	- should be in the format exactly provided by the balance script 
+	- should be in the format exactly provided by the balance script
 	- i.e. `{PLAYER} ({RANK}) {PLAYER} ({RANK}) {PLAYER} ({RANK}) {PLAYER} ({RANK}) `
 - sub handling 
 	- if a player subs then note which rounds they played and the rounds they played in the tour and change their team name accordingly
 	- e.g. `bop (19.79) LelPop [1, 2, 3] (10.09) MrWolf [4, 5] (11.44) Wuffles (7.79) Oshino_bu (5.45) = 43.12`
 	- follow this format EXACTLY
 	- after running the script ensure that the sub shows up in the latest elo history -- you may need to delete the html from your `htmls/` folder
-- negative rated players 
-	- balance algo can't handle negative players apparently 
-	- I'll bugfix this at some point -- for now it just treats all negative players as 0
 
 ## FILE DESCRIPTIONS
 
@@ -57,6 +46,7 @@ ELO calculation + balance scripts for NGMC
 	- usage notes:
 		- for each player the initial elo value is the rating that appears on the challonge the player is first seen in, since there's no tierlist history saved anywhere 
 		- if you want to adjust how much an individual tour affects player ratings change the values w/ notes at the top of the script. probably `tau` and `INITIAL_SIGMA` are the primary values of interest
-- `NGMbalance_v3.5.py` -- balance with elos 
-	- uses `elos.json` 
+- `NGMsolver.py` -- balance with elos 
+	- uses `elos.json`
 	- put player list in `players.txt` as usual 
+	- output will be put in `codes.txt` with already the correct lobby codes

@@ -1,18 +1,18 @@
 ######################### Challonge #########################
 
-
-
-
-
+offensearmor (19.550) hmsuis (9.350) maki04 (6.869) lakumix (6.571)
+falilv (14.973) neoburnz (13.817) beautiful (8.821) atsui (4.671)
+eryth (22.796) chaabdu92 (9.409) yasashiikumo (5.920) miiarad (4.042)
+kawada6 (15.189) alkios (13.256) kabigon (7.562) progenitor (5.969)
 
 ######################### Discord #########################
 
- | Total = 0 | Guesses = []
- | Total = 0 | Guesses = []
- | Total = 0 | Guesses = []
- | Total = 0 | Guesses = []
+offensearmor (19.550) hmsuis (9.350) maki04 (6.869) lakumix (6.571) | Total = 42.34 | Guesses = [4433]
+falilv (14.973) neoburnz (13.817) beautiful (8.821) atsui (4.671) | Total = 42.282 | Guesses = [4443]
+eryth (22.796) chaabdu92 (9.409) yasashiikumo (5.920) miiarad (4.042) | Total = 42.167 | Guesses = [4432]
+kawada6 (15.189) alkios (13.256) kabigon (7.562) progenitor (5.969) | Total = 41.976 | Guesses = [4433]
 
-Average: 0.0
+Average: 42.1912
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```

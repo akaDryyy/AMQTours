@@ -7,25 +7,27 @@
 17.5: Miki_Hoshii
 17: FORTNAYT, civiltwlight
 16: asleep, GyroInmobile, remake, PoolNoodle, kar72
-15.5: claydoll1091, SakurabaRola
+15.5: SakurabaRola
 15: Thaleko, Math1234
+14.5: claydoll1091
 14: Hejsan, gro, neoburnz
-13: Zippy, 753, FaLiLV, bella, Alkios
+13.5: FaLiLV
+13: Zippy, 753, bella, Alkios
 12.5: renzou
-12: peeku, SmartHardyz
-11.5: Akaze, JuliAless64, beautiful, orfey
+12: peeku, SmartHardyz, JuliAless64
+11.5: Akaze, orfey
 11: doomchicken, MrWolf, LelPop, moosepi
 10.5: comete
-10:
-9: Emdiel, cafezinho, Dry, kuterin
-8.5: kabigon
-8: AnimeroD, zeal_kido, Maki04, chemist, florenz, oh95
-7.5: Progenitor, AnotherWish
-7: chaabdu92, hmsuis, Saiki
-6.5: Provenance, _nadeshiko, Baikinman, mkby
-6: Kirox, I_am_stoney, Tapumomo, yasashiikumo, Jakemonkey, Ephemeral, spanky, uomi
-5.5: mahzrunner, Janoxx
-5: Skychael, uy5gf, Lakumix, ruuka, xeyz, Fumiii, keizan
+10: kuterin, beautiful
+9: Emdiel, cafezinho
+8.5: kabigon, hmsuis, Dry
+8: AnimeroD, zeal_kido, Maki04, florenz, oh95, Progenitor
+7.5: AnotherWish, mkby, chemist
+7: chaabdu92, Saiki
+6.5: Provenance, _nadeshiko, Baikinman, spanky
+6: Kirox, I_am_stoney, Tapumomo, yasashiikumo, Jakemonkey, Ephemeral, uomi
+5.5: mahzrunner
+5: Skychael, uy5gf, Lakumix, ruuka, xeyz, Fumiii, keizan, Janoxx
 4: Serozero, ChrisLefko, Konsumenci, fiftypercentweeb, Patoche49
 3: Oshino_bu, Atsui, ss_r_white_pony
 2: mitsorubi, VuhrCulls, Catge
