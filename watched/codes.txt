@@ -2,85 +2,124 @@
 
 ### Solution 1 ###
 
-neoburnz (16.5) bella (16.5) pile (12.5) mitsorubi (4.5)
-sniparook (17.0) apurplenose (15.0) skychael (10.0) md22 (8.5)
-sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0)
-watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5)
+beokros (14.0) jessi (13.0) vr0003 (8.0) chommy (7.0)
+julialess64 (15.5) skychael (10.0) chrislefko (9.5) catge (7.5)
+kaededayo (12.0) janoxx (10.5) konsumenci (10.0) porte (9.5)
+civiltwlight (18.5) kyuuuu (8.5) cm02 (8.5) justaweirdo (7.0)
+apurplenose (15.0) wolbachia (10.5) annayanami (9.5) mythandroid (7.5)
+floth (13.0) swapin (10.0) torradinhas (10.0) lightning (9.5)
+neoburnz (16.5) cipherkai (10.0) anotherwish (9.0) 2skr (7.0)
+emdiel (15.0) nephirea (14.0) iamasiannoob (8.5) anicomi (5.0)
 
 ### Solution 2 ###
 
-sniparook (17.0) neoburnz (16.5) pile (12.5) mitsorubi (4.5)
-bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5)
-sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0)
-watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5)
+julialess64 (15.5) floth (13.0) chommy (7.0) 2skr (7.0)
+beokros (14.0) porte (9.5) chrislefko (9.5) anotherwish (9.0)
+civiltwlight (18.5) kyuuuu (8.5) vr0003 (8.0) mythandroid (7.5)
+jessi (13.0) torradinhas (10.0) skychael (10.0) lightning (9.5)
+kaededayo (12.0) konsumenci (10.0) swapin (10.0) cipherkai (10.0)
+neoburnz (16.5) wolbachia (10.5) iamasiannoob (8.5) justaweirdo (7.0)
+apurplenose (15.0) nephirea (14.0) cm02 (8.5) anicomi (5.0)
+emdiel (15.0) janoxx (10.5) annayanami (9.5) catge (7.5)
 
 ### Solution 3 ###
 
-sakurabarola (18.0) neoburnz (16.5) mahzrunner (11.5) mitsorubi (4.5)
-bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5)
-sniparook (17.0) kar72 (16.0) pile (12.5) tsuni (5.0)
-watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5)
+floth (13.0) konsumenci (10.0) swapin (10.0) porte (9.5)
+beokros (14.0) janoxx (10.5) torradinhas (10.0) vr0003 (8.0)
+jessi (13.0) cipherkai (10.0) annayanami (9.5) lightning (9.5)
+neoburnz (16.5) skychael (10.0) cm02 (8.5) mythandroid (7.5)
+apurplenose (15.0) emdiel (15.0) catge (7.5) anicomi (5.0)
+civiltwlight (18.5) kyuuuu (8.5) iamasiannoob (8.5) justaweirdo (7.0)
+julialess64 (15.5) wolbachia (10.5) chrislefko (9.5) chommy (7.0)
+nephirea (14.0) kaededayo (12.0) anotherwish (9.0) 2skr (7.0)
 
 ### Solution 4 ###
 
-kar72 (16.0) moosepi (14.0) hmsuis (10.5) skychael (10.0)
-sakurabarola (18.0) pile (12.5) alkios (11.0) md22 (8.5)
-sniparook (17.0) neoburnz (16.5) mahzrunner (11.5) tsuni (5.0)
-bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5)
+kaededayo (12.0) cipherkai (10.0) torradinhas (10.0) skychael (10.0)
+emdiel (15.0) porte (9.5) annayanami (9.5) vr0003 (8.0)
+julialess64 (15.5) konsumenci (10.0) chrislefko (9.5) catge (7.5)
+nephirea (14.0) janoxx (10.5) wolbachia (10.5) mythandroid (7.5)
+civiltwlight (18.5) kyuuuu (8.5) iamasiannoob (8.5) chommy (7.0)
+neoburnz (16.5) swapin (10.0) anotherwish (9.0) 2skr (7.0)
+apurplenose (15.0) jessi (13.0) lightning (9.5) anicomi (5.0)
+beokros (14.0) floth (13.0) cm02 (8.5) justaweirdo (7.0)
 
 ### Solution 5 ###
 
-sakurabarola (18.0) sniparook (17.0) skychael (10.0) tsuni (5.0)
-bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5)
-neoburnz (16.5) moosepi (14.0) mahzrunner (11.5) md22 (8.5)
-kar72 (16.0) pile (12.5) alkios (11.0) hmsuis (10.5)
+emdiel (15.0) konsumenci (10.0) swapin (10.0) catge (7.5)
+beokros (14.0) jessi (13.0) vr0003 (8.0) chommy (7.0)
+kaededayo (12.0) janoxx (10.5) cipherkai (10.0) annayanami (9.5)
+nephirea (14.0) porte (9.5) chrislefko (9.5) lightning (9.5)
+neoburnz (16.5) skychael (10.0) kyuuuu (8.5) mythandroid (7.5)
+julialess64 (15.5) apurplenose (15.0) justaweirdo (7.0) anicomi (5.0)
+floth (13.0) wolbachia (10.5) torradinhas (10.0) anotherwish (9.0)
+civiltwlight (18.5) cm02 (8.5) iamasiannoob (8.5) 2skr (7.0)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-neoburnz (16.5) bella (16.5) pile (12.5) mitsorubi (4.5) | Total = 50.0 | Guesses = [5552]
-sniparook (17.0) apurplenose (15.0) skychael (10.0) md22 (8.5) | Total = 50.5 | Guesses = [5555]
-sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0) | Total = 50.5 | Guesses = [5552]
-watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
+beokros (14.0) jessi (13.0) vr0003 (8.0) chommy (7.0) | Total = 42.0 | Guesses = [5544]
+julialess64 (15.5) skychael (10.0) chrislefko (9.5) catge (7.5) | Total = 42.5 | Guesses = [5554]
+kaededayo (12.0) janoxx (10.5) konsumenci (10.0) porte (9.5) | Total = 42.0 | Guesses = [5555]
+civiltwlight (18.5) kyuuuu (8.5) cm02 (8.5) justaweirdo (7.0) | Total = 42.5 | Guesses = [5554]
+apurplenose (15.0) wolbachia (10.5) annayanami (9.5) mythandroid (7.5) | Total = 42.5 | Guesses = [5554]
+floth (13.0) swapin (10.0) torradinhas (10.0) lightning (9.5) | Total = 42.5 | Guesses = [5555]
+neoburnz (16.5) cipherkai (10.0) anotherwish (9.0) 2skr (7.0) | Total = 42.5 | Guesses = [5554]
+emdiel (15.0) nephirea (14.0) iamasiannoob (8.5) anicomi (5.0) | Total = 42.5 | Guesses = [5552]
 
 ### Solution 2 ###
 
-sniparook (17.0) neoburnz (16.5) pile (12.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
-bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5) | Total = 50.0 | Guesses = [5555]
-sakurabarola (18.0) kar72 (16.0) mahzrunner (11.5) tsuni (5.0) | Total = 50.5 | Guesses = [5552]
-watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
+julialess64 (15.5) floth (13.0) chommy (7.0) 2skr (7.0) | Total = 42.5 | Guesses = [5544]
+beokros (14.0) porte (9.5) chrislefko (9.5) anotherwish (9.0) | Total = 42.0 | Guesses = [5555]
+civiltwlight (18.5) kyuuuu (8.5) vr0003 (8.0) mythandroid (7.5) | Total = 42.5 | Guesses = [5544]
+jessi (13.0) torradinhas (10.0) skychael (10.0) lightning (9.5) | Total = 42.5 | Guesses = [5555]
+kaededayo (12.0) konsumenci (10.0) swapin (10.0) cipherkai (10.0) | Total = 42.0 | Guesses = [5555]
+neoburnz (16.5) wolbachia (10.5) iamasiannoob (8.5) justaweirdo (7.0) | Total = 42.5 | Guesses = [5554]
+apurplenose (15.0) nephirea (14.0) cm02 (8.5) anicomi (5.0) | Total = 42.5 | Guesses = [5552]
+emdiel (15.0) janoxx (10.5) annayanami (9.5) catge (7.5) | Total = 42.5 | Guesses = [5554]
 
 ### Solution 3 ###
 
-sakurabarola (18.0) neoburnz (16.5) mahzrunner (11.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
-bella (16.5) apurplenose (15.0) skychael (10.0) md22 (8.5) | Total = 50.0 | Guesses = [5555]
-sniparook (17.0) kar72 (16.0) pile (12.5) tsuni (5.0) | Total = 50.5 | Guesses = [5552]
-watashiiit (14.5) moosepi (14.0) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
+floth (13.0) konsumenci (10.0) swapin (10.0) porte (9.5) | Total = 42.5 | Guesses = [5555]
+beokros (14.0) janoxx (10.5) torradinhas (10.0) vr0003 (8.0) | Total = 42.5 | Guesses = [5554]
+jessi (13.0) cipherkai (10.0) annayanami (9.5) lightning (9.5) | Total = 42.0 | Guesses = [5555]
+neoburnz (16.5) skychael (10.0) cm02 (8.5) mythandroid (7.5) | Total = 42.5 | Guesses = [5554]
+apurplenose (15.0) emdiel (15.0) catge (7.5) anicomi (5.0) | Total = 42.5 | Guesses = [5542]
+civiltwlight (18.5) kyuuuu (8.5) iamasiannoob (8.5) justaweirdo (7.0) | Total = 42.5 | Guesses = [5554]
+julialess64 (15.5) wolbachia (10.5) chrislefko (9.5) chommy (7.0) | Total = 42.5 | Guesses = [5554]
+nephirea (14.0) kaededayo (12.0) anotherwish (9.0) 2skr (7.0) | Total = 42.0 | Guesses = [5554]
 
 ### Solution 4 ###
 
-kar72 (16.0) moosepi (14.0) hmsuis (10.5) skychael (10.0) | Total = 50.5 | Guesses = [5555]
-sakurabarola (18.0) pile (12.5) alkios (11.0) md22 (8.5) | Total = 50.0 | Guesses = [5555]
-sniparook (17.0) neoburnz (16.5) mahzrunner (11.5) tsuni (5.0) | Total = 50.0 | Guesses = [5552]
-bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
+kaededayo (12.0) cipherkai (10.0) torradinhas (10.0) skychael (10.0) | Total = 42.0 | Guesses = [5555]
+emdiel (15.0) porte (9.5) annayanami (9.5) vr0003 (8.0) | Total = 42.0 | Guesses = [5554]
+julialess64 (15.5) konsumenci (10.0) chrislefko (9.5) catge (7.5) | Total = 42.5 | Guesses = [5554]
+nephirea (14.0) janoxx (10.5) wolbachia (10.5) mythandroid (7.5) | Total = 42.5 | Guesses = [5554]
+civiltwlight (18.5) kyuuuu (8.5) iamasiannoob (8.5) chommy (7.0) | Total = 42.5 | Guesses = [5554]
+neoburnz (16.5) swapin (10.0) anotherwish (9.0) 2skr (7.0) | Total = 42.5 | Guesses = [5554]
+apurplenose (15.0) jessi (13.0) lightning (9.5) anicomi (5.0) | Total = 42.5 | Guesses = [5552]
+beokros (14.0) floth (13.0) cm02 (8.5) justaweirdo (7.0) | Total = 42.5 | Guesses = [5554]
 
 ### Solution 5 ###
 
-sakurabarola (18.0) sniparook (17.0) skychael (10.0) tsuni (5.0) | Total = 50.0 | Guesses = [5552]
-bella (16.5) apurplenose (15.0) watashiiit (14.5) mitsorubi (4.5) | Total = 50.5 | Guesses = [5552]
-neoburnz (16.5) moosepi (14.0) mahzrunner (11.5) md22 (8.5) | Total = 50.5 | Guesses = [5555]
-kar72 (16.0) pile (12.5) alkios (11.0) hmsuis (10.5) | Total = 50.0 | Guesses = [5555]
+emdiel (15.0) konsumenci (10.0) swapin (10.0) catge (7.5) | Total = 42.5 | Guesses = [5554]
+beokros (14.0) jessi (13.0) vr0003 (8.0) chommy (7.0) | Total = 42.0 | Guesses = [5544]
+kaededayo (12.0) janoxx (10.5) cipherkai (10.0) annayanami (9.5) | Total = 42.0 | Guesses = [5555]
+nephirea (14.0) porte (9.5) chrislefko (9.5) lightning (9.5) | Total = 42.5 | Guesses = [5555]
+neoburnz (16.5) skychael (10.0) kyuuuu (8.5) mythandroid (7.5) | Total = 42.5 | Guesses = [5554]
+julialess64 (15.5) apurplenose (15.0) justaweirdo (7.0) anicomi (5.0) | Total = 42.5 | Guesses = [5542]
+floth (13.0) wolbachia (10.5) torradinhas (10.0) anotherwish (9.0) | Total = 42.5 | Guesses = [5555]
+civiltwlight (18.5) cm02 (8.5) iamasiannoob (8.5) 2skr (7.0) | Total = 42.5 | Guesses = [5554]
 
-Average: 50.25
+Average: 42.375
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
-    8.5≥: 5 Guesses
-    7-8: 4 Guesses
-    5.5-6.5: 3 Guesses
-    3.5-5: 2 Guesses
-    0-3: 1 Guess
-    
+8.5≥: 5 Guesses
+7-8: 4 Guesses
+5.5-6.5: 3 Guesses
+3.5-5: 2 Guesses
+0-3: 1 Guess

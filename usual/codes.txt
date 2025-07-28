@@ -1,18 +1,18 @@
 ######################### Challonge #########################
 
-offensearmor (19.550) hmsuis (9.350) maki04 (6.869) lakumix (6.571)
-falilv (14.973) neoburnz (13.817) beautiful (8.821) atsui (4.671)
-eryth (22.796) chaabdu92 (9.409) yasashiikumo (5.920) miiarad (4.042)
-kawada6 (15.189) alkios (13.256) kabigon (7.562) progenitor (5.969)
+alkios (13.256) kirox (7.046) md22 (6.510) jakemonkey (3.823)
+chaabdu92 (9.409) hmsuis (9.350) cipherkai (6.572) i_am_stoney (5.291)
+neoburnz (13.817) kuterin (9.742) mahzrunner (4.685) psirockin (2.372)
+peeku (12.377) apurplenose (9.775) keizan (5.680) catge (2.647)
 
 ######################### Discord #########################
 
-offensearmor (19.550) hmsuis (9.350) maki04 (6.869) lakumix (6.571) | Total = 42.34 | Guesses = [4433]
-falilv (14.973) neoburnz (13.817) beautiful (8.821) atsui (4.671) | Total = 42.282 | Guesses = [4443]
-eryth (22.796) chaabdu92 (9.409) yasashiikumo (5.920) miiarad (4.042) | Total = 42.167 | Guesses = [4432]
-kawada6 (15.189) alkios (13.256) kabigon (7.562) progenitor (5.969) | Total = 41.976 | Guesses = [4433]
+alkios (13.256) kirox (7.046) md22 (6.510) jakemonkey (3.823) | Total = 30.635 | Guesses = [4332]
+chaabdu92 (9.409) hmsuis (9.350) cipherkai (6.572) i_am_stoney (5.291) | Total = 30.622 | Guesses = [4433]
+neoburnz (13.817) kuterin (9.742) mahzrunner (4.685) psirockin (2.372) | Total = 30.616 | Guesses = [4432]
+peeku (12.377) apurplenose (9.775) keizan (5.680) catge (2.647) | Total = 30.479 | Guesses = [4432]
 
-Average: 42.1912
+Average: 30.588
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```

@@ -1,0 +1,125 @@
+######################### Challonge #########################
+
+### Solution 1 ###
+
+oh95 (13.0) coglionedown (12.0) janoxx (9.0) konsumenci (8.0)
+florenz (15.0) koroshiya (12.0) spanky (8.0) kirox (8.0)
+tvaz (12.0) maki04 (12.0) poppysr (10.0) provenance (9.0)
+pile (13.0) kaededayo (12.0) swapin (9.0) flato (9.0)
+alkios (13.0) neoburnz (12.0) keizan (11.0) catge (6.0)
+bella (18.0) beautiful (12.0) saiki (8.0) arpia97 (4.0)
+baikinman (19.0) chrislefko (14.0) komari (7.0) tateyamaayano (2.0)
+kawada6 (20.0) poolnoodle (16.0) megu29 (6.0) chommy (0.0)
+
+### Solution 2 ###
+
+alkios (13.0) oh95 (13.0) beautiful (12.0) arpia97 (4.0)
+poolnoodle (16.0) tvaz (12.0) maki04 (12.0) tateyamaayano (2.0)
+chrislefko (14.0) pile (13.0) konsumenci (8.0) kirox (8.0)
+bella (18.0) janoxx (9.0) swapin (9.0) catge (6.0)
+coglionedown (12.0) neoburnz (12.0) flato (9.0) provenance (9.0)
+baikinman (19.0) keizan (11.0) komari (7.0) megu29 (6.0)
+kawada6 (20.0) koroshiya (12.0) poppysr (10.0) chommy (0.0)
+florenz (15.0) kaededayo (12.0) saiki (8.0) spanky (8.0)
+
+### Solution 3 ###
+
+tvaz (12.0) maki04 (12.0) koroshiya (12.0) catge (6.0)
+chrislefko (14.0) poppysr (10.0) flato (9.0) provenance (9.0)
+alkios (13.0) oh95 (13.0) neoburnz (12.0) arpia97 (4.0)
+florenz (15.0) kaededayo (12.0) saiki (8.0) spanky (8.0)
+kawada6 (20.0) coglionedown (12.0) janoxx (9.0) tateyamaayano (2.0)
+bella (18.0) poolnoodle (16.0) konsumenci (8.0) chommy (0.0)
+pile (13.0) beautiful (12.0) keizan (11.0) komari (7.0)
+baikinman (19.0) swapin (9.0) kirox (8.0) megu29 (6.0)
+
+### Solution 4 ###
+
+florenz (15.0) kaededayo (12.0) saiki (8.0) komari (7.0)
+beautiful (12.0) neoburnz (12.0) keizan (11.0) kirox (8.0)
+baikinman (19.0) janoxx (9.0) konsumenci (8.0) catge (6.0)
+tvaz (12.0) maki04 (12.0) poppysr (10.0) provenance (9.0)
+kawada6 (20.0) coglionedown (12.0) swapin (9.0) tateyamaayano (2.0)
+bella (18.0) koroshiya (12.0) spanky (8.0) arpia97 (4.0)
+poolnoodle (16.0) pile (13.0) oh95 (13.0) chommy (0.0)
+chrislefko (14.0) alkios (13.0) flato (9.0) megu29 (6.0)
+
+### Solution 5 ###
+
+beautiful (12.0) neoburnz (12.0) janoxx (9.0) swapin (9.0)
+coglionedown (12.0) maki04 (12.0) keizan (11.0) spanky (8.0)
+chrislefko (14.0) koroshiya (12.0) konsumenci (8.0) saiki (8.0)
+baikinman (19.0) poolnoodle (16.0) komari (7.0) chommy (0.0)
+kawada6 (20.0) flato (9.0) provenance (9.0) arpia97 (4.0)
+alkios (13.0) pile (13.0) poppysr (10.0) catge (6.0)
+oh95 (13.0) tvaz (12.0) kaededayo (12.0) megu29 (6.0)
+bella (18.0) florenz (15.0) kirox (8.0) tateyamaayano (2.0)
+
+
+######################### Discord #########################
+
+### Solution 1 ###
+
+oh95 (13.0) coglionedown (12.0) janoxx (9.0) konsumenci (8.0) | Total = 42.0 | Guesses = [4443]
+florenz (15.0) koroshiya (12.0) spanky (8.0) kirox (8.0) | Total = 43.0 | Guesses = [4433]
+tvaz (12.0) maki04 (12.0) poppysr (10.0) provenance (9.0) | Total = 43.0 | Guesses = [4444]
+pile (13.0) kaededayo (12.0) swapin (9.0) flato (9.0) | Total = 43.0 | Guesses = [4444]
+alkios (13.0) neoburnz (12.0) keizan (11.0) catge (6.0) | Total = 42.0 | Guesses = [4443]
+bella (18.0) beautiful (12.0) saiki (8.0) arpia97 (4.0) | Total = 42.0 | Guesses = [4432]
+baikinman (19.0) chrislefko (14.0) komari (7.0) tateyamaayano (2.0) | Total = 42.0 | Guesses = [4432]
+kawada6 (20.0) poolnoodle (16.0) megu29 (6.0) chommy (0.0) | Total = 42.0 | Guesses = [4431]
+
+### Solution 2 ###
+
+alkios (13.0) oh95 (13.0) beautiful (12.0) arpia97 (4.0) | Total = 42.0 | Guesses = [4442]
+poolnoodle (16.0) tvaz (12.0) maki04 (12.0) tateyamaayano (2.0) | Total = 42.0 | Guesses = [4442]
+chrislefko (14.0) pile (13.0) konsumenci (8.0) kirox (8.0) | Total = 43.0 | Guesses = [4433]
+bella (18.0) janoxx (9.0) swapin (9.0) catge (6.0) | Total = 42.0 | Guesses = [4443]
+coglionedown (12.0) neoburnz (12.0) flato (9.0) provenance (9.0) | Total = 42.0 | Guesses = [4444]
+baikinman (19.0) keizan (11.0) komari (7.0) megu29 (6.0) | Total = 43.0 | Guesses = [4433]
+kawada6 (20.0) koroshiya (12.0) poppysr (10.0) chommy (0.0) | Total = 42.0 | Guesses = [4441]
+florenz (15.0) kaededayo (12.0) saiki (8.0) spanky (8.0) | Total = 43.0 | Guesses = [4433]
+
+### Solution 3 ###
+
+tvaz (12.0) maki04 (12.0) koroshiya (12.0) catge (6.0) | Total = 42.0 | Guesses = [4443]
+chrislefko (14.0) poppysr (10.0) flato (9.0) provenance (9.0) | Total = 42.0 | Guesses = [4444]
+alkios (13.0) oh95 (13.0) neoburnz (12.0) arpia97 (4.0) | Total = 42.0 | Guesses = [4442]
+florenz (15.0) kaededayo (12.0) saiki (8.0) spanky (8.0) | Total = 43.0 | Guesses = [4433]
+kawada6 (20.0) coglionedown (12.0) janoxx (9.0) tateyamaayano (2.0) | Total = 43.0 | Guesses = [4442]
+bella (18.0) poolnoodle (16.0) konsumenci (8.0) chommy (0.0) | Total = 42.0 | Guesses = [4431]
+pile (13.0) beautiful (12.0) keizan (11.0) komari (7.0) | Total = 43.0 | Guesses = [4443]
+baikinman (19.0) swapin (9.0) kirox (8.0) megu29 (6.0) | Total = 42.0 | Guesses = [4433]
+
+### Solution 4 ###
+
+florenz (15.0) kaededayo (12.0) saiki (8.0) komari (7.0) | Total = 42.0 | Guesses = [4433]
+beautiful (12.0) neoburnz (12.0) keizan (11.0) kirox (8.0) | Total = 43.0 | Guesses = [4443]
+baikinman (19.0) janoxx (9.0) konsumenci (8.0) catge (6.0) | Total = 42.0 | Guesses = [4433]
+tvaz (12.0) maki04 (12.0) poppysr (10.0) provenance (9.0) | Total = 43.0 | Guesses = [4444]
+kawada6 (20.0) coglionedown (12.0) swapin (9.0) tateyamaayano (2.0) | Total = 43.0 | Guesses = [4442]
+bella (18.0) koroshiya (12.0) spanky (8.0) arpia97 (4.0) | Total = 42.0 | Guesses = [4432]
+poolnoodle (16.0) pile (13.0) oh95 (13.0) chommy (0.0) | Total = 42.0 | Guesses = [4441]
+chrislefko (14.0) alkios (13.0) flato (9.0) megu29 (6.0) | Total = 42.0 | Guesses = [4443]
+
+### Solution 5 ###
+
+beautiful (12.0) neoburnz (12.0) janoxx (9.0) swapin (9.0) | Total = 42.0 | Guesses = [4444]
+coglionedown (12.0) maki04 (12.0) keizan (11.0) spanky (8.0) | Total = 43.0 | Guesses = [4443]
+chrislefko (14.0) koroshiya (12.0) konsumenci (8.0) saiki (8.0) | Total = 42.0 | Guesses = [4433]
+baikinman (19.0) poolnoodle (16.0) komari (7.0) chommy (0.0) | Total = 42.0 | Guesses = [4431]
+kawada6 (20.0) flato (9.0) provenance (9.0) arpia97 (4.0) | Total = 42.0 | Guesses = [4442]
+alkios (13.0) pile (13.0) poppysr (10.0) catge (6.0) | Total = 42.0 | Guesses = [4443]
+oh95 (13.0) tvaz (12.0) kaededayo (12.0) megu29 (6.0) | Total = 43.0 | Guesses = [4443]
+bella (18.0) florenz (15.0) kirox (8.0) tateyamaayano (2.0) | Total = 43.0 | Guesses = [4432]
+
+Average: 42.375
+
+[Challonge](YOUR_CHALLONGE_URL)
+```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```
+Distribution of guesses:
+    ≥9: 4 guesses
+    5-8: 3 guesses
+    1-4: 2 guesses
+    0: 1 guess
+    

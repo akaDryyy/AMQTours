@@ -7,7 +7,7 @@ from gooey import Gooey
 def main():
     blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
     whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
-    alises_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
+    aliases_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
     ranks_path = os.path.abspath("ranks.txt")
     players_path = os.path.abspath("players.txt")
     codes_path = os.path.abspath("codes.txt")
@@ -55,14 +55,12 @@ def main():
     ranks = {player: rank for player, rank in ranks.items()}
 
     aliases = {}
-    with open(alises_path, 'r', encoding='utf-8') as f:
-        # tab-separated list of aliases, where every line has all names of one player 
-        # first of each line should be the main name (current bot name)
+    with open(aliases_path, 'r', encoding='utf-8') as f:
         for line in f:
-            alias_list = line.split('\t')
-            main_name = alias_list[0].strip().lower()
+            alias_list = [name.strip() for name in line.strip().split('\t') if name.strip()]
+            resolved_name = next((a for a in alias_list if a.lower() in ranks), alias_list[0])
             for alias in alias_list:
-                aliases[alias.strip().lower()] = main_name
+                aliases[alias.lower()] = resolved_name
 
     players = {}
     with open(players_path, 'r') as file:

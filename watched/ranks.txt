@@ -3,7 +3,7 @@
 20: 
 19.5: deafness, poolnoodle, fortnayt 
 19: zippy
-18.5: thaleko
+18.5: thaleko, civiltwlight
 18: sakurabarola, math1234, remake, bop, gyroinmobile, yurimeguri
 17.5: hejsan, revel, nazemeiyue
 17: sniparook, renzou
@@ -16,7 +16,7 @@
 13.5: mekokicco, anonimus_opinion, bamboo, legitted, sayuridate, maki04, claydoll1091, mrwolf
 13: pratasz, mkby, progenitor, comete, floth, jessi
 12.5: pile, nicoie, alicerin, comfv, python, zental
-12: flato, fumiii, knotanymore, zeal_kido, uomi, kaededayo, ephemeral, dking20, beautiful, rorf
+12: flato, fumiii, knotanymore, zeal_kido, uomi, kaededayo, ephemeral, dking20, beautiful, RaidenMei, rorf
 11.5: chemist, mahzrunner, sgtvp, kuterin, orfey, mayottatoki, denero, tapumomo, chaabdu92, baikinman, provenance
 11: jakemonkey, alkios, kirox, florenz, liljakatsuragi, vortex, smarthardyz, dry
 10.5: hmsuis, dio, redeyes, animerod, _nadeshiko, komari, keizan, lakumix, janoxx, wolbachia
@@ -34,10 +34,10 @@
 4.5:mitsorubi, eljuanchi, anatharax
 4: obesity
 3.5: meowstic2121, azure10
-3: 
+3: FoopyPoopy
 2.5:
 2: waterbird
 1.5: LordGrond
-1: 
+1: kuusetsu
 0.5:erzakuran
 0:

@@ -5,11 +5,10 @@ from copy import deepcopy
 blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
 whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
 aliases_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
-ranks_path = os.path.abspath("ranks.txt")
+ranks_path = os.path.abspath("ops_TL.txt")
 players_path = os.path.abspath("players.txt")
 codes_path = os.path.abspath("codes.txt")
 team_size = 4
-gamemode = "40"
 max_solutions = 5
 optimal_value = None
 think_time = 15000
@@ -20,11 +19,6 @@ parser.add_argument('--size', '-s',
                     help="Define the size of each team",
                     default=4,
                     required=False)
-parser.add_argument('--mode', '-m', 
-                    choices=['30', '35', '40', '45', '50'],
-                    default='40',
-                    required=False,
-                    help="Define the tour difficulty range")
 parser.add_argument('--thinktime', '-t',
                     help="Define how long should the script take to find solutions. Less think time might result in less team options provided.",
                     default=15000,
@@ -32,8 +26,6 @@ parser.add_argument('--thinktime', '-t',
 args = parser.parse_args()
 if args.size:
     team_size = int(args.size)
-if args.mode:
-    gamemode = args.mode
 if args.thinktime:
     think_time = args.thinktime
 
@@ -176,36 +168,23 @@ for idx, sol in enumerate(found_solutions, 1):
         print(f"{members} | Total = {total:.1f}")
     
 
-def generate_codes(gamemode, txtvar):
+def generate_codes(txtvar):
     txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
-    match gamemode:
-        case "30":
-            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000u0111002s01a111111111102a11111111111i01k903-11111--```\n"
-        case "35":
-            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000z0111002s01a111111111102a11111111111i01k903-11111--```\n"
-        case "40":
-            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```\n"
-        case "45":
-            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100190111002s01a111111111102a11111111111i01k903-11111--```\n"
-        case "50":
-            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
+    txtvar += "```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Distribution of guesses:
-8.5≥: 5 Guesses
-7-8: 4 Guesses
-5.5-6.5: 3 Guesses
-3.5-5: 2 Guesses
-0-3: 1 Guess
+≥9: 4 guesses
+5-8: 3 guesses
+1-4: 2 guesses
+0: 1 guess
 """
     return txtvar
 
 def get_guess(val):
-    if val >= 8.5:
-        return '5'
-    elif val >= 7:
+    if val >= 9:
         return '4'
-    elif val >= 5.5:
+    elif val >= 5:
         return '3'
-    elif val >= 3.5:
+    elif val >= 1:
         return '2'
     else:
         return '1'
@@ -264,7 +243,7 @@ footer = f"Average: {round(avg / k, 4)}\n"
 print(footer)
 txtvar += footer
 
-final_code = generate_codes(gamemode, txtvar)
+final_code = generate_codes(txtvar)
 
 with open(codes_path, "w", encoding="utf-8") as f:
     f.write(final_code)

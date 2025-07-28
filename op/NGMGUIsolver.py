@@ -1,5 +1,6 @@
 from pulp import *
 import argparse, json, os
+from copy import deepcopy
 from gooey import Gooey
 
 @Gooey(show_success_modal=False)
@@ -7,31 +8,29 @@ def main():
     blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
     whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
     aliases_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
-    ranks_path = os.path.abspath("ranks.txt")
-    elo_path = os.path.abspath("elos.json")
+    ranks_path = os.path.abspath("ops_TL.txt")
     players_path = os.path.abspath("players.txt")
     codes_path = os.path.abspath("codes.txt")
-    think_time = 25000
+    team_size = 4
+    max_solutions = 5
+    optimal_value = None
+    think_time = 15000
+    found_solutions = []
 
     parser = argparse.ArgumentParser(description="AMQ Tours")
     parser.add_argument('--size', '-s',
                         help="Define the size of each team",
                         default=4,
                         required=False)
-    parser.add_argument('--mode', '-m', 
-                        choices=['usual', 'quag'],
-                        default='usual',
-                        required=False,
-                        help="Define the tour mode, currently usual or quag")
+    parser.add_argument('--thinktime', '-t',
+                        help="Define how long should the script take to find solutions. Less think time might result in less team options provided.",
+                        default=15000,
+                        required=False)
     args = parser.parse_args()
     if args.size:
         team_size = int(args.size)
-    else:
-        team_size = 4
-    if args.mode:
-        gamemode = args.mode
-    else:
-        gamemode = "usual"
+    if args.thinktime:
+        think_time = args.thinktime
 
     # Obtain the players
     ranks = {}
@@ -39,16 +38,11 @@ def main():
         rank, rank_players = line.split(':', 2)
         rank = float(rank)
         for player in rank_players.split(','):
-            player_guesscount = player.rsplit(' [',2)
-            playername = player_guesscount[0]
-            ranks[playername.strip().lower()] = rank
+            ranks[player.strip().lower()] = rank
 
     with open(ranks_path, 'r') as file:
         for line in file.readlines():
             process_rank(line)
-
-    with open(elo_path, 'r') as f:
-        ranks.update(json.load(f))
 
     ranks = {player: rank for player, rank in ranks.items()}
 
@@ -141,45 +135,59 @@ def main():
     prob += z - y
 
     # Solve. Edit maxNodes to reduce thinking time
-    prob.solve(PULP_CBC_CMD(maxNodes=think_time))
+    for s in range(max_solutions):
+        prob.solve(PULP_CBC_CMD(maxNodes=think_time))
 
-    # Collect partitions safely
-    partitions = [[] for _ in range(k)]
-    totals = [0] * k
+        if prob.status != 1:
+            break
 
-    for i in range(n):
-        player_name = players[i][0]
-        for j in range(k):
-            var = x.get(player_name, {}).get(j)
-            if var and value(var) == 1:
-                partitions[j].append((player_name, nums[i]))
-                totals[j] += nums[i]
+        # Store the value of the optimal objective
+        if optimal_value is None:
+            optimal_value = value(prob.objective)
+        elif abs(value(prob.objective) - optimal_value) > 1e-5:
+            break  # This solution is worse
 
-    # Sort partitions by total value descending
-    sorted_parts = sorted(zip(partitions, totals), key=lambda x: x[1], reverse=True)
+        # Get current solution
+        solution = {}
+        for name in p_names:
+            for p in range(k):
+                if value(x[name][p]) == 1:
+                    solution[name] = p
 
-    def generate_codes(gamemode, txtvar):
+        found_solutions.append(deepcopy(solution))
+
+        # Add exclusion constraint: prevent same assignment
+        prob += lpSum([x[name][p] for name, p in solution.items()]) <= len(p_names) - 1
+
+    for idx, sol in enumerate(found_solutions, 1):
+        print(f"\n### Solution {idx} ###")
+        team_map = [[] for _ in range(k)]
+        for name, p in sol.items():
+            team_map[p].append((name, p_values[name]))
+
+        for i, team in enumerate(team_map):
+            members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+            total = sum(v for _, v in team)
+            print(f"{members} | Total = {total:.1f}")
+        
+
+    def generate_codes(txtvar):
         txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
-        match gamemode:
-            case "usual":
-                txtvar += "```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
-            case "quag":
-                txtvar += "```e0g0z211111101100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
-        txtvar += """Random NGMC guess distributions:
-    ≥8.5: 4 guesses
-    4.5-8.49: 3 guesses
-    0.5-4.49: 2 guesses
-    ≤0.49: 1 guess
+        txtvar += "```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
+        txtvar += """Distribution of guesses:
+    ≥9: 4 guesses
+    5-8: 3 guesses
+    1-4: 2 guesses
+    0: 1 guess
     """
-
         return txtvar
 
     def get_guess(val):
-        if val >= 8.5:
+        if val >= 9:
             return '4'
-        elif val >= 4.5:
+        elif val >= 5:
             return '3'
-        elif val >= 0.5:
+        elif val >= 1:
             return '2'
         else:
             return '1'
@@ -190,11 +198,23 @@ def main():
     print(header)
     txtvar += header
     txtvar += "\n"
-    for idx, (group, total) in enumerate(sorted_parts, 1):
-        members = " ".join(f"{name} ({val:.3f})" for name, val in sorted(group, key=lambda x: x[1], reverse=True))
-        line = f"{members}\n"
-        print(line, end="")
-        txtvar += line
+
+    for idx, sol in enumerate(found_solutions, 1):
+        sol_msg = f"### Solution {idx} ###\n\n"
+        print(sol_msg)
+        txtvar += sol_msg
+        team_map = [[] for _ in range(k)]
+        for name, p in sol.items():
+            team_map[p].append((name, p_values[name]))
+
+        for i, team in enumerate(team_map):
+            members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+            total = sum(v for _, v in team)
+            team_msg = f"{members}\n"
+            print(team_msg)
+            txtvar += team_msg
+        txtvar += "\n"
+        print()
 
     txtvar += "\n"
     print()
@@ -203,22 +223,33 @@ def main():
     print(header)
     txtvar += header
     txtvar += "\n"
-    avg = 0
-    for idx, (group, total) in enumerate(sorted_parts, 1):
-        members = " ".join(f"{name} ({val:.3f})" for name, val in sorted(group, key=lambda x: x[1], reverse=True))
-        guess_str = "".join(get_guess(val) for _, val in sorted(group, key=lambda x: x[1], reverse=True))
-        avg += round(total, 4)
-        line = f"{members} | Total = {round(total, 3)} | Guesses = [{guess_str}]\n"
-        print(line, end="")
-        txtvar += line
-    footer = f"\nAverage: {round(avg / k, 4)}\n"
+    for idx, sol in enumerate(found_solutions, 1):
+        sol_msg = f"### Solution {idx} ###\n\n"
+        print(sol_msg)
+        txtvar += sol_msg
+        team_map = [[] for _ in range(k)]
+        for name, p in sol.items():
+            team_map[p].append((name, p_values[name]))
+        avg = 0
+        for i, team in enumerate(team_map):
+            members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+            guess_str = "".join(get_guess(val) for _, val in sorted(team, key=lambda x: x[1], reverse=True))
+            total = sum(v for _, v in team)
+            team_msg = f"{members} | Total = {total:.1f} | Guesses = [{guess_str}]\n"
+            print(team_msg)
+            txtvar += team_msg
+            avg += round(total, 4)
+        txtvar += "\n"
+        print()
+
+    footer = f"Average: {round(avg / k, 4)}\n"
     print(footer)
     txtvar += footer
     print("#"*50)
     print("Open `codes.txt` for all the information")
     print("#"*50)
 
-    final_code = generate_codes(gamemode, txtvar)
+    final_code = generate_codes(txtvar)
 
     with open(codes_path, "w", encoding="utf-8") as f:
         f.write(final_code)
