@@ -42,7 +42,7 @@ with open(ranks_path, 'r') as file:
         process_rank(line)
 
 ranks = {player: rank for player, rank in ranks.items()}
-
+print(ranks)
 aliases = {}
 with open(aliases_path, 'r', encoding='utf-8') as f:
     for line in f:
@@ -63,6 +63,7 @@ with open(players_path, 'r') as file:
         # Check aliases
         elif player_key in aliases:
             main_name = aliases[player_key]
+            main_name = main_name.strip().lower()
             if main_name in ranks:
                 players[player] = ranks[main_name]
             else:

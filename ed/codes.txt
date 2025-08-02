@@ -2,84 +2,83 @@
 
 ### Solution 1 ###
 
-claydoll1091 (14.5) alkios (13.0) beautiful (10.0) progenitor (8.0)
-diukes (18.0) falilv (13.5) chemist (7.5) spanky (6.5)
-koroshiya (18.0) julialess64 (12.0) dry (8.5) mkby (7.5)
-channina (22.0) kuterin (10.0) hmsuis (8.5) janoxx (5.0)
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1)
+bella (33.1) comfv (28.2) dry (22.2) yasashiikumo (15.1)
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4)
+alkios (31.6) nicole (30.6) provenance (18.8) mkby (17.9)
 
 ### Solution 2 ###
 
-diukes (18.0) claydoll1091 (14.5) progenitor (8.0) janoxx (5.0)
-channina (22.0) dry (8.5) hmsuis (8.5) spanky (6.5)
-falilv (13.5) julialess64 (12.0) beautiful (10.0) kuterin (10.0)
-koroshiya (18.0) alkios (13.0) chemist (7.5) mkby (7.5)
+alkios (31.6) nicole (30.6) provenance (18.8) mkby (17.9)
+bella (33.1) comfv (28.2) dry (22.2) yasashiikumo (15.1)
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4)
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1)
 
 ### Solution 3 ###
 
-diukes (18.0) alkios (13.0) beautiful (10.0) janoxx (5.0)
-koroshiya (18.0) julialess64 (12.0) progenitor (8.0) mkby (7.5)
-claydoll1091 (14.5) falilv (13.5) kuterin (10.0) chemist (7.5)
-channina (22.0) dry (8.5) hmsuis (8.5) spanky (6.5)
+nicole (30.6) comfv (28.2) dry (22.2) mkby (17.9)
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1)
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4)
+bella (33.1) alkios (31.6) provenance (18.8) yasashiikumo (15.1)
 
 ### Solution 4 ###
 
-channina (22.0) beautiful (10.0) hmsuis (8.5) janoxx (5.0)
-koroshiya (18.0) julialess64 (12.0) dry (8.5) chemist (7.5)
-diukes (18.0) alkios (13.0) progenitor (8.0) spanky (6.5)
-claydoll1091 (14.5) falilv (13.5) kuterin (10.0) mkby (7.5)
+bella (33.1) comfv (28.2) dry (22.2) yasashiikumo (15.1)
+alkios (31.6) nicole (30.6) provenance (18.8) mkby (17.9)
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4)
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1)
 
 ### Solution 5 ###
 
-diukes (18.0) julialess64 (12.0) progenitor (8.0) chemist (7.5)
-claydoll1091 (14.5) alkios (13.0) kuterin (10.0) dry (8.5)
-channina (22.0) beautiful (10.0) hmsuis (8.5) janoxx (5.0)
-koroshiya (18.0) falilv (13.5) mkby (7.5) spanky (6.5)
+bella (33.1) alkios (31.6) provenance (18.8) yasashiikumo (15.1)
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4)
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1)
+nicole (30.6) comfv (28.2) dry (22.2) mkby (17.9)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-claydoll1091 (14.5) alkios (13.0) beautiful (10.0) progenitor (8.0) | Total = 45.5 | Guesses = [4443]
-diukes (18.0) falilv (13.5) chemist (7.5) spanky (6.5) | Total = 45.5 | Guesses = [4433]
-koroshiya (18.0) julialess64 (12.0) dry (8.5) mkby (7.5) | Total = 46.0 | Guesses = [4443]
-channina (22.0) kuterin (10.0) hmsuis (8.5) janoxx (5.0) | Total = 45.5 | Guesses = [4443]
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1) | Total = 98.6 | Guesses = [4444]
+bella (33.1) comfv (28.2) dry (22.2) yasashiikumo (15.1) | Total = 98.6 | Guesses = [4444]
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4) | Total = 109.7 | Guesses = [4444]
+alkios (31.6) nicole (30.6) provenance (18.8) mkby (17.9) | Total = 98.9 | Guesses = [4444]
 
 ### Solution 2 ###
 
-diukes (18.0) claydoll1091 (14.5) progenitor (8.0) janoxx (5.0) | Total = 45.5 | Guesses = [4433]
-channina (22.0) dry (8.5) hmsuis (8.5) spanky (6.5) | Total = 45.5 | Guesses = [4443]
-falilv (13.5) julialess64 (12.0) beautiful (10.0) kuterin (10.0) | Total = 45.5 | Guesses = [4444]
-koroshiya (18.0) alkios (13.0) chemist (7.5) mkby (7.5) | Total = 46.0 | Guesses = [4433]
+alkios (31.6) nicole (30.6) provenance (18.8) mkby (17.9) | Total = 98.9 | Guesses = [4444]
+bella (33.1) comfv (28.2) dry (22.2) yasashiikumo (15.1) | Total = 98.6 | Guesses = [4444]
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4) | Total = 109.7 | Guesses = [4444]
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1) | Total = 98.6 | Guesses = [4444]
 
 ### Solution 3 ###
 
-diukes (18.0) alkios (13.0) beautiful (10.0) janoxx (5.0) | Total = 46.0 | Guesses = [4443]
-koroshiya (18.0) julialess64 (12.0) progenitor (8.0) mkby (7.5) | Total = 45.5 | Guesses = [4433]
-claydoll1091 (14.5) falilv (13.5) kuterin (10.0) chemist (7.5) | Total = 45.5 | Guesses = [4443]
-channina (22.0) dry (8.5) hmsuis (8.5) spanky (6.5) | Total = 45.5 | Guesses = [4443]
+nicole (30.6) comfv (28.2) dry (22.2) mkby (17.9) | Total = 98.9 | Guesses = [4444]
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1) | Total = 98.6 | Guesses = [4444]
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4) | Total = 109.7 | Guesses = [4444]
+bella (33.1) alkios (31.6) provenance (18.8) yasashiikumo (15.1) | Total = 98.7 | Guesses = [4444]
 
 ### Solution 4 ###
 
-channina (22.0) beautiful (10.0) hmsuis (8.5) janoxx (5.0) | Total = 45.5 | Guesses = [4443]
-koroshiya (18.0) julialess64 (12.0) dry (8.5) chemist (7.5) | Total = 46.0 | Guesses = [4443]
-diukes (18.0) alkios (13.0) progenitor (8.0) spanky (6.5) | Total = 45.5 | Guesses = [4433]
-claydoll1091 (14.5) falilv (13.5) kuterin (10.0) mkby (7.5) | Total = 45.5 | Guesses = [4443]
+bella (33.1) comfv (28.2) dry (22.2) yasashiikumo (15.1) | Total = 98.6 | Guesses = [4444]
+alkios (31.6) nicole (30.6) provenance (18.8) mkby (17.9) | Total = 98.9 | Guesses = [4444]
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4) | Total = 109.7 | Guesses = [4444]
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1) | Total = 98.6 | Guesses = [4444]
 
 ### Solution 5 ###
 
-diukes (18.0) julialess64 (12.0) progenitor (8.0) chemist (7.5) | Total = 45.5 | Guesses = [4433]
-claydoll1091 (14.5) alkios (13.0) kuterin (10.0) dry (8.5) | Total = 46.0 | Guesses = [4444]
-channina (22.0) beautiful (10.0) hmsuis (8.5) janoxx (5.0) | Total = 45.5 | Guesses = [4443]
-koroshiya (18.0) falilv (13.5) mkby (7.5) spanky (6.5) | Total = 45.5 | Guesses = [4433]
+bella (33.1) alkios (31.6) provenance (18.8) yasashiikumo (15.1) | Total = 98.7 | Guesses = [4444]
+fayeurs (71.3) janoxx (13.7) keizan (13.3) uy5gf (11.4) | Total = 109.7 | Guesses = [4444]
+kar72 (42.5) julialess64 (25.6) baikinman (16.3) ephemeral (14.1) | Total = 98.6 | Guesses = [4444]
+nicole (30.6) comfv (28.2) dry (22.2) mkby (17.9) | Total = 98.9 | Guesses = [4444]
 
-Average: 45.625
+Average: 101.4615
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z20100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
-    ≥8.5: 4 guesses
-    4.5-8: 3 guesses
-    1-4: 2 guesses
-    0: 1 guess
-    
+≥8.5: 4 guesses
+4.5-8: 3 guesses
+1-4: 2 guesses
+0: 1 guess

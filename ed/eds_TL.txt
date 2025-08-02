@@ -1,35 +1,106 @@
-22: channina
-21: Eryth, watashiii
-20: 
-19.5: shadowpandax
-19: yurimeguri
-18: ArronChu, Deafness, koroshiya, Sniparook, Diukes, Tsui
-17.5: Miki_Hoshii
-17: FORTNAYT, civiltwlight
-16: asleep, GyroInmobile, remake, PoolNoodle, kar72
-15.5: SakurabaRola
-15: Thaleko, Math1234
-14.5: claydoll1091
-14: Hejsan, gro, neoburnz
-13.5: FaLiLV
-13: Zippy, 753, bella, Alkios
-12.5: renzou
-12: peeku, SmartHardyz, JuliAless64
-11.5: Akaze, orfey
-11: doomchicken, MrWolf, LelPop, moosepi
-10.5: comete
-10: kuterin, beautiful
-9: Emdiel, cafezinho
-8.5: kabigon, hmsuis, Dry
-8: AnimeroD, zeal_kido, Maki04, florenz, oh95, Progenitor
-7.5: AnotherWish, mkby, chemist
-7: chaabdu92, Saiki
-6.5: Provenance, _nadeshiko, Baikinman, spanky
-6: Kirox, I_am_stoney, Tapumomo, yasashiikumo, Jakemonkey, Ephemeral, uomi
-5.5: mahzrunner
-5: Skychael, uy5gf, Lakumix, ruuka, xeyz, Fumiii, keizan, Janoxx
-4: Serozero, ChrisLefko, Konsumenci, fiftypercentweeb, Patoche49
-3: Oshino_bu, Atsui, ss_r_white_pony
-2: mitsorubi, VuhrCulls, Catge
-1: JustAWeirdo
-0: Rhummy, chommy
+89.566: channina
+77.157: Eryth
+76.712: AKl
+71.329: FayeurS
+67.532: Arkana
+61.706: shadowpandax
+61.189: YuriMeguri
+60.87: OffenseArmor
+54.48: FORTNAYT
+53.312: Diukes
+52.776: koroshiya
+52.161: Sniparook
+50.659: Tsui
+47.432: SOARA
+45.146: remake
+43.812: SakurabaRola
+43.613: Deafness
+42.479: kar72
+42.027: Miki_Hoshii
+41.027: Mami
+39.776: civiltwlight
+38.457: claydoll1091
+38.179: PoolNoodle
+38.159: bop
+38.097: asleep
+36.403: gro
+34.963: Math_
+34.754: Impognagrift
+33.594: peeku
+33.112: bella
+32.886: Hejsan
+32.751: Renzou
+32.047: anonimus_opinion
+31.61: Alkios
+31.063: Milar
+30.84: neoburnz
+30.59: NicoIe
+29.05: SmartHardyz
+28.56: Akaze
+28.225: comfv
+27.763: Kuterin
+27.609: ShiinaMahiru
+25.986: Orfey
+25.729: Kezzy
+25.589: JuliAless64
+25.176: ShiroKuro
+24.513: Vortex
+24.504: moosepi
+24.364: beautiful
+24.084: MrWolf
+23.264: doomchicken
+22.943: Zeal_Kido
+22.702: Legitted
+22.272: florenz
+22.195: MahiruShiina
+22.163: Dry
+22.002: kabigon
+20.723: Animerod
+20.518: hmsuis
+20.199: cafezinho
+20.112: AnotherWish
+19.859: _nadeshiko
+18.836: Provenance
+18.78: chemist
+18.743: Pile
+18.017: Progenitor
+17.905: mkby
+17.217: Comete
+17.149: Saiki
+17.03: Satorii
+16.981: spanky
+16.81: oh95
+16.642: BigSmo
+16.378: uohhmi
+16.349: kishua
+16.04: Jakemonkey
+15.625: MD22
+15.148: yasashiikumo
+14.848: Maki04
+14.138: Ephemeral
+13.972: mahzrunner
+13.733: Janoxx
+13.582: Skychael
+13.269: Kenzou_Tenma
+12.881: Sgtvp
+12.743: Fumiii
+12.603: ruuka
+12.511: Cindergoat
+12.499: xeyz
+12.442: lakumix
+11.685: Konsumenci
+11.371: uy5gf
+11.369: Serozero
+11.159: MageFlameFreeze
+10.023: Oshino_bu
+9.764: Patoche49
+9.29: fiftypercentweeb
+8.732: ChrisLefko
+8.471: atsui
+8.369: yashadox
+7.981: Catge
+7.787: mitsorubi
+7.527: VuhrCulls
+7.338: ss_r_white_pony
+3.867: JustAWeirdo
+2.556: chommy
