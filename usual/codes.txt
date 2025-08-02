@@ -1,24 +1,23 @@
 ######################### Challonge #########################
 
-alkios (13.256) kirox (7.046) md22 (6.510) jakemonkey (3.823)
-chaabdu92 (9.409) hmsuis (9.350) cipherkai (6.572) i_am_stoney (5.291)
-neoburnz (13.817) kuterin (9.742) mahzrunner (4.685) psirockin (2.372)
-peeku (12.377) apurplenose (9.775) keizan (5.680) catge (2.647)
+julialess64 (12.721) neoburnz (12.586) moosepi (12.559)
+channina (25.453) dry (8.112) mahzrunner (3.035)
+kar72 (17.432) alkios (13.095) andrey_k (5.300)
+deafness (17.843) hmsuis (9.465) md22 (8.377)
 
 ######################### Discord #########################
 
-alkios (13.256) kirox (7.046) md22 (6.510) jakemonkey (3.823) | Total = 30.635 | Guesses = [4332]
-chaabdu92 (9.409) hmsuis (9.350) cipherkai (6.572) i_am_stoney (5.291) | Total = 30.622 | Guesses = [4433]
-neoburnz (13.817) kuterin (9.742) mahzrunner (4.685) psirockin (2.372) | Total = 30.616 | Guesses = [4432]
-peeku (12.377) apurplenose (9.775) keizan (5.680) catge (2.647) | Total = 30.479 | Guesses = [4432]
+julialess64 (12.721) neoburnz (12.586) moosepi (12.559) | Total = 37.866 | Guesses = [444]
+channina (25.453) dry (8.112) mahzrunner (3.035) | Total = 36.6 | Guesses = [432]
+kar72 (17.432) alkios (13.095) andrey_k (5.300) | Total = 35.827 | Guesses = [443]
+deafness (17.843) hmsuis (9.465) md22 (8.377) | Total = 35.685 | Guesses = [443]
 
-Average: 30.588
+Average: 36.4945
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
-    ≥8.5: 4 guesses
-    4.5-8.49: 3 guesses
-    0.5-4.49: 2 guesses
-    ≤0.49: 1 guess
-    
+≥8.5: 4 guesses
+4.5-8.49: 3 guesses
+0.5-4.49: 2 guesses
+≤0.49: 1 guess
