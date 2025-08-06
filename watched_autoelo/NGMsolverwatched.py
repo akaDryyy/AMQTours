@@ -1,17 +1,26 @@
 from pulp import *
 import argparse, json, os
+import pandas as pd
 from copy import deepcopy
+from collections import defaultdict
+from TierMakerWatched import trim, compute_rank_scores
 
 blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
 whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
 aliases_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
-ranks_path = os.path.abspath("ins_TL.txt")
+ranks_path = os.path.abspath("ranks.txt")
+elo_path = os.path.abspath("watched_elos.json")
+txtelo_path = os.path.abspath("watched_TL.txt")
 players_path = os.path.abspath("players.txt")
 codes_path = os.path.abspath("codes.txt")
+watched_data_fallback = os.path.abspath("watched_clean.csv")
+watched_data_fallback_year = os.path.abspath("watched_clean_year.csv")
+idtable = os.path.abspath("id_stats.csv")
 team_size = 4
-max_solutions = 5
+gamemode = "40"
+max_solutions = 1
 optimal_value = None
-think_time = 15000
+think_time = 25000
 found_solutions = []
 
 parser = argparse.ArgumentParser(description="AMQ Tours")
@@ -19,6 +28,11 @@ parser.add_argument('--size', '-s',
                     help="Define the size of each team",
                     default=4,
                     required=False)
+parser.add_argument('--mode', '-m', 
+                    choices=['30', '35', '40', '45', '50'],
+                    default='40',
+                    required=False,
+                    help="Define the tour difficulty range")
 parser.add_argument('--thinktime', '-t',
                     help="Define how long should the script take to find solutions. Less think time might result in less team options provided.",
                     default=15000,
@@ -26,6 +40,8 @@ parser.add_argument('--thinktime', '-t',
 args = parser.parse_args()
 if args.size:
     team_size = int(args.size)
+if args.mode:
+    gamemode = args.mode
 if args.thinktime:
     think_time = args.thinktime
 
@@ -40,6 +56,11 @@ def process_rank(line):
 with open(ranks_path, 'r') as file:
     for line in file.readlines():
         process_rank(line)
+
+with open(elo_path, 'r') as f:
+    raw_ranks = json.load(f)
+    cleaned_ranks = {k.strip().lower(): v for k, v in raw_ranks.items()}
+    ranks.update(cleaned_ranks)
 
 ranks = {player: rank for player, rank in ranks.items()}
 
@@ -69,10 +90,42 @@ with open(players_path, 'r') as file:
             else:
                 input(f"[WARN] Alias '{player}' maps to '{main_name}', but '{main_name}' not in ranks. Press Enter to continue.")
         else:
-            input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to continue.")
-
+            # Not in current elo, check if new player or stats exist for them
+            alias_df = pd.read_csv(idtable)
+            alias_df = alias_df.drop_duplicates(subset='Player ID', keep='first')
+            alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+            alias_to_id = dict(zip(alias_df["Player Name"], alias_df["Player ID"]))
+            if player_key in alias_to_id:
+                player_id = alias_to_id[player_key]
+            # If player found, generate the elo
+            if player_id:
+                df = pd.read_csv(watched_data_fallback_year)
+                df = df[df['Player ID'] == player_id]
+                player_stats = df.groupby("Player ID").apply(trim, include_groups=False).reset_index()
+                clean_fb = pd.read_csv(watched_data_fallback)
+                final_df = compute_rank_scores(df=player_stats, uf_max=(clean_fb["usefulness"].max()))
+                final_df = final_df.merge(alias_df[['Player ID', 'Player Name']], on='Player ID', how='left')
+                rank_dict = dict(zip(final_df['Player Name'], final_df['elo'].round(3)))
+                ranks.update(rank_dict)
+                raw_ranks.update(rank_dict)
+                players[player] = ranks[list(rank_dict.keys())[0]]
+            else:
+                input(f"[WARN] Player '{player}' not found in ranks or aliases. Manually add to ranks.txt. Press Enter to continue.")
+                
 players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
 players = list(players.items())
+raw_ranks = dict(sorted(raw_ranks.items(), key=lambda x: -x[1]))
+
+score_to_players = defaultdict(list)
+for player, score in raw_ranks.items():
+    score_to_players[round(score, 3)].append(player)
+
+with open(elo_path, "w") as f:
+    json.dump(raw_ranks, f, indent=4)
+with open(txtelo_path, "w") as f:
+    for score in sorted(score_to_players.keys(), reverse=True):
+        string_players = ", ".join(score_to_players[score])
+        f.write(f"{score}: {string_players}\n")
 
 with open(blacklist_path, "r") as f:
     blacklist = json.load(f)
@@ -164,28 +217,41 @@ for idx, sol in enumerate(found_solutions, 1):
         team_map[p].append((name, p_values[name]))
 
     for i, team in enumerate(team_map):
-        members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+        members = " ".join(f"{n} ({v:.3f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
         total = sum(v for _, v in team)
-        print(f"{members} | Total = {total:.1f}")
+        print(f"{members} | Total = {total:.3f}")
     
 
-def generate_codes(txtvar):
+def generate_codes(gamemode, txtvar):
     txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
-    txtvar += "```e0g0z211111101100000z10010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
+    match gamemode:
+        case "30":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000u0111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "35":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000z0111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "40":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```\n"
+        case "45":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100190111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "50":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Distribution of guesses:
-≥9: 4 guesses
-5-8: 3 guesses
-1-4: 2 guesses
-0: 1 guess
+≥8.75: 5 guesses
+8-8.74: 4 guesses
+7-7.99: 3 guesses
+6-6.99: 2 guesses
+≤5.99: 1 guess
 """
     return txtvar
 
 def get_guess(val):
-    if val >= 9:
+    if val >= 8.75:
+        return '5'
+    elif val >= 8:
         return '4'
-    elif val >= 5:
+    elif val >= 7:
         return '3'
-    elif val >= 1:
+    elif val >= 6:
         return '2'
     else:
         return '1'
@@ -206,7 +272,7 @@ for idx, sol in enumerate(found_solutions, 1):
         team_map[p].append((name, p_values[name]))
 
     for i, team in enumerate(team_map):
-        members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+        members = " ".join(f"{n} ({v:.3f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
         total = sum(v for _, v in team)
         team_msg = f"{members}\n"
         print(team_msg)
@@ -230,10 +296,10 @@ for idx, sol in enumerate(found_solutions, 1):
         team_map[p].append((name, p_values[name]))
     avg = 0
     for i, team in enumerate(team_map):
-        members = " ".join(f"{n} ({v:.1f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+        members = " ".join(f"{n} ({v:.3f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
         guess_str = "".join(get_guess(val) for _, val in sorted(team, key=lambda x: x[1], reverse=True))
         total = sum(v for _, v in team)
-        team_msg = f"{members} | Total = {total:.1f} | Guesses = [{guess_str}]\n"
+        team_msg = f"{members} | Total = {total:.3f} | Guesses = [{guess_str}]\n"
         print(team_msg)
         txtvar += team_msg
         avg += round(total, 4)
@@ -244,7 +310,7 @@ footer = f"Average: {round(avg / k, 4)}\n"
 print(footer)
 txtvar += footer
 
-final_code = generate_codes(txtvar)
+final_code = generate_codes(gamemode, txtvar)
 
 with open(codes_path, "w", encoding="utf-8") as f:
     f.write(final_code)

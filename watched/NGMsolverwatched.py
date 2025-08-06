@@ -71,6 +71,7 @@ with open(players_path, 'r') as file:
         # Check aliases
         elif player_key in aliases:
             main_name = aliases[player_key]
+            main_name = main_name.strip().lower()
             if main_name in ranks:
                 players[player] = ranks[main_name]
             else:

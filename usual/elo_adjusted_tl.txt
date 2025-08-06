@@ -1,23 +1,25 @@
 25: channina
-23: watashiii, theyingster, eryth
-21: arkana, stunar, shadowpandax, arronchu
-20: bop, offensearmor
-18: miki_hoshii, poolnoodle, fortnayt, yurimeguri, civiltwlight, deafness
-17: gro, hejsan, shag, thaleko, kar72, asleep
-16: sniparook, ayamenakirium, gyroinmobile, remake, eternity
-15: nazemeiyue, sakurabarola, civiltwlight2, diukes, tsui, kawada6, falilv, anoru_, smarthardyz, revel, koroshiya, asd4321, comfv
-14: asd321, zippy, orfey, bella, civiltwlight11, mami, anonimus_opinion, neoburnz, justnoob2, math1234, akaze
-13: alkios, hejsan1, doomchicken, renzou, claydoll1091, vortex, comfv1, rkgz, mahirushiina, julialess64, poison205
-12: peeku, baikinman, comete, moosepi, mrwolf, bamboo, shuuka, mkby, zippy1, jiinoo, lelpop
-11: shiinamahiru, baguett, alicerin, himemiya, oh95
-10: raidenmei, hyonoobka, dking20, fuck_amq, mayottatoki, feyfey, comffffffffffffv, smarthardyz1, neptune, ruuka, jube, beokros, florenz, apurplenose, provenance, kuterin, zeal_kido, 753
-9: legitted, pile, kanadehisaishi, chaabdu92, szafa, emdiel, hmsuis, animerod, moltenashes, mkby1, hihi, cafezinho, zozo, ekkaiaenoia, uomi, beautiful, laggyglassysky, python, hibari, theaddist, lightning
-8: jessi, saiki, yokipi, edwardd, chemist, dogshitamqplayer, dry, rorf, fumiii, seismic, sam, bigsmo, kabigon, _nadeshiko
-7: yolowolf75, wuffles, denero, bofu, kaededayo, satorii, jytcampbell, tapumomo, lilycat, kirox, 1godly, ephemeral, flato, pizza420, nephirea, liljakatsuragi, renzozo, maki04, konsumenci, selaph, memorieslast, cipherkai, lakumix, auriel, md22
-6: neumann, aitsukinakuru, shitdoni, sgtvp, hachiman215, spanky, fuj, solosion, janoxx, progenitor, yasashiikumo, tvaz, dio, keizan, chrislefko, floth, shiroganelily
-5: uy5gf, anotherwish, homophobicdog, i_am_stoney, toastation, sayuridate, xeyz, swapin, ponbot, zental, andrey_k, harges, skychael, mageflamefreeze, serozero, gw13, knotanymore, mahzrunner, atsui, bommie, benevelante
-4: naizuri, goko8765, shiku, torradinhas, potassiumf, poppysr, miiarad, elfiachaa, kabao, aranha, shadismith, porte, thjalago, jakemonkey, mangalodon, shadow, icefeed2, rna
-3: lilslimbo, cania, oolli, kitasanblack, tskr, mythandroid, ranny, oshino_bu, yashadox, ss_r_white_pony, arpia97, fiftypercentweeb, kanakanowata, pengvinen, ac9123, vuhrculls, heleos, iamasiannoob, sylveon07, catge, transfer
-2: psirockin, shelterrin, cm02, homebad, legrandort, megu29, qwecocacola, binesh, fisheater, kyuuuu
-1: inta, dounutbeater, patoche49, azure10, hitoa, eljuanchi, mitsorubi, meowstic2121, tsuni
-0: tateyamaayano, blackpisces, lordgrond, 2skr, jaan, rhummy, justaweirdo, jamalamadingdong, rinshantsumo, chommy
+23: watashiii, theyingster
+22: eryth
+21: arkana, stunar, shadowpandax
+20: arronchu, offensearmor, bop
+18: miki_hoshii, fortnayt, civiltwlight, yurimeguri, poolnoodle, deafness
+17: kar72, gro, hejsan, shag, thaleko, asleep
+16: sniparook, ayamenakirium, gyroinmobile, remake, kawada6, eternity
+15: sakurabarola, nazemeiyue, civiltwlight2, tsui, falilv, anoru_, diukes, revel, koroshiya, asd4321, comfv, smarthardyz
+14: asd321, zippy, orfey, civiltwlight11, mami, anonimus_opinion, justnoob2, math1234, akaze
+13: bella, hejsan1, doomchicken, claydoll1091, vortex, renzou, neoburnz, comfv1, rkgz, mahirushiina, alkios, julialess64, poison205, baikinman, peeku, moosepi
+12: comete, mrwolf, bamboo, shuuka, mkby, zippy1, jiinoo, lelpop
+11: shiinamahiru, alicerin, himemiya, baguett, oh95
+10: raidenmei, hyonoobka, dking20, fuck_amq, mayottatoki, feyfey, comffffffffffffv, smarthardyz1, neptune, emdiel, ruuka, jube, apurplenose, beokros, florenz, provenance, cafezinho, 753, hmsuis
+9: zeal_kido, legitted, beautiful, kanadehisaishi, szafa, moltenashes, mkby1, kuterin, hihi, animerod, zozo, ekkaiaenoia, chaabdu92, pile, laggyglassysky, uomi, python, hibari, chemist, yokipi, saiki, theaddist
+8: komari, jessi, lightning, md22, edwardd, dogshitamqplayer, dry, fumiii, seismic, sam, bigsmo, rorf, _nadeshiko
+7: yolowolf75, wuffles, denero, bofu, kabigon, kaededayo, satorii, jytcampbell, tapumomo, lilycat, 1godly, cipherkai, flato, pizza420, selaph, liljakatsuragi, renzozo, maki04, konsumenci, nephirea, ephemeral, yasashiikumo, kirox, memorieslast, lakumix, auriel
+6: neumann, aitsukinakuru, spanky, shitdoni, sgtvp, hachiman215, fuj, solosion, janoxx, tvaz, dio, keizan, floth, shiroganelily
+5: progenitor, chrislefko, uy5gf, anotherwish, homophobicdog, andrey_k, swapin, toastation, sayuridate, xeyz, ponbot, zental, atsui, harges, skychael, mageflamefreeze, serozero, gw13, knotanymore, i_am_stoney, bommie, benevelante
+4: naizuri, goko8765, shiku, porte, torradinhas, jakemonkey, potassiumf, poppysr, annayanami, elfiachaa, aranha, shadismith, miiarad, thjalago, mangalodon, shadow, icefeed2, rna, arpia97
+3: kabao, psirockin, lilslimbo, cania, mahzrunner, oolli, ranny, ss_r_white_pony, kitasanblack, tskr, mythandroid, oshino_bu, yashadox, kanakanowata, pengvinen, ac9123, vuhrculls, fiftypercentweeb, heleos, iamasiannoob, sylveon07, catge, transfer
+2: cm02, legrandort, megu29, qwecocacola, binesh, shelterrin, homebad, fisheater, kyuuuu
+1: inta, dounutbeater, patoche49, mitsorubi, azure10, hitoa, eljuanchi, meowstic2121, tsuni
+0: tateyamaayano, blackpisces, lordgrond, 2skr, jaan, justaweirdo, jamalamadingdong, rinshantsumo, rhummy
+-1: chommy
