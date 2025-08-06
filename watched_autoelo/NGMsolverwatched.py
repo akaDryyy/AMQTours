@@ -76,7 +76,7 @@ players = {}
 with open(players_path, 'r') as file:
     for player in file.read().split(','):
         player = player.strip().split(' (')[0]
-        player = player.strip()
+        player = player.lower()
         player_key = player.lower()
         if player_key in ranks:
             new_player = {player: ranks[player_key]}
@@ -92,7 +92,6 @@ with open(players_path, 'r') as file:
         else:
             # Not in current elo, check if new player or stats exist for them
             alias_df = pd.read_csv(idtable)
-            alias_df = alias_df.drop_duplicates(subset='Player ID', keep='first')
             alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
             alias_to_id = dict(zip(alias_df["Player Name"], alias_df["Player ID"]))
             if player_key in alias_to_id:
@@ -101,9 +100,11 @@ with open(players_path, 'r') as file:
             if player_id:
                 df = pd.read_csv(watched_data_fallback_year)
                 df = df[df['Player ID'] == player_id]
+                player_id = None
                 player_stats = df.groupby("Player ID").apply(trim, include_groups=False).reset_index()
                 clean_fb = pd.read_csv(watched_data_fallback)
                 final_df = compute_rank_scores(df=player_stats, uf_max=(clean_fb["usefulness"].max()))
+                alias_df.drop_duplicates(subset='Player ID', keep='first')
                 final_df = final_df.merge(alias_df[['Player ID', 'Player Name']], on='Player ID', how='left')
                 rank_dict = dict(zip(final_df['Player Name'], final_df['elo'].round(3)))
                 ranks.update(rank_dict)
@@ -115,10 +116,9 @@ with open(players_path, 'r') as file:
 players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
 players = list(players.items())
 raw_ranks = dict(sorted(raw_ranks.items(), key=lambda x: -x[1]))
-
 score_to_players = defaultdict(list)
-for player, score in raw_ranks.items():
-    score_to_players[round(score, 3)].append(player)
+for player_to_append, score in raw_ranks.items():
+    score_to_players[round(score, 3)].append(player_to_append)
 
 with open(elo_path, "w") as f:
     json.dump(raw_ranks, f, indent=4)

@@ -2,26 +2,38 @@
 
 ### Solution 1 ###
 
-mami (15.343) hmsuis (12.163) i_dont_like_loli (8.630) tateyamaayano (7.376)
-kawada6 (14.779) dry (11.709) ranny (8.940) justaweirdo (8.078)
-emdiel (14.886) fumiii (13.361) catge (8.179) anicomi (7.134)
-floth (13.620) moosepi (13.071) chrislefko (10.208) tsuni (6.625)
-neoburnz (17.073) skychael (10.816) kyuuuu (9.245) eljuanchi (6.412)
-sniparook (16.947) porte (9.653) psirockin (8.634) chommy (8.302)
+beokros (14.256) dry (11.709) shadow (10.424) psirockin (8.634)
+bella (16.429) bommie (11.075) shelterrin (10.969) tsuni (6.625)
+floth (13.620) maki04 (13.577) rorf (12.463) kuusetsu (5.553)
+emdiel (14.886) konsumenci (10.850) zokie (10.404) legrandort (8.972)
+flato (13.238) uohhmi (12.493) miiarad (11.106) mythandroid (8.253)
+neoburnz (17.073) anotherwish (9.600) kyuuuu (9.245) ranny (8.940)
+math1234 (15.932) fumiii (13.361) 2skr (8.616) tateyamaayano (7.376)
+bofu (16.257) cipherkai (11.645) cm02 (8.994) kabao (8.367)
+apurplenose (15.394) shiroganelily (11.411) porte (9.653) i_dont_like_loli (8.630)
+thaleko (18.528) progenitor (13.469) anicomi (7.134) lordgrond (6.044)
+julialess64 (15.288) sssthnoob (10.873) skychael (10.816) catge (8.179)
+mkby (13.287) komari (12.211) wolbachia (11.464) chommy (8.302)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-mami (15.343) hmsuis (12.163) i_dont_like_loli (8.630) tateyamaayano (7.376) | Total = 43.512 | Guesses = [5543]
-kawada6 (14.779) dry (11.709) ranny (8.940) justaweirdo (8.078) | Total = 43.506 | Guesses = [5554]
-emdiel (14.886) fumiii (13.361) catge (8.179) anicomi (7.134) | Total = 43.560 | Guesses = [5543]
-floth (13.620) moosepi (13.071) chrislefko (10.208) tsuni (6.625) | Total = 43.524 | Guesses = [5552]
-neoburnz (17.073) skychael (10.816) kyuuuu (9.245) eljuanchi (6.412) | Total = 43.546 | Guesses = [5552]
-sniparook (16.947) porte (9.653) psirockin (8.634) chommy (8.302) | Total = 43.536 | Guesses = [5544]
+beokros (14.256) dry (11.709) shadow (10.424) psirockin (8.634) | Total = 45.023 | Guesses = [5554]
+bella (16.429) bommie (11.075) shelterrin (10.969) tsuni (6.625) | Total = 45.098 | Guesses = [5552]
+floth (13.620) maki04 (13.577) rorf (12.463) kuusetsu (5.553) | Total = 45.213 | Guesses = [5551]
+emdiel (14.886) konsumenci (10.850) zokie (10.404) legrandort (8.972) | Total = 45.112 | Guesses = [5555]
+flato (13.238) uohhmi (12.493) miiarad (11.106) mythandroid (8.253) | Total = 45.090 | Guesses = [5554]
+neoburnz (17.073) anotherwish (9.600) kyuuuu (9.245) ranny (8.940) | Total = 44.858 | Guesses = [5555]
+math1234 (15.932) fumiii (13.361) 2skr (8.616) tateyamaayano (7.376) | Total = 45.285 | Guesses = [5543]
+bofu (16.257) cipherkai (11.645) cm02 (8.994) kabao (8.367) | Total = 45.263 | Guesses = [5554]
+apurplenose (15.394) shiroganelily (11.411) porte (9.653) i_dont_like_loli (8.630) | Total = 45.088 | Guesses = [5554]
+thaleko (18.528) progenitor (13.469) anicomi (7.134) lordgrond (6.044) | Total = 45.175 | Guesses = [5532]
+julialess64 (15.288) sssthnoob (10.873) skychael (10.816) catge (8.179) | Total = 45.156 | Guesses = [5554]
+mkby (13.287) komari (12.211) wolbachia (11.464) chommy (8.302) | Total = 45.264 | Guesses = [5554]
 
-Average: 43.5307
+Average: 45.1354
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

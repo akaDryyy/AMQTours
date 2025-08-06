@@ -10,7 +10,6 @@
 17.704: Nazemeiyue
 17.333: kar72
 17.073: neoburnz
-16.947: sniparook
 16.625: GyroInmobile
 16.489: YuriMeguri
 16.429: bella
@@ -46,9 +45,9 @@
 13.361: Fumiii
 13.35: ruuka
 13.306: Zental
+13.287: mkby
 13.271: MrWolf
 13.238: Flato
-13.071: moosepi
 13.06: KNotAnyMore
 12.976: Python
 12.921: Ephemeral
