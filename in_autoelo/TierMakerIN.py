@@ -10,8 +10,8 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 idtable = os.path.abspath("id_stats.csv")
-statstable = os.path.abspath("watched_stats.csv")
-statstable_tminus1 = os.path.abspath("watched_stats_tminus1.csv")
+statstable = os.path.abspath("in_stats.csv")
+statstable_tminus1 = os.path.abspath("in_stats_tminus1.csv")
 GR_weight = 0.35
 UF_weight = 0.65
 past_tours = 10
@@ -19,16 +19,16 @@ past_tours = 10
 chosen_year = 2025
 # Window of months to draw data points from
 month_window = 2
-cleanedstats = os.path.abspath("watched_clean.csv")
-cleanedstats_chosen_year = os.path.abspath("watched_clean_year.csv")
-jsonstats = os.path.abspath("watched_elos.json")
-txtstats = os.path.abspath("watched_TL.txt")
+cleanedstats = os.path.abspath("in_clean.csv")
+cleanedstats_chosen_year = os.path.abspath("in_clean_year.csv")
+jsonstats = os.path.abspath("in_elos.json")
+txtstats = os.path.abspath("in_TL.txt")
 changelog = os.path.abspath("changelog.txt")
 mvp = os.path.abspath("mvps.txt")
 
 DIRECTORY = os.path.dirname(__file__)
 sheet_name = "ngm stats"
-tab_id_stats = 599282945
+tab_id_stats = 560474782
 tab_id_ids = 220350629
 
 gc = gspread.oauth(
@@ -61,7 +61,7 @@ def clean_data(idtable, statstable):
     # Prepare
     parsed_rows = []
     current_date = None
-    columns = ["player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate", "rigs", "rigs hit", "correct count", "song count", "Rigs missed", "Offlist GR"]
+    columns = ["player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate"]
 
     # Parse manually
     for row in raw_lines:
@@ -164,7 +164,7 @@ clean_stats = clean_data(idtable, statstable)
 clean_stats.to_csv(cleanedstats, index=False, encoding="utf-8")
 player_stats = clean_stats.groupby("Player ID").apply(trim, include_groups=False).reset_index()
 
-def compute_rank_scores(df, gr_max=100, uf_max=(clean_stats["usefulness"].max()), alpha=3.75, midpoint=0.4, max_score=25):
+def compute_rank_scores(df, gr_max=100, uf_max=(clean_stats["usefulness"].max()), alpha=3.75, midpoint=0.33, max_score=25):
     """
     Compute a smoothed rank score for players based on guess rate and usefulness.
 
