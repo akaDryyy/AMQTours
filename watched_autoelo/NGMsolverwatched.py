@@ -47,11 +47,14 @@ if args.thinktime:
 
 # Obtain the players
 ranks = {}
+post_ranks_fixup = {}
 def process_rank(line):
     rank, rank_players = line.split(':', 2)
     rank = float(rank)
     for player in rank_players.split(','):
         ranks[player.strip().lower()] = rank
+        if player.strip() != '':
+            post_ranks_fixup[player.strip()] = rank
 
 with open(ranks_path, 'r') as file:
     for line in file.readlines():
@@ -115,6 +118,7 @@ with open(players_path, 'r') as file:
                 
 players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
 players = list(players.items())
+raw_ranks.update(post_ranks_fixup)
 raw_ranks = dict(sorted(raw_ranks.items(), key=lambda x: -x[1]))
 score_to_players = defaultdict(list)
 for player_to_append, score in raw_ranks.items():

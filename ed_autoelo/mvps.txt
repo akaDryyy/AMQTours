@@ -1,0 +1,22 @@
+# Full PV List:
+Deafness played like a 17.881. (Current rank 14.831, Δ3.05)
+gro played like a 15.375. (Current rank 13.23, Δ2.145)
+anonimus_opinion played like a 13.824. (Current rank 12.0, Δ1.824)
+Fumiii played like a 9.296. (Current rank 7.891, Δ1.405)
+chommy played like a 6.803. (Current rank 6.036, Δ0.767)
+beautiful played like a 10.99. (Current rank 10.342, Δ0.648)
+Dry played like a 10.444. (Current rank 9.931, Δ0.513)
+Thaleko played like a 13.214. (Current rank 13.0, Δ0.214)
+Eryth played like a 20.97. (Current rank 21.025, Δ-0.055)
+Saiki played like a 8.791. (Current rank 9.008, Δ-0.217)
+neoburnz played like a 11.578. (Current rank 11.824, Δ-0.246)
+koroshiya played like a 16.394. (Current rank 16.891, Δ-0.497)
+Milar played like a 11.084. (Current rank 11.892, Δ-0.808)
+Tsui played like a 15.316. (Current rank 16.426, Δ-1.11)
+comfv played like a 10.071. (Current rank 11.301, Δ-1.23)
+FayeurS played like a 17.294. (Current rank 20.233, Δ-2.939)
+
+# MVPS:
+:first_place: Deafness. Played like a 17.881 rank (Current Rank: 14.831, Δ3.05)
+:second_place: gro. Played like a 15.375 rank (Current Rank: 13.23, Δ2.145)
+:third_place: anonimus_opinion. Played like a 13.824 rank (Current Rank: 12.0, Δ1.824)

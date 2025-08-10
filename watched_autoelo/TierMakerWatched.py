@@ -207,6 +207,7 @@ rank_dict = dict(zip(final_ranks['Player Name'], final_ranks['elo'].round(3)))
 
 with open(jsonstats, 'r') as f:
     old_elos = json.load(f)
+    old_old_elos = old_elos
 
 with open(jsonstats, 'w') as f:
     json.dump(rank_dict, f, indent=4)
@@ -314,7 +315,9 @@ if not last_tour.empty:
 
     diff = {}
     for player, new_elo in last_tour_dict.items():
-        old_elo = old_elos.get(player)
+        old_elo = old_old_elos.get(player)
+        if old_elo is None:
+            old_elo = float(input(f"Enter starting rank for {player}: "))
         diff[player] = {
             'old': old_elo,
             'new': new_elo,

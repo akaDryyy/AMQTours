@@ -3,7 +3,7 @@ import argparse, json, os
 import pandas as pd
 from copy import deepcopy
 from collections import defaultdict
-from in_autoelo.TierMakerIN import trim, compute_rank_scores
+from TierMakerIN import trim, compute_rank_scores
 
 blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
 whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
@@ -39,11 +39,14 @@ if args.thinktime:
 
 # Obtain the players
 ranks = {}
+post_ranks_fixup = {}
 def process_rank(line):
     rank, rank_players = line.split(':', 2)
     rank = float(rank)
     for player in rank_players.split(','):
         ranks[player.strip().lower()] = rank
+        if player.strip() != '':
+            post_ranks_fixup[player.strip()] = rank
 
 with open(ranks_path, 'r') as file:
     for line in file.readlines():
@@ -107,6 +110,7 @@ with open(players_path, 'r') as file:
                 
 players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
 players = list(players.items())
+raw_ranks.update(post_ranks_fixup)
 raw_ranks = dict(sorted(raw_ranks.items(), key=lambda x: -x[1]))
 score_to_players = defaultdict(list)
 for player_to_append, score in raw_ranks.items():
@@ -218,21 +222,19 @@ def generate_codes(txtvar):
     txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
     txtvar += "```e0g0z211111101100000z10010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Distribution of guesses:
-≥9: 4 guesses
-5-8: 3 guesses
-1-4: 2 guesses
-0: 1 guess
+≥10: 4 guesses
+8-10: 3 guesses
+6.5-8: 2 guesses
+≤6.5: 1 guess
 """
     return txtvar
 
 def get_guess(val):
-    if val >= 8.75:
-        return '5'
-    elif val >= 8:
+    if val >= 10:
         return '4'
-    elif val >= 7:
+    elif val >= 8:
         return '3'
-    elif val >= 6:
+    elif val >= 6.5:
         return '2'
     else:
         return '1'

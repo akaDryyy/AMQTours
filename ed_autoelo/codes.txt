@@ -1,0 +1,28 @@
+######################### Challonge #########################
+
+### Solution 1 ###
+
+koroshiya (16.891) deafness (14.831) neoburnz (11.824) fumiii (7.891)
+tsui (16.426) gro (13.230) milar (11.892) dry (9.931)
+fayeurs (20.233) anonimus_opinion (12.000) beautiful (10.342) saiki (9.008)
+eryth (21.025) thaleko (13.000) comfv (11.301) chommy (6.036)
+
+
+######################### Discord #########################
+
+### Solution 1 ###
+
+koroshiya (16.891) deafness (14.831) neoburnz (11.824) fumiii (7.891) | Total = 51.437 | Guesses = [4442]
+tsui (16.426) gro (13.230) milar (11.892) dry (9.931) | Total = 51.479 | Guesses = [4443]
+fayeurs (20.233) anonimus_opinion (12.000) beautiful (10.342) saiki (9.008) | Total = 51.583 | Guesses = [4443]
+eryth (21.025) thaleko (13.000) comfv (11.301) chommy (6.036) | Total = 51.362 | Guesses = [4441]
+
+Average: 51.4652
+
+[Challonge](YOUR_CHALLONGE_URL)
+```e0g0z211111101100000z20100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
+Distribution of guesses:
+≥10: 4 guesses
+8-10: 3 guesses
+6.5-8: 2 guesses
+≤6.5: 1 guess

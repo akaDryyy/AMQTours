@@ -16,6 +16,7 @@ parser.add_argument('--size', '-s',
                     required=False)
 parser.add_argument('--mode', '-m', 
                     choices=['usual', 'quag'],
+                    default='usual',
                     required=False,
                     help="Define the tour mode, currently usual or quag")
 args = parser.parse_args()
