@@ -231,10 +231,10 @@ def generate_codes(gamemode, txtvar):
         case "quag":
             txtvar += "```e0g0z211111100100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Random NGMC guess distributions:
-≥8.5: 4 guesses
-4.5-8.49: 3 guesses
-0.5-4.49: 2 guesses
-≤0.49: 1 guess
+≥10: 4 guesses
+8-10: 3 guesses
+6.5-8: 2 guesses
+≤6.5: 1 guess
 """
     return txtvar
 

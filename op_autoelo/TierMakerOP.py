@@ -5,6 +5,7 @@ import json
 import gspread
 import csv
 import shutil
+import argparse
 from collections import defaultdict
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -26,28 +27,35 @@ txtstats = os.path.abspath("op_TL.txt")
 changelog = os.path.abspath("changelog.txt")
 mvp = os.path.abspath("mvps.txt")
 
-DIRECTORY = os.path.dirname(__file__)
-sheet_name = "ngm stats"
-tab_id_stats = 1315204448
-tab_id_ids = 220350629
+parser = argparse.ArgumentParser(description="AMQ Tours")
+parser.add_argument('--keep', '-k', action='store_true',
+                    help="Keep the current CSVs for stats, used for when doing changelogs one at the time after not running the script for multiple tours",
+                    required=False)
+args = parser.parse_args()
 
-gc = gspread.oauth(
-    credentials_filename=os.path.join(DIRECTORY, 'credentials', 'credentials.json'),
-    authorized_user_filename=os.path.join(DIRECTORY, 'credentials', 'authorized_user.json')
-)
-sheet = gc.open(sheet_name)
-wks = sheet.get_worksheet_by_id(tab_id_stats)
-wks_ids = sheet.get_worksheet_by_id(tab_id_ids)
+if not args.keep:
+    DIRECTORY = os.path.dirname(__file__)
+    sheet_name = "ngm stats"
+    tab_id_stats = 1315204448
+    tab_id_ids = 220350629
 
-rows = wks.get_all_values()
-with open(statstable, "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerows(rows)
+    gc = gspread.oauth(
+        credentials_filename=os.path.join(DIRECTORY, 'credentials', 'credentials.json'),
+        authorized_user_filename=os.path.join(DIRECTORY, 'credentials', 'authorized_user.json')
+    )
+    sheet = gc.open(sheet_name)
+    wks = sheet.get_worksheet_by_id(tab_id_stats)
+    wks_ids = sheet.get_worksheet_by_id(tab_id_ids)
 
-rows_ids = wks_ids.get_all_values()
-with open(idtable, "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerows(rows_ids)
+    rows = wks.get_all_values()
+    with open(statstable, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(rows)
+
+    rows_ids = wks_ids.get_all_values()
+    with open(idtable, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(rows_ids)
 
 def clean_data(idtable, statstable):
     # Load alias table

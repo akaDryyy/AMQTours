@@ -5,6 +5,7 @@ import json
 import gspread
 import csv
 import shutil
+import argparse
 from collections import defaultdict
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -12,13 +13,13 @@ from dateutil.relativedelta import relativedelta
 idtable = os.path.abspath("id_stats.csv")
 statstable = os.path.abspath("usual_stats.csv")
 statstable_tminus1 = os.path.abspath("usual_stats_tminus1.csv")
-GR_weight = 0.35
-UF_weight = 0.65
+GR_weight = 0.375
+UF_weight = 0.625
 past_tours = 10
 # Year from which we start considering potentially usable data points
 chosen_year = 2025
 # Window of months to draw data points from
-month_window = 2
+month_window = 3
 cleanedstats = os.path.abspath("usual_clean.csv")
 cleanedstats_chosen_year = os.path.abspath("usual_clean_year.csv")
 jsonstats = os.path.abspath("usual_elos.json")
@@ -26,28 +27,35 @@ txtstats = os.path.abspath("usual_TL.txt")
 changelog = os.path.abspath("changelog.txt")
 mvp = os.path.abspath("mvps.txt")
 
-DIRECTORY = os.path.dirname(__file__)
-sheet_name = "ngm stats"
-tab_id_stats = 0
-tab_id_ids = 220350629
+parser = argparse.ArgumentParser(description="AMQ Tours")
+parser.add_argument('--keep', '-k', action='store_true',
+                    help="Keep the current CSVs for stats, used for when doing changelogs one at the time after not running the script for multiple tours",
+                    required=False)
+args = parser.parse_args()
 
-gc = gspread.oauth(
-    credentials_filename=os.path.join(DIRECTORY, 'credentials', 'credentials.json'),
-    authorized_user_filename=os.path.join(DIRECTORY, 'credentials', 'authorized_user.json')
-)
-sheet = gc.open(sheet_name)
-wks = sheet.get_worksheet_by_id(tab_id_stats)
-wks_ids = sheet.get_worksheet_by_id(tab_id_ids)
+if not args.keep:
+    DIRECTORY = os.path.dirname(__file__)
+    sheet_name = "ngm stats"
+    tab_id_stats = 0
+    tab_id_ids = 220350629
 
-rows = wks.get_all_values()
-with open(statstable, "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerows(rows)
+    gc = gspread.oauth(
+        credentials_filename=os.path.join(DIRECTORY, 'credentials', 'credentials.json'),
+        authorized_user_filename=os.path.join(DIRECTORY, 'credentials', 'authorized_user.json')
+    )
+    sheet = gc.open(sheet_name)
+    wks = sheet.get_worksheet_by_id(tab_id_stats)
+    wks_ids = sheet.get_worksheet_by_id(tab_id_ids)
 
-rows_ids = wks_ids.get_all_values()
-with open(idtable, "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerows(rows_ids)
+    rows = wks.get_all_values()
+    with open(statstable, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(rows)
+
+    rows_ids = wks_ids.get_all_values()
+    with open(idtable, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows(rows_ids)
 
 def is_date(value):
         try:
@@ -176,7 +184,7 @@ clean_stats = clean_data(idtable, statstable)
 clean_stats.to_csv(cleanedstats, index=False, encoding="utf-8")
 player_stats = clean_stats.groupby("Player ID").apply(trim, include_groups=False).reset_index()
 
-def compute_rank_scores(df, gr_max=100, uf_max=(clean_stats["usefulness"].max()), alpha=3.75, midpoint=0.33, max_score=25):
+def compute_rank_scores(df, gr_max=100, uf_max=(clean_stats["usefulness"].max()), alpha=3.75, midpoint=0.30, max_score=25):
     """
     Compute a smoothed rank score for players based on guess rate and usefulness.
 

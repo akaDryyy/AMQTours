@@ -2,28 +2,36 @@
 
 ### Solution 1 ###
 
-kawada6 (14.847) rorf (12.488) 2skr (8.639) justaweirdo (8.090)
-thaleko (18.451) swapin (11.558) tateyamaayano (7.370) tsuni (6.714)
-zental (13.306) bommie (11.064) shadow (10.407) kyuuuu (9.333)
-fumiii (13.329) hmsuis (12.200) chrislefko (10.249) iamasiannoob (8.332)
-neoburnz (17.150) janoxx (11.019) oolli (9.564) eljuanchi (6.412)
-floth (13.652) dry (11.756) benevelante (10.126) i_dont_like_loli (8.646)
+floth (13.691) aitsukinakuru (11.855) porte (9.666) 2skr (8.649)
+mizukinana (12.286) wolbachia (11.480) shadow (10.498) potassiumf (9.649)
+anoru_ (15.301) pile (12.372) catge (8.209) mythandroid (8.148)
+renzou (16.070) sssthnoob (11.109) amamiyasora (10.546) lordgrond (6.049)
+rorf (12.402) dry (11.772) swapin (11.550) arpia97 (8.179)
+math1234 (16.346) skychael (10.867) i_dont_like_loli (8.729) justaweirdo (8.078)
+alkios (11.674) bommie (11.104) torradinhas (10.569) time2hack (10.460)
+milar (15.290) konsumenci (11.023) naizuri (9.425) chommy (8.272)
+thaleko (18.530) qwecocacola (10.707) tateyamaayano (7.373) hubcioskubcio (7.293)
+emdiel (14.913) chrislefko (10.378) kyuuuu (9.402) legrandort (9.110)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-kawada6 (14.847) rorf (12.488) 2skr (8.639) justaweirdo (8.090) | Total = 44.064 | Guesses = [5544]
-thaleko (18.451) swapin (11.558) tateyamaayano (7.370) tsuni (6.714) | Total = 44.093 | Guesses = [5532]
-zental (13.306) bommie (11.064) shadow (10.407) kyuuuu (9.333) | Total = 44.110 | Guesses = [5555]
-fumiii (13.329) hmsuis (12.200) chrislefko (10.249) iamasiannoob (8.332) | Total = 44.110 | Guesses = [5554]
-neoburnz (17.150) janoxx (11.019) oolli (9.564) eljuanchi (6.412) | Total = 44.145 | Guesses = [5552]
-floth (13.652) dry (11.756) benevelante (10.126) i_dont_like_loli (8.646) | Total = 44.180 | Guesses = [5554]
+floth (13.691) aitsukinakuru (11.855) porte (9.666) 2skr (8.649) | Total = 43.861 | Guesses = [5554]
+mizukinana (12.286) wolbachia (11.480) shadow (10.498) potassiumf (9.649) | Total = 43.913 | Guesses = [5555]
+anoru_ (15.301) pile (12.372) catge (8.209) mythandroid (8.148) | Total = 44.030 | Guesses = [5544]
+renzou (16.070) sssthnoob (11.109) amamiyasora (10.546) lordgrond (6.049) | Total = 43.774 | Guesses = [5552]
+rorf (12.402) dry (11.772) swapin (11.550) arpia97 (8.179) | Total = 43.903 | Guesses = [5554]
+math1234 (16.346) skychael (10.867) i_dont_like_loli (8.729) justaweirdo (8.078) | Total = 44.020 | Guesses = [5544]
+alkios (11.674) bommie (11.104) torradinhas (10.569) time2hack (10.460) | Total = 43.807 | Guesses = [5555]
+milar (15.290) konsumenci (11.023) naizuri (9.425) chommy (8.272) | Total = 44.010 | Guesses = [5554]
+thaleko (18.530) qwecocacola (10.707) tateyamaayano (7.373) hubcioskubcio (7.293) | Total = 43.903 | Guesses = [5533]
+emdiel (14.913) chrislefko (10.378) kyuuuu (9.402) legrandort (9.110) | Total = 43.803 | Guesses = [5555]
 
-Average: 44.117
+Average: 43.9024
 
-[Challonge](https://challonge.com/6osyojhy)
+[Challonge](https://challonge.com/bs851c0m)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
 ≥8.75: 5 guesses
