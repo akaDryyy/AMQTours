@@ -1,18 +1,18 @@
 ######################### Challonge #########################
 
-julialess64 (12.721) neoburnz (12.586) moosepi (12.559)
-channina (25.453) dry (8.112) mahzrunner (3.035)
-kar72 (17.432) alkios (13.095) andrey_k (5.300)
-deafness (17.843) hmsuis (9.465) md22 (8.377)
+deafness (18.458) neoburnz (12.909) justaweirdo (-0.068) chommy (-1.101)
+comfv (13.314) hmsuis (9.435) lakumix (7.449) rhummy (-0.048)
+beautiful (10.381) dry (7.595) redmoon (6.615) swapin (5.384)
+thaleko (17.077) yasashiikumo (6.235) kabao (4.173) legrandort (2.458)
 
 ######################### Discord #########################
 
-julialess64 (12.721) neoburnz (12.586) moosepi (12.559) | Total = 37.866 | Guesses = [444]
-channina (25.453) dry (8.112) mahzrunner (3.035) | Total = 36.6 | Guesses = [432]
-kar72 (17.432) alkios (13.095) andrey_k (5.300) | Total = 35.827 | Guesses = [443]
-deafness (17.843) hmsuis (9.465) md22 (8.377) | Total = 35.685 | Guesses = [443]
+deafness (18.458) neoburnz (12.909) justaweirdo (-0.068) chommy (-1.101) | Total = 30.198 | Guesses = [4411]
+comfv (13.314) hmsuis (9.435) lakumix (7.449) rhummy (-0.048) | Total = 30.15 | Guesses = [4431]
+beautiful (10.381) dry (7.595) redmoon (6.615) swapin (5.384) | Total = 29.975 | Guesses = [4333]
+thaleko (17.077) yasashiikumo (6.235) kabao (4.173) legrandort (2.458) | Total = 29.943 | Guesses = [4322]
 
-Average: 36.4945
+Average: 30.0665
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```

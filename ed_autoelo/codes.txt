@@ -2,24 +2,24 @@
 
 ### Solution 1 ###
 
-koroshiya (16.891) deafness (14.831) neoburnz (11.824) fumiii (7.891)
-tsui (16.426) gro (13.230) milar (11.892) dry (9.931)
-fayeurs (20.233) anonimus_opinion (12.000) beautiful (10.342) saiki (9.008)
-eryth (21.025) thaleko (13.000) comfv (11.301) chommy (6.036)
+alkios (12.219) dry (10.139) raidenmei (10.000) mahzrunner (8.302)
+koroshiya (16.956) md22 (8.500) skychael (8.205) vuhrculls (6.881)
+kuterin (11.217) comfv (10.682) hmsuis (9.502) progenitor (9.298)
+diukes (16.808) saiki (8.974) mkby (8.937) okitanobu (6.000)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-koroshiya (16.891) deafness (14.831) neoburnz (11.824) fumiii (7.891) | Total = 51.437 | Guesses = [4442]
-tsui (16.426) gro (13.230) milar (11.892) dry (9.931) | Total = 51.479 | Guesses = [4443]
-fayeurs (20.233) anonimus_opinion (12.000) beautiful (10.342) saiki (9.008) | Total = 51.583 | Guesses = [4443]
-eryth (21.025) thaleko (13.000) comfv (11.301) chommy (6.036) | Total = 51.362 | Guesses = [4441]
+alkios (12.219) dry (10.139) raidenmei (10.000) mahzrunner (8.302) | Total = 40.660 | Guesses = [4443]
+koroshiya (16.956) md22 (8.500) skychael (8.205) vuhrculls (6.881) | Total = 40.542 | Guesses = [4332]
+kuterin (11.217) comfv (10.682) hmsuis (9.502) progenitor (9.298) | Total = 40.699 | Guesses = [4433]
+diukes (16.808) saiki (8.974) mkby (8.937) okitanobu (6.000) | Total = 40.719 | Guesses = [4331]
 
-Average: 51.4652
+Average: 40.655
 
-[Challonge](YOUR_CHALLONGE_URL)
+[Challonge](https://challonge.com/x1iafeu8)
 ```e0g0z211111101100000z20100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
 ≥10: 4 guesses

@@ -302,7 +302,7 @@ footer = f"Average: {round(avg / k, 4)}\n"
 print(footer)
 txtvar += footer
 
-final_code = generate_codes(txtvar)
+final_code = generate_codes(gamemode, txtvar)
 
 with open(codes_path, "w", encoding="utf-8") as f:
     f.write(final_code)

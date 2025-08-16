@@ -342,7 +342,7 @@ if not last_tour.empty:
     for player, new_elo in last_tour_dict.items():
         old_elo = old_old_elos.get(player)
         if old_elo is None:
-            old_elo = float(input(f"Enter starting rank for {player}: "))
+            old_elo = new_elo
         diff[player] = {
             'old': old_elo,
             'new': new_elo,
