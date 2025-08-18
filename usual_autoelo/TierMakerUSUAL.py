@@ -20,6 +20,8 @@ past_tours = 10
 chosen_year = 2025
 # Window of months to draw data points from
 month_window = 3
+# Do not go further than 6 months to gather data
+max_fallback_window = 6
 cleanedstats = os.path.abspath("usual_clean.csv")
 cleanedstats_chosen_year = os.path.abspath("usual_clean_year.csv")
 jsonstats = os.path.abspath("usual_elos.json")
@@ -127,10 +129,16 @@ def clean_data(idtable, statstable):
     # Drop invalid dates
     df = df.dropna(subset=["Tournament Date"])
 
+    six_months_ago = datetime.now() - relativedelta(months=max_fallback_window)
+    year_6m_ago = six_months_ago.year
+    month_6m_ago = six_months_ago.month
+
     year_df = df[
-        (df["Tournament Date"].dt.year == chosen_year)
+        ((df["Tournament Date"].dt.year > year_6m_ago)) |
+        ((df["Tournament Date"].dt.year == year_6m_ago) & (df["Tournament Date"].dt.month >= month_6m_ago))
     ]
 
+    year_df = year_df.sort_values(["Player ID", "Tournament Date"])
     # Save 2025 stats for future
     year_df.to_csv(cleanedstats_chosen_year, index=False, encoding="utf-8")
 
@@ -152,9 +160,8 @@ def clean_data(idtable, statstable):
     not_enough_ids = timely_counts[timely_counts < past_tours].index
 
     result_df = timely_df[timely_df["Player ID"].isin(enough_ids)]
-    df_sorted = df.sort_values(["Player ID", "Tournament Date"])
     fallback_df = (
-        df_sorted[df_sorted["Player ID"].isin(not_enough_ids)]
+        year_df[year_df["Player ID"].isin(not_enough_ids)]
         .groupby("Player ID", group_keys=False)
         .tail(past_tours)
     )
@@ -181,6 +188,7 @@ def trim(group):
         })
 
 clean_stats = clean_data(idtable, statstable)
+clean_stats = clean_stats.sort_values(["Player ID", "Tournament Date"])
 clean_stats.to_csv(cleanedstats, index=False, encoding="utf-8")
 player_stats = clean_stats.groupby("Player ID").apply(trim, include_groups=False).reset_index()
 

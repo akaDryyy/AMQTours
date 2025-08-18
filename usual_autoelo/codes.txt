@@ -2,29 +2,24 @@
 
 ### Solution 1 ###
 
-comfv (13.554) beautiful (11.124) lakumix (9.584) justaweirdo (7.204)
-thaleko (15.537) dry (9.948) swapin (9.048) rhummy (7.029)
-deafness (16.844) redmoon (9.108) kabao (8.423) chommy (7.040)
-neoburnz (13.678) hmsuis (10.616) yasashiikumo (9.208) legrandort (7.964)
+neoburnz (13.691) dry (9.948) ss_r_white_pony (8.393) legrandort (7.964)
+mkby (11.161) hmsuis (10.616) janoxx (9.110) swapin (9.048)
+diukes (14.370) floth (9.479) chrislefko (9.353) okitanobu (6.814)
+comfv (13.554) hyonoobka (10.489) fumiii (9.381) yellowrose (6.500)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-comfv (13.554) beautiful (11.124) lakumix (9.584) justaweirdo (7.204) | Total = 41.466 | Guesses = [4432]
-thaleko (15.537) dry (9.948) swapin (9.048) rhummy (7.029) | Total = 41.562 | Guesses = [4332]
-deafness (16.844) redmoon (9.108) kabao (8.423) chommy (7.040) | Total = 41.415 | Guesses = [4332]
-neoburnz (13.678) hmsuis (10.616) yasashiikumo (9.208) legrandort (7.964) | Total = 41.466 | Guesses = [4432]
+neoburnz (13.691) dry (9.948) ss_r_white_pony (8.393) legrandort (7.964) | Total = 39.996 | Guesses = [4332]
+mkby (11.161) hmsuis (10.616) janoxx (9.110) swapin (9.048) | Total = 39.935 | Guesses = [4433]
+diukes (14.370) floth (9.479) chrislefko (9.353) okitanobu (6.814) | Total = 40.016 | Guesses = [4332]
+comfv (13.554) hyonoobka (10.489) fumiii (9.381) yellowrose (6.500) | Total = 39.924 | Guesses = [4432]
 
-comfv (13.314) beautiful (10.381) lakumix (7.449) justaweirdo (-0.068) | Total = 31.076 | Guesses = [4431]
-thaleko (17.077) dry (7.595) swapin (5.384) rhummy (-0.048) | Total = 30.008 | Guesses = [4331]
-deafness (18.458) redmoon (6.615) kabao (4.173) chommy (-1.101) | Total = 28.145 | Guesses = [4321]
-neoburnz (12.909) hmsuis (9.435) yasashiikumo (6.235) legrandort (2.458) | Total = 31.037 | Guesses = [4432]
+Average: 39.9678
 
-Average: 41.4772
-
-[Challonge](YOUR_CHALLONGE_URL)
+[Challonge](https://challonge.com/4z9v6cvg)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
 ≥10: 4 guesses

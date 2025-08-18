@@ -1,0 +1,14 @@
+OkitaNobu, old rank: 7.01, new rank: 7.3, diff: 0.29
+comfv, old rank: 13.623, new rank: 13.716, diff: 0.093
+lakumix, old rank: 9.584, new rank: 9.641, diff: 0.057
+kabigon, old rank: 10.659, new rank: 10.695, diff: 0.036
+Mami, old rank: 13.167, new rank: 13.2, diff: 0.033
+apurplenose, old rank: 10.895, new rank: 10.925, diff: 0.03
+Kuterin, old rank: 10.828, new rank: 10.856, diff: 0.028
+mahzrunner, old rank: 9.191, new rank: 9.195, diff: 0.004
+Progenitor, old rank: 9.291, new rank: 9.292, diff: 0.001
+MD22, old rank: 10.017, new rank: 10.015, diff: -0.002
+beautiful, old rank: 11.144, new rank: 11.138, diff: -0.006
+Kezzy, old rank: 11.878, new rank: 11.838, diff: -0.04
+Hyonoobka, old rank: 10.681, new rank: 10.546, diff: -0.135
+YellowRose, old rank: 8.322, new rank: 7.914, diff: -0.408

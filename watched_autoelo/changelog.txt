@@ -1,0 +1,14 @@
+Padre, old rank: 11.542, new rank: 11.63, diff: 0.088
+AnnaYanami, old rank: 10.511, new rank: 10.553, diff: 0.042
+bella, old rank: 16.592, new rank: 16.629, diff: 0.037
+Floth, old rank: 13.717, new rank: 13.739, diff: 0.022
+Emdiel, old rank: 14.879, new rank: 14.885, diff: 0.006
+Kyuuuu, old rank: 9.49, new rank: 9.491, diff: 0.001
+Swapin, old rank: 11.578, new rank: 11.575, diff: -0.003
+Porte, old rank: 9.719, new rank: 9.706, diff: -0.013
+sssthnoob, old rank: 11.091, new rank: 11.055, diff: -0.036
+apurplenose, old rank: 15.333, new rank: 15.294, diff: -0.039
+Fumiii, old rank: 13.583, new rank: 13.544, diff: -0.039
+Dry, old rank: 11.85, new rank: 11.794, diff: -0.056
+OkitaNobu, old rank: 7.712, new rank: 7.575, diff: -0.137
+Mangalodon, old rank: 7.293, new rank: 7.045, diff: -0.248
