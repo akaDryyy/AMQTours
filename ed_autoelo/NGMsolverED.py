@@ -22,7 +22,7 @@ optimal_value = None
 think_time = 25000
 found_solutions = []
 
-parser = argparse.ArgumentParser(description="AMQ Tours")
+parser = argparse.ArgumentParser(description="AMQ Tour")
 parser.add_argument('--size', '-s',
                     help="Define the size of each team",
                     default=4,

@@ -2,32 +2,24 @@
 
 ### Solution 1 ###
 
-komari (12.356) swapin (11.549) naizuri (9.378) tsuni (6.762)
-konsumenci (11.231) shelterrin (11.222) annayanami (10.454) hubcioskubcio (7.243)
-jakemonkey (11.927) wolbachia (11.529) porte (9.685) yellowrose (7.000)
-1godly (11.830) dry (11.825) chommy (8.322) justaweirdo (8.118)
-mayottatoki (12.479) provenance (11.023) kyuuuu (9.457) rhummy (7.201)
-maki04 (13.353) time2hack (10.932) vr0003 (9.973) foopypoopy (5.865)
-floth (13.702) serozero (10.117) psirockin (8.694) okitanobu (7.601)
-jessi (13.362) ephemeral (12.997) mangalodon (7.409) eljuanchi (6.426)
+cipherkai (11.921) shelterrin (11.500) liljakatsuragi (11.424) psirockin (8.718)
+neoburnz (17.388) nephirea (15.224) foopypoopy (5.860) osxtrafton (5.196)
+mami (14.735) chrislefko (10.362) kyuuuu (9.590) ranny (9.005)
+maki04 (13.378) dry (11.836) serozero (10.137) catge (8.273)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-komari (12.356) swapin (11.549) naizuri (9.378) tsuni (6.762) | Total = 40.045 | Guesses = [5552]
-konsumenci (11.231) shelterrin (11.222) annayanami (10.454) hubcioskubcio (7.243) | Total = 40.150 | Guesses = [5553]
-jakemonkey (11.927) wolbachia (11.529) porte (9.685) yellowrose (7.000) | Total = 40.141 | Guesses = [5553]
-1godly (11.830) dry (11.825) chommy (8.322) justaweirdo (8.118) | Total = 40.095 | Guesses = [5544]
-mayottatoki (12.479) provenance (11.023) kyuuuu (9.457) rhummy (7.201) | Total = 40.160 | Guesses = [5553]
-maki04 (13.353) time2hack (10.932) vr0003 (9.973) foopypoopy (5.865) | Total = 40.123 | Guesses = [5551]
-floth (13.702) serozero (10.117) psirockin (8.694) okitanobu (7.601) | Total = 40.114 | Guesses = [5543]
-jessi (13.362) ephemeral (12.997) mangalodon (7.409) eljuanchi (6.426) | Total = 40.194 | Guesses = [5532]
+cipherkai (11.921) shelterrin (11.500) liljakatsuragi (11.424) psirockin (8.718) | Total = 43.563 | Guesses = [5554]
+neoburnz (17.388) nephirea (15.224) foopypoopy (5.860) osxtrafton (5.196) | Total = 43.668 | Guesses = [5511]
+mami (14.735) chrislefko (10.362) kyuuuu (9.590) ranny (9.005) | Total = 43.692 | Guesses = [5555]
+maki04 (13.378) dry (11.836) serozero (10.137) catge (8.273) | Total = 43.624 | Guesses = [5554]
 
-Average: 40.1277
+Average: 43.6367
 
-[Challonge](https://challonge.com/7fw4eliu)
+[Challonge](https://challonge.com/l71lcmj5)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
 ≥8.75: 5 guesses

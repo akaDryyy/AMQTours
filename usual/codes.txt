@@ -1,20 +1,20 @@
 ######################### Challonge #########################
 
-deafness (18.458) neoburnz (12.909) justaweirdo (-0.068) chommy (-1.101)
-comfv (13.314) hmsuis (9.435) lakumix (7.449) rhummy (-0.048)
-beautiful (10.381) dry (7.595) redmoon (6.615) swapin (5.384)
-thaleko (17.077) yasashiikumo (6.235) kabao (4.173) legrandort (2.458)
+alkios (14.082) chemist (8.565) janoxx (5.471) jakemonkey (4.381)
+comfv (13.882) saiki (8.359) cipherkai (6.593) mahzrunner (3.656)
+thaleko (17.147) md22 (8.254) annayanami (4.752) cm02 (2.279)
+mami (13.546) dry (7.322) kirox (6.985) yellowrose (4.556)
 
 ######################### Discord #########################
 
-deafness (18.458) neoburnz (12.909) justaweirdo (-0.068) chommy (-1.101) | Total = 30.198 | Guesses = [4411]
-comfv (13.314) hmsuis (9.435) lakumix (7.449) rhummy (-0.048) | Total = 30.15 | Guesses = [4431]
-beautiful (10.381) dry (7.595) redmoon (6.615) swapin (5.384) | Total = 29.975 | Guesses = [4333]
-thaleko (17.077) yasashiikumo (6.235) kabao (4.173) legrandort (2.458) | Total = 29.943 | Guesses = [4322]
+alkios (14.082) chemist (8.565) janoxx (5.471) jakemonkey (4.381) | Total = 32.499 | Guesses = [4432]
+comfv (13.882) saiki (8.359) cipherkai (6.593) mahzrunner (3.656) | Total = 32.49 | Guesses = [4332]
+thaleko (17.147) md22 (8.254) annayanami (4.752) cm02 (2.279) | Total = 32.432 | Guesses = [4332]
+mami (13.546) dry (7.322) kirox (6.985) yellowrose (4.556) | Total = 32.409 | Guesses = [4333]
 
-Average: 30.0665
+Average: 32.4575
 
-[Challonge](YOUR_CHALLONGE_URL)
+[Challonge](https://challonge.com/35tpkagg)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
 ≥8.5: 4 guesses

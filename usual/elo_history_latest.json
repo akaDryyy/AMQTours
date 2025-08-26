@@ -1,28 +1,29 @@
 {
-	"tour_id": "mydczbp0",
-	"time": "2025-07-29 17:30:00+02:00",
+	"tour_id": "35tpkagg",
+	"time": "2025-08-25 21:30:00+02:00",
 	"teams": {
-		"fortnayt (18.18) comete (11.98) chrislefko (5.22) miiarad (3.76) = 39.13": "4W 2L 0D",
-		"arronchu (20.34) kawada6 (15.88) kabao (3.45) chommy (-0.56) = 39.11": "3W 3L 0D",
-		"alkios (12.64) apurplenose (9.68) hmsuis (9.36) rorf (7.40) = 39.08": "4W 2L 0D",
-		"diukes (15.27) mkby (12.01) dry (8.13) mahzrunner (3.75) = 39.16": "1W 5L 0D"
+		"comfv (13.88) saiki (8.36) cipherkai (6.59) mahzrunner (3.66) = 32.49": "5W 1L 0D",
+		"thaleko (17.15) md22 (8.25) annayanami (4.75) cm02 (2.28) = 32.43": "3W 3L 0D",
+		"mami (13.55) dry (7.32) kirox (6.98) yellowrose (4.56) = 32.41": "1W 5L 0D",
+		"alkios (14.08) chemist (8.57) janoxx (5.47) jakemonkey (4.38) progenitor (4.91) = 37.41": "3W 3L 0D"
 	},
 	"player": {
-		"fortnayt": "initial elo: 18.177, new elo: 18.341, rating change: 0.164",
-		"comete": "initial elo: 11.975, new elo: 12.139, rating change: 0.164",
-		"chrislefko": "initial elo: 5.221, new elo: 5.385, rating change: 0.164",
-		"miiarad": "initial elo: 3.755, new elo: 3.922, rating change: 0.166",
-		"arronchu": "initial elo: 20.336, new elo: 20.352, rating change: 0.016",
-		"kawada6": "initial elo: 15.876, new elo: 15.897, rating change: 0.020",
-		"kabao": "initial elo: 3.453, new elo: 3.474, rating change: 0.021",
-		"chommy": "initial elo: -0.556, new elo: -0.539, rating change: 0.017",
-		"alkios": "initial elo: 12.637, new elo: 12.813, rating change: 0.177",
-		"apurplenose": "initial elo: 9.680, new elo: 9.857, rating change: 0.177",
-		"hmsuis": "initial elo: 9.358, new elo: 9.535, rating change: 0.177",
-		"rorf": "initial elo: 7.401, new elo: 7.588, rating change: 0.187",
-		"diukes": "initial elo: 15.267, new elo: 14.910, rating change: -0.358",
-		"mkby": "initial elo: 12.014, new elo: 11.590, rating change: -0.423",
-		"dry": "initial elo: 8.130, new elo: 7.770, rating change: -0.360",
-		"mahzrunner": "initial elo: 3.749, new elo: 3.391, rating change: -0.358"
+		"comfv": "initial elo: 13.882, new elo: 14.236, rating change: 0.354",
+		"saiki": "initial elo: 8.359, new elo: 8.705, rating change: 0.346",
+		"cipherkai": "initial elo: 6.593, new elo: 6.994, rating change: 0.401",
+		"mahzrunner": "initial elo: 3.656, new elo: 4.002, rating change: 0.346",
+		"thaleko": "initial elo: 17.147, new elo: 17.145, rating change: -0.002",
+		"md22": "initial elo: 8.254, new elo: 8.252, rating change: -0.002",
+		"annayanami": "initial elo: 4.752, new elo: 4.749, rating change: -0.003",
+		"cm02": "initial elo: 2.279, new elo: 2.276, rating change: -0.003",
+		"mami": "initial elo: 13.546, new elo: 13.193, rating change: -0.354",
+		"dry": "initial elo: 7.322, new elo: 6.965, rating change: -0.358",
+		"kirox": "initial elo: 6.985, new elo: 6.629, rating change: -0.356",
+		"yellowrose": "initial elo: 4.556, new elo: 3.960, rating change: -0.596",
+		"alkios": "initial elo: 14.082, new elo: 14.095, rating change: 0.012",
+		"chemist": "initial elo: 8.565, new elo: 8.578, rating change: 0.012",
+		"janoxx": "initial elo: 5.471, new elo: 5.483, rating change: 0.012",
+		"jakemonkey": "initial elo: 4.381, new elo: 4.394, rating change: 0.013",
+		"progenitor": "initial elo: 4.915, new elo: 4.914, rating change: -0.000"
 	}
 }

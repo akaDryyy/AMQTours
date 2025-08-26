@@ -2,27 +2,35 @@
 
 ### Solution 1 ###
 
-thaleko (16.817) uomi (13.113) justaweirdo (6.968) tateyamaayano (6.647)
-julialess64 (12.328) ephemeral (10.649) mahzrunner (10.302) provenance (10.220)
-yokipi (17.098) saiki (11.232) janoxx (7.662) konsumenci (7.620)
-alkios (12.548) smarthardyz (11.348) fumiii (10.404) bommie (9.296)
+bella (17.010) swapin (10.026) zokie (8.954) floth (8.449)
+coglionedown (11.868) julialess64 (11.238) raidenmei (11.000) flato (10.262)
+smarthardyz (21.353) yellowrose (7.984) ranny (7.741) vuhrculls (7.355)
+chrislefko (14.286) animerod (11.402) saiki (9.677) xeyz (9.000)
+yolowolf75 (13.914) maki04 (11.971) jakemonkey (9.571) dry (9.014)
+comfv (20.204) annayanami (8.485) mahzrunner (8.158) ss_r_white_pony (7.613)
+oh95 (13.305) hmsuis (11.000) poppysr (10.960) konsumenci (9.208)
+baikinman (20.221) janoxx (10.410) okitanobu (7.115) eljuanchi (6.659)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-thaleko (16.817) uomi (13.113) justaweirdo (6.968) tateyamaayano (6.647) | Total = 43.545 | Guesses = [5522]
-julialess64 (12.328) ephemeral (10.649) mahzrunner (10.302) provenance (10.220) | Total = 43.499 | Guesses = [5555]
-yokipi (17.098) saiki (11.232) janoxx (7.662) konsumenci (7.620) | Total = 43.612 | Guesses = [5533]
-alkios (12.548) smarthardyz (11.348) fumiii (10.404) bommie (9.296) | Total = 43.596 | Guesses = [5555]
+bella (17.010) swapin (10.026) zokie (8.954) floth (8.449) | Total = 44.439 | Guesses = [4433]
+coglionedown (11.868) julialess64 (11.238) raidenmei (11.000) flato (10.262) | Total = 44.368 | Guesses = [4444]
+smarthardyz (21.353) yellowrose (7.984) ranny (7.741) vuhrculls (7.355) | Total = 44.433 | Guesses = [4222]
+chrislefko (14.286) animerod (11.402) saiki (9.677) xeyz (9.000) | Total = 44.365 | Guesses = [4433]
+yolowolf75 (13.914) maki04 (11.971) jakemonkey (9.571) dry (9.014) | Total = 44.470 | Guesses = [4433]
+comfv (20.204) annayanami (8.485) mahzrunner (8.158) ss_r_white_pony (7.613) | Total = 44.460 | Guesses = [4332]
+oh95 (13.305) hmsuis (11.000) poppysr (10.960) konsumenci (9.208) | Total = 44.473 | Guesses = [4443]
+baikinman (20.221) janoxx (10.410) okitanobu (7.115) eljuanchi (6.659) | Total = 44.405 | Guesses = [4422]
 
-Average: 43.563
+Average: 44.4266
 
-[Challonge](YOUR_CHALLONGE_URL)
-```e0g0z211111101100000z10010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
+[Challonge](https://challonge.com/1j9e7si7)
+```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
-≥9: 4 guesses
-5-8: 3 guesses
-1-4: 2 guesses
-0: 1 guess
+≥10: 4 guesses
+8-10: 3 guesses
+6.5-8: 2 guesses
+≤6.5: 1 guess
