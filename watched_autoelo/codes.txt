@@ -2,24 +2,28 @@
 
 ### Solution 1 ###
 
-cipherkai (11.921) shelterrin (11.500) liljakatsuragi (11.424) psirockin (8.718)
-neoburnz (17.388) nephirea (15.224) foopypoopy (5.860) osxtrafton (5.196)
-mami (14.735) chrislefko (10.362) kyuuuu (9.590) ranny (9.005)
-maki04 (13.378) dry (11.836) serozero (10.137) catge (8.273)
+floth (13.793) liljakatsuragi (11.590) yasashiikumo (11.085) lightning (10.474)
+mikasaackerman (15.483) ss_r_white_pony (11.640) skychael (10.838) ranny (8.954)
+nephirea (15.260) ephemeral (13.032) cipherkai (11.946) tsuni (6.722)
+neoburnz (17.469) shelterrin (11.540) oshino_bu (9.029) i_dont_like_loli (8.933)
+bella (16.539) anoru_ (15.244) vuhrculls (9.737) osxtrafton (5.379)
+poolnoodle (20.244) dry (11.856) anicomi (7.375) tateyamaayano (7.357)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-cipherkai (11.921) shelterrin (11.500) liljakatsuragi (11.424) psirockin (8.718) | Total = 43.563 | Guesses = [5554]
-neoburnz (17.388) nephirea (15.224) foopypoopy (5.860) osxtrafton (5.196) | Total = 43.668 | Guesses = [5511]
-mami (14.735) chrislefko (10.362) kyuuuu (9.590) ranny (9.005) | Total = 43.692 | Guesses = [5555]
-maki04 (13.378) dry (11.836) serozero (10.137) catge (8.273) | Total = 43.624 | Guesses = [5554]
+floth (13.793) liljakatsuragi (11.590) yasashiikumo (11.085) lightning (10.474) | Total = 46.942 | Guesses = [5555]
+mikasaackerman (15.483) ss_r_white_pony (11.640) skychael (10.838) ranny (8.954) | Total = 46.915 | Guesses = [5555]
+nephirea (15.260) ephemeral (13.032) cipherkai (11.946) tsuni (6.722) | Total = 46.960 | Guesses = [5552]
+neoburnz (17.469) shelterrin (11.540) oshino_bu (9.029) i_dont_like_loli (8.933) | Total = 46.971 | Guesses = [5555]
+bella (16.539) anoru_ (15.244) vuhrculls (9.737) osxtrafton (5.379) | Total = 46.899 | Guesses = [5551]
+poolnoodle (20.244) dry (11.856) anicomi (7.375) tateyamaayano (7.357) | Total = 46.832 | Guesses = [5533]
 
-Average: 43.6367
+Average: 46.9198
 
-[Challonge](https://challonge.com/l71lcmj5)
+[Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
 ≥8.75: 5 guesses

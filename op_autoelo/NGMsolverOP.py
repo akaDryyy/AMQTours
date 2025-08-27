@@ -91,23 +91,31 @@ with open(players_path, 'r') as file:
             alias_to_id = dict(zip(alias_df["Player Name"], alias_df["Player ID"]))
             if player_key in alias_to_id:
                 player_id = alias_to_id[player_key]
+            else:
+                player_id = None
             # If player found, generate the elo
             if player_id:
                 df = pd.read_csv(watched_data_fallback_year)
                 df = df[df['Player ID'] == player_id]
+                # Reset in case need to grab multiple IDs 
                 player_id = None
-                player_stats = df.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-                clean_fb = pd.read_csv(watched_data_fallback)
-                final_df = compute_rank_scores(df=player_stats, uf_max=(clean_fb["usefulness"].max()))
-                alias_df.drop_duplicates(subset='Player ID', keep='first')
-                final_df = final_df.merge(alias_df[['Player ID', 'Player Name']], on='Player ID', how='left')
-                rank_dict = dict(zip(final_df['Player Name'], final_df['elo'].round(3)))
-                ranks.update(rank_dict)
-                raw_ranks.update(rank_dict)
-                players[player] = ranks[list(rank_dict.keys())[0]]
+                if not df.empty:
+                    player_stats = df.groupby("Player ID").apply(trim, include_groups=False).reset_index()
+                    clean_fb = pd.read_csv(watched_data_fallback)
+                    final_df = compute_rank_scores(df=player_stats, uf_max=(clean_fb["usefulness"].max()))
+                    alias_df = alias_df.drop_duplicates(subset='Player ID', keep='first')
+                    final_df = final_df.merge(alias_df[['Player ID', 'Player Name']], on='Player ID', how='left')
+                    rank_dict = dict(zip(final_df['Player Name'], final_df['elo'].round(3)))
+                    ranks.update(rank_dict)
+                    raw_ranks.update(rank_dict)
+                    players[player] = ranks[list(rank_dict.keys())[0]]
+                else:
+                    input(f"[WARN] Player '{player}' was found in ranks but has no data in the past months. Manually add to ranks.txt. Press Enter to exit.")
+                    exit()
             else:
-                input(f"[WARN] Player '{player}' not found in ranks or aliases. Manually add to ranks.txt. Press Enter to continue.")
-                
+                input(f"[WARN] Player '{player}' not found in ranks or aliases. Manually add to ranks.txt. Press Enter to exit.")
+                exit()
+                    
 players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
 players = list(players.items())
 raw_ranks.update(post_ranks_fixup)

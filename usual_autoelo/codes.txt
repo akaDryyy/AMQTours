@@ -2,27 +2,27 @@
 
 ### Solution 1 ###
 
-neoburnz (13.691) dry (9.948) ss_r_white_pony (8.393) legrandort (7.964)
-mkby (11.161) hmsuis (10.616) janoxx (9.110) swapin (9.048)
-diukes (14.370) floth (9.479) chrislefko (9.353) okitanobu (6.814)
-comfv (13.554) hyonoobka (10.489) fumiii (9.381) yellowrose (6.500)
+neoburnz (13.674) hmsuis (10.615) floth (9.574) fumiii (9.340)
+diukes (14.513) mkby (11.216) janoxx (9.090) ss_r_white_pony (8.418)
+comfv (13.694) hyonoobka (10.546) dry (9.971) swapin (9.004)
+theyingster (21.477) yellowrose (8.129) legrandort (7.956) okitanobu (7.321)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-neoburnz (13.691) dry (9.948) ss_r_white_pony (8.393) legrandort (7.964) | Total = 39.996 | Guesses = [4332]
-mkby (11.161) hmsuis (10.616) janoxx (9.110) swapin (9.048) | Total = 39.935 | Guesses = [4433]
-diukes (14.370) floth (9.479) chrislefko (9.353) okitanobu (6.814) | Total = 40.016 | Guesses = [4332]
-comfv (13.554) hyonoobka (10.489) fumiii (9.381) yellowrose (6.500) | Total = 39.924 | Guesses = [4432]
+neoburnz (13.674) hmsuis (10.615) floth (9.574) fumiii (9.340) | Total = 43.203 | Guesses = [4433]
+diukes (14.513) mkby (11.216) janoxx (9.090) ss_r_white_pony (8.418) | Total = 43.237 | Guesses = [4433]
+comfv (13.694) hyonoobka (10.546) dry (9.971) swapin (9.004) | Total = 43.215 | Guesses = [4433]
+theyingster (21.477) yellowrose (8.129) legrandort (7.956) okitanobu (7.321) | Total = 44.883 | Guesses = [4322]
 
-Average: 39.9678
+Average: 43.6345
 
-[Challonge](https://challonge.com/4z9v6cvg)
+[Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
 ≥10: 4 guesses
 8-10: 3 guesses
-6.5-8: 2 guesses
-≤6.5: 1 guess
+7-8: 2 guesses
+≤7: 1 guess
