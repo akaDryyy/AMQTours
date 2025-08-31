@@ -1,0 +1,15 @@
+spanky, old rank: 9.844, new rank: 9.909, diff: 0.065
+Swapin, old rank: 9.004, new rank: 9.055, diff: 0.051
+1Godly, old rank: 10.534, new rank: 10.576, diff: 0.042
+Janoxx, old rank: 9.09, new rank: 9.111, diff: 0.021
+Progenitor, old rank: 9.35, new rank: 9.367, diff: 0.017
+Mami, old rank: 12.557, new rank: 12.569, diff: 0.012
+MD22, old rank: 10.076, new rank: 10.087, diff: 0.011
+mahzrunner, old rank: 9.191, new rank: 9.199, diff: 0.008
+Dry, old rank: 9.947, new rank: 9.949, diff: 0.002
+Diukes, old rank: 14.506, new rank: 14.504, diff: -0.002
+Yokipi, old rank: 10.445, new rank: 10.441, diff: -0.004
+Alkios, old rank: 13.271, new rank: 13.266, diff: -0.005
+Saiki, old rank: 10.013, new rank: 10.004, diff: -0.009
+Thaleko, old rank: 15.543, new rank: 15.523, diff: -0.02
+AnnaYanami, old rank: 9.115, new rank: 9.07, diff: -0.045

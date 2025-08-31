@@ -2,78 +2,118 @@
 
 ### Solution 1 ###
 
-apurplenose (15.0) konsumenci (10.0) sssthnoob (10.0) annayanami (9.5)
-bella (16.5) swapin (10.0) kyuuuu (9.0) porte (9.0)
-emdiel (14.5) pratasz (13.0) wolbachia (10.5) hubcioskubcio (6.5)
-floth (13.5) fumiii (12.5) dry (11.0) justaweirdo (7.0)
+neoburnz (17.0) oolli (9.0) catge (8.0) anicomi (6.0)
+renzou (16.5) chaabdu92 (11.5) mythandroid (7.5) eljuanchi (4.5)
+dry (11.0) time2hack (10.5) shadow (9.5) kyuuuu (9.0)
+beokros (12.0) sssthnoob (10.0) skychael (10.0) 2skr (8.0)
+apurplenose (15.0) naizuri (8.5) xeyz (8.5) potatosnipez (8.0)
+moosepi (14.0) annayanami (9.5) patoche49 (8.5) keysha18 (8.0)
+shiratoriamaha (14.5) zokie (10.0) miiarad (10.0) okitanobu (5.5)
+emdiel (14.5) cipherkai (10.5) i_dont_like_loli (8.5) justaweirdo (7.0)
 
 ### Solution 2 ###
 
-emdiel (14.5) pratasz (13.0) konsumenci (10.0) justaweirdo (7.0)
-floth (13.5) dry (11.0) wolbachia (10.5) porte (9.0)
-apurplenose (15.0) sssthnoob (10.0) swapin (10.0) annayanami (9.5)
-bella (16.5) fumiii (12.5) kyuuuu (9.0) hubcioskubcio (6.5)
+neoburnz (17.0) oolli (9.0) catge (8.0) anicomi (6.0)
+renzou (16.5) chaabdu92 (11.5) mythandroid (7.5) eljuanchi (4.5)
+dry (11.0) time2hack (10.5) shadow (9.5) kyuuuu (9.0)
+beokros (12.0) sssthnoob (10.0) skychael (10.0) 2skr (8.0)
+apurplenose (15.0) patoche49 (8.5) xeyz (8.5) potatosnipez (8.0)
+moosepi (14.0) annayanami (9.5) naizuri (8.5) keysha18 (8.0)
+shiratoriamaha (14.5) zokie (10.0) miiarad (10.0) okitanobu (5.5)
+emdiel (14.5) cipherkai (10.5) i_dont_like_loli (8.5) justaweirdo (7.0)
 
 ### Solution 3 ###
 
-emdiel (14.5) pratasz (13.0) konsumenci (10.0) justaweirdo (7.0)
-apurplenose (15.0) dry (11.0) annayanami (9.5) porte (9.0)
-floth (13.5) wolbachia (10.5) sssthnoob (10.0) swapin (10.0)
-bella (16.5) fumiii (12.5) kyuuuu (9.0) hubcioskubcio (6.5)
+beokros (12.0) time2hack (10.5) oolli (9.0) xeyz (8.5)
+chaabdu92 (11.5) sssthnoob (10.0) miiarad (10.0) naizuri (8.5)
+shiratoriamaha (14.5) cipherkai (10.5) keysha18 (8.0) mythandroid (7.5)
+renzou (16.5) skychael (10.0) potatosnipez (8.0) okitanobu (5.5)
+neoburnz (17.0) zokie (10.0) i_dont_like_loli (8.5) eljuanchi (4.5)
+apurplenose (15.0) annayanami (9.5) shadow (9.5) anicomi (6.0)
+emdiel (14.5) kyuuuu (9.0) patoche49 (8.5) catge (8.0)
+moosepi (14.0) dry (11.0) 2skr (8.0) justaweirdo (7.0)
 
 ### Solution 4 ###
 
-apurplenose (15.0) sssthnoob (10.0) swapin (10.0) annayanami (9.5)
-bella (16.5) konsumenci (10.0) kyuuuu (9.0) porte (9.0)
-emdiel (14.5) fumiii (12.5) wolbachia (10.5) hubcioskubcio (6.5)
-floth (13.5) pratasz (13.0) dry (11.0) justaweirdo (7.0)
+dry (11.0) cipherkai (10.5) time2hack (10.5) potatosnipez (8.0)
+beokros (12.0) chaabdu92 (11.5) patoche49 (8.5) xeyz (8.5)
+renzou (16.5) zokie (10.0) oolli (9.0) eljuanchi (4.5)
+emdiel (14.5) sssthnoob (10.0) annayanami (9.5) anicomi (6.0)
+moosepi (14.0) kyuuuu (9.0) naizuri (8.5) i_dont_like_loli (8.5)
+neoburnz (17.0) catge (8.0) keysha18 (8.0) justaweirdo (7.0)
+shiratoriamaha (14.5) skychael (10.0) miiarad (10.0) okitanobu (5.5)
+apurplenose (15.0) shadow (9.5) 2skr (8.0) mythandroid (7.5)
 
 ### Solution 5 ###
 
-apurplenose (15.0) sssthnoob (10.0) swapin (10.0) annayanami (9.5)
-bella (16.5) konsumenci (10.0) kyuuuu (9.0) porte (9.0)
-emdiel (14.5) pratasz (13.0) wolbachia (10.5) hubcioskubcio (6.5)
-floth (13.5) fumiii (12.5) dry (11.0) justaweirdo (7.0)
+emdiel (14.5) oolli (9.0) naizuri (8.5) keysha18 (8.0)
+beokros (12.0) chaabdu92 (11.5) dry (11.0) okitanobu (5.5)
+moosepi (14.0) kyuuuu (9.0) i_dont_like_loli (8.5) xeyz (8.5)
+neoburnz (17.0) catge (8.0) 2skr (8.0) justaweirdo (7.0)
+sssthnoob (10.0) zokie (10.0) skychael (10.0) miiarad (10.0)
+apurplenose (15.0) annayanami (9.5) shadow (9.5) anicomi (6.0)
+shiratoriamaha (14.5) cipherkai (10.5) time2hack (10.5) eljuanchi (4.5)
+renzou (16.5) patoche49 (8.5) potatosnipez (8.0) mythandroid (7.5)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-apurplenose (15.0) konsumenci (10.0) sssthnoob (10.0) annayanami (9.5) | Total = 44.5 | Guesses = [5555]
-bella (16.5) swapin (10.0) kyuuuu (9.0) porte (9.0) | Total = 44.5 | Guesses = [5555]
-emdiel (14.5) pratasz (13.0) wolbachia (10.5) hubcioskubcio (6.5) | Total = 44.5 | Guesses = [5553]
-floth (13.5) fumiii (12.5) dry (11.0) justaweirdo (7.0) | Total = 44.0 | Guesses = [5554]
+neoburnz (17.0) oolli (9.0) catge (8.0) anicomi (6.0) | Total = 40.0 | Guesses = [5543]
+renzou (16.5) chaabdu92 (11.5) mythandroid (7.5) eljuanchi (4.5) | Total = 40.0 | Guesses = [5542]
+dry (11.0) time2hack (10.5) shadow (9.5) kyuuuu (9.0) | Total = 40.0 | Guesses = [5555]
+beokros (12.0) sssthnoob (10.0) skychael (10.0) 2skr (8.0) | Total = 40.0 | Guesses = [5554]
+apurplenose (15.0) naizuri (8.5) xeyz (8.5) potatosnipez (8.0) | Total = 40.0 | Guesses = [5554]
+moosepi (14.0) annayanami (9.5) patoche49 (8.5) keysha18 (8.0) | Total = 40.0 | Guesses = [5554]
+shiratoriamaha (14.5) zokie (10.0) miiarad (10.0) okitanobu (5.5) | Total = 40.0 | Guesses = [5553]
+emdiel (14.5) cipherkai (10.5) i_dont_like_loli (8.5) justaweirdo (7.0) | Total = 40.5 | Guesses = [5554]
 
 ### Solution 2 ###
 
-emdiel (14.5) pratasz (13.0) konsumenci (10.0) justaweirdo (7.0) | Total = 44.5 | Guesses = [5554]
-floth (13.5) dry (11.0) wolbachia (10.5) porte (9.0) | Total = 44.0 | Guesses = [5555]
-apurplenose (15.0) sssthnoob (10.0) swapin (10.0) annayanami (9.5) | Total = 44.5 | Guesses = [5555]
-bella (16.5) fumiii (12.5) kyuuuu (9.0) hubcioskubcio (6.5) | Total = 44.5 | Guesses = [5553]
+neoburnz (17.0) oolli (9.0) catge (8.0) anicomi (6.0) | Total = 40.0 | Guesses = [5543]
+renzou (16.5) chaabdu92 (11.5) mythandroid (7.5) eljuanchi (4.5) | Total = 40.0 | Guesses = [5542]
+dry (11.0) time2hack (10.5) shadow (9.5) kyuuuu (9.0) | Total = 40.0 | Guesses = [5555]
+beokros (12.0) sssthnoob (10.0) skychael (10.0) 2skr (8.0) | Total = 40.0 | Guesses = [5554]
+apurplenose (15.0) patoche49 (8.5) xeyz (8.5) potatosnipez (8.0) | Total = 40.0 | Guesses = [5554]
+moosepi (14.0) annayanami (9.5) naizuri (8.5) keysha18 (8.0) | Total = 40.0 | Guesses = [5554]
+shiratoriamaha (14.5) zokie (10.0) miiarad (10.0) okitanobu (5.5) | Total = 40.0 | Guesses = [5553]
+emdiel (14.5) cipherkai (10.5) i_dont_like_loli (8.5) justaweirdo (7.0) | Total = 40.5 | Guesses = [5554]
 
 ### Solution 3 ###
 
-emdiel (14.5) pratasz (13.0) konsumenci (10.0) justaweirdo (7.0) | Total = 44.5 | Guesses = [5554]
-apurplenose (15.0) dry (11.0) annayanami (9.5) porte (9.0) | Total = 44.5 | Guesses = [5555]
-floth (13.5) wolbachia (10.5) sssthnoob (10.0) swapin (10.0) | Total = 44.0 | Guesses = [5555]
-bella (16.5) fumiii (12.5) kyuuuu (9.0) hubcioskubcio (6.5) | Total = 44.5 | Guesses = [5553]
+beokros (12.0) time2hack (10.5) oolli (9.0) xeyz (8.5) | Total = 40.0 | Guesses = [5555]
+chaabdu92 (11.5) sssthnoob (10.0) miiarad (10.0) naizuri (8.5) | Total = 40.0 | Guesses = [5555]
+shiratoriamaha (14.5) cipherkai (10.5) keysha18 (8.0) mythandroid (7.5) | Total = 40.5 | Guesses = [5544]
+renzou (16.5) skychael (10.0) potatosnipez (8.0) okitanobu (5.5) | Total = 40.0 | Guesses = [5543]
+neoburnz (17.0) zokie (10.0) i_dont_like_loli (8.5) eljuanchi (4.5) | Total = 40.0 | Guesses = [5552]
+apurplenose (15.0) annayanami (9.5) shadow (9.5) anicomi (6.0) | Total = 40.0 | Guesses = [5553]
+emdiel (14.5) kyuuuu (9.0) patoche49 (8.5) catge (8.0) | Total = 40.0 | Guesses = [5554]
+moosepi (14.0) dry (11.0) 2skr (8.0) justaweirdo (7.0) | Total = 40.0 | Guesses = [5544]
 
 ### Solution 4 ###
 
-apurplenose (15.0) sssthnoob (10.0) swapin (10.0) annayanami (9.5) | Total = 44.5 | Guesses = [5555]
-bella (16.5) konsumenci (10.0) kyuuuu (9.0) porte (9.0) | Total = 44.5 | Guesses = [5555]
-emdiel (14.5) fumiii (12.5) wolbachia (10.5) hubcioskubcio (6.5) | Total = 44.0 | Guesses = [5553]
-floth (13.5) pratasz (13.0) dry (11.0) justaweirdo (7.0) | Total = 44.5 | Guesses = [5554]
+dry (11.0) cipherkai (10.5) time2hack (10.5) potatosnipez (8.0) | Total = 40.0 | Guesses = [5554]
+beokros (12.0) chaabdu92 (11.5) patoche49 (8.5) xeyz (8.5) | Total = 40.5 | Guesses = [5555]
+renzou (16.5) zokie (10.0) oolli (9.0) eljuanchi (4.5) | Total = 40.0 | Guesses = [5552]
+emdiel (14.5) sssthnoob (10.0) annayanami (9.5) anicomi (6.0) | Total = 40.0 | Guesses = [5553]
+moosepi (14.0) kyuuuu (9.0) naizuri (8.5) i_dont_like_loli (8.5) | Total = 40.0 | Guesses = [5555]
+neoburnz (17.0) catge (8.0) keysha18 (8.0) justaweirdo (7.0) | Total = 40.0 | Guesses = [5444]
+shiratoriamaha (14.5) skychael (10.0) miiarad (10.0) okitanobu (5.5) | Total = 40.0 | Guesses = [5553]
+apurplenose (15.0) shadow (9.5) 2skr (8.0) mythandroid (7.5) | Total = 40.0 | Guesses = [5544]
 
 ### Solution 5 ###
 
-apurplenose (15.0) sssthnoob (10.0) swapin (10.0) annayanami (9.5) | Total = 44.5 | Guesses = [5555]
-bella (16.5) konsumenci (10.0) kyuuuu (9.0) porte (9.0) | Total = 44.5 | Guesses = [5555]
-emdiel (14.5) pratasz (13.0) wolbachia (10.5) hubcioskubcio (6.5) | Total = 44.5 | Guesses = [5553]
-floth (13.5) fumiii (12.5) dry (11.0) justaweirdo (7.0) | Total = 44.0 | Guesses = [5554]
+emdiel (14.5) oolli (9.0) naizuri (8.5) keysha18 (8.0) | Total = 40.0 | Guesses = [5554]
+beokros (12.0) chaabdu92 (11.5) dry (11.0) okitanobu (5.5) | Total = 40.0 | Guesses = [5553]
+moosepi (14.0) kyuuuu (9.0) i_dont_like_loli (8.5) xeyz (8.5) | Total = 40.0 | Guesses = [5555]
+neoburnz (17.0) catge (8.0) 2skr (8.0) justaweirdo (7.0) | Total = 40.0 | Guesses = [5444]
+sssthnoob (10.0) zokie (10.0) skychael (10.0) miiarad (10.0) | Total = 40.0 | Guesses = [5555]
+apurplenose (15.0) annayanami (9.5) shadow (9.5) anicomi (6.0) | Total = 40.0 | Guesses = [5553]
+shiratoriamaha (14.5) cipherkai (10.5) time2hack (10.5) eljuanchi (4.5) | Total = 40.0 | Guesses = [5552]
+renzou (16.5) patoche49 (8.5) potatosnipez (8.0) mythandroid (7.5) | Total = 40.5 | Guesses = [5544]
 
-Average: 44.375
+Average: 40.0625
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

@@ -2,28 +2,28 @@
 
 ### Solution 1 ###
 
-floth (13.793) liljakatsuragi (11.590) yasashiikumo (11.085) lightning (10.474)
-mikasaackerman (15.483) ss_r_white_pony (11.640) skychael (10.838) ranny (8.954)
-nephirea (15.260) ephemeral (13.032) cipherkai (11.946) tsuni (6.722)
-neoburnz (17.469) shelterrin (11.540) oshino_bu (9.029) i_dont_like_loli (8.933)
-bella (16.539) anoru_ (15.244) vuhrculls (9.737) osxtrafton (5.379)
-poolnoodle (20.244) dry (11.856) anicomi (7.375) tateyamaayano (7.357)
+cipherkai (11.970) dry (11.798) skychael (10.916) kyuuuu (9.659)
+ephemeral (13.087) wolbachia (11.534) provenance (11.164) potatosnipez (8.597)
+mami (14.701) kaededayo (14.069) oolli (9.602) foopypoopy (5.967)
+zental (13.477) chemist (12.180) lightning (10.474) inta (8.221)
+floth (13.827) dking20 (13.614) shelterrin (11.540) osxtrafton (5.379)
+neoburnz (17.503) miiarad (11.236) catge (8.269) tateyamaayano (7.357)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-floth (13.793) liljakatsuragi (11.590) yasashiikumo (11.085) lightning (10.474) | Total = 46.942 | Guesses = [5555]
-mikasaackerman (15.483) ss_r_white_pony (11.640) skychael (10.838) ranny (8.954) | Total = 46.915 | Guesses = [5555]
-nephirea (15.260) ephemeral (13.032) cipherkai (11.946) tsuni (6.722) | Total = 46.960 | Guesses = [5552]
-neoburnz (17.469) shelterrin (11.540) oshino_bu (9.029) i_dont_like_loli (8.933) | Total = 46.971 | Guesses = [5555]
-bella (16.539) anoru_ (15.244) vuhrculls (9.737) osxtrafton (5.379) | Total = 46.899 | Guesses = [5551]
-poolnoodle (20.244) dry (11.856) anicomi (7.375) tateyamaayano (7.357) | Total = 46.832 | Guesses = [5533]
+cipherkai (11.970) dry (11.798) skychael (10.916) kyuuuu (9.659) | Total = 44.343 | Guesses = [5555]
+ephemeral (13.087) wolbachia (11.534) provenance (11.164) potatosnipez (8.597) | Total = 44.382 | Guesses = [5554]
+mami (14.701) kaededayo (14.069) oolli (9.602) foopypoopy (5.967) | Total = 44.339 | Guesses = [5551]
+zental (13.477) chemist (12.180) lightning (10.474) inta (8.221) | Total = 44.352 | Guesses = [5554]
+floth (13.827) dking20 (13.614) shelterrin (11.540) osxtrafton (5.379) | Total = 44.360 | Guesses = [5551]
+neoburnz (17.503) miiarad (11.236) catge (8.269) tateyamaayano (7.357) | Total = 44.365 | Guesses = [5543]
 
-Average: 46.9198
+Average: 44.3568
 
-[Challonge](YOUR_CHALLONGE_URL)
+[Challonge](https://challonge.com/9zuwolpk)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
 ≥8.75: 5 guesses
