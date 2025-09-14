@@ -24,7 +24,7 @@ Stats based approach to determine a person rank.
 
 1. Run `TierMaker.py` to update the elos to latest values
 2. Add players to `players.txt`
-3. Run `NGMSolver`, output will be found in `codes.txt`
+3. Run `NGMSolver.py`, output will be found in `codes.txt`
     - If there is a new player, you will be prompted to add them to `ranks.txt`.
     - If there is a unrecognised alias, add them to `aliases.txt`. Use tabs, or copy and paste the space between two names in already existing examples.
 4. When tour ends, run the stats
@@ -40,24 +40,30 @@ Compare with other existing players inside `gamemode_elos.json` to have guesstim
 
 ## Watched
 
-≥8.75: 5 guesses
-8-8.74: 4 guesses
-7-7.99: 3 guesses
-6-6.99: 2 guesses
-≤5.99: 1 guess
+- ≥8.75: 5 guesses
+- 8-8.74: 4 guesses
+- 7-7.99: 3 guesses
+- 6-6.99: 2 guesses
+- ≤5.99: 1 guess
 
 ## Usual
 
-≥10: 4 guesses
-8-10: 3 guesses
-7-8: 2 guesses
-≤7: 1 guess
+- ≥10: 4 guesses
+- 8-10: 3 guesses
+- 7-8: 2 guesses
+- ≤7: 1 guess
 
 ## OP/ED/IN
 
-≥10: 4 guesses
-8-10: 3 guesses
-6.5-8: 2 guesses
-≤6.5: 1 guess
+- ≥10: 4 guesses
+- 8-10: 3 guesses
+- 6.5-8: 2 guesses
+- ≤6.5: 1 guess
 
 FEEDBACK FOR THRESHOLDS ALWAYS APPRECIATED
+
+# Step by step if you didn't update ranks before tour start:
+- Run `TierMaker.py`. Your elos are now up to date with latest tour
+- Delete latest tour from `gamemode_stats.csv`
+- Run `TierMaker.py -k`. The flag `-k` means to use local files. Your elos are now what they were before the latest tour
+- Run `TierMaker.py` again without any flags. Your elos are now latest again but you have the correct delta for mvps

@@ -240,18 +240,18 @@ def generate_codes(gamemode, txtvar):
             txtvar += "```e0g0z211111100100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Random NGMC guess distributions:
 ≥10: 4 guesses
-8-10: 3 guesses
-7-8: 2 guesses
-≤7: 1 guess
+8.25-10: 3 guesses
+6.25-8.25: 2 guesses
+≤6.25: 1 guess
 """
     return txtvar
 
 def get_guess(val):
     if val >= 10:
         return '4'
-    elif val >= 8:
+    elif val >= 8.25:
         return '3'
-    elif val >= 7:
+    elif val >= 6.25:
         return '2'
     else:
         return '1'

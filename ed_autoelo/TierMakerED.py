@@ -19,7 +19,7 @@ past_tours = 10
 # Year from which we start considering potentially usable data points
 chosen_year = 2025
 # Window of months to draw data points from
-month_window = 2
+month_window = 3
 # Do not go further than 6 months to gather data
 max_fallback_window = 6
 cleanedstats = os.path.abspath("ed_clean.csv")
@@ -173,8 +173,25 @@ def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.33, ma
     # Combine into a single raw score (equal weighting)
     df["raw_score"] = GR_weight * df["norm_gr"] + UF_weight * df["norm_uf"]
 
+    def spread_lower_tail(elo, knee=9.0, gamma=1.6, cap=25.0):
+        """
+        - elo: array/Series of current scores
+        - knee: values >= knee are left unchanged
+        - gamma > 1 spreads values in [0, knee) downward (more variety in 0–8)
+        - cap: optional max to clip at the top end
+        """
+        elo = np.asarray(elo, dtype=float)
+        below = elo < knee
+        out = elo.copy()
+        # map [0, knee) -> [0, knee) with f(0)=0, f(knee)=knee
+        out[below] = knee * (elo[below] / knee) ** gamma
+        if cap is not None:
+            out = np.clip(out, 0, cap)
+        return out
+
     # Apply sigmoid transformation
     df["elo"] = max_score / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
+    df["elo"] = spread_lower_tail(df["elo"], knee=9.0, gamma=1.6, cap=max_score)
     return df
 
 # Find MVPs

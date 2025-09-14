@@ -2,27 +2,35 @@
 
 ### Solution 1 ###
 
-neoburnz (13.674) hmsuis (10.615) floth (9.574) fumiii (9.340)
-diukes (14.513) mkby (11.216) janoxx (9.090) ss_r_white_pony (8.418)
-comfv (13.694) hyonoobka (10.546) dry (9.971) swapin (9.004)
-theyingster (21.477) yellowrose (8.129) legrandort (7.956) okitanobu (7.321)
+oh95 (11.050) kaededayo (10.781) hmsuis (10.539) yashadox (7.920)
+selaph (10.542) md22 (10.209) dry (9.905) lakumix (9.647)
+kabigon (11.157) mkby (11.123) jakemonkey (9.202) swapin (8.807)
+lelpop (12.124) yokipi (10.094) skychael (9.236) annayanami (8.858)
+smarthardyz (14.287) saiki (9.706) cipherkai (8.953) ranny (7.342)
+bella (13.445) darkynep (11.000) provenance (9.553) eljuanchi (6.246)
+diukes (14.127) yasashiikumo (9.180) zokie (8.652) konsumenci (8.339)
+kar72 (14.782) raidenmei (10.859) kabao (8.075) mitsorubi (6.572)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-neoburnz (13.674) hmsuis (10.615) floth (9.574) fumiii (9.340) | Total = 43.203 | Guesses = [4433]
-diukes (14.513) mkby (11.216) janoxx (9.090) ss_r_white_pony (8.418) | Total = 43.237 | Guesses = [4433]
-comfv (13.694) hyonoobka (10.546) dry (9.971) swapin (9.004) | Total = 43.215 | Guesses = [4433]
-theyingster (21.477) yellowrose (8.129) legrandort (7.956) okitanobu (7.321) | Total = 44.883 | Guesses = [4322]
+oh95 (11.050) kaededayo (10.781) hmsuis (10.539) yashadox (7.920) | Total = 40.290 | Guesses = [4442]
+selaph (10.542) md22 (10.209) dry (9.905) lakumix (9.647) | Total = 40.303 | Guesses = [4433]
+kabigon (11.157) mkby (11.123) jakemonkey (9.202) swapin (8.807) | Total = 40.289 | Guesses = [4433]
+lelpop (12.124) yokipi (10.094) skychael (9.236) annayanami (8.858) | Total = 40.312 | Guesses = [4433]
+smarthardyz (14.287) saiki (9.706) cipherkai (8.953) ranny (7.342) | Total = 40.288 | Guesses = [4332]
+bella (13.445) darkynep (11.000) provenance (9.553) eljuanchi (6.246) | Total = 40.244 | Guesses = [4431]
+diukes (14.127) yasashiikumo (9.180) zokie (8.652) konsumenci (8.339) | Total = 40.298 | Guesses = [4333]
+kar72 (14.782) raidenmei (10.859) kabao (8.075) mitsorubi (6.572) | Total = 40.288 | Guesses = [4422]
 
-Average: 43.6345
+Average: 40.289
 
-[Challonge](https://challonge.com/d17r8b37)
+[Challonge](https://challonge.com/u7j6auon)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
 ≥10: 4 guesses
-8-10: 3 guesses
-7-8: 2 guesses
-≤7: 1 guess
+8.25-10: 3 guesses
+6.25-8.25: 2 guesses
+≤6.25: 1 guess

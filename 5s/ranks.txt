@@ -1,43 +1,44 @@
+22: fayeurs 
 21: theyingster
 20.5: watashiii, stunar
 20: poolnoodle
 19.5: deafness, fortnayt
-19: zippy
+19: zippy, offensearmor
 18.5: sakurabarola, thaleko, civiltwlight
-18: math1234, remake, bop, gyroinmobile, yurimeguri
-17.5: hejsan, revel, nazemeiyue, kar72
-17: sniparook
-16.5: neoburnz, 753, bella, renzou
-16: bofu, cupcakke 
+18: remake, bop, gyroinmobile, yurimeguri, kar72
+17.5: hejsan, revel, nazemeiyue
+17: sniparook, neoburnz, math1234
+16.5: bella, renzou
+16: bofu, cupcakke, milar
 15.5: shag, mahirushiina
-15: julialess64, mami, apurplenose, kabigon, milar, oh95, diukes, hihi, shuuka
-14.5: nephirea, akaze, jube, emdiel, shiratoriamaha, anoru_, kawada6, darkynep, claydoll1091, mrwolf
-14: moosepi, cafezinho, saiki, mekokicco
-13.5: peeku, anonimus_opinion, bamboo, legitted, sayuridate, jessi, laggyglassysky, RaidenMei, comete, floth
-13: maki04, ruuka, pratasz, mkby, zental, python
-12.5: nicoie, alicerin, comfv, kaededayo, progenitor, flato, knotanymore, fumiii
-12: ephemeral, doomchicken, mayottatoki, mahzrunner, baikinman, dking20, rorf, beautiful, beokros, uomi
-11.5: florenz, chemist, sgtvp, chaabdu92, orfey, komari
-11: _nadeshiko, zeal_kido, tapumomo, denero, lelpop, yolowolf75, vortex, smarthardyz, dry, pile, kuterin
-10.5: solosion, hmsuis, janoxx, dio, redeyes, animerod, shiroganelily, ss_r_white_pony, jakemonkey, wolbachia, keizan, kirox, aitsukinakuru, cipherkai, liljakatsuragi, alkios, lakumix
-10: skychael, provenance, konsumenci, torradinhas, swapin, yasashiikumo, zokie, andrey_k, miiarad, shelterrin, sharet, sssthnoob, bommie
-9.5: md22, time2hack, qwecocacola, zozo, fuck_amq, sayuriii, atsui, AnnaYanami, tskr, serozero, shadow, yunnn, spitzell, benevelante, spartric, chrislefko, lightning
-9: anotherwish, uy5gf, porte, potassiumf, rna, bigsmo, hachiman215, ggius, Heleos, pengvinen, vr0003, oolli, vuhrculls, kyuuuu
-8.5: fiftypercentweeb, nefregar, cm02, naizuri, xeyz, legrandort, patoche49, shiku
-8: ranny, oshino_bu, i_dont_like_loli, harges, kabao, iamasiannoob, 2skr, potatosnipez, arpia97, catge
-7.5: psirockin, kanakanowata, chommy, poppysr, mythandroid
-7: justaweirdo, inta, gw13, goko8765, yellowrose
-6.5: hubcioskubcio, mangalodon, jamalamadingdong
-6: shissou, tateyamaayano, megu29, anicomi
-5.5: molneya, okitanobu
-5: xjan256, tsuni, rhummy
-4.5:mitsorubi, eljuanchi, anatharax
-4: obesity
+15: julialess64, oh95, diukes, hihi, shuuka, darkynep, shiratoriamaha, anoru_
+14.5: mekokicco, akaze, jube, emdiel, mami, nephirea, kawada6, apurplenose, kabigon, claydoll1091, mrwolf
+14: zental, moosepi, cafezinho, kaededayo, 753, floth
+13.5: peeku, anonimus_opinion, bamboo, legitted, sayuridate, laggyglassysky, RaidenMei, comete, fumiii, jessi, saiki
+13: python, mayottatoki, pratasz, mkby
+12.5: nicoie, alicerin, comfv, maki04, progenitor, ephemeral, beokros, dking20, pile
+12: doomchicken, baikinman, ruuka, flato, komari, rorf, mahzrunner
+11.5: hmsuis, florenz, sgtvp, orfey, knotanymore, beautiful, uomi, chemist
+11: dry, lakumix, konsumenci, denero, lelpop, yolowolf75, vortex, smarthardyz, kuterin, aitsukinakuru, swapin, cipherkai, time2hack, tapumomo, zeal_kido, wolbachia, ss_r_white_pony, _nadeshiko, shelterrin
+10.5: dio, redeyes, shiroganelily, liljakatsuragi, jakemonkey, chaabdu92, solosion, animerod, keizan
+10: provenance, janoxx, torradinhas, skychael, sssthnoob, alkios, miiarad, sharet, bommie, yasashiikumo, md22, anotherwish
+9.5: shadow, benevelante, AnnaYanami, zozo, serozero, kirox, uy5gf, fuck_amq, sayuriii, atsui, yunnn, spitzell, spartric, chrislefko, lightning, qwecocacola
+9: kyuuuu, vuhrculls, porte, bigsmo, naizuri, oolli, potassiumf, zokie, kabao, gua, nefregar, shiku, rna, hachiman215, ggius, Heleos, pengvinen
+8.5: fiftypercentweeb, i_dont_like_loli, legrandort, tskr, patoche49, keysha18, andrey_k, psirockin, cm02, xeyz
+8: ranny, oshino_bu, dio, harges, 2skr, potatosnipez, yellowrose, arpia97, catge, iamasiannoob
+7.5: chommy, poppysr, inta, justaweirdo
+7: mythandroid, gw13, goko8765
+6.5: megu29, kanakanowata, okitanobu, jamalamadingdong
+6: anicomi, shissou, tateyamaayano, hubcioskubcio
+5.5: molneya, mangalodon
+5: anatharax, xjan256, rhummy, tsuni
+4.5:mitsorubi, eljuanchi
+4: obesity, gameplayer299
 3.5: meowstic2121, lordgrond, foopypoopy, kuusetsu
 3: 
 2.5:
-2: waterbird 
+2: waterbird, brandon_k
 1.5: 
 1: azure10
-0.5:erzakuran
+0.5:erzakuran, heroftime
 0:

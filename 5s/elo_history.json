@@ -1,0 +1,40 @@
+[
+	{
+		"tour_id": "w104i5ji",
+		"time": "2025-09-12 18:30:00+03:00",
+		"teams": {
+			"nephirea (14.50) shadow (9.50) porte (9.00) inta (7.50) = 40.50": "4W 1L 0D",
+			"progenitor (12.50) komari (12.00) patoche49 (8.50) catge (8.00) = 41.00": "2W 3L 0D",
+			"fayeurs (22.00) mythandroid (7.00) anicomi (6.00) hubcioskubcio (6.00) = 41.00": "0W 5L 0D",
+			"dry (11.00) swapin (11.00) time2hack (11.00) chommy (7.50) = 40.50": "4W 1L 0D",
+			"mkby (13.00) bommie (10.00) zokie (9.00) keysha18 (8.50) = 40.50": "2W 3L 0D",
+			"maki04 (12.50) sssthnoob (10.00) annayanami (9.50) andrey_k (8.50) = 40.50": "3W 2L 0D"
+		},
+		"player": {
+			"nephirea": "initial elo: 14.500, new elo: 14.970, rating change: 0.470",
+			"shadow": "initial elo: 9.500, new elo: 9.970, rating change: 0.470",
+			"porte": "initial elo: 9.000, new elo: 9.470, rating change: 0.470",
+			"inta": "initial elo: 7.500, new elo: 7.970, rating change: 0.470",
+			"progenitor": "initial elo: 12.500, new elo: 12.330, rating change: -0.170",
+			"komari": "initial elo: 12.000, new elo: 11.830, rating change: -0.170",
+			"patoche49": "initial elo: 8.500, new elo: 8.330, rating change: -0.170",
+			"catge": "initial elo: 8.000, new elo: 7.830, rating change: -0.170",
+			"fayeurs": "initial elo: 22.000, new elo: 21.219, rating change: -0.781",
+			"mythandroid": "initial elo: 7.000, new elo: 6.219, rating change: -0.781",
+			"anicomi": "initial elo: 6.000, new elo: 5.219, rating change: -0.781",
+			"hubcioskubcio": "initial elo: 6.000, new elo: 5.219, rating change: -0.781",
+			"dry": "initial elo: 11.000, new elo: 11.464, rating change: 0.464",
+			"swapin": "initial elo: 11.000, new elo: 11.464, rating change: 0.464",
+			"time2hack": "initial elo: 11.000, new elo: 11.464, rating change: 0.464",
+			"chommy": "initial elo: 7.500, new elo: 7.964, rating change: 0.464",
+			"mkby": "initial elo: 13.000, new elo: 12.847, rating change: -0.153",
+			"bommie": "initial elo: 10.000, new elo: 9.847, rating change: -0.153",
+			"zokie": "initial elo: 9.000, new elo: 8.847, rating change: -0.153",
+			"keysha18": "initial elo: 8.500, new elo: 8.347, rating change: -0.153",
+			"maki04": "initial elo: 12.500, new elo: 12.671, rating change: 0.171",
+			"sssthnoob": "initial elo: 10.000, new elo: 10.171, rating change: 0.171",
+			"annayanami": "initial elo: 9.500, new elo: 9.671, rating change: 0.171",
+			"andrey_k": "initial elo: 8.500, new elo: 8.671, rating change: 0.171"
+		}
+	}
+]

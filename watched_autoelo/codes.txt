@@ -2,28 +2,36 @@
 
 ### Solution 1 ###
 
-cipherkai (11.970) dry (11.798) skychael (10.916) kyuuuu (9.659)
-ephemeral (13.087) wolbachia (11.534) provenance (11.164) potatosnipez (8.597)
-mami (14.701) kaededayo (14.069) oolli (9.602) foopypoopy (5.967)
-zental (13.477) chemist (12.180) lightning (10.474) inta (8.221)
-floth (13.827) dking20 (13.614) shelterrin (11.540) osxtrafton (5.379)
-neoburnz (17.503) miiarad (11.236) catge (8.269) tateyamaayano (7.357)
+bofu (16.552) cipherkai (12.203) mythandroid (8.090) hubcioskubcio (7.090)
+nephirea (15.116) oh95 (14.902) chommy (8.417) heroftime (5.495)
+neoburnz (17.740) keizan (11.208) inta (8.528) eljuanchi (6.418)
+rorf (12.501) konsumenci (11.747) yasashiikumo (11.139) keysha18 (8.555)
+apurplenose (15.023) dry (11.992) yellowrose (8.565) justaweirdo (8.207)
+fumiii (13.918) mahzrunner (12.460) kyuuuu (10.067) anicomi (7.501)
+maki04 (13.703) miiarad (11.402) porte (9.813) cm02 (8.870)
+mayottatoki (12.838) chemist (11.873) bommie (11.261) okitanobu (7.774)
+emdiel (15.128) supersmooth (14.500) 2skr (8.905) brandon_k (5.396)
+zental (14.243) annayanami (10.750) naizuri (9.608) i_dont_like_loli (9.280)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-cipherkai (11.970) dry (11.798) skychael (10.916) kyuuuu (9.659) | Total = 44.343 | Guesses = [5555]
-ephemeral (13.087) wolbachia (11.534) provenance (11.164) potatosnipez (8.597) | Total = 44.382 | Guesses = [5554]
-mami (14.701) kaededayo (14.069) oolli (9.602) foopypoopy (5.967) | Total = 44.339 | Guesses = [5551]
-zental (13.477) chemist (12.180) lightning (10.474) inta (8.221) | Total = 44.352 | Guesses = [5554]
-floth (13.827) dking20 (13.614) shelterrin (11.540) osxtrafton (5.379) | Total = 44.360 | Guesses = [5551]
-neoburnz (17.503) miiarad (11.236) catge (8.269) tateyamaayano (7.357) | Total = 44.365 | Guesses = [5543]
+bofu (16.552) cipherkai (12.203) mythandroid (8.090) hubcioskubcio (7.090) | Total = 43.935 | Guesses = [5543]
+nephirea (15.116) oh95 (14.902) chommy (8.417) heroftime (5.495) | Total = 43.930 | Guesses = [5541]
+neoburnz (17.740) keizan (11.208) inta (8.528) eljuanchi (6.418) | Total = 43.894 | Guesses = [5542]
+rorf (12.501) konsumenci (11.747) yasashiikumo (11.139) keysha18 (8.555) | Total = 43.942 | Guesses = [5554]
+apurplenose (15.023) dry (11.992) yellowrose (8.565) justaweirdo (8.207) | Total = 43.787 | Guesses = [5544]
+fumiii (13.918) mahzrunner (12.460) kyuuuu (10.067) anicomi (7.501) | Total = 43.946 | Guesses = [5553]
+maki04 (13.703) miiarad (11.402) porte (9.813) cm02 (8.870) | Total = 43.788 | Guesses = [5555]
+mayottatoki (12.838) chemist (11.873) bommie (11.261) okitanobu (7.774) | Total = 43.746 | Guesses = [5553]
+emdiel (15.128) supersmooth (14.500) 2skr (8.905) brandon_k (5.396) | Total = 43.929 | Guesses = [5551]
+zental (14.243) annayanami (10.750) naizuri (9.608) i_dont_like_loli (9.280) | Total = 43.881 | Guesses = [5555]
 
-Average: 44.3568
+Average: 43.8778
 
-[Challonge](https://challonge.com/9zuwolpk)
+[Challonge](https://challonge.com/8lmyr5l3)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
 ≥8.75: 5 guesses

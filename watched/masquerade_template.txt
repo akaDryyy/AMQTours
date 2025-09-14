@@ -1,17 +1,35 @@
-Masquerade Theme: THEME
+Masquerade Theme: NO THEME THIS TIME
 
 Easy way to create a new account:
 
-https://temp-mail.org/en/
+<https://temp-mail.org/en/>
 
 After you created your account fill out this sheet to let me know your ALTs name.
 
-https://docs.google.com/forms/d/1NWFmuSD_CcNrTNAgWYAvXicSf6qvvLQJv032t4yAi4Y
+<https://docs.google.com/forms/d/1NWFmuSD_CcNrTNAgWYAvXicSf6qvvLQJv032t4yAi4Y>
 
 Important: Make sure you are hiding your list and the checkmark on "show scores" is also turned off. Leave the share entries on.
 
-Masquerade:
+# Masquerade:
 
-For the ones who dont know what masquerade is: You basically create an alt account and play your normal ngmc watched game without ppl knowing who u are. 
+For the ones who dont know what masquerade is: You basically create an alt account and play your normal watched game without ppl knowing who u are. 
 At the end of the tour it gets revealed who was who. The captains can decide which tiers they want to use for their players. 
-No hinting about your identity to your team or other players is allowed obviously.
+No hinting about your identity to other players is allowed obviously.
+
+# Real Masquerade variant:
+
+You will be playing 25 songs DNGM instead, where you fully play out the songs and then tally up all your team scores.
+During this tour your primary objective will be unmasking your opponets, while cooperating with your team, which will be revealed to your captain at tour start.
+```e0g0p21111100130p000011110000000p11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111hg1k903-11111--```
+At tour end your captain will be asked to compile a form with your findings, you will receive points based on the number of players you will guess collectively.
+After this first phase stats will be revealed and you will be able to guess again but for half the points.
+
+# Points
+- Game win: 1 point
+- Game tie: 0.5 points
+- Correctly guessing a player: 1 point 
+- Correctly guessing a player after stats: 0.5 points
+
+Please sign up only if you are sure to play the full length, as subs might be hard to handle.
+Any feedback is welcome, as this is the first time hosting this new format.
+Hope you will have fun!

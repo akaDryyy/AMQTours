@@ -325,7 +325,7 @@ async def main():
     row = 0
     with open('./elos.json') as f:
         data = f.read()
-        wks.update_acell('A1', data)
+        wks.update_acell('A3', data)
         
 if __name__ == '__main__':
     asyncio.run(main())
