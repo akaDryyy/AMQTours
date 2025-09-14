@@ -28,6 +28,7 @@ jsonstats = os.path.abspath("ed_elos.json")
 txtstats = os.path.abspath("ed_TL.txt")
 changelog = os.path.abspath("changelog.txt")
 mvp = os.path.abspath("mvps.txt")
+ranks = os.path.abspath("ranks.txt")
 
 def clean_data(idtable, statstable):
     # Load alias table
@@ -372,6 +373,13 @@ def main():
 
     # Latest tour will be the new most recent one afterwards
     shutil.copyfile(statstable, statstable_tminus1)
+
+    reset_ranks = """11:
+10:
+9:"""
+
+    with open(ranks, "w") as f:
+        f.write(reset_ranks)
 
 if __name__ == '__main__':
     main()

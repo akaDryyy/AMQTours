@@ -28,6 +28,7 @@ jsonstats = os.path.abspath("usual_elos.json")
 txtstats = os.path.abspath("usual_TL.txt")
 changelog = os.path.abspath("changelog.txt")
 mvp = os.path.abspath("mvps.txt")
+ranks = os.path.abspath("ranks.txt")
 
 def is_date(value):
         try:
@@ -389,6 +390,13 @@ def main():
 
     # Latest tour will be the new most recent one afterwards
     shutil.copyfile(statstable, statstable_tminus1)
+
+    reset_ranks = """11:
+10:
+9:"""
+
+    with open(ranks, "w") as f:
+        f.write(reset_ranks)
 
 if __name__ == '__main__':
     main()
