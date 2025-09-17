@@ -9,7 +9,7 @@
 17.312: YuriMeguri
 17.286: Miki_Hoshii
 16.651: civiltwlight
-16.178: Deafness
+16.239: Deafness
 15.873: FORTNAYT
 15.776: PoolNoodle
 15.292: Sniparook
@@ -24,9 +24,9 @@
 13.664: HDNC
 13.606: koroshiya
 13.575: bella
-13.574: neoburnz
+13.571: neoburnz
 13.57: asleep
-13.56: comfv
+13.557: comfv
 13.39: revel
 13.347: Kawada6
 13.209: NicoIe
@@ -38,10 +38,10 @@
 12.29: peeku
 12.278: Akaze
 12.267: Jiinoo
+12.247: claydoll1091
 12.209: LelPop
 12.198: Baguett
 12.178: Mami
-12.097: claydoll1091
 12.036: anonimus_opinion
 12.026: Renzou
 11.906: doomchicken
@@ -53,13 +53,13 @@
 11.471: MrWolf
 11.297: cafezinho
 11.257: mkby
-11.164: beautiful
+11.157: beautiful
 11.144: neptune
 11.1: kabigon
 10.934: RaidenMei
+10.899: florenz
 10.885: Emdiel
 10.877: kaededayo
-10.831: florenz
 10.83: Kuterin
 10.825: 1Godly
 10.817: oh95
@@ -82,7 +82,7 @@
 10.153: Yokipi
 10.142: chemist
 10.004: Python
-9.941: Dry
+9.917: Dry
 9.873: Legitted
 9.856: MoltenAshes
 9.778: Wuffles
@@ -90,16 +90,17 @@
 9.758: Edwardd
 9.73: Kenzou_Tenma
 9.7: Zeal_Kido
-9.676: lakumix
+9.681: Saiki
+9.668: lakumix
 9.658: BigSmo
-9.642: Saiki
 9.569: Provenance
 9.548: I_am_stoney
 9.456: Solosion
 9.45: Sgtvp
 9.433: Nephirea
 9.43: Zental
-9.387: rorf, ChrisLefko
+9.387: ChrisLefko
+9.348: rorf
 9.347: Fumiii
 9.34: Floth
 9.334: Ephemeral, Progenitor
@@ -107,8 +108,8 @@
 9.227: AnotherWish
 9.215: Jakemonkey
 9.212: Skychael
+9.191: yasashiikumo
 9.19: Fuj
-9.17: yasashiikumo
 9.161: Kirox
 9.122: mahzrunner
 9.065: fiftypercentweeb
@@ -129,16 +130,16 @@
 8.365: miiarad
 8.276: liljakatsuragi
 8.262: ss_r_white_pony
+8.254: tskr
 8.191: Poppysr
 8.107: kabao
-8.09: tskr
 8.059: ShelterRin
-8.056: benevelante
 8.029: Andrey_K
 8.017: uy5gf
 7.983: Naizuri
+7.905: benevelante
+7.891: YellowRose
 7.864: Time2Hack
-7.744: YellowRose
 7.724: yashadox
 7.712: Goko8765
 7.695: psirockin
@@ -164,7 +165,7 @@
 6.397: I_dont_like_loli
 6.376: OkitaNobu
 6.334: JustAWeirdo
-6.279: chommy
+6.236: chommy
 6.206: Tsuni
 6.143: TateyamaAyano
 6.067: Rhummy

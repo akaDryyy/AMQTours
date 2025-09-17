@@ -1,22 +1,4 @@
 # Full PV List:
-Deafness played like a 17.667. (Current rank 16.13, Δ1.537)
-MD22 played like a 11.092. (Current rank 10.22, Δ0.872)
-lakumix played like a 10.316. (Current rank 9.656, Δ0.66)
-Dry played like a 10.553. (Current rank 9.926, Δ0.627)
-Kirox played like a 9.462. (Current rank 9.149, Δ0.313)
-OffenseArmor played like a 18.689. (Current rank 18.692, Δ-0.003)
-apurplenose played like a 10.713. (Current rank 10.797, Δ-0.084)
-Provenance played like a 9.272. (Current rank 9.584, Δ-0.312)
-Selaph played like a 10.217. (Current rank 10.571, Δ-0.354)
-Jakemonkey played like a 8.669. (Current rank 9.233, Δ-0.564)
-beautiful played like a 10.476. (Current rank 11.176, Δ-0.7)
-Diukes played like a 13.425. (Current rank 14.152, Δ-0.727)
-Andrey_K played like a 7.392. (Current rank 8.194, Δ-0.802)
-peeku played like a 11.369. (Current rank 12.327, Δ-0.958)
-Mayottatoki played like a 9.425. (Current rank 10.396, Δ-0.971)
-mahzrunner played like a 8.059. (Current rank 9.135, Δ-1.076)
+chommy played like a 5.263. (Current rank 6.233, Δ-0.97)
 
 # MVPS:
-:first_place: Deafness. Played like a 17.667 rank (Current Rank: 16.13, Δ1.537)
-:second_place: MD22. Played like a 11.092 rank (Current Rank: 10.22, Δ0.872)
-:third_place: lakumix. Played like a 10.316 rank (Current Rank: 9.656, Δ0.66)
