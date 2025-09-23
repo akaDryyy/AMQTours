@@ -4,7 +4,7 @@ eruiskawaii	eru
 peeku	watashiiit	eric
 smarthardyz	smart 
 watashiii	watashi 	akl
-bop	shake	yahalllllllllllllllllo
+bop	shake
 poolnoodle	poolnoober
 himemiya	himeiya
 zeal_kido	zealkido
@@ -35,7 +35,7 @@ gyroinmobile	hitoribocchi
 bella	bellaa	isabella	xieliann
 gw13	x_____________
 mitsorubi	mitsurobi
-uomi	joey
+uomi	joey	uohhmi
 ayamenakirium	monkeygangleader
 753	fujimasakura	kezzy
 kitasanblack	pleasety
@@ -57,4 +57,5 @@ nicole	NicoIe
 keizan	Kenzou_Tenma
 Wolbachia	Padre
 Math_	Math1234
-uomi	uohhmi
+OffenseArmor	yosugala	akatsuki
+hyonoobka	WORSTPLAYER

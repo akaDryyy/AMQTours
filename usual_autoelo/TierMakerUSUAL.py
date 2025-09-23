@@ -16,12 +16,13 @@ statstable_tminus1 = os.path.abspath("usual_stats_tminus1.csv")
 GR_weight = 0.375
 UF_weight = 0.625
 past_tours = 10
+active_tours = 20
 # Year from which we start considering potentially usable data points
 chosen_year = 2025
 # Window of months to draw data points from
 month_window = 2
 # Do not go further than 6 months to gather data
-max_fallback_window = 4
+max_fallback_window = 6
 cleanedstats = os.path.abspath("usual_clean.csv")
 cleanedstats_chosen_year = os.path.abspath("usual_clean_year.csv")
 jsonstats = os.path.abspath("usual_elos.json")
@@ -131,6 +132,7 @@ def clean_data(idtable, statstable):
     not_enough_ids = timely_counts[timely_counts < past_tours].index
 
     result_df = timely_df[timely_df["Player ID"].isin(enough_ids)]
+    result_df = result_df.groupby("Player ID").tail(active_tours)
     fallback_df = (
         year_df[year_df["Player ID"].isin(not_enough_ids)]
         .groupby("Player ID", group_keys=False)
@@ -158,7 +160,7 @@ def trim(group):
             "count": n
         })
 
-def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, max_score=25):
+def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, min_score=-5, max_score=30):
     """
     Compute a smoothed rank score for players based on guess rate and usefulness.
 
@@ -202,7 +204,9 @@ def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, ma
         return out
 
     # Apply sigmoid transformation
-    df["elo"] = max_score / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
+    sigmoid_vals = 1 / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
+    df["elo"] = min_score + (max_score - min_score) * sigmoid_vals
+    #df["elo"] = max_score / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
     df["elo"] = spread_lower_tail(df["elo"], knee=9.0, gamma=1.6, cap=max_score)
     return df
 

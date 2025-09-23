@@ -172,18 +172,18 @@ def get_guess(val):
 
 txtvar = ""
 
-header = f"{'#'*25} Challonge {'#'*25}\n"
-print(header)
-txtvar += header
-txtvar += "\n"
-for idx, (group, total) in enumerate(sorted_parts, 1):
-    members = " ".join(f"{name} ({val:.3f})" for name, val in sorted(group, key=lambda x: x[1], reverse=True))
-    line = f"{members}\n"
-    print(line, end="")
-    txtvar += line
+# header = f"{'#'*25} Challonge {'#'*25}\n"
+# print(header)
+# txtvar += header
+# txtvar += "\n"
+# for idx, (group, total) in enumerate(sorted_parts, 1):
+#     members = " ".join(f"{name} ({val:.3f})" for name, val in sorted(group, key=lambda x: x[1], reverse=True))
+#     line = f"{members}\n"
+#     print(line, end="")
+#     txtvar += line
 
-txtvar += "\n"
-print()
+# txtvar += "\n"
+# print()
 
 header = f"{'#'*25} Discord {'#'*25}\n"
 print(header)

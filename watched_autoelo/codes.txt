@@ -2,34 +2,30 @@
 
 ### Solution 1 ###
 
-rorf (12.531) provenance (11.389) yolowolf75 (11.020) inta (8.628)
-swapin (12.104) dry (11.990) lightning (10.535) cm02 (8.757)
-progenitor (13.528) janoxx (10.820) hyonoobka (9.624) zokie (9.487)
-ephemeral (13.211) annayanami (10.790) zozo (10.698) yellowrose (8.701)
-saiki (12.930) cipherkai (12.192) chrislefko (10.383) mythandroid (8.097)
-bella (16.883) alkios (11.759) chommy (8.443) eljuanchi (6.430)
-peeku (15.439) yasashiikumo (10.973) potatosnipez (8.596) keysha18 (8.486)
-diukes (14.933) miiarad (11.410) legrandort (9.634) anicomi (7.521)
-lakumix (11.899) wolbachia (11.775) keizan (11.131) xeyz (8.689)
-yahalllllllllllllllllo (15.000) supersmooth (14.855) justaweirdo (8.199) brandon_k (5.435)
+emdiel (15.216) saiki (12.776) kyuuuu (10.152) inta (8.676)
+kaededayo (14.354) zeal_kido (12.225) time2hack (12.124) kanakanowata (8.135)
+dry (11.976) jakemonkey (11.964) konsumenci (11.760) keizan (11.131)
+darkynep (15.693) provenance (11.568) shadow (10.861) potatosnipez (8.703)
+thaleko (19.045) lakumix (12.029) serozero (10.260) brandon_k (5.476)
+floth (14.122) wolbachia (11.900) janoxx (10.937) porte (9.842)
+milar (16.599) uomi (12.203) feyfey (9.287) psirockin (8.829)
+bella (16.954) 753 (15.512) justaweirdo (8.207) foopypoopy (6.225)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-rorf (12.531) provenance (11.389) yolowolf75 (11.020) inta (8.628) | Total = 43.568 | Guesses = [5554]
-swapin (12.104) dry (11.990) lightning (10.535) cm02 (8.757) | Total = 43.386 | Guesses = [5555]
-progenitor (13.528) janoxx (10.820) hyonoobka (9.624) zokie (9.487) | Total = 43.459 | Guesses = [5555]
-ephemeral (13.211) annayanami (10.790) zozo (10.698) yellowrose (8.701) | Total = 43.400 | Guesses = [5554]
-saiki (12.930) cipherkai (12.192) chrislefko (10.383) mythandroid (8.097) | Total = 43.602 | Guesses = [5554]
-bella (16.883) alkios (11.759) chommy (8.443) eljuanchi (6.430) | Total = 43.515 | Guesses = [5542]
-peeku (15.439) yasashiikumo (10.973) potatosnipez (8.596) keysha18 (8.486) | Total = 43.494 | Guesses = [5544]
-diukes (14.933) miiarad (11.410) legrandort (9.634) anicomi (7.521) | Total = 43.498 | Guesses = [5553]
-lakumix (11.899) wolbachia (11.775) keizan (11.131) xeyz (8.689) | Total = 43.494 | Guesses = [5554]
-yahalllllllllllllllllo (15.000) supersmooth (14.855) justaweirdo (8.199) brandon_k (5.435) | Total = 43.489 | Guesses = [5541]
+emdiel (15.216) saiki (12.776) kyuuuu (10.152) inta (8.676) | Total = 46.820 | Guesses = [5554]
+kaededayo (14.354) zeal_kido (12.225) time2hack (12.124) kanakanowata (8.135) | Total = 46.838 | Guesses = [5554]
+dry (11.976) jakemonkey (11.964) konsumenci (11.760) keizan (11.131) | Total = 46.831 | Guesses = [5555]
+darkynep (15.693) provenance (11.568) shadow (10.861) potatosnipez (8.703) | Total = 46.825 | Guesses = [5554]
+thaleko (19.045) lakumix (12.029) serozero (10.260) brandon_k (5.476) | Total = 46.810 | Guesses = [5551]
+floth (14.122) wolbachia (11.900) janoxx (10.937) porte (9.842) | Total = 46.801 | Guesses = [5555]
+milar (16.599) uomi (12.203) feyfey (9.287) psirockin (8.829) | Total = 46.918 | Guesses = [5555]
+bella (16.954) 753 (15.512) justaweirdo (8.207) foopypoopy (6.225) | Total = 46.898 | Guesses = [5542]
 
-Average: 43.4905
+Average: 46.8426
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

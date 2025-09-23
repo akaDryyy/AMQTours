@@ -2,26 +2,26 @@
 
 ### Solution 1 ###
 
-orfey (13.473) alkios (12.680) shelterrin (9.000) justaweirdo (7.134)
-yurimeguri (13.300) kishua (11.738) dry (9.541) janoxx (7.719)
-yokipi (17.098) md22 (9.500) solosion (8.893) homebad (6.500)
-uohhmi (12.783) atsui (11.838) ephemeral (10.699) ac9123 (7.000)
-kaededayo (11.686) smarthardyz (11.348) hmsuis (9.711) jakemonkey (9.298)
-saiki (11.114) mahzrunner (10.819) fumiii (10.772) bommie (9.527)
+renzou (13.149) ephemeral (11.062) ruuka (9.500) ss_r_white_pony (9.249)
+revel (14.000) julialess64 (12.779) mekokicco (9.643) lightning (6.500)
+watashiii (21.212) jakemonkey (9.938) zozo (9.831) transfer (2.000)
+miki_hoshii (15.430) uomi (12.139) fumiii (10.853) foopypoopy (4.508)
+poolnoodle (20.615) smarthardyz (11.714) oshino_bu (6.500) ranny (4.000)
+darkynep (13.076) kaededayo (12.601) provenance (10.157) janoxx (7.137)
 
 
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-orfey (13.473) alkios (12.680) shelterrin (9.000) justaweirdo (7.134) | Total = 42.287 | Guesses = [4432]
-yurimeguri (13.300) kishua (11.738) dry (9.541) janoxx (7.719) | Total = 42.298 | Guesses = [4432]
-yokipi (17.098) md22 (9.500) solosion (8.893) homebad (6.500) | Total = 41.991 | Guesses = [4332]
-uohhmi (12.783) atsui (11.838) ephemeral (10.699) ac9123 (7.000) | Total = 42.320 | Guesses = [4442]
-kaededayo (11.686) smarthardyz (11.348) hmsuis (9.711) jakemonkey (9.298) | Total = 42.043 | Guesses = [4433]
-saiki (11.114) mahzrunner (10.819) fumiii (10.772) bommie (9.527) | Total = 42.232 | Guesses = [4443]
+renzou (13.149) ephemeral (11.062) ruuka (9.500) ss_r_white_pony (9.249) | Total = 42.960 | Guesses = [4433]
+revel (14.000) julialess64 (12.779) mekokicco (9.643) lightning (6.500) | Total = 42.922 | Guesses = [4432]
+watashiii (21.212) jakemonkey (9.938) zozo (9.831) transfer (2.000) | Total = 42.981 | Guesses = [4331]
+miki_hoshii (15.430) uomi (12.139) fumiii (10.853) foopypoopy (4.508) | Total = 42.930 | Guesses = [4441]
+poolnoodle (20.615) smarthardyz (11.714) oshino_bu (6.500) ranny (4.000) | Total = 42.829 | Guesses = [4421]
+darkynep (13.076) kaededayo (12.601) provenance (10.157) janoxx (7.137) | Total = 42.971 | Guesses = [4442]
 
-Average: 42.1952
+Average: 42.9322
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z10010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```

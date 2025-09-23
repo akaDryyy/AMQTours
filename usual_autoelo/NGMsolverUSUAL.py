@@ -239,49 +239,49 @@ def generate_codes(gamemode, txtvar):
         case "quag":
             txtvar += "```e0g0z211111100100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Random NGMC guess distributions:
-≥10: 4 guesses
-8.25-10: 3 guesses
-6.25-8.25: 2 guesses
-≤6.25: 1 guess
+≥9: 4 guesses
+5.75-9: 3 guesses
+3.5-5.75: 2 guesses
+≤3.5: 1 guess
 """
     return txtvar
 
 def get_guess(val):
-    if val >= 10:
+    if val >= 9:
         return '4'
-    elif val >= 8.25:
+    elif val >= 5.75:
         return '3'
-    elif val >= 6.25:
+    elif val >= 3.5:
         return '2'
     else:
         return '1'
 
 txtvar = ""
 
-header = f"{'#'*25} Challonge {'#'*25}\n"
-print(header)
-txtvar += header
-txtvar += "\n"
+# header = f"{'#'*25} Challonge {'#'*25}\n"
+# print(header)
+# txtvar += header
+# txtvar += "\n"
 
-for idx, sol in enumerate(found_solutions, 1):
-    sol_msg = f"### Solution {idx} ###\n\n"
-    print(sol_msg)
-    txtvar += sol_msg
-    team_map = [[] for _ in range(k)]
-    for name, p in sol.items():
-        team_map[p].append((name, p_values[name]))
+# for idx, sol in enumerate(found_solutions, 1):
+#     sol_msg = f"### Solution {idx} ###\n\n"
+#     print(sol_msg)
+#     txtvar += sol_msg
+#     team_map = [[] for _ in range(k)]
+#     for name, p in sol.items():
+#         team_map[p].append((name, p_values[name]))
 
-    for i, team in enumerate(team_map):
-        members = " ".join(f"{n} ({v:.3f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
-        total = sum(v for _, v in team)
-        team_msg = f"{members}\n"
-        print(team_msg)
-        txtvar += team_msg
-    txtvar += "\n"
-    print()
+#     for i, team in enumerate(team_map):
+#         members = " ".join(f"{n} ({v:.3f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+#         total = sum(v for _, v in team)
+#         team_msg = f"{members}\n"
+#         print(team_msg)
+#         txtvar += team_msg
+#     txtvar += "\n"
+#     print()
 
-txtvar += "\n"
-print()
+# txtvar += "\n"
+# print()
 
 header = f"{'#'*25} Discord {'#'*25}\n"
 print(header)
