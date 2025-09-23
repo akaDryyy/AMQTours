@@ -11,32 +11,24 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 idtable = os.path.abspath("id_stats.csv")
-statstable = os.path.abspath("usual_stats.csv")
-statstable_tminus1 = os.path.abspath("usual_stats_tminus1.csv")
-GR_weight = 0.375
-UF_weight = 0.625
+statstable = os.path.abspath("watched_stats.csv")
+statstable_tminus1 = os.path.abspath("watched_stats_tminus1.csv")
+GR_weight = 0.35
+UF_weight = 0.65
 past_tours = 10
-active_tours = 20
 # Year from which we start considering potentially usable data points
 chosen_year = 2025
 # Window of months to draw data points from
 month_window = 2
 # Do not go further than 6 months to gather data
 max_fallback_window = 6
-cleanedstats = os.path.abspath("usual_clean.csv")
-cleanedstats_chosen_year = os.path.abspath("usual_clean_year.csv")
-jsonstats = os.path.abspath("usual_elos.json")
-txtstats = os.path.abspath("usual_TL.txt")
+cleanedstats = os.path.abspath("watched_clean.csv")
+cleanedstats_chosen_year = os.path.abspath("watched_clean_year.csv")
+jsonstats = os.path.abspath("watched_elos.json")
+txtstats = os.path.abspath("watched_TL.txt")
 changelog = os.path.abspath("changelog.txt")
 mvp = os.path.abspath("mvps.txt")
 ranks = os.path.abspath("ranks.txt")
-
-def is_date(value):
-        try:
-            datetime.strptime(value, "%Y-%m-%d")
-            return True
-        except ValueError:
-            return False
 
 def clean_data(idtable, statstable):
     # Load alias table
@@ -46,19 +38,14 @@ def clean_data(idtable, statstable):
 
     # Read raw CSV as a list of rows (not yet parsed by header)
     raw_lines = pd.read_csv(statstable, header=None, dtype=str).fillna("").values.tolist()
-    raw_lines = [row for row in raw_lines if row[0].strip() != ""]
-    processed_lines = []
-    for row in raw_lines:
-        if not is_date(row[0].strip()):
-            row = row[1:]
-        processed_lines.append(row)
+    
     # Prepare
     parsed_rows = []
     current_date = None
-    columns = ["Player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate"]
+    columns = ["player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate", "rigs", "rigs hit", "correct count", "song count", "Rigs missed", "Offlist GR"]
 
     # Parse manually
-    for row in processed_lines:
+    for row in raw_lines:
         # Skip completely empty rows
         if all(cell.strip() == "" for cell in row):
             continue
@@ -132,7 +119,6 @@ def clean_data(idtable, statstable):
     not_enough_ids = timely_counts[timely_counts < past_tours].index
 
     result_df = timely_df[timely_df["Player ID"].isin(enough_ids)]
-    result_df = result_df.groupby("Player ID").tail(active_tours)
     fallback_df = (
         year_df[year_df["Player ID"].isin(not_enough_ids)]
         .groupby("Player ID", group_keys=False)
@@ -147,20 +133,20 @@ def trim(group):
     n = len(group)
     if n < 10:
         return pd.Series({
-            "avg_gr": group["guess rate"].mean(),
+            "avg_gr_in": group["IN guess rate"].mean(),
             "avg_uf": group["usefulness"].mean(),
             "count": n
         })
     else:
-        trimmed_gr = group["guess rate"].sort_values()#.iloc[1:-1]
-        trimmed_uf = group["usefulness"].sort_values()#.iloc[1:-1]
+        trimmed_gr_in = group["IN guess rate"].sort_values().iloc[1:-1]
+        trimmed_uf = group["usefulness"].sort_values().iloc[1:-1]
         return pd.Series({
-            "avg_gr": trimmed_gr.mean(),
+            "avg_gr_in": trimmed_gr_in.mean(),
             "avg_uf": trimmed_uf.mean(),
             "count": n
         })
 
-def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, min_score=-5, max_score=30):
+def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.4, max_score=25):
     """
     Compute a smoothed rank score for players based on guess rate and usefulness.
 
@@ -175,17 +161,17 @@ def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, mi
     Returns:
         pd.DataFrame: DataFrame with avg_gr, avg_uf, norm_gr, norm_Uf, raw_score and elo columns.
     """
-
+   
     # Normalize guess rate and usefulness
-    df["norm_gr"] = df["avg_gr"] / gr_max
+    df["norm_gr_in"] = df["avg_gr_in"] / gr_max
     df["norm_uf"] = df["avg_uf"] / uf_max
 
     # Clip values to avoid weird outliers
-    df["norm_gr"] = df["norm_gr"].clip(0, 1)
+    df["norm_gr_in"] = df["norm_gr_in"].clip(0, 1)
     df["norm_uf"] = df["norm_uf"].clip(0, 1)
 
-    # Combine into a single raw score (equal weighting)
-    df["raw_score"] = GR_weight * df["norm_gr"] + UF_weight * df["norm_uf"]
+    # # Combine into a single raw score (equal weighting)
+    df["raw_score"] = df["norm_gr_in"] * GR_weight + df["norm_uf"] * UF_weight
 
     def spread_lower_tail(elo, knee=9.0, gamma=1.6, cap=25.0):
         """
@@ -204,10 +190,8 @@ def compute_rank_scores(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, mi
         return out
 
     # Apply sigmoid transformation
-    sigmoid_vals = 1 / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
-    df["elo"] = min_score + (max_score - min_score) * sigmoid_vals
-    #df["elo"] = max_score / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
-    df["elo"] = spread_lower_tail(df["elo"], knee=9.0, gamma=1.6, cap=max_score)
+    df["elo"] = max_score / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
+    #df["elo"] = spread_lower_tail(df["elo"], knee=9.0, gamma=1.6, cap=max_score)
     return df
 
 # Find MVPs
@@ -219,19 +203,14 @@ def mini_clean(idtable, statstable):
 
     # Read raw CSV as a list of rows (not yet parsed by header)
     raw_lines = pd.read_csv(statstable, header=None, dtype=str).fillna("").values.tolist()
-    raw_lines = [row for row in raw_lines if row[0].strip() != ""]
-    processed_lines = []
-    for row in raw_lines:
-        if not is_date(row[0].strip()):
-            row = row[1:]
-        processed_lines.append(row)
+    
     # Prepare
     parsed_rows = []
     current_date = None
     columns = ["player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate", "rigs", "rigs hit", "correct count", "song count", "Rigs missed", "Offlist GR"]
 
     # Parse manually
-    for row in processed_lines:
+    for row in raw_lines:
         # Skip completely empty rows
         if all(cell.strip() == "" for cell in row):
             continue
@@ -279,14 +258,14 @@ def mini_clean(idtable, statstable):
 def main():
     parser = argparse.ArgumentParser(description="AMQ Tours")
     parser.add_argument('--keep', '-k', action='store_true',
-                        help="Keep the current CSVs for stats, used for when doing changelogs one at the time after not running the script for multiple tours",
+                        help="Keep the current CSVs for stats, used for when doing changelogs one at the time after not running the script for multiple tours or monthly elos",
                         required=False)
     args = parser.parse_args()
 
     if not args.keep:
         DIRECTORY = os.path.dirname(__file__)
         sheet_name = "ngm stats"
-        tab_id_stats = 0
+        tab_id_stats = 599282945
         tab_id_ids = 220350629
 
         gc = gspread.oauth(
@@ -309,12 +288,16 @@ def main():
     clean_stats = clean_data(idtable, statstable)
     clean_stats = clean_stats.sort_values(["Player ID", "Tournament Date"])
     clean_stats.to_csv(cleanedstats, index=False, encoding="utf-8")
+    numeric_cols = ["IN guess rate"]
+    clean_stats[numeric_cols] = clean_stats[numeric_cols].apply(
+        pd.to_numeric, errors="coerce"
+    )
     player_stats = clean_stats.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-    final_ranks = compute_rank_scores(player_stats, uf_max=(clean_stats["usefulness"].max()))
+    final_ranks = compute_rank_scores(player_stats, uf_max=clean_stats["usefulness"].max())
     ids = pd.read_csv(idtable)
     ids = ids.drop_duplicates(subset='Player ID', keep='first')
     final_ranks = final_ranks.merge(ids[['Player ID', 'Player Name']], on='Player ID', how='left')
-    new_order = ['Player ID', 'Player Name', 'elo', 'avg_gr', 'avg_uf', 'count', 'norm_gr', 'norm_uf', 'raw_score']
+    new_order = ['Player ID', 'Player Name', 'elo', 'avg_gr_in', 'count', 'raw_score']
     final_ranks = final_ranks[new_order]
     final_ranks = final_ranks.sort_values(by='elo', ascending=False)
     print(final_ranks)
@@ -359,8 +342,12 @@ def main():
     clean_stats_tminus1 = mini_clean(idtable, statstable_tminus1)
     last_tour = clean_stats_tnow.merge(clean_stats_tminus1, how='outer', indicator=True).query('_merge == "left_only"')
     if not last_tour.empty:
+        numeric_cols = ["IN guess rate"]
+        last_tour[numeric_cols] = last_tour[numeric_cols].apply(
+            pd.to_numeric, errors="coerce"
+        )
         player_stats_tour = last_tour.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-        last_tour_ranks = compute_rank_scores(player_stats_tour, uf_max=(clean_stats["usefulness"].max()))
+        last_tour_ranks = compute_rank_scores(player_stats_tour, uf_max=clean_stats["usefulness"].max())
         last_tour_ranks = last_tour_ranks.merge(ids[['Player ID', 'Player Name']], on='Player ID', how='left')
         last_tour_ranks = last_tour_ranks[new_order]
         last_tour_ranks = last_tour_ranks.sort_values(by='elo', ascending=False)
