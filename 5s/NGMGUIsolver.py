@@ -153,12 +153,12 @@ def main():
     def generate_codes(txtvar):
         txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
         txtvar += "```e0g0z21111100130z000011110000000z111111111111005051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k903-11111--```\n"
-        txtvar += """Random NGMC guess distributions:
+        txtvar += """NGMC guess distributions:
     8.5≥: 5 Guesses
-    7-8: 4 Guesses
-    5.5-6.5: 3 Guesses
-    3.5-5: 2 Guesses
-    0-3: 1 Guess
+    7-8.5: 4 Guesses
+    5.5-7: 3 Guesses
+    3.5-5.5: 2 Guesses
+    0-3.5: 1 Guess
     """
         return txtvar
 

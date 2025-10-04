@@ -1,0 +1,10 @@
+chemist, old rank: 9.158, new rank: 9.383, diff: 0.225
+spanky, old rank: 8.668, new rank: 8.872, diff: 0.204
+Saiki, old rank: 8.938, new rank: 9.126, diff: 0.188
+Milar, old rank: 12.204, new rank: 12.322, diff: 0.118
+Alkios, old rank: 12.386, new rank: 12.451, diff: 0.065
+koroshiya, old rank: 17.037, new rank: 17.086, diff: 0.049
+Dry, old rank: 10.175, new rank: 10.217, diff: 0.042
+Janoxx, old rank: 7.548, new rank: 7.426, diff: -0.122
+Diukes, old rank: 17.038, new rank: 16.822, diff: -0.216
+OkitaNobu, old rank: 6.338, new rank: 6.092, diff: -0.246

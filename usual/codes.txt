@@ -1,22 +1,9 @@
-######################### Challonge #########################
-
-alkios (14.491) raidenmei (10.698) mahzrunner (3.460) kyuuuu (1.450)
-milar (15.436) 753 (9.700) kabao (2.568) vuhrculls (2.385)
-claydoll1091 (13.471) dry (7.530) spanky (7.134) inta (1.940)
-diukes (15.160) apurplenose (8.871) atsui (4.927) okitanobu (1.116)
-kuterin (10.480) worstplayer (10.391) janoxx (5.577) annayanami (3.595)
-kar72 (18.117) skychael (4.690) yellowrose (3.938) mythandroid (3.181)
-
 ######################### Discord #########################
 
-alkios (14.491) raidenmei (10.698) mahzrunner (3.460) kyuuuu (1.450) | Total = 30.099 | Guesses = [4422]
-milar (15.436) 753 (9.700) kabao (2.568) vuhrculls (2.385) | Total = 30.089 | Guesses = [4422]
-claydoll1091 (13.471) dry (7.530) spanky (7.134) inta (1.940) | Total = 30.075 | Guesses = [4332]
-diukes (15.160) apurplenose (8.871) atsui (4.927) okitanobu (1.116) | Total = 30.074 | Guesses = [4432]
-kuterin (10.480) worstplayer (10.391) janoxx (5.577) annayanami (3.595) | Total = 30.043 | Guesses = [4432]
-kar72 (18.117) skychael (4.690) yellowrose (3.938) mythandroid (3.181) | Total = 29.926 | Guesses = [4322]
+tsui (15.262) uomi (9.138) atsui (5.016) lordgrond (0.314) | Total = 29.73 | Guesses = [4431]
+peeku (12.932) md22 (8.108) dry (7.595) homebad (0.751) | Total = 29.386 | Guesses = [4332]
 
-Average: 30.051
+Average: 29.558
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```

@@ -2,16 +2,14 @@
 
 ### Solution 1 ###
 
-neoburnz (14.021) alkios (13.162) swapin (6.690) atsui (6.444) | Total = 40.317 | Guesses = [4433]
-claydoll1091 (11.878) florenz (10.305) spanky (9.259) dry (8.979) | Total = 40.421 | Guesses = [4443]
-sniparook (16.591) kuterin (10.206) kirox (7.029) annayanami (6.636) | Total = 40.462 | Guesses = [4433]
-deafness (18.143) edwardd (8.378) mahzrunner (7.102) janoxx (6.735) | Total = 40.358 | Guesses = [4333]
-mami (12.259) apurplenose (9.701) chaabdu92 (9.697) lakumix (8.671) | Total = 40.328 | Guesses = [4443]
-comfv (14.883) kabigon (10.663) raidenmei (10.321) legrandort (4.529) | Total = 40.396 | Guesses = [4442]
+baguett (12.038) cafezinho (10.933) lakumix (8.450) provenance (7.603) | Total = 39.024 | Guesses = [4433]
+alkios (13.061) md22 (10.555) saiki (8.327) kirox (7.158) | Total = 39.101 | Guesses = [4433]
+thaleko (15.942) emdiel (10.165) swapin (6.709) konsumenci (6.244) | Total = 39.060 | Guesses = [4433]
+yahalllllllllllllllllo (15.485) dry (9.151) progenitor (7.828) janoxx (6.500) | Total = 38.964 | Guesses = [4433]
 
-Average: 40.3803
+Average: 39.0373
 
-[Challonge](YOUR_CHALLONGE_URL)
+[Challonge](https://challonge.com/1wytgbdb)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
 ≥9: 4 guesses
