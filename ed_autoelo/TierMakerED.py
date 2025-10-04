@@ -268,6 +268,7 @@ def main():
         sheet_name = "ngm stats"
         tab_id_stats = 1610602702
         tab_id_ids = 220350629
+        tab_elo_storage = 716533894
 
         gc = gspread.oauth(
             credentials_filename=os.path.join(DIRECTORY, 'credentials', 'credentials.json'),
@@ -276,6 +277,7 @@ def main():
         sheet = gc.open(sheet_name)
         wks = sheet.get_worksheet_by_id(tab_id_stats)
         wks_ids = sheet.get_worksheet_by_id(tab_id_ids)
+        wks_storage = sheet.get_worksheet_by_id(tab_elo_storage)
 
         rows = wks.get_all_values()
         with open(statstable, "w", newline="", encoding="utf-8") as f:
@@ -380,6 +382,10 @@ def main():
 
     with open(ranks, "w") as f:
         f.write(reset_ranks)
+
+    with open(jsonstats, "r") as f:
+        elos = f.read()
+        wks_storage.update_acell('A11', elos)
 
 if __name__ == '__main__':
     main()
