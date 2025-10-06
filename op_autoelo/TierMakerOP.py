@@ -383,9 +383,10 @@ def main():
     with open(ranks, "w") as f:
         f.write(reset_ranks)
 
-    with open(jsonstats, "r") as f:
-        elos = f.read()
-        wks_storage.update_acell('A10', elos)
+    if not args.keep:
+        with open(jsonstats, "r") as f:
+            elos = f.read()
+            wks_storage.update_acell('A10', elos)
 
 if __name__ == '__main__':
     main()
