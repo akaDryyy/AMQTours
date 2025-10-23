@@ -232,8 +232,8 @@ def generate_codes(txtvar):
     txtvar += """Distribution of guesses:
 ≥10: 4 guesses
 8-10: 3 guesses
-6.5-8: 2 guesses
-≤6.5: 1 guess
+5.5-8: 2 guesses
+≤5.5: 1 guess
 """
     return txtvar
 
@@ -242,7 +242,7 @@ def get_guess(val):
         return '4'
     elif val >= 8:
         return '3'
-    elif val >= 6.5:
+    elif val >= 5.5:
         return '2'
     else:
         return '1'

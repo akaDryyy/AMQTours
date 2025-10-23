@@ -15,7 +15,8 @@ statstable = os.path.abspath("ed_stats.csv")
 statstable_tminus1 = os.path.abspath("ed_stats_tminus1.csv")
 GR_weight = 0.35
 UF_weight = 0.65
-past_tours = 10
+past_tours = 5
+active_tours = 5
 # Year from which we start considering potentially usable data points
 chosen_year = 2025
 # Window of months to draw data points from
@@ -120,6 +121,7 @@ def clean_data(idtable, statstable):
     not_enough_ids = timely_counts[timely_counts < past_tours].index
 
     result_df = timely_df[timely_df["Player ID"].isin(enough_ids)]
+    result_df = result_df.groupby("Player ID").tail(active_tours)
     fallback_df = (
         year_df[year_df["Player ID"].isin(not_enough_ids)]
         .groupby("Player ID", group_keys=False)

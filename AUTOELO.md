@@ -48,17 +48,17 @@ Compare with other existing players inside `gamemode_elos.json` to have guesstim
 
 ## Usual
 
-- ≥10: 4 guesses
-- 8-10: 3 guesses
-- 7-8: 2 guesses
-- ≤7: 1 guess
+- ≥9: 4 guesses
+- 5.75-9: 3 guesses
+- 3.5-5.75: 2 guesses
+- ≤3.5: 1 guess
 
 ## OP/ED/IN
 
 - ≥10: 4 guesses
 - 8-10: 3 guesses
-- 6.5-8: 2 guesses
-- ≤6.5: 1 guess
+- 5.5-8: 2 guesses
+- ≤5.5: 1 guess
 
 FEEDBACK FOR THRESHOLDS ALWAYS APPRECIATED
 

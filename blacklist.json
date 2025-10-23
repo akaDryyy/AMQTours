@@ -1,210 +1,51 @@
 [
-    [
-        "channina",
-        "alkios"
-    ],
-    [
-        "bella",
-        "wolbachia"
-    ],
-    [
-        "bofu",
-        "janoxx"
-    ],
-    [
-        "bofu",
-        "jaan"
-    ],
-    [
-        "claydoll1091",
-        "arronchu"
-    ],
-    [
-        "claydoll1091",
-        "nazemeiyue"
-    ],
-    [
-        "deafness",
-        "poolnoodle"
-    ],
-    [
-        "diukes",
-        "bella"
-    ],
-    [
-        "emdiel",
-        "denero"
-    ],
-    [
-        "eryth",
-        "atsui"
-    ],
-    [
-        "feyfey",
-        "wolbachia"
-    ],
-    [
-        "feyfey",
-        "rhummy"
-    ],
-    [
-        "hyonoobka",
-        "uomi"
-    ],
-    [
-        "hyonoobka",
-        "bella"
-    ],
-    [
-        "uomi",
-        "wolbachia"
-    ],
-    [
-        "justaweirdo",
-        "oh95"
-    ],
-    [
-        "koroshiya",
-        "tateyamaayano"
-    ],
-    [
-        "legrandort",
-        "rhummy"
-    ],
-    [
-        "legrandort",
-        "justaweirdo"
-    ],
-    [
-        "legrandort",
-        "ilmatar"
-    ],
-    [
-        "moltenashes",
-        "stunar"
-    ],
-    [
-        "rhummy",
-        "mahzrunner"
-    ],
-    [
-        "fortnayt",
-        "saiki"
-    ],
-    [
-        "fortnayt",
-        "kitasanblack"
-    ],
-    [
-        "fortnayt",
-        "bella"
-    ],
-    [
-        "shadow",
-        "neumann"
-    ],
-    [
-        "shadow",
-        "rhummy"
-    ],
-    [
-        "shadow",
-        "bella"
-    ],
-    [
-        "skychael",
-        "legitted"
-    ],
-    [
-        "skychael",
-        "alkios"
-    ],
-    [
-        "i_am_stoney",
-        "bella"
-    ],
-    [
-        "stunar",
-        "janoxx"
-    ],
-    [
-        "stunar",
-        "lelpop"
-    ],
-    [
-        "stunar",
-        "beokros"
-    ],
-    [
-        "oshino_bu",
-        "uomi"
-    ],
-    [
-        "oshino_bu",
-        "lakumix"
-    ],
-    [
-        "liljakatsuragi",
-        "xeyz"
-    ],
-    [
-        "tsui",
-        "civiltwlight"
-    ],
-    [
-        "753",
-        "ilmatar"
-    ],
-    [
-        "qwecocacola",
-        "pengvinen"
-    ],
-    [
-        "zozo",
-        "janoxx"
-    ],
-    [
-        "skychael",
-        "bella"
-    ],
-    [
-        "konsumenci",
-        "saroarsten"
-    ],
-    [
-        "shadow",
-        "saroarsten"
-    ],
-    [
-        "SaroArsten",
-        "ss_r_white_pony"
-    ],
-    [
-        "poolnoodle",
-        "rhummy"
-    ],
-    [
-        "cafezinho",
-        "floth"
-    ],
-    [
-        "cafezinho",
-        "nephirea"
-    ],
-    [
-        "akatsuki",
-        "thaleko"
-    ],
-    [
-        "swapin",
-        "bofu"
-    ],
-    [
-        "lika",
-        "atsui"
-    ],
-    [
-        "feyfey",
-        "miiarad"
-    ]
+    ["753", "ilmatar"],
+    ["akatsuki", "thaleko"],
+    ["bella", "wolbachia"],
+    ["bofu", "janoxx"],
+    ["bofu", "jaan"],
+    ["channina", "alkios"],
+    ["chommy", "bella"],
+    ["claydoll1091", "arronchu"],
+    ["claydoll1091", "nazemeiyue"],
+    ["deafness", "poolnoodle"],
+    ["diukes", "bella"],
+    ["emdiel", "denero"],
+    ["eryth", "atsui"],
+    ["feyfey", "rhummy"],
+    ["feyfey", "miiarad"],
+    ["fortnayt", "saiki"],
+    ["fortnayt", "kitasanblack"],
+    ["fortnayt", "bella"],
+    ["hyonoobka", "uomi"],
+    ["hyonoobka", "bella"],
+    ["i_am_stoney", "bella"],
+    ["i_am_stoney", "lika"],
+    ["justaweirdo", "oh95"],
+    ["konsumenci", "saroarsten"],
+    ["koroshiya", "tateyamaayano"],
+    ["legrandort", "rhummy"],
+    ["legrandort", "justaweirdo"],
+    ["legrandort", "ilmatar"],
+    ["lika", "atsui"],
+    ["liljakatsuragi", "xeyz"],
+    ["moltenashes", "stunar"],
+    ["oshino_bu", "uomi"],
+    ["oshino_bu", "lakumix"],
+    ["poolnoodle", "rhummy"],
+    ["qwecocacola", "pengvinen"],
+    ["rhummy", "mahzrunner"],
+    ["SaroArsten", "ss_r_white_pony"],
+    ["shadow", "neumann"],
+    ["shadow", "rhummy"],
+    ["shadow", "bella"],
+    ["shadow", "saroarsten"],
+    ["skychael", "legitted"],
+    ["skychael", "alkios"],
+    ["skychael", "bella"],
+    ["stunar", "ranny"],
+    ["swapin", "bofu"],
+    ["tsui", "civiltwlight"],
+    ["uomi", "wolbachia"],
+    ["zozo", "janoxx"]
 ]

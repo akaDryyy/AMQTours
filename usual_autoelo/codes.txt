@@ -2,14 +2,16 @@
 
 ### Solution 1 ###
 
-baguett (12.038) cafezinho (10.933) lakumix (8.450) provenance (7.603) | Total = 39.024 | Guesses = [4433]
-alkios (13.061) md22 (10.555) saiki (8.327) kirox (7.158) | Total = 39.101 | Guesses = [4433]
-thaleko (15.942) emdiel (10.165) swapin (6.709) konsumenci (6.244) | Total = 39.060 | Guesses = [4433]
-yahalllllllllllllllllo (15.485) dry (9.151) progenitor (7.828) janoxx (6.500) | Total = 38.964 | Guesses = [4433]
+kar72 (15.241) mami (12.485) saiki (7.993) janoxx (6.561) | Total = 42.280 | Guesses = [4433]
+diukes (14.657) florenz (10.531) worstplayer (9.573) yasashiikumo (7.599) | Total = 42.360 | Guesses = [4443]
+arronchu (20.382) dry (9.388) swapin (6.844) kabao (5.746) | Total = 42.360 | Guesses = [4432]
+smarthardyz (15.170) kuterin (10.301) chemist (9.257) kirox (7.631) | Total = 42.359 | Guesses = [4443]
+comfv (15.474) neoburnz (13.642) hmsuis (9.936) rhummy (3.397) | Total = 42.449 | Guesses = [4441]
+thaleko (16.002) comete (11.437) chaabdu92 (9.557) yashadox (5.375) | Total = 42.371 | Guesses = [4442]
 
-Average: 39.0373
+Average: 42.3632
 
-[Challonge](https://challonge.com/1wytgbdb)
+[Challonge](https://challonge.com/ajh7o28i)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
 ≥9: 4 guesses

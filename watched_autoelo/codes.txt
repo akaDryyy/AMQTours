@@ -2,18 +2,14 @@
 
 ### Solution 1 ###
 
-753 (15.265) saiki (12.814) kirox (10.866) anicomi (7.918) | Total = 46.863 | Guesses = [5553]
-anoru_ (15.341) bommie (11.660) keizan (11.196) xeyz (8.625) | Total = 46.822 | Guesses = [5554]
-cafezinho (14.561) chaabdu92 (12.019) janoxx (11.249) inta (8.904) | Total = 46.733 | Guesses = [5555]
-swapin (12.236) konsumenci (12.133) ss_r_white_pony (11.662) zozo (10.691) | Total = 46.722 | Guesses = [5555]
-milar (17.034) shadow (11.294) kyuuuu (9.920) yellowrose (8.624) | Total = 46.872 | Guesses = [5554]
-thaleko (19.142) bofu (16.495) heroftime (5.690) brandon_k (5.510) | Total = 46.837 | Guesses = [5511]
-time2hack (13.546) tapumomo (12.003) provenance (11.831) feyfey (9.224) | Total = 46.604 | Guesses = [5555]
-emdiel (15.955) skychael (11.404) porte (10.307) potatosnipez (8.948) | Total = 46.614 | Guesses = [5555]
-renzou (16.252) komari (13.804) justaweirdo (8.408) iamasiannoob (8.374) | Total = 46.838 | Guesses = [5544]
-floth (14.611) dry (12.524) moltenashes (10.492) psirockin (9.184) | Total = 46.811 | Guesses = [5555]
+provenance (12.445) orfey (12.179) anotherwish (10.926) kirox (10.715) | Total = 46.265 | Guesses = [5555]
+saiki (13.538) janoxx (12.010) serozero (10.482) porte (10.407) | Total = 46.437 | Guesses = [5555]
+julialess64 (15.486) ss_r_white_pony (12.132) uy5gf (10.209) xeyz (8.694) | Total = 46.521 | Guesses = [5554]
+smarthardyz (15.038) python (13.199) feyfey (9.537) anicomi (8.586) | Total = 46.360 | Guesses = [5554]
+bop (17.993) dry (12.901) andrey_k (9.319) lordgrond (6.301) | Total = 46.514 | Guesses = [5552]
+cafezinho (15.531) miiarad (12.619) psirockin (9.369) worstplayer (8.924) | Total = 46.443 | Guesses = [5555]
 
-Average: 46.7716
+Average: 46.4233
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

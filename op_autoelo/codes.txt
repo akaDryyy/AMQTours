@@ -1,31 +1,17 @@
-######################### Challonge #########################
-
-### Solution 1 ###
-
-alkios (14.788) mayottatoki (10.338) harges (9.941) saiki (9.734)
-comete (15.907) koroshiya (13.077) nephirea (9.094) okitanobu (6.677)
-diukes (13.881) coglionedown (12.067) janoxx (10.504) uy5gf (8.259)
-miki_hoshii (20.514) andrey_k (9.015) kirox (8.881) i_dont_like_loli (6.360)
-mkby (13.910) mami (13.722) chemist (10.849) naizuri (6.233)
-milar (17.254) poppysr (10.839) konsumenci (9.283) xeyz (7.451)
-baikinman (20.521) neoburnz (12.646) anicomi (6.016) eljuanchi (5.572)
-oh95 (13.916) pile (13.191) swapin (10.127) mahzrunner (7.648)
-
-
 ######################### Discord #########################
 
 ### Solution 1 ###
 
-alkios (14.788) mayottatoki (10.338) harges (9.941) saiki (9.734) | Total = 44.801 | Guesses = [4433]
-comete (15.907) koroshiya (13.077) nephirea (9.094) okitanobu (6.677) | Total = 44.755 | Guesses = [4432]
-diukes (13.881) coglionedown (12.067) janoxx (10.504) uy5gf (8.259) | Total = 44.711 | Guesses = [4443]
-miki_hoshii (20.514) andrey_k (9.015) kirox (8.881) i_dont_like_loli (6.360) | Total = 44.770 | Guesses = [4331]
-mkby (13.910) mami (13.722) chemist (10.849) naizuri (6.233) | Total = 44.714 | Guesses = [4441]
-milar (17.254) poppysr (10.839) konsumenci (9.283) xeyz (7.451) | Total = 44.827 | Guesses = [4432]
-baikinman (20.521) neoburnz (12.646) anicomi (6.016) eljuanchi (5.572) | Total = 44.755 | Guesses = [4411]
-oh95 (13.916) pile (13.191) swapin (10.127) mahzrunner (7.648) | Total = 44.882 | Guesses = [4442]
+chrislefko (13.342) saiki (9.774) swapin (9.766) annayanami (8.536) | Total = 41.418 | Guesses = [4333]
+civiltwlight (18.218) janoxx (10.224) unborned (6.868) anicomi (5.948) | Total = 41.258 | Guesses = [4421]
+oh95 (12.877) neoburnz (12.010) hmsuis (10.345) shelterrin (6.028) | Total = 41.260 | Guesses = [4441]
+alkios (14.461) hibari (13.000) zokie (9.119) rhummy (5.251) | Total = 41.831 | Guesses = [4431]
+beautiful (11.496) flato (11.040) mahirushiina (9.329) md22 (9.294) | Total = 41.159 | Guesses = [4433]
+kar72 (13.576) kazaseno (11.554) cafezinho (10.503) eljuanchi (5.523) | Total = 41.156 | Guesses = [4441]
+smarthardyz (21.591) kirox (8.868) feyfey (6.787) chommy (4.732) | Total = 41.978 | Guesses = [4321]
+baikinman (19.932) yashadox (7.446) liljakatsuragi (7.390) okitanobu (6.491) | Total = 41.259 | Guesses = [4221]
 
-Average: 44.7769
+Average: 41.4149
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```
