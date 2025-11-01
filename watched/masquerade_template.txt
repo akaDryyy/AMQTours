@@ -1,4 +1,4 @@
-Masquerade Theme: NO THEME THIS TIME
+Masquerade Theme: Halloween
 
 Easy way to create a new account:
 
@@ -14,9 +14,13 @@ Important: Make sure you are hiding your list and the checkmark on "show scores"
 
 For the ones who dont know what masquerade is: You basically create an alt account and play your normal watched game without ppl knowing who u are. 
 At the end of the tour it gets revealed who was who. The captains can decide which tiers they want to use for their players. 
-No hinting about your identity to other players is allowed obviously.
+No hinting about your identity to other teams is allowed obviously.
 
 # Real Masquerade variant:
+
+Cooperate with your team to unveil as many players as possible!
+At game start your captain will know who the other players of its team are. You can share that information.
+Organize yourselves and trade information between rounds!
 
 You will be playing 25 songs DNGM instead, where you fully play out the songs and then tally up all your team scores.
 During this tour your primary objective will be unmasking your opponets, while cooperating with your team, which will be revealed to your captain at tour start.
@@ -31,5 +35,5 @@ After this first phase stats will be revealed and you will be able to guess agai
 - Correctly guessing a player after stats: 0.5 points
 
 Please sign up only if you are sure to play the full length, as subs might be hard to handle.
-Any feedback is welcome, as this is the first time hosting this new format.
+Any feedback is welcome, as this is a new format.
 Hope you will have fun!

@@ -2,14 +2,14 @@
 
 ### Solution 1 ###
 
-provenance (12.445) orfey (12.179) anotherwish (10.926) kirox (10.715) | Total = 46.265 | Guesses = [5555]
-saiki (13.538) janoxx (12.010) serozero (10.482) porte (10.407) | Total = 46.437 | Guesses = [5555]
-julialess64 (15.486) ss_r_white_pony (12.132) uy5gf (10.209) xeyz (8.694) | Total = 46.521 | Guesses = [5554]
-smarthardyz (15.038) python (13.199) feyfey (9.537) anicomi (8.586) | Total = 46.360 | Guesses = [5554]
-bop (17.993) dry (12.901) andrey_k (9.319) lordgrond (6.301) | Total = 46.514 | Guesses = [5552]
-cafezinho (15.531) miiarad (12.619) psirockin (9.369) worstplayer (8.924) | Total = 46.443 | Guesses = [5555]
+progenitor (13.486) miiarad (12.446) ss_r_white_pony (12.174) xeyz (8.860) | Total = 46.966 | Guesses = [5555]
+smarthardyz (14.358) saiki (13.699) i_dont_like_loli (10.221) cm02 (8.712) | Total = 46.990 | Guesses = [5554]
+mkby (14.096) shelterrin (13.130) seismic (12.738) foopypoopy (6.961) | Total = 46.925 | Guesses = [5552]
+kar72 (18.320) md22 (10.751) thjalago (9.111) iamasiannoob (8.810) | Total = 46.992 | Guesses = [5555]
+kazaseno (15.779) komari (14.507) legrandort (9.889) lordgrond (6.808) | Total = 46.983 | Guesses = [5552]
+civiltwlight (17.208) tapumomo_ (12.335) bommie (11.549) brandon_k (5.814) | Total = 46.906 | Guesses = [5551]
 
-Average: 46.4233
+Average: 46.9603
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
