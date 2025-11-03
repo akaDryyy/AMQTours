@@ -82,7 +82,7 @@ match gamemode:
         is_list = True
 
 
-DIRECTORY = os.path.dirname(__file__)
+DIRECTORY = os.path.dirname(os.path.dirname(__file__))
 gc = gspread.oauth(
         credentials_filename=DIRECTORY + '/credentials/credentials.json',
         authorized_user_filename=DIRECTORY + '/credentials/authorized_user.json'

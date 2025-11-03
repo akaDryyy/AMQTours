@@ -265,7 +265,7 @@ def main():
     args = parser.parse_args()
 
     if not args.keep:
-        DIRECTORY = os.path.dirname(__file__)
+        DIRECTORY = os.path.dirname(os.path.dirname(__file__))
         sheet_name = "ngm stats"
         tab_id_stats = 599282945
         tab_id_ids = 220350629

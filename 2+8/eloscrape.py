@@ -15,7 +15,7 @@ from curl_cffi.requests import AsyncSession
 
 import gspread, os, re
 StoreElos=716533894
-DIRECTORY = os.path.dirname(__file__)
+DIRECTORY = os.path.dirname(os.path.dirname(__file__))
 alises_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
 PROXY_SERVER = '' # get from tsui if necessary
 TEAMSIZE = 4

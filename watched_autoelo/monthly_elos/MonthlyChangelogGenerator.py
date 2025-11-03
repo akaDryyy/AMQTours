@@ -1,8 +1,8 @@
 import os
 import json
 
-oldmonth = os.path.abspath("2025-09-01.json")
-newmonth = os.path.abspath("2025-10-01.json")
+oldmonth = os.path.abspath("2025-10-01.json")
+newmonth = os.path.abspath("2025-11-01.json")
 changelog = os.path.abspath("monthly_improvements.txt")
 changelogdelta = os.path.abspath("monthly_improvements_deltas.txt")
 
