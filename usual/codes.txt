@@ -1,17 +1,20 @@
+######################### Challonge #########################
+
+thaleko (16.000) lika (14.000) yokipi (8.300) feyf (4.300)
+alkios (13.000) claydoll1091 (11.000) comete (11.000) nephirea (7.500)
+sniparook (16.500) moosepi (12.000) kirox (7.000) mahzrunner (7.000)
+neoburnz (13.500) raidenmei (10.000) kuterin (10.000) ruuka (9.000)
+
 ######################### Discord #########################
 
-alkios (13.657) lakumix (8.353) progenitor (6.346) swapin (5.389) | Total = 33.745 | Guesses = [4333]
-kazaseno (11.854) emdiel (9.806) kirox (7.094) yasashiikumo (4.989) | Total = 33.743 | Guesses = [4433]
-cafezinho (11.048) provenance (9.050) md22 (7.106) selaph (6.514) | Total = 33.718 | Guesses = [4433]
-thaleko (17.488) zeal_kido (9.334) keizan (5.362) okitanobu (1.525) | Total = 33.709 | Guesses = [4432]
-baikinman (11.045) worstplayer (9.339) dry (8.212) inlinesix (5.000) | Total = 33.596 | Guesses = [4433]
-bop (19.667) edwardd (7.967) janoxx (5.447) tateyamaayano (0.487) | Total = 33.568 | Guesses = [4331]
-doomchicken (13.221) hmsuis (9.146) konsumenci (6.771) annayanami (4.430) | Total = 33.568 | Guesses = [4432]
-diukes (15.557) saiki (7.922) skychael (5.157) kalibe (4.927) | Total = 33.563 | Guesses = [4333]
+thaleko (16.000) lika (14.000) yokipi (8.300) feyf (4.300) | Total = 42.6 | Guesses = [4432]
+alkios (13.000) claydoll1091 (11.000) comete (11.000) nephirea (7.500) | Total = 42.5 | Guesses = [4443]
+sniparook (16.500) moosepi (12.000) kirox (7.000) mahzrunner (7.000) | Total = 42.5 | Guesses = [4433]
+neoburnz (13.500) raidenmei (10.000) kuterin (10.000) ruuka (9.000) | Total = 42.5 | Guesses = [4444]
 
-Average: 33.6512
+Average: 42.525
 
-https://challonge.com/t9vzflxu
+[Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Random NGMC guess distributions:
 ≥8.5: 4 guesses

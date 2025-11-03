@@ -72,7 +72,6 @@ def main():
             # Check aliases
             elif player_key in aliases:
                 main_name = aliases[player_key]
-                main_name = main_name.strip().lower()
                 if main_name in ranks:
                     players[player] = ranks[main_name]
                 else:
@@ -165,7 +164,7 @@ def main():
             case "usual":
                 txtvar += "```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
             case "quag":
-                txtvar += "```e0g0z211111100100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
+                txtvar += "```e0g0z211111101100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
         txtvar += """Random NGMC guess distributions:
     ≥8.5: 4 guesses
     4.5-8.49: 3 guesses

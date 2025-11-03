@@ -2,7 +2,7 @@ ekkaiaenoia	ekka
 kar72	kar 
 eruiskawaii	eru 
 peeku	watashiiit	eric
-smarthardyz	smart	blackcondor
+smarthardyz	smart 
 watashiii	watashi 	akl
 bop	shake
 poolnoodle	poolnoober
@@ -13,7 +13,7 @@ shortcake	alice
 bakeman	eggsdee
 fumiii	vnsoul
 ayroby	kar_4
-falilv	gabrielarobin	spyair	milar
+milar	falilv	gabrielarobin	spyair
 ilmatar	pantsudestroyer	kawasumiayako
 shiinamahiru	yourslavesz
 mahirushiina	yerardi
@@ -35,7 +35,7 @@ gyroinmobile	hitoribocchi
 bella	bellaa	isabella	xieliann
 gw13	x_____________
 mitsorubi	mitsurobi
-uomi	joey	uohhmi
+uomi	joey
 ayamenakirium	monkeygangleader
 753	fujimasakura	kezzy
 kitasanblack	pleasety
@@ -47,7 +47,7 @@ shadow	ichigohoshimiya
 alicerin	lilypri
 hmsuis	aimyon
 zental	trustyouforever
-2g70	spanky	grospoliner
+2G70	spanky	grospoliner
 tateyamaayano	tateyama_ayano	a_hooman 
 inta	Chriskc2
 baikinman	kiishua	kishua
@@ -57,5 +57,7 @@ nicole	NicoIe
 keizan	Kenzou_Tenma
 Wolbachia	Padre
 Math_	Math1234
-OffenseArmor	yosugala	akatsuki
-hyonoobka	WORSTPLAYER
+uomi	uohhmi
+WORSTPLAYER	Hyonoobka
+akatsuki	OffenseArmor
+KaoriMaeda	Nazemeiyue

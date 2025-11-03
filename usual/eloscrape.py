@@ -22,14 +22,12 @@ TEAMSIZE = 4
 
 trueskill.setup(
     mu=12, # mean rating 
-    sigma=4, # initial uncertainty of a new player's rating -- recommended to be mu/3 in docs but redefined below since most people are relatively well rated to start (?)
+    sigma=1.75, # initial uncertainty of a new player's rating -- recommended to be mu/3 in docs but redefined below since most people are relatively well rated to start (?)
     beta=7, # rating difference at which the higher-rated player has a ~76% chance of winning // initial 2
     tau=0.09, # change this to increase/decrease how much a regular player's rating is likely to swing // initial 0.04
-    draw_probability=0.04, # based on jan-jul results 
+    draw_probability=0.04, # based on jan-jul 2024 results 
     backend='mpmath'
     )
-
-INITIAL_SIGMA = 1 # change this to increase/decrease how much more a previously unseen player's rating is likely to swing compared to a regular player
 
 try:
     with open('historical_tourcount.json', 'r', encoding='utf-8') as f:
@@ -109,15 +107,7 @@ def get_players(teamstr, elos, aliases, teamid):
         if player in elos:
             players[player] = elos[player]
         else:
-            found = False
-            for alias in aliases:
-                if aliases[alias] == player and alias in HISTORICAL_TOURCOUNT:
-                    found = True
-                    old_tour_count = HISTORICAL_TOURCOUNT.get(alias, 0)
-            if found == False:
-                old_tour_count = HISTORICAL_TOURCOUNT.get(player, 0)
-            multiplier = 2 / (2 ** (math.log(old_tour_count + 1, 21) / 2))  # removed min // initial 9 // initial base of log 3
-            players[player] = trueskill.Rating(mu=float(rank), sigma=INITIAL_SIGMA * multiplier)
+            players[player] = trueskill.Rating(mu=float(rank))
             
     return players, rounds_played
 
