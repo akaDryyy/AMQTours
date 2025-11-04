@@ -2,14 +2,14 @@
 
 ### Solution 1 ###
 
-progenitor (13.486) miiarad (12.446) ss_r_white_pony (12.174) xeyz (8.860) | Total = 46.966 | Guesses = [5555]
-smarthardyz (14.358) saiki (13.699) i_dont_like_loli (10.221) cm02 (8.712) | Total = 46.990 | Guesses = [5554]
-mkby (14.096) shelterrin (13.130) seismic (12.738) foopypoopy (6.961) | Total = 46.925 | Guesses = [5552]
-kar72 (18.320) md22 (10.751) thjalago (9.111) iamasiannoob (8.810) | Total = 46.992 | Guesses = [5555]
-kazaseno (15.779) komari (14.507) legrandort (9.889) lordgrond (6.808) | Total = 46.983 | Guesses = [5552]
-civiltwlight (17.208) tapumomo_ (12.335) bommie (11.549) brandon_k (5.814) | Total = 46.906 | Guesses = [5551]
+kazaseno (15.820) tapumomo_ (12.139) bommie (11.389) foopypoopy (7.049) | Total = 46.397 | Guesses = [5553]
+saiki (13.385) seismic (12.237) ss_r_white_pony (11.834) iamasiannoob (8.966) | Total = 46.422 | Guesses = [5555]
+kar72 (18.057) shelterrin (12.758) cm02 (8.740) lordgrond (6.858) | Total = 46.413 | Guesses = [5542]
+komari (14.218) smarthardyz (14.110) miiarad (12.256) brandon_k (5.840) | Total = 46.424 | Guesses = [5551]
+mkby (14.329) progenitor (13.279) legrandort (9.877) thjalago (9.000) | Total = 46.485 | Guesses = [5555]
+civiltwlight (16.837) md22 (10.944) i_dont_like_loli (10.069) xeyz (8.694) | Total = 46.544 | Guesses = [5554]
 
-Average: 46.9603
+Average: 46.4475
 
 [Challonge](YOUR_CHALLONGE_URL)
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

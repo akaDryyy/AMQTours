@@ -8,17 +8,18 @@ from TierMakerWatched import trim, compute_rank_scores
 
 @Gooey(show_success_modal=False)
 def main():
-    blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
-    whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
-    aliases_path = os.path.abspath(os.path.join(os.pardir, "aliases.txt"))
-    ranks_path = os.path.abspath("ranks.txt")
-    elo_path = os.path.abspath("watched_elos.json")
-    txtelo_path = os.path.abspath("watched_TL.txt")
-    players_path = os.path.abspath("players.txt")
-    codes_path = os.path.abspath("codes.txt")
-    watched_data_fallback = os.path.abspath("watched_clean.csv")
-    watched_data_fallback_year = os.path.abspath("watched_clean_year.csv")
-    idtable = os.path.abspath("id_stats.csv")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    blacklist_path = os.path.abspath(os.path.join(script_dir, os.pardir, "blacklist.json"))
+    whitelist_path = os.path.abspath(os.path.join(script_dir, os.pardir, "whitelist.json"))
+    aliases_path = os.path.abspath(os.path.join(script_dir, os.pardir, "aliases.txt"))
+    ranks_path = os.path.join(script_dir, "ranks.txt")
+    elo_path = os.path.join(script_dir, "watched_elos.json")
+    txtelo_path = os.path.join(script_dir, "watched_TL.txt")
+    players_path = os.path.join(script_dir, "players.txt")
+    codes_path = os.path.join(script_dir, "codes.txt")
+    watched_data_fallback = os.path.join(script_dir, "watched_clean.csv")
+    watched_data_fallback_year = os.path.join(script_dir, "watched_clean_year.csv")
+    idtable = os.path.join(script_dir, "id_stats.csv")
     team_size = 4
     gamemode = "40"
     max_solutions = 1

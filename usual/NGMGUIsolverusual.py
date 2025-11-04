@@ -347,10 +347,13 @@ def main():
         return txtvar
 
     def get_guess(name, player_stats):
-        alias_df = pd.read_csv(idtable)
-        alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
-        player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
-        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, 'avg_gr'].iloc[0]
+        try:
+            alias_df = pd.read_csv(idtable)
+            alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+            player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
+            avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, 'avg_gr'].iloc[0]
+        except IndexError:
+            avg_gr = float(input(f"{name} not found. Give initial gr% (Example: 75 = 75%): "))
         if avg_gr >= three_guess_percent:
             return '4'
         elif avg_gr >= two_guess_percent:
