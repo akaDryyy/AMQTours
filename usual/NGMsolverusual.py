@@ -1,5 +1,8 @@
 from pulp import *
-import argparse, json, os
+import pandas as pd
+import argparse, json, os, gspread, csv
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 blacklist_path = os.path.abspath(os.path.join(os.pardir, "blacklist.json"))
 whitelist_path = os.path.abspath(os.path.join(os.pardir, "whitelist.json"))
@@ -10,23 +13,194 @@ players_path = os.path.abspath("players.txt")
 codes_path = os.path.abspath("codes.txt")
 think_time = 25000
 
+idtable = os.path.abspath("id_stats.csv")
+statstable = os.path.abspath("usual_stats.csv")
+cleanedstats = os.path.abspath("usual_clean.csv")
+cleanedavgs = os.path.abspath("usual_avgs.csv")
+max_fallback_window = 6
+month_window = 2
+past_tours = 10
+active_tours = 10
+
+#Guess Count Thresholds
+one_guess_percent = 8
+two_guess_percent = 18
+three_guess_percent = 28
+
 parser = argparse.ArgumentParser(description="AMQ Tours")
 parser.add_argument('--size', '-s',
                     help="Define the size of each team",
+                    default=4,
                     required=False)
 parser.add_argument('--mode', '-m', 
                     choices=['usual', 'quag'],
+                    default="usual",
                     required=False,
                     help="Define the tour mode, currently usual or quag")
 args = parser.parse_args()
 if args.size:
     team_size = int(args.size)
-else:
-    team_size = 4
 if args.mode:
     gamemode = args.mode
-else:
-    gamemode = "usual"
+
+# Obtain last n tours for the guess thresholds
+def is_date(value):
+        try:
+            datetime.strptime(value, "%Y-%m-%d")
+            return True
+        except ValueError:
+            return False
+
+def clean_data(idtable, statstable):
+    # Load alias table
+    alias_df = pd.read_csv(idtable)
+    alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+    alias_to_id = dict(zip(alias_df["Player Name"], alias_df["Player ID"]))
+
+    # Read raw CSV as a list of rows (not yet parsed by header)
+    raw_lines = pd.read_csv(statstable, header=None, dtype=str).fillna("").values.tolist()
+    raw_lines = [row for row in raw_lines if row[0].strip() != ""]
+    processed_lines = []
+    for row in raw_lines:
+        if not is_date(row[0].strip()):
+            row = row[1:]
+        processed_lines.append(row)
+    # Prepare
+    parsed_rows = []
+    current_date = None
+    columns = ["Player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate"]
+
+    # Parse manually
+    for row in processed_lines:
+        # Skip completely empty rows
+        if all(cell.strip() == "" for cell in row):
+            continue
+
+        first_cell = row[0].strip()
+        
+        # Check if the row is a tournament date
+        if first_cell and all(cell.strip() == "" for cell in row[1:]):
+            current_date = first_cell
+            continue
+
+        # Skip rows without tournament date assigned yet
+        if current_date is None:
+            continue
+
+        # Normalize name
+        player_name = first_cell.strip().lower()
+        player_id = alias_to_id.get(player_name)
+
+        if not player_id:
+            print(f"[WARN] Unknown player alias: {player_name}")
+            continue
+
+        # Pad short rows with empty strings
+        while len(row) < len(columns):
+            row.append("")
+
+        parsed_rows.append([current_date, player_id] + row[0:len(columns)])
+
+    # Final DataFrame
+    final_columns = ["Tournament Date", "Player ID"] + columns[0:]
+    df = pd.DataFrame(parsed_rows, columns=final_columns)
+    df["guess rate"] = pd.to_numeric(df["guess rate"], errors='coerce')
+    df["usefulness"] = pd.to_numeric(df["usefulness"], errors='coerce')
+    df = df.dropna(subset=["usefulness", "guess rate"])
+    df = df[df["usefulness"].astype(str).str.strip() != ""]
+
+    # Ensure the Tournament Date is a datetime object
+    df["Tournament Date"] = pd.to_datetime(df["Tournament Date"], errors="coerce")
+    # Drop invalid dates
+    df = df.dropna(subset=["Tournament Date"])
+
+    six_months_ago = datetime.now() - relativedelta(months=max_fallback_window)
+    year_6m_ago = six_months_ago.year
+    month_6m_ago = six_months_ago.month
+
+    year_df = df[
+        ((df["Tournament Date"].dt.year > year_6m_ago)) |
+        ((df["Tournament Date"].dt.year == year_6m_ago) & (df["Tournament Date"].dt.month >= month_6m_ago))
+    ]
+
+    year_df = year_df.sort_values(["Player ID", "Tournament Date"])
+
+    # Sort by Player ID and Tournament Date
+    df = df.sort_values(["Player ID", "Tournament Date"])
+
+    two_months_ago = datetime.now() - relativedelta(months=month_window)
+    year_2m_ago = two_months_ago.year
+    month_2m_ago = two_months_ago.month
+
+    timely_df = df[
+        ((df["Tournament Date"].dt.year > year_2m_ago)) |
+        ((df["Tournament Date"].dt.year == year_2m_ago) & (df["Tournament Date"].dt.month >= month_2m_ago))
+    ]
+    
+    timely_counts = timely_df.groupby("Player ID").size()
+
+    enough_ids = timely_counts[timely_counts >= past_tours].index
+    not_enough_ids = timely_counts[timely_counts < past_tours].index
+
+    result_df = timely_df[timely_df["Player ID"].isin(enough_ids)]
+    result_df = result_df.groupby("Player ID").tail(active_tours)
+    fallback_df = (
+        year_df[year_df["Player ID"].isin(not_enough_ids)]
+        .groupby("Player ID", group_keys=False)
+        .tail(past_tours)
+    )
+
+    final_df = pd.concat([result_df, fallback_df], ignore_index=True)
+
+    return final_df
+
+def trim(group):
+    n = len(group)
+    if n < 10:
+        return pd.Series({
+            "avg_gr": group["guess rate"].mean(),
+            "avg_uf": group["usefulness"].mean(),
+            "count": n
+        })
+    else:
+        trimmed_gr = group["guess rate"].sort_values()#.iloc[1:-1]
+        trimmed_uf = group["usefulness"].sort_values()#.iloc[1:-1]
+        return pd.Series({
+            "avg_gr": trimmed_gr.mean(),
+            "avg_uf": trimmed_uf.mean(),
+            "count": n
+        })
+
+DIRECTORY = os.path.dirname(os.path.dirname(__file__))
+sheet_name = "ngm stats"
+tab_id_stats = 0
+tab_id_ids = 220350629
+tab_elo_storage = 716533894
+gc = gspread.oauth(
+    credentials_filename=os.path.join(DIRECTORY, 'credentials', 'credentials.json'),
+    authorized_user_filename=os.path.join(DIRECTORY, 'credentials', 'authorized_user.json')
+)
+sheet = gc.open(sheet_name)
+wks = sheet.get_worksheet_by_id(tab_id_stats)
+wks_ids = sheet.get_worksheet_by_id(tab_id_ids)
+wks_storage = sheet.get_worksheet_by_id(tab_elo_storage)
+
+rows = wks.get_all_values()
+with open(statstable, "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerows(rows)
+
+rows_ids = wks_ids.get_all_values()
+with open(idtable, "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerows(rows_ids)
+
+clean_stats = clean_data(idtable, statstable)
+clean_stats = clean_stats.sort_values(["Player ID", "Tournament Date"])
+clean_stats.to_csv(cleanedstats, index=False, encoding="utf-8")
+player_stats = clean_stats.groupby(["Player ID", "Player name"]).apply(trim, include_groups=False).reset_index()
+player_stats['Player name'] = player_stats['Player name'].str.lower()
+player_stats.to_csv(cleanedavgs, index=False, encoding="utf-8")
 
 # Obtain the players
 ranks = {}
@@ -161,20 +335,24 @@ def generate_codes(gamemode, txtvar):
         case "quag":
             txtvar += "```e0g0z211111101100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Random NGMC guess distributions:
-≥8.5: 4 guesses
-4.5-8.49: 3 guesses
-0.5-4.49: 2 guesses
-≤0.49: 1 guess
+≥28% = 4 guesses
+20% - 28% = 3 guesses
+12% - 20% = 2 guesses
+<12% = 1 guess
 """
 
     return txtvar
 
-def get_guess(val):
-    if val >= 8.5:
+def get_guess(name, player_stats):
+    alias_df = pd.read_csv(idtable)
+    alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+    player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
+    avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, 'avg_gr'].iloc[0]
+    if avg_gr >= three_guess_percent:
         return '4'
-    elif val >= 4.5:
+    elif avg_gr >= two_guess_percent:
         return '3'
-    elif val >= 0.5:
+    elif avg_gr >= one_guess_percent:
         return '2'
     else:
         return '1'
@@ -201,7 +379,7 @@ txtvar += "\n"
 avg = 0
 for idx, (group, total) in enumerate(sorted_parts, 1):
     members = " ".join(f"{name} ({val:.3f})" for name, val in sorted(group, key=lambda x: x[1], reverse=True))
-    guess_str = "".join(get_guess(val) for _, val in sorted(group, key=lambda x: x[1], reverse=True))
+    guess_str = "".join(get_guess(name, player_stats) for name, _ in sorted(group, key=lambda x: x[1], reverse=True))
     avg += round(total, 4)
     line = f"{members} | Total = {round(total, 3)} | Guesses = [{guess_str}]\n"
     print(line, end="")
