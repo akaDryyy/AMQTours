@@ -24,7 +24,7 @@ active_tours = 10
 
 #Guess Count Thresholds
 one_guess_percent = 8
-two_guess_percent = 18
+two_guess_percent = 19
 three_guess_percent = 28
 
 parser = argparse.ArgumentParser(description="AMQ Tours")
