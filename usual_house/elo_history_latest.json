@@ -1,0 +1,18 @@
+{
+	"tour_id": "e8hcfhxr",
+	"time": "2025-11-14 10:30:00+01:00",
+	"teams": {
+		"sniparook (42.66) fortnayt (33.34) dry (-1.80) okitanobu (-42.14) = 32.05": "2W 0L 0D",
+		"chata (9.00) jakemonkey (5.31) feyfey (5.14) skychael (3.26) = 22.70": "0W 2L 0D"
+	},
+	"player": {
+		"sniparook": "initial elo: 42.656, new elo: 49.336, rating change: 6.680",
+		"fortnayt": "initial elo: 33.336, new elo: 40.195, rating change: 6.859",
+		"dry": "initial elo: -1.802, new elo: 4.979, rating change: 6.781",
+		"okitanobu": "initial elo: -42.137, new elo: -35.353, rating change: 6.784",
+		"chata": "initial elo: 9.000, new elo: 7.934, rating change: -1.066",
+		"jakemonkey": "initial elo: 5.308, new elo: -1.562, rating change: -6.870",
+		"feyfey": "initial elo: 5.135, new elo: -0.301, rating change: -5.437",
+		"skychael": "initial elo: 3.261, new elo: -2.992, rating change: -6.253"
+	}
+}

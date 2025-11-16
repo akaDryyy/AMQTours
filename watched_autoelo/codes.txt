@@ -2,16 +2,14 @@
 
 ### Solution 1 ###
 
-kazaseno (15.820) tapumomo_ (12.139) bommie (11.389) foopypoopy (7.049) | Total = 46.397 | Guesses = [5553]
-saiki (13.385) seismic (12.237) ss_r_white_pony (11.834) iamasiannoob (8.966) | Total = 46.422 | Guesses = [5555]
-kar72 (18.057) shelterrin (12.758) cm02 (8.740) lordgrond (6.858) | Total = 46.413 | Guesses = [5542]
-komari (14.218) smarthardyz (14.110) miiarad (12.256) brandon_k (5.840) | Total = 46.424 | Guesses = [5551]
-mkby (14.329) progenitor (13.279) legrandort (9.877) thjalago (9.000) | Total = 46.485 | Guesses = [5555]
-civiltwlight (16.837) md22 (10.944) i_dont_like_loli (10.069) xeyz (8.694) | Total = 46.544 | Guesses = [5554]
+revel (18.716) shiinamahiru (17.406) bommie (13.783) inta (11.106) | Total = 61.011 | Guesses = [5555]
+neoburnz (19.828) lika (18.107) feyfey (12.227) xeyz (10.969) | Total = 61.131 | Guesses = [5555]
+haruurara (15.603) progenitor (15.547) ruuka (15.541) miiarad (14.434) | Total = 61.125 | Guesses = [5555]
+milar (19.291) comete (15.609) yasashiikumo (13.351) oolli (12.805) | Total = 61.056 | Guesses = [5555]
 
-Average: 46.4475
+Average: 61.0807
 
-[Challonge](YOUR_CHALLONGE_URL)
+nYOURCHALLONGEURLHERE
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
 Distribution of guesses:
 ≥8.75: 5 guesses

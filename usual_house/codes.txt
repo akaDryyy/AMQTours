@@ -1,0 +1,16 @@
+######################### Discord #########################
+
+### Solution 1 ###
+
+sniparook (49.336) chata (7.934) dry (4.979) okitanobu (-35.353) | Total = 26.896 | Guesses = [4331]
+fortnayt (40.195) feyfey (-0.301) jakemonkey (-1.562) skychael (-2.992) | Total = 35.340 | Guesses = [4111]
+
+Average: 31.118
+
+nYOURCHALLONGEURLHERE
+```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
+Distribution of guesses:
+≥8.5: 4 guesses
+4.5-8.49: 3 guesses
+0.5-4.49: 2 guesses
+≤0.49: 1 guess

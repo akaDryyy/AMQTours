@@ -2,7 +2,7 @@ ekkaiaenoia	ekka
 kar72	kar 
 eruiskawaii	eru 
 peeku	watashiiit	eric
-smarthardyz	smart 
+smarthardyz	smart	accelerator11
 watashiii	watashi 	akl
 bop	shake
 poolnoodle	poolnoober
@@ -20,19 +20,19 @@ mahirushiina	yerardi
 star_driver	stardriver
 lilyholic	chelly
 anonimus_opinion	anonimusopinion
-szafa	chata
+chata	szafa
 edwardd	edward 
 konsumenci	konsu 
 claydoll1091	claydoll 
 renzou	ren 
-zippy	stormross
+zippy	stormross	beanman87
 poison205	hanato	yurinekurosawa
 transfer	isischan
 Anoru_	ksante4700hp	noru
 vsai	sai
 fortnayt	sewim
 gyroinmobile	hitoribocchi
-bella	bellaa	isabella	xieliann
+xieliann	bella	bellaa	isabella
 gw13	x_____________
 mitsorubi	mitsurobi
 uomi	joey
@@ -57,7 +57,11 @@ nicole	NicoIe
 keizan	Kenzou_Tenma
 Wolbachia	Padre
 Math_	Math1234
-uomi	uohhmi
-WORSTPLAYER	Hyonoobka
+joey	uomi	uohhmi
+Hyo	WORSTPLAYER	Hyonoobka
 akatsuki	OffenseArmor
 KaoriMaeda	Nazemeiyue
+BijouKoseki	oshino_bu
+Luna	Shiroha
+kryuell	raidenmei
+feyfey	feyf
