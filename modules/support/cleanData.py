@@ -51,7 +51,7 @@ def internal_clean_data(idtable, statstable, hasExtraColumn):
         player_id = alias_to_id.get(player_name)
 
         if not player_id:
-            print(f"[WARN] Unknown player alias: {player_name}")
+            input(f"[WARN] Unknown player alias: {player_name}. Press Enter to continue.")
             continue
 
         # Pad short rows with empty strings
