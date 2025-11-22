@@ -140,8 +140,15 @@ class Solver:
                 clean_stats = clean_data(self.IDTABLE, self.STATSTABLE, self.CLEANEDSTATSYEAR, self.monthWindow, self.maxFallbackWindow, self.pastTours, self.activeTours)
             clean_stats = clean_stats.sort_values(["Player ID", "Tournament Date"])
             clean_stats.to_csv(self.CLEANEDSTATS, index=False, encoding="utf-8")
-            player_stats = clean_stats.groupby(["Player ID", "Player name"]).apply(trim, include_groups=False).reset_index()
-            player_stats['Player name'] = player_stats['Player name'].str.lower()
+            player_stats = clean_stats.groupby("Player ID").apply(trim, include_groups=False).reset_index()
+            ids = pd.read_csv(self.IDTABLE)
+            ids = ids.drop_duplicates(subset='Player ID', keep='first')
+            player_stats = player_stats.merge(ids[['Player ID', 'Player Name']], on='Player ID', how='left')
+            new_order = ['Player ID', 'Player Name', 'avg_gr', 'avg_uf', 'count']
+            player_stats = player_stats[new_order]
+            player_stats['avg_gr'] = round(player_stats['avg_gr'], 3)
+            player_stats['avg_uf'] = round(player_stats['avg_uf'], 3)
+            player_stats['count'] = player_stats['count'].astype(int)
             player_stats.to_csv(self.CLEANEDAVGS, index=False, encoding="utf-8")
 
         aliases = getAliases(self.ALIASES_PATH)
