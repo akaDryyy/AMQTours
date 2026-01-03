@@ -1,0 +1,453 @@
+from curl_cffi import requests
+from shutil import which
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+import pandas as pd
+from html2image import Html2Image
+from PIL import Image
+import numpy as np
+
+def is_date(value):
+    try:
+        datetime.strptime(value, "%Y-%m-%d")
+        return True
+    except ValueError:
+        return False
+
+def internal_clean_data(idtable, statstable, hasExtraColumn):
+    # Load alias table
+    headers = idtable[0]
+    data = idtable[1:]
+    alias_df = pd.DataFrame(data, columns=headers)
+    alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+    alias_to_id = dict(zip(alias_df["Player Name"], alias_df["Player ID"]))
+
+    raw_lines = pd.DataFrame(statstable, dtype=str).fillna("").values.tolist()
+    if hasExtraColumn:
+        raw_lines = [row for row in raw_lines if row[0].strip() != ""]
+        processed_lines = []
+        for row in raw_lines:
+            if not is_date(row[0].strip()):
+                row = row[1:]
+            processed_lines.append(row)
+    else:
+        processed_lines = raw_lines
+    parsed_rows = []
+    current_date = None
+    columns = ["Player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate"]
+    
+    # Parse manually
+    for row in processed_lines:
+        # Skip completely empty rows
+        if all(cell.strip() == "" for cell in row):
+            continue
+
+        first_cell = row[0].strip()
+        
+        # Check if the row is a tournament date
+        EMPTY_VALUES = {"", "#N/A"}
+        if first_cell and all(cell.strip() in EMPTY_VALUES for cell in row[1:]):
+            current_date = first_cell
+            continue
+
+        # Skip rows without tournament date assigned yet
+        if current_date is None:
+            continue
+
+        # Normalize name
+        player_name = first_cell.strip().lower()
+        player_id = alias_to_id.get(player_name)
+
+        if not player_id:
+            input(f"[WARN] Unknown player alias: {player_name}. Ping the current host to fix this.")
+            continue
+
+        # Pad short rows with empty strings
+        while len(row) < len(columns):
+            row.append("")
+
+        parsed_rows.append([current_date, player_id] + row[0:len(columns)])
+    
+    # Final DataFrame
+    final_columns = ["Tournament Date", "Player ID"] + columns[0:]
+    df = pd.DataFrame(parsed_rows, columns=final_columns)
+    df["guess rate"] = pd.to_numeric(df["guess rate"], errors='coerce')
+    df["usefulness"] = pd.to_numeric(df["usefulness"], errors='coerce')
+    df["OP guess rate"] = pd.to_numeric(df["OP guess rate"], errors='coerce')
+    df["ED guess rate"] = pd.to_numeric(df["ED guess rate"], errors='coerce')
+    df["IN guess rate"] = pd.to_numeric(df["IN guess rate"], errors='coerce')
+    df = df.dropna(subset=["usefulness", "guess rate"])
+    df = df[df["usefulness"].astype(str).str.strip() != ""]
+
+    # Ensure the Tournament Date is a datetime object
+    df["Tournament Date"] = pd.to_datetime(df["Tournament Date"], errors="coerce")
+    # Drop invalid dates
+    df = df.dropna(subset=["Tournament Date"])
+
+    return df
+
+def clean_data(idtable, statstable, monthWindow, maxFallbackWindow, pastTours, activeTours, hasExtraColumn):
+    df = internal_clean_data(idtable, statstable, hasExtraColumn)
+
+    six_months_ago = datetime.now() - relativedelta(months=maxFallbackWindow)
+    year_6m_ago = six_months_ago.year
+    month_6m_ago = six_months_ago.month
+
+    year_df = df[
+        ((df["Tournament Date"].dt.year > year_6m_ago)) |
+        ((df["Tournament Date"].dt.year == year_6m_ago) & (df["Tournament Date"].dt.month >= month_6m_ago))
+    ]
+
+    year_df = year_df.sort_values(["Player ID", "Tournament Date"])
+    # Sort by Player ID and Tournament Date
+    df = df.sort_values(["Player ID", "Tournament Date"])
+
+    two_months_ago = datetime.now() - relativedelta(months=monthWindow)
+    year_2m_ago = two_months_ago.year
+    month_2m_ago = two_months_ago.month
+
+    timely_df = df[
+        ((df["Tournament Date"].dt.year > year_2m_ago)) |
+        ((df["Tournament Date"].dt.year == year_2m_ago) & (df["Tournament Date"].dt.month >= month_2m_ago))
+    ]
+    
+    timely_counts = timely_df.groupby("Player ID").size()
+
+    enough_ids = timely_counts[timely_counts >= pastTours].index
+    not_enough_ids = timely_counts[timely_counts < pastTours].index
+
+    result_df = timely_df[timely_df["Player ID"].isin(enough_ids)]
+    result_df = result_df.groupby("Player ID").tail(activeTours)
+    fallback_df = (
+        year_df[year_df["Player ID"].isin(not_enough_ids)]
+        .groupby("Player ID", group_keys=False)
+        .tail(pastTours)
+    )
+
+    final_df = pd.concat([result_df, fallback_df], ignore_index=True)
+
+    return final_df
+
+def trim(group):
+    n = len(group)
+    player_name = group["Player name"].iloc[0]
+    if n < 10:
+        return pd.Series({
+            "Player name": player_name,
+            "avg_gr": group["guess rate"].mean(),
+            "avg_uf": group["usefulness"].mean(),
+            "avg_op": group["OP guess rate"].mean(),
+            "avg_ed": group["ED guess rate"].mean(),
+            "avg_in": group["IN guess rate"].mean(),
+            "count": n
+        })
+    else:
+        trimmed_gr = group["guess rate"].sort_values()#.iloc[1:-1]
+        trimmed_uf = group["usefulness"].sort_values()#.iloc[1:-1]
+        trimmed_op = group["OP guess rate"].sort_values()
+        trimmed_ed = group["ED guess rate"].sort_values()
+        trimmed_in = group["IN guess rate"].sort_values()
+        return pd.Series({
+            "Player name": player_name,
+            "avg_gr": trimmed_gr.mean(),
+            "avg_uf": trimmed_uf.mean(),
+            "avg_op": trimmed_op.mean(),
+            "avg_ed": trimmed_ed.mean(),
+            "avg_in": trimmed_in.mean(),
+            "count": n
+        })
+
+def get_stat(df, player_id, column):
+    try:
+        filtered = df.loc[df["Player ID"] == player_id, column]
+
+        if filtered.empty:
+            return 0.0
+    except KeyError:
+        return 0.0
+    
+    return filtered.astype(float).iloc[0]
+
+def download_challonge_page(url: str) -> str:
+    try:
+        response = requests.get(
+            url,
+            impersonate="chrome123",
+            timeout=20
+        )
+
+        response.raise_for_status()
+
+        return response.text
+
+    except Exception as e:
+        raise RuntimeError(f"Failed to download Challonge page: {e}")
+
+def get_browser():
+    for b in ["google-chrome", "chromium", "chromium-browser", "msedge", "edge"]:
+        path = which(b)
+        if path:
+            return path
+    return None
+ 
+def trim_bottom_white(path_in):
+    img = Image.open(path_in)
+    arr = np.array(img)
+
+    if arr.ndim == 3:
+        row_sum = arr.sum(axis=2)
+        row_total = row_sum.sum(axis=1)
+        white_row_sum = 255 * arr.shape[2] * arr.shape[1]
+    else:
+        row_total = arr.sum(axis=1)
+        white_row_sum = 255 * arr.shape[1]
+
+    last_row = 0
+    for i, val in enumerate(row_total):
+        if val < white_row_sum:
+            last_row = i
+
+    cropped = img.crop((0, 0, img.width, last_row+1))
+    cropped.save(path_in)
+
+def autosize_image(df, min_width=800, max_width=4000, min_height=1000, max_height=6000):
+    num_cols = len(df.columns)
+    avg_col_chars = df.astype(str).apply(lambda col: col.map(len)).mean().max()
+    width = int(100 + num_cols * (avg_col_chars * 8 + 40))
+    width = max(min_width, min(width, max_width))
+
+    row_height = 35      
+    header_height = 90
+    padding = 0
+
+    height = header_height + len(df) * row_height + padding
+    height = max(min_height, min(height, max_height))
+
+    return width, height
+
+def df_to_png(df, filename="table.png", reverse_cols=None, exclude_columns=None, separators=None):
+    width, height = autosize_image(df)
+
+    if reverse_cols is None:
+        reverse_cols = []
+
+    if separators is None:
+        separators = []
+
+    hti = Html2Image(
+        size=(width, height),
+        browser_executable=get_browser(),
+        custom_flags=[
+            "--headless=new",
+            "--hide-scrollbars",
+            "--disable-gpu",
+            "--force-device-scale-factor=1",
+        ]
+    )
+
+    html = """
+    <html>
+    <head>
+    <style>
+        html, body { background-color: white; font-family: Arial; padding: 0; }
+        table { border-collapse: collapse; width: 100%; font-size: 15px; }
+        th { background-color: #eaeaea; padding: 1px; font-weight: bold; border-bottom: 2px solid #888; text-align: center; }
+        td { padding: 1px 1px; text-align: center; border-bottom: 1px solid #ddd; white-space: nowrap; }
+        tr:nth-child(even) { background-color: #E8E8E8; }
+    </style>
+    </head>
+    <body>
+    <table>
+    <thead>
+        <tr>
+    """
+
+    # Add headers
+    for col in df.columns:
+        html += f"<th>{col}</th>"
+    html += "</tr></thead><tbody>"
+
+    # Precompute numeric min/max per column
+    numeric_cols = df.select_dtypes(include=["number"]).columns
+    if exclude_columns:
+        numeric_cols = [c for c in numeric_cols if c not in exclude_columns]
+
+    top3 = {}
+    bottom3 = {}
+
+    for col in numeric_cols:
+        sorted_vals = df[col].sort_values()
+
+        bottom3[col] = set(sorted_vals.head(3).values)
+
+        top3[col] = set(sorted_vals.tail(3).values)
+
+    for _, row in df.iterrows():
+        html += "<tr>"
+        for col in df.columns:
+            val = row[col]
+            style = ""
+
+            if col in numeric_cols:
+                try:
+                    val_num = float(val)
+
+                    if col in reverse_cols:
+                        if val_num in bottom3[col]:
+                            style = "background-color:#57bb8a;"
+                        elif val_num in top3[col]:
+                            style = "background-color:#e67c73;"
+                    else:
+                        if val_num in top3[col]:
+                            style = "background-color:#57bb8a;"
+                        elif val_num in bottom3[col]:
+                            style = "background-color:#e67c73;" # font-weight:bold;
+
+                except:
+                    pass
+            
+            if col in separators:
+                style += "border-right:2px solid black;"
+
+            html += f"<td style='{style}'>{val}</td>"
+
+        html += "</tr>"
+
+    html += "</tbody></table></body></html>"
+
+    hti.screenshot(html_str=html, save_as=filename)
+
+    trim_bottom_white(filename)
+
+def render_songdb_summary_html(songDB) -> str:
+    html = """
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: white;
+        padding: 16px;
+        margin: 0;
+    }
+
+    .section {
+        margin-bottom: 18px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 6px;
+        border-bottom: 2px solid #444;
+        padding-bottom: 2px;
+    }
+
+    .line {
+        font-size: 14px;
+        margin: 2px 0;
+    }
+
+    .examples {
+        color: #555;
+        font-size: 13px;
+        margin-left: 12px;
+    }
+</style>
+</head>
+<body>
+"""
+
+    html += f"""
+<div class="section">
+    <div class="section-title">Overview</div>
+    <div class="line">Total Songs: <b>{songDB.songsAmount}</b></div>
+    <div class="line">Rebroadcasts: <b>{len(songDB.rbs)}</b></div>
+</div>
+"""
+
+    html += """
+<div class="section">
+    <div class="section-title">Airing Year Summary</div>
+"""
+    for decade in sorted(songDB.decades.keys(), key=int):
+        songs = songDB.decades[decade]
+        songs.sort(key=lambda x: x.anime_id)
+        examples = songs[:5]
+        count = len(songs)
+        pct = round(100 * count / songDB.songsAmount, 3)
+
+        html += f"""
+    <div class="line">
+        <b>{decade}s</b>: {count} songs ({pct}%)
+    </div>
+    <div class="examples">
+        Examples: {", ".join(ann.anime_name for ann in examples)}
+    </div>
+"""
+
+    html += "</div>"
+
+    html += """
+<div class="section">
+    <div class="section-title">Song Type Breakdown</div>
+"""
+    for songtype, songs in songDB.opedin.items():
+        count = len(songs)
+        pct = round(100 * count / songDB.songsAmount, 3)
+        html += f"""
+    <div class="line">
+        <b>{songtype}</b>: {count} songs ({pct}%)
+    </div>
+"""
+
+    html += "</div>"
+
+    html += """
+<div class="section">
+    <div class="section-title">Format Type Breakdown</div>
+"""
+    for formattype, songs in songDB.formats.items():
+        count = len(songs)
+        pct = round(100 * count / songDB.songsAmount, 3)
+        html += f"""
+    <div class="line">
+        <b>{formattype}</b>: {count} songs ({pct}%)
+    </div>
+"""
+
+    html += "</div>"
+
+    html += """
+<div class="section">
+    <div class="section-title">Difficulty Breakdown</div>
+"""
+    for difficulty in sorted(songDB.diffs.keys(), key=int):
+        songs = songDB.diffs[difficulty]
+        count = len(songs)
+        pct = round(100 * count / songDB.songsAmount, 3)
+
+        html += f"""
+    <div class="line">
+        <b>{difficulty}-{int(difficulty)+9}%</b>: {count} songs ({pct}%)
+    </div>
+"""
+
+    html += "</div></body></html>"
+
+    return html
+
+def saveSongStats(songDB, filename):
+    hti = Html2Image(
+        size=(1200, 2000),
+        browser_executable=get_browser(),
+        custom_flags=["--hide-scrollbars"]
+    )
+
+    html = render_songdb_summary_html(songDB)
+
+    hti.screenshot(html_str=html, save_as=filename)
+
+    trim_bottom_white(filename)

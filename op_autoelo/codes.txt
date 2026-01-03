@@ -2,18 +2,16 @@
 
 ### Solution 1 ###
 
-kar72 (14.548) cafezinho (11.124) janoxx (11.060) shelterrin (8.220) | Total = 44.952 | Guesses = [4443]
-oh95 (13.692) saiki (10.665) hibari (10.647) mahirushiina (10.064) | Total = 45.068 | Guesses = [4444]
-civiltwlight (19.224) hmsuis (11.635) unborned (7.860) eljuanchi (6.363) | Total = 45.082 | Guesses = [4422]
-alkios (16.000) kazaseno (14.810) okitanobu (7.667) anicomi (6.742) | Total = 45.219 | Guesses = [4422]
-beautiful (12.401) flato (12.065) swapin (10.374) md22 (10.335) | Total = 45.175 | Guesses = [4444]
-accelerator11 (21.946) liljakatsuragi (8.421) yashadox (8.262) rhummy (6.307) | Total = 44.936 | Guesses = [4332]
-chrislefko (13.978) neoburnz (12.682) annayanami (9.966) feyfey (8.296) | Total = 44.922 | Guesses = [4433]
-kishua (20.385) kirox (9.744) zokie (9.733) chommy (5.573) | Total = 45.435 | Guesses = [4332]
+flato (11.382) coglionedown (11.350) poppysr (10.724) swapin (9.728) | Total = 43.184 | Guesses = [4443]
+oh95 (12.972) tvaz (11.947) kynn (11.232) icefeed2 (7.000) | Total = 43.151 | Guesses = [4442]
+catisam (17.764) legitted (9.000) shiku (8.944) yashadox (7.458) | Total = 43.166 | Guesses = [4332]
+miki_hoshii (20.084) yasashiikumo (7.754) mangalodon (7.745) mahzrunner (7.615) | Total = 43.198 | Guesses = [4222]
+yolowolf75 (13.319) cafezinho (10.339) saiki (10.060) annayanami (9.442) | Total = 43.160 | Guesses = [4443]
+alkios (15.552) kaededayo (11.276) konsumenci (9.682) legrandort (6.626) | Total = 43.136 | Guesses = [4432]
 
-Average: 45.0986
+Average: 43.1658
 
-nYOURCHALLONGEURLHERE
+<YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
 ≥10: 4 guesses

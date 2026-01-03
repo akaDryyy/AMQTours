@@ -18,7 +18,7 @@
 11: anonimus_opinion, mkby, claydoll1091, kazaseno, cafezinho, comete, orfey
 10.5: beautiful, kezzy, florenz, md22, emdiel, kaededayo, kabigon
 10: kryuell, shiinamahiru, bamboo, mahirushiina, kuterin, selaph, oh95
-9.5: darkynep, hihi, dry, pile, apurplenose, hmsuis, _nadeshiko
+9.5: neptune, hihi, dry, pile, apurplenose, hmsuis, _nadeshiko
 9: dking20, ruuka, animerod, chaabdu92, moltenashes, Tvaz
 8.3: beokros, yokipi, chemist, mayottatoki, spanky, uomi, hyonoobka, python
 8: kirivert, legitted, edward, saiki, zeal_kido, lakumix, bigsmo, Sgtvp
@@ -28,6 +28,7 @@
 6: time2hack, ekkaiaenoia, zokie, harges, miiarad, anotherwish, annayanami, gua, mika_tw
 5.5: janoxx, konsu, kabao, lightning, atsui
 5: serozero, shiroganelily, yellowrose, shelterrin
+4.5: Heleos
 4.3: benevelante, andrey_k, uy5gf, feyf, satorii, oshino_bu
 4: yashadox, naizuri, psirockin
 3.5: torradinhas, maplesyyrup, ranny, porte, vuhrculls
@@ -37,4 +38,4 @@
 1.5: mythandroid, anicomi, Unborned
 1: eljuanchi, cm02, mitorubi, i_dont_like_loli
 0.6: chommy, tsuni
-0.4: rhummy, tateyamaayano, justaweirdo, lordgrond, foopypoopy
+0.4: rhummy, tateyamaayano, justaweirdo, lordgrond, foopypoopy, luna

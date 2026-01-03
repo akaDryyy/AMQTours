@@ -1,5 +1,11 @@
 import sys, os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+try:
+    DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    DIRECTORY = os.getcwd() 
+PROJECT_ROOT = os.path.abspath(os.path.join(DIRECTORY, "..")) 
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 from modules.main.solver import Solver
 
 def main():

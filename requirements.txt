@@ -11,4 +11,8 @@ requests
 PuLP
 Gooey 
 pandas
+numpy
 gspread
+curl_cffi
+html2image
+pillow

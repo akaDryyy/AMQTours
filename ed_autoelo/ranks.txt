@@ -1,5 +1,3 @@
-bai
-17: deafness
-10.5: MahiruShiina
-9: HaruUrara
-6: inta
+11:
+10:
+9:

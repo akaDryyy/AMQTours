@@ -25,7 +25,7 @@ edwardd	edward
 konsumenci	konsu 
 claydoll1091	claydoll 
 renzou	ren 
-zippy	stormross	beanman87
+beanman87	stormross	zippy
 poison205	hanato	yurinekurosawa
 transfer	isischan
 Anoru_	ksante4700hp	noru
@@ -59,7 +59,7 @@ Wolbachia	Padre
 Math_	Math1234
 joey	uomi	uohhmi
 Hyo	WORSTPLAYER	Hyonoobka
-akatsuki	OffenseArmor
+akatsukl	akatsuki	OffenseArmor
 KaoriMaeda	Nazemeiyue
 BijouKoseki	oshino_bu
 Luna	Shiroha
