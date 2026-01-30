@@ -6,6 +6,7 @@ import pandas as pd
 from html2image import Html2Image
 from PIL import Image
 import numpy as np
+import os
 
 def is_date(value):
     try:
@@ -184,9 +185,14 @@ def download_challonge_page(url: str) -> str:
         raise RuntimeError(f"Failed to download Challonge page: {e}")
 
 def get_browser():
-    for b in ["google-chrome", "chromium", "chromium-browser", "msedge", "edge"]:
-        path = which(b)
-        if path:
+    WINDOWS_BROWSERS = [
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+    ]
+    for path in WINDOWS_BROWSERS:
+        if os.path.exists(path):
             return path
     return None
  
@@ -225,7 +231,7 @@ def autosize_image(df, min_width=800, max_width=4000, min_height=1000, max_heigh
 
     return width, height
 
-def df_to_png(df, filename="table.png", reverse_cols=None, exclude_columns=None, separators=None):
+def df_to_png(df, path, filename="table.png", reverse_cols=None, exclude_columns=None, separators=None):
     width, height = autosize_image(df)
 
     if reverse_cols is None:
@@ -242,7 +248,8 @@ def df_to_png(df, filename="table.png", reverse_cols=None, exclude_columns=None,
             "--hide-scrollbars",
             "--disable-gpu",
             "--force-device-scale-factor=1",
-        ]
+        ],
+        output_path=path
     )
 
     html = """
@@ -317,7 +324,9 @@ def df_to_png(df, filename="table.png", reverse_cols=None, exclude_columns=None,
 
     hti.screenshot(html_str=html, save_as=filename)
 
-    trim_bottom_white(filename)
+    savepath = os.path.join(path, filename)
+
+    trim_bottom_white(savepath)
 
 def render_songdb_summary_html(songDB) -> str:
     html = """
@@ -439,15 +448,18 @@ def render_songdb_summary_html(songDB) -> str:
 
     return html
 
-def saveSongStats(songDB, filename):
+def saveSongStats(songDB, path, filename):
     hti = Html2Image(
         size=(1200, 2000),
         browser_executable=get_browser(),
-        custom_flags=["--hide-scrollbars"]
+        custom_flags=["--hide-scrollbars"],
+        output_path=path
     )
 
     html = render_songdb_summary_html(songDB)
 
     hti.screenshot(html_str=html, save_as=filename)
 
-    trim_bottom_white(filename)
+    savepath = os.path.join(path, filename)
+
+    trim_bottom_white(savepath)

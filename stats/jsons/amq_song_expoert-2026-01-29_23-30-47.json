@@ -1,0 +1,1472 @@
+{
+    "roomName": "Tour: Arron-Chef",
+    "startTime": "Thu Jan 29 2026 23:30:47 GMT-0800",
+    "songs": [
+        {
+            "songNumber": 1,
+            "songInfo": {
+                "animeNames": {
+                    "english": "High School DxD Hero",
+                    "romaji": "High School DxD Hero"
+                },
+                "artist": "Minami",
+                "composerInfo": {
+                    "artistId": 21110,
+                    "name": "Minami"
+                },
+                "arrangerInfo": {
+                    "groupId": 80026164,
+                    "name": "AstroNoteS"
+                },
+                "songName": "SWITCH",
+                "type": 1,
+                "typeNumber": 1,
+                "annId": 20195,
+                "highRisk": 0,
+                "animeScore": "6.9",
+                "animeType": "TV",
+                "vintage": "Spring 2018",
+                "animeDifficulty": 37.5315107226792,
+                "animeTags": [
+                    "Demons",
+                    "Female Harem",
+                    "School",
+                    "Super Power",
+                    "Male Protagonist",
+                    "Primarily Female Cast",
+                    "Nudity",
+                    "Dragons",
+                    "Youkai",
+                    "Kemonomimi",
+                    "Monster Girl",
+                    "Urban Fantasy",
+                    "Heterosexual"
+                ],
+                "animeGenre": [
+                    "Action",
+                    "Comedy",
+                    "Ecchi",
+                    "Fantasy",
+                    "Romance"
+                ],
+                "altAnimeNames": [
+                    "High School DxD Hero"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 20195,
+                    "malId": 34281,
+                    "kitsuId": 12677,
+                    "aniListId": 97767
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "Season",
+                    "number": "4.0"
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "Dog Days&#39;&#39; (13511ms)",
+            "correctCount": 5,
+            "wrongCount": 3,
+            "startPoint": 18,
+            "videoLength": 89.513,
+            "videoUrl": "https://naedist.animemusicquiz.com/8rhptg.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "anicomi",
+                "FurLain",
+                "AmamiyaSora",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "anicomi",
+                    "status": 2,
+                    "score": 3
+                },
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 7
+                },
+                {
+                    "name": "HistoriaReiss",
+                    "status": 2,
+                    "score": 6
+                }
+            ]
+        },
+        {
+            "songNumber": 2,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Ikki Tousen",
+                    "romaji": "Ikkitousen"
+                },
+                "artist": "Masumi Asano",
+                "composerInfo": {
+                    "artistId": 12270,
+                    "name": "Masahiro Inada"
+                },
+                "arrangerInfo": {
+                    "artistId": 12270,
+                    "name": "Masahiro Inada"
+                },
+                "songName": "FATE",
+                "type": 3,
+                "typeNumber": 0,
+                "annId": 2572,
+                "highRisk": 0,
+                "animeScore": "5.8",
+                "animeType": "TV",
+                "vintage": "Summer 2003",
+                "animeDifficulty": 16.77291260575647,
+                "animeTags": [
+                    "Female Harem",
+                    "Martial Arts",
+                    "School",
+                    "Seinen",
+                    "Super Power",
+                    "Female Protagonist",
+                    "Nudity",
+                    "Ensemble Cast",
+                    "Kuudere",
+                    "Tomboy"
+                ],
+                "animeGenre": [
+                    "Action",
+                    "Ecchi"
+                ],
+                "altAnimeNames": [
+                    "Battle Vixens",
+                    "Ikki Tousen",
+                    "Ikkitousen"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 2572,
+                    "malId": 257,
+                    "kitsuId": 232,
+                    "aniListId": 257
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "Season",
+                    "number": "1.0"
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "&lt;&lt;&lt; (19980ms)",
+            "correctCount": 2,
+            "wrongCount": 6,
+            "startPoint": 3,
+            "videoLength": 88.717,
+            "videoUrl": "https://naedist.animemusicquiz.com/r1gflq.webm",
+            "correctGuessPlayers": [
+                "anicomi",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "anicomi",
+                    "status": 2,
+                    "score": 5
+                },
+                {
+                    "name": "HistoriaReiss",
+                    "status": 2,
+                    "score": 9
+                }
+            ]
+        },
+        {
+            "songNumber": 3,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Steins;Gate 0",
+                    "romaji": "Steins;Gate 0"
+                },
+                "artist": "Kana Hanazawa & Megumi Han",
+                "composerInfo": {
+                    "artistId": 10392,
+                    "name": "MANYO"
+                },
+                "arrangerInfo": {
+                    "groupId": 80025286,
+                    "name": "Luca & MANYO"
+                },
+                "songName": "Hoshi no Kanaderu Uta",
+                "type": 2,
+                "typeNumber": 4,
+                "annId": 20446,
+                "highRisk": 1,
+                "animeScore": "8.4",
+                "animeType": "TV",
+                "vintage": "Spring 2018",
+                "animeDifficulty": 23.23401072427728,
+                "animeTags": [
+                    "Military",
+                    "Male Protagonist",
+                    "Tragedy",
+                    "Post-Apocalyptic",
+                    "Time Manipulation",
+                    "Otaku Culture",
+                    "War",
+                    "Alternate Universe",
+                    "Time Skip",
+                    "Dystopian",
+                    "Fugitive",
+                    "Amnesia",
+                    "Chuunibyou",
+                    "Memory Manipulation",
+                    "Philosophy",
+                    "College",
+                    "Age Regression",
+                    "Artificial Intelligence",
+                    "Dissociative Identities",
+                    "Urban",
+                    "Denpa",
+                    "Kuudere"
+                ],
+                "animeGenre": [
+                    "Drama",
+                    "Psychological",
+                    "Sci-Fi",
+                    "Thriller"
+                ],
+                "altAnimeNames": [
+                    "Steins;Gate 0"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 20446,
+                    "malId": 30484,
+                    "kitsuId": 10788,
+                    "aniListId": 21127
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "Season",
+                    "number": "2.0"
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "The iDOLM@STER Cinderella Girls U149 (19311ms)",
+            "correctCount": 2,
+            "wrongCount": 6,
+            "startPoint": 56,
+            "videoLength": 140.828,
+            "videoUrl": "https://naedist.animemusicquiz.com/rnfza1.webm",
+            "correctGuessPlayers": [
+                "gabussy",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "gabussy",
+                    "status": 2,
+                    "score": null
+                },
+                {
+                    "name": "HistoriaReiss",
+                    "status": 2,
+                    "score": 8
+                }
+            ]
+        },
+        {
+            "songNumber": 4,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Stella of the Theater: World Dai Star",
+                    "romaji": "World Dai Star"
+                },
+                "artist": "Manaka Iwami, Ikumi Hasegawa, Sally Amaki, Maria Naganawa, Naomi Oozora, Rico Sasaki",
+                "composerInfo": {
+                    "artistId": 15415,
+                    "name": "Hajime Mitsumasu"
+                },
+                "arrangerInfo": {
+                    "artistId": 14888,
+                    "name": "EFFY"
+                },
+                "songName": "Wanna Be Star!",
+                "type": 1,
+                "typeNumber": 1,
+                "annId": 26654,
+                "highRisk": 0,
+                "animeScore": "7.2",
+                "animeType": "TV",
+                "vintage": "Spring 2023",
+                "animeDifficulty": 30.082598907019705,
+                "animeTags": [
+                    "Super Power",
+                    "Primarily Female Cast",
+                    "Cute Girls Doing Cute Things",
+                    "Female Protagonist",
+                    "Musical Theater",
+                    "Dissociative Identities",
+                    "Acting",
+                    "Ojou-sama"
+                ],
+                "animeGenre": [
+                    "Music"
+                ],
+                "altAnimeNames": [
+                    "Stella of the Theater: World Dai Star",
+                    "World Dai Star"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 26654,
+                    "malId": 53698,
+                    "kitsuId": 46808,
+                    "aniListId": 157765
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "Love Live! Nijigasaki High School Idol Club (17548ms)",
+            "correctCount": 3,
+            "wrongCount": 5,
+            "startPoint": 39,
+            "videoLength": 88.06,
+            "videoUrl": "https://naedist.animemusicquiz.com/xzx2gr.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "FurLain",
+                "gabussy"
+            ],
+            "listStates": [
+                {
+                    "name": "FurLain",
+                    "status": 2,
+                    "score": 6
+                }
+            ]
+        },
+        {
+            "songNumber": 5,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Demon King Daimao",
+                    "romaji": "Ichiban Ushiro no Daimaou"
+                },
+                "artist": "Sphere",
+                "composerInfo": {
+                    "artistId": 10424,
+                    "name": "Katsuhiko Kurosu"
+                },
+                "arrangerInfo": {
+                    "artistId": 10424,
+                    "name": "Katsuhiko Kurosu"
+                },
+                "songName": "REALOVE:REALIFE",
+                "type": 1,
+                "typeNumber": 1,
+                "annId": 11179,
+                "highRisk": 0,
+                "animeScore": "6.2",
+                "animeType": "TV",
+                "vintage": "Spring 2010",
+                "animeDifficulty": 38.88104096720041,
+                "animeTags": [
+                    "Demons",
+                    "Female Harem",
+                    "Magic",
+                    "School",
+                    "Male Protagonist",
+                    "Primarily Female Cast",
+                    "Nudity",
+                    "Tsundere",
+                    "Gods",
+                    "Kuudere"
+                ],
+                "animeGenre": [
+                    "Action",
+                    "Comedy",
+                    "Ecchi",
+                    "Fantasy"
+                ],
+                "altAnimeNames": [
+                    "Demon King Daimao",
+                    "Ichiban Ushiro no Daimaou"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 11179,
+                    "malId": 7088,
+                    "kitsuId": 4863,
+                    "aniListId": 7088
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": true,
+            "wrongGuess": false,
+            "answer": "Demon King Daimao (5392ms)",
+            "correctCount": 4,
+            "wrongCount": 4,
+            "startPoint": 40,
+            "videoLength": 88.513,
+            "videoUrl": "https://naedist.animemusicquiz.com/zjarqd.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "anicomi",
+                "FoopyPoopy",
+                "gabussy"
+            ],
+            "listStates": [
+                {
+                    "name": "anicomi",
+                    "status": 2,
+                    "score": 3
+                },
+                {
+                    "name": "FoopyPoopy",
+                    "status": 2,
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "songNumber": 6,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Be-Boy Kidnapp'n Idol",
+                    "romaji": "Be-Boy Kidnapp'n Idol"
+                },
+                "artist": "Hideyuki Nagashima",
+                "composerInfo": {
+                    "artistId": 10574,
+                    "name": "Katsunori Ishida"
+                },
+                "arrangerInfo": {
+                    "artistId": 10574,
+                    "name": "Katsunori Ishida"
+                },
+                "songName": "A part of Me",
+                "type": 2,
+                "typeNumber": 1,
+                "annId": 2731,
+                "highRisk": 0,
+                "animeScore": "4.8",
+                "animeType": "OVA",
+                "vintage": "Winter 1989",
+                "animeDifficulty": 17.969184629925085,
+                "animeTags": [
+                    "Boys' Love",
+                    "Male Protagonist",
+                    "Primarily Male Cast",
+                    "Idol"
+                ],
+                "animeGenre": [
+                    "Drama",
+                    "Romance"
+                ],
+                "altAnimeNames": [
+                    "Be-Boy Kidnapp'n Idol"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 2731,
+                    "malId": 2220,
+                    "kitsuId": 2011,
+                    "aniListId": 2220
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "Headhunted to Another World: From Salaryman to Big Four! (18141ms)",
+            "correctCount": 1,
+            "wrongCount": 7,
+            "startPoint": 251,
+            "videoLength": 290.047,
+            "videoUrl": "https://naedist.animemusicquiz.com/a5aimx.webm",
+            "correctGuessPlayers": [
+                "ArronChu"
+            ],
+            "listStates": [
+                {
+                    "name": "ArronChu",
+                    "status": 2,
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "songNumber": 7,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Spice and Wolf II",
+                    "romaji": "Ookami to Koushinryou II"
+                },
+                "artist": "Akino Arai",
+                "composerInfo": {
+                    "artistId": 671,
+                    "name": "Akino Arai"
+                },
+                "arrangerInfo": {
+                    "artistId": 10489,
+                    "name": "Hisaaki Hogari"
+                },
+                "songName": "Mitsu no Yoake",
+                "type": 1,
+                "typeNumber": 1,
+                "annId": 10269,
+                "highRisk": 0,
+                "animeScore": "8.1",
+                "animeType": "TV",
+                "vintage": "Summer 2009",
+                "animeDifficulty": 44.67678807092036,
+                "animeTags": [
+                    "Historical",
+                    "Male Protagonist",
+                    "Female Protagonist",
+                    "Politics",
+                    "Primarily Adult Cast",
+                    "Foreign",
+                    "Economics",
+                    "Rural",
+                    "Gods",
+                    "Kemonomimi",
+                    "Monster Girl",
+                    "Heterosexual",
+                    "Travel",
+                    "Medieval"
+                ],
+                "animeGenre": [
+                    "Adventure",
+                    "Fantasy",
+                    "Romance",
+                    "Slice of Life"
+                ],
+                "altAnimeNames": [
+                    "Ookami to Koushinryou II",
+                    "Spice and Wolf II"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 10269,
+                    "malId": 5341,
+                    "kitsuId": 4063,
+                    "aniListId": 5341
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "Season",
+                    "number": "2.0"
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "what we lockin (19439ms)",
+            "correctCount": 6,
+            "wrongCount": 2,
+            "startPoint": 52,
+            "videoLength": 89.638,
+            "videoUrl": "https://naedist.animemusicquiz.com/uyizfq.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "anicomi",
+                "FurLain",
+                "AmamiyaSora",
+                "gabussy",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 9
+                }
+            ]
+        },
+        {
+            "songNumber": 8,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Hyperdimension Neptunia",
+                    "romaji": "Choujigen Game Neptune The Animation"
+                },
+                "artist": "nao",
+                "composerInfo": {
+                    "artistId": 5360,
+                    "name": "YOFFY"
+                },
+                "arrangerInfo": {
+                    "artistId": 12599,
+                    "name": "Kenichirou Oishi"
+                },
+                "songName": "Kirihirake! Gracie☆Star",
+                "type": 3,
+                "typeNumber": 0,
+                "annId": 15000,
+                "highRisk": 0,
+                "animeScore": "6.5",
+                "animeType": "TV",
+                "vintage": "Summer 2013",
+                "animeDifficulty": 34.99841548188223,
+                "animeTags": [
+                    "Parody",
+                    "Primarily Female Cast",
+                    "Cute Girls Doing Cute Things",
+                    "Female Protagonist",
+                    "Henshin",
+                    "Meta",
+                    "Alternate Universe",
+                    "Gods",
+                    "Video Games",
+                    "Memory Manipulation",
+                    "Kuudere"
+                ],
+                "animeGenre": [
+                    "Action",
+                    "Comedy",
+                    "Ecchi",
+                    "Mahou Shoujo",
+                    "Sci-Fi",
+                    "Supernatural"
+                ],
+                "altAnimeNames": [
+                    "Choujigen Game Neptune The Animation",
+                    "Hyperdimension Neptunia"
+                ],
+                "altAnimeNamesAnswers": [
+                    "Choujigen Game Neptune Hi☆Light",
+                    "Hyperdimension Neptunia Hi☆Light"
+                ],
+                "siteIds": {
+                    "annId": 15000,
+                    "malId": 16157,
+                    "kitsuId": 7379,
+                    "aniListId": 16157
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "TV",
+                    "number": "2013"
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "inde (20236ms)",
+            "correctCount": 4,
+            "wrongCount": 4,
+            "startPoint": 27,
+            "videoLength": 118.674,
+            "videoUrl": "https://naedist.animemusicquiz.com/5z053y.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "AmamiyaSora",
+                "gabussy",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 7
+                }
+            ]
+        },
+        {
+            "songNumber": 9,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Hokkaido Gals Are Super Adorable!",
+                    "romaji": "Dosanko Gal wa Namaramenkoi"
+                },
+                "artist": "Asaka",
+                "composerInfo": {
+                    "artistId": 5822,
+                    "name": "Masayoshi Ooishi"
+                },
+                "arrangerInfo": {
+                    "groupId": 80025137,
+                    "name": "eba & Masayoshi Ooishi"
+                },
+                "songName": "Wayawayawaa!",
+                "type": 2,
+                "typeNumber": 1,
+                "annId": 26494,
+                "highRisk": 0,
+                "animeScore": "6.9",
+                "animeType": "TV",
+                "vintage": "Winter 2024",
+                "animeDifficulty": 36.43170490506329,
+                "animeTags": [
+                    "Female Harem",
+                    "School",
+                    "Shounen",
+                    "Male Protagonist",
+                    "Nudity",
+                    "Love Triangle",
+                    "Rural",
+                    "Gyaru",
+                    "Kuudere",
+                    "Heterosexual",
+                    "Snowscape"
+                ],
+                "animeGenre": [
+                    "Comedy",
+                    "Romance",
+                    "Slice of Life"
+                ],
+                "altAnimeNames": [
+                    "Dosanko Gal wa Namaramenkoi",
+                    "Hokkaido Gals Are Super Adorable!"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 26494,
+                    "malId": 53421,
+                    "kitsuId": 46663,
+                    "aniListId": 155963
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": true,
+            "wrongGuess": false,
+            "answer": "Hokkaido Gals Are Super Adorable! (6087ms)",
+            "correctCount": 3,
+            "wrongCount": 5,
+            "startPoint": 32,
+            "videoLength": 88.977,
+            "videoUrl": "https://naedist.animemusicquiz.com/l0x6jm.webm",
+            "correctGuessPlayers": [
+                "FoopyPoopy",
+                "AmamiyaSora",
+                "gabussy"
+            ],
+            "listStates": [
+                {
+                    "name": "FoopyPoopy",
+                    "status": 2,
+                    "score": 6
+                }
+            ]
+        },
+        {
+            "songNumber": 10,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Idolls!",
+                    "romaji": "Idolls!"
+                },
+                "artist": "Idolls!",
+                "composerInfo": {
+                    "artistId": 16379,
+                    "name": "Kentarou Fujii"
+                },
+                "arrangerInfo": {
+                    "artistId": 16379,
+                    "name": "Kentarou Fujii"
+                },
+                "songName": "WE ARE THE ONE",
+                "type": 1,
+                "typeNumber": 1,
+                "annId": 23821,
+                "highRisk": 0,
+                "animeScore": "4.7",
+                "animeType": "TV",
+                "vintage": "Winter 2021",
+                "animeDifficulty": 24.593271484375,
+                "animeTags": [
+                    "Slapstick",
+                    "Primarily Female Cast",
+                    "Full CGI",
+                    "CGI",
+                    "Cute Girls Doing Cute Things",
+                    "Primarily Adult Cast",
+                    "Idol",
+                    "Time Skip",
+                    "Musical Theater",
+                    "VTuber"
+                ],
+                "animeGenre": [
+                    "Drama",
+                    "Music",
+                    "Supernatural"
+                ],
+                "altAnimeNames": [
+                    "Idolls!"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 23821,
+                    "malId": 42981,
+                    "kitsuId": 43853,
+                    "aniListId": 124555
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "Eternity Memories (19659ms)",
+            "correctCount": 2,
+            "wrongCount": 6,
+            "startPoint": 28,
+            "videoLength": 89.069,
+            "videoUrl": "https://naedist.animemusicquiz.com/73imu3.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "AmamiyaSora"
+            ],
+            "listStates": [
+                {
+                    "name": "ArronChu",
+                    "status": 2,
+                    "score": 2
+                },
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "songNumber": 11,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Protocol: Rain",
+                    "romaji": "Bokura no Ameiro Protocol"
+                },
+                "artist": "SennaRin",
+                "composerInfo": {
+                    "artistId": 6063,
+                    "name": "Hiroyuki Sawano"
+                },
+                "arrangerInfo": {
+                    "artistId": 6063,
+                    "name": "Hiroyuki Sawano"
+                },
+                "songName": "S9aiR",
+                "type": 1,
+                "typeNumber": 2,
+                "annId": 28978,
+                "highRisk": 0,
+                "animeScore": "5.7",
+                "animeType": "TV",
+                "vintage": "Fall 2023",
+                "animeDifficulty": 29.75972199408673,
+                "animeTags": [
+                    "Tragedy",
+                    "CGI",
+                    "Otaku Culture",
+                    "Love Triangle",
+                    "Video Games",
+                    "E-Sports",
+                    "Disability",
+                    "Primarily Teen Cast"
+                ],
+                "animeGenre": [
+                    "Drama"
+                ],
+                "altAnimeNames": [
+                    "Bokura no Ameiro Protocol",
+                    "Protocol: Rain"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 28978,
+                    "malId": 55894,
+                    "kitsuId": 47701,
+                    "aniListId": 166896
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "to be hero x (18010ms)",
+            "correctCount": 5,
+            "wrongCount": 3,
+            "startPoint": 60,
+            "videoLength": 90.02,
+            "videoUrl": "https://naedist.animemusicquiz.com/7e8jyr.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "FurLain",
+                "AmamiyaSora",
+                "gabussy",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 7
+                },
+                {
+                    "name": "gabussy",
+                    "status": 2,
+                    "score": null
+                }
+            ]
+        },
+        {
+            "songNumber": 12,
+            "songInfo": {
+                "animeNames": {
+                    "english": "The 8th son? Are you kidding me?",
+                    "romaji": "Hachi-nan tte, Sore wa Nai Deshou!"
+                },
+                "artist": "Demon Kakka×Arika Takarano (ALI PROJECT)",
+                "composerInfo": {
+                    "artistId": 4884,
+                    "name": "Demon Kakka"
+                },
+                "arrangerInfo": {
+                    "artistId": 14440,
+                    "name": "Anders Rydholm"
+                },
+                "songName": "Jikuu no Mayoibito",
+                "type": 1,
+                "typeNumber": 1,
+                "annId": 22285,
+                "highRisk": 0,
+                "animeScore": "6.1",
+                "animeType": "TV",
+                "vintage": "Spring 2020",
+                "animeDifficulty": 40.97032769593822,
+                "animeTags": [
+                    "Female Harem",
+                    "Magic",
+                    "Martial Arts",
+                    "Male Protagonist",
+                    "Politics",
+                    "Dragons",
+                    "Reincarnation",
+                    "Isekai",
+                    "Conspiracy"
+                ],
+                "animeGenre": [
+                    "Adventure",
+                    "Fantasy"
+                ],
+                "altAnimeNames": [
+                    "Hachi-nan tte, Sore wa Nai Deshou!",
+                    "The 8th son? Are you kidding me?"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 22285,
+                    "malId": 38830,
+                    "kitsuId": 43059,
+                    "aniListId": 106319
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": true,
+            "wrongGuess": false,
+            "answer": "The 8th son? Are you kidding me? (5775ms)",
+            "correctCount": 7,
+            "wrongCount": 1,
+            "startPoint": 42,
+            "videoLength": 86.933,
+            "videoUrl": "https://naedist.animemusicquiz.com/2t1pzu.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "anicomi",
+                "FurLain",
+                "FoopyPoopy",
+                "AmamiyaSora",
+                "gabussy",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "anicomi",
+                    "status": 2,
+                    "score": 2
+                },
+                {
+                    "name": "FoopyPoopy",
+                    "status": 2,
+                    "score": 4
+                }
+            ]
+        },
+        {
+            "songNumber": 13,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Zoku Owarimonogatari",
+                    "romaji": "Zoku Owarimonogatari"
+                },
+                "artist": "TrySail",
+                "composerInfo": {
+                    "artistId": 15962,
+                    "name": "Akiba Koudai"
+                },
+                "arrangerInfo": {
+                    "artistId": 15692,
+                    "name": "kegani"
+                },
+                "songName": "azure",
+                "type": 2,
+                "typeNumber": 1,
+                "annId": 21553,
+                "highRisk": 0,
+                "animeScore": "8.4",
+                "animeType": "movie",
+                "vintage": "Fall 2018",
+                "animeDifficulty": 29.1070394245142,
+                "animeTags": [
+                    "Demons",
+                    "Vampire",
+                    "Male Protagonist",
+                    "Primarily Female Cast",
+                    "Time Manipulation",
+                    "Nudity",
+                    "Meta",
+                    "Crossdressing",
+                    "Gods",
+                    "Monster Girl",
+                    "Urban Fantasy",
+                    "Philosophy",
+                    "Dissociative Identities",
+                    "Primarily Teen Cast"
+                ],
+                "animeGenre": [
+                    "Drama",
+                    "Mystery",
+                    "Supernatural"
+                ],
+                "altAnimeNames": [
+                    "Zoku Owarimonogatari"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 21553,
+                    "malId": 36999,
+                    "kitsuId": 14129,
+                    "aniListId": 100815
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "Season",
+                    "number": "2018"
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "The iDOLM@STER Cinderella Girls U149 (8487ms)",
+            "correctCount": 3,
+            "wrongCount": 5,
+            "startPoint": 56,
+            "videoLength": 88.226,
+            "videoUrl": "https://naedist.animemusicquiz.com/lpmez7.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "AmamiyaSora",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 9
+                },
+                {
+                    "name": "HistoriaReiss",
+                    "status": 2,
+                    "score": 7
+                }
+            ]
+        },
+        {
+            "songNumber": 14,
+            "songInfo": {
+                "animeNames": {
+                    "english": "The Case Study of Vanitas",
+                    "romaji": "Vanitas no Karte"
+                },
+                "artist": "Hanae Tomaru",
+                "composerInfo": {
+                    "artistId": 3019,
+                    "name": "Yuki Kajiura"
+                },
+                "arrangerInfo": {
+                    "artistId": 3019,
+                    "name": "Yuki Kajiura"
+                },
+                "songName": "if you want to save her",
+                "type": 3,
+                "typeNumber": 0,
+                "annId": 24741,
+                "highRisk": 1,
+                "animeScore": "8.1",
+                "animeType": "TV",
+                "vintage": "Winter 2022",
+                "animeDifficulty": 34.221494932432435,
+                "animeTags": [
+                    "Historical",
+                    "Shounen",
+                    "Vampire",
+                    "Male Protagonist",
+                    "Tragedy",
+                    "Gore",
+                    "Steampunk",
+                    "Time Manipulation",
+                    "Anti-Hero",
+                    "Primarily Adult Cast",
+                    "Witch",
+                    "Foreign",
+                    "Detective",
+                    "Heterosexual",
+                    "Suicide"
+                ],
+                "animeGenre": [
+                    "Action",
+                    "Drama",
+                    "Fantasy",
+                    "Mystery",
+                    "Supernatural"
+                ],
+                "altAnimeNames": [
+                    "The Case Study of Vanitas",
+                    "Vanitas no Karte"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 24741,
+                    "malId": 49114,
+                    "kitsuId": 44672,
+                    "aniListId": 135136
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "Season",
+                    "number": "2.0"
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "Puella Magi Madoka Magica The Movie Part 3: Rebellion (17779ms)",
+            "correctCount": 4,
+            "wrongCount": 4,
+            "startPoint": 33,
+            "videoLength": 101.087,
+            "videoUrl": "https://naedist.animemusicquiz.com/spun2s.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "AmamiyaSora",
+                "gabussy",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 8
+                }
+            ]
+        },
+        {
+            "songNumber": 15,
+            "songInfo": {
+                "animeNames": {
+                    "english": "The Disappearance of Haruhi Suzumiya",
+                    "romaji": "Suzumiya Haruhi no Shoushitsu"
+                },
+                "artist": "Faylan",
+                "composerInfo": {
+                    "artistId": 10496,
+                    "name": "Daisuke Kikuta"
+                },
+                "arrangerInfo": {
+                    "artistId": 10496,
+                    "name": "Daisuke Kikuta"
+                },
+                "songName": "All I can do is singing for you",
+                "type": 3,
+                "typeNumber": 0,
+                "annId": 11120,
+                "highRisk": 0,
+                "animeScore": "8.6",
+                "animeType": "movie",
+                "vintage": "Winter 2010",
+                "animeDifficulty": 35.93525516671789,
+                "animeTags": [
+                    "School",
+                    "Male Protagonist",
+                    "School Club",
+                    "Tragedy",
+                    "Time Manipulation",
+                    "Coming of Age",
+                    "Alternate Universe",
+                    "Tsundere",
+                    "Aliens",
+                    "Gods",
+                    "Urban Fantasy",
+                    "Memory Manipulation",
+                    "Philosophy",
+                    "Kuudere",
+                    "Primarily Teen Cast",
+                    "Unrequited Love",
+                    "Snowscape"
+                ],
+                "animeGenre": [
+                    "Drama",
+                    "Mystery",
+                    "Sci-Fi",
+                    "Supernatural"
+                ],
+                "altAnimeNames": [
+                    "Suzumiya Haruhi no Shoushitsu",
+                    "The Disappearance of Haruhi Suzumiya"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 11120,
+                    "malId": 7311,
+                    "kitsuId": 4938,
+                    "aniListId": 7311
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": {
+                    "name": "Movie",
+                    "number": null
+                }
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "The Rising of the Shield Hero (4893ms)",
+            "correctCount": 5,
+            "wrongCount": 3,
+            "startPoint": 12,
+            "videoLength": 32.928,
+            "videoUrl": "https://naedist.animemusicquiz.com/u4fzu8.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "anicomi",
+                "AmamiyaSora",
+                "gabussy",
+                "HistoriaReiss"
+            ],
+            "listStates": [
+                {
+                    "name": "anicomi",
+                    "status": 2,
+                    "score": 10
+                },
+                {
+                    "name": "AmamiyaSora",
+                    "status": 2,
+                    "score": 9
+                },
+                {
+                    "name": "gabussy",
+                    "status": 2,
+                    "score": null
+                }
+            ]
+        },
+        {
+            "songNumber": 16,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Princession Orchestra",
+                    "romaji": "Princession Orchestra"
+                },
+                "artist": "ORCHERIA",
+                "composerInfo": {
+                    "artistId": 14003,
+                    "name": "Yuusuke Takeda"
+                },
+                "arrangerInfo": {
+                    "artistId": 14003,
+                    "name": "Yuusuke Takeda"
+                },
+                "songName": "QUINTET PULSE",
+                "type": 2,
+                "typeNumber": 7,
+                "annId": 32811,
+                "highRisk": 0,
+                "animeScore": "6.4",
+                "animeType": "TV",
+                "vintage": "Spring 2025",
+                "animeDifficulty": "Unrated",
+                "animeTags": [
+                    "Kids",
+                    "Magic",
+                    "Martial Arts",
+                    "Swordplay",
+                    "School",
+                    "Super Power",
+                    "Yuri",
+                    "Tragedy",
+                    "Primarily Female Cast",
+                    "Cute Girls Doing Cute Things",
+                    "Female Protagonist",
+                    "Henshin",
+                    "Idol",
+                    "Food",
+                    "Superhero",
+                    "Episodic",
+                    "Dancing",
+                    "Isekai",
+                    "Kaiju",
+                    "Urban Fantasy",
+                    "Cosplay",
+                    "LGBTQ+ Themes",
+                    "Tokusatsu",
+                    "Acting",
+                    "Urban",
+                    "Tomboy",
+                    "Fairy",
+                    "Aromantic"
+                ],
+                "animeGenre": [
+                    "Action",
+                    "Mahou Shoujo",
+                    "Music"
+                ],
+                "altAnimeNames": [
+                    "Princession Orchestra"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 32811,
+                    "malId": 59078,
+                    "kitsuId": 48972,
+                    "aniListId": 178052
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "Eternity Memories (16991ms)",
+            "correctCount": 3,
+            "wrongCount": 5,
+            "startPoint": 40,
+            "videoLength": 106.648,
+            "videoUrl": "https://naedist.animemusicquiz.com/h59r2x24qclh67h7.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "FurLain",
+                "gabussy",
+                "anicomi"
+            ],
+            "listStates": [
+                {
+                    "name": "FurLain",
+                    "status": 1,
+                    "score": 10
+                }
+            ]
+        },
+        {
+            "songNumber": 17,
+            "songInfo": {
+                "animeNames": {
+                    "english": "Heroines Run the Show",
+                    "romaji": "Heroine Tarumono! Kiraware Heroine to Naisho no Oshigoto"
+                },
+                "artist": "Shiina Natsukawa",
+                "composerInfo": {
+                    "groupId": 80023119,
+                    "name": "HoneyWorks"
+                },
+                "arrangerInfo": {
+                    "groupId": 80023119,
+                    "name": "HoneyWorks"
+                },
+                "songName": "Fansa",
+                "type": 3,
+                "typeNumber": 0,
+                "annId": 24673,
+                "highRisk": 0,
+                "animeScore": "7.1",
+                "animeType": "TV",
+                "vintage": "Spring 2022",
+                "animeDifficulty": 32.37447896112865,
+                "animeTags": [
+                    "School",
+                    "Primarily Male Cast",
+                    "Female Protagonist",
+                    "Idol",
+                    "Work",
+                    "Crossover",
+                    "Athletics",
+                    "Cute Boys Doing Cute Things"
+                ],
+                "animeGenre": [
+                    "Drama",
+                    "Music",
+                    "Slice of Life"
+                ],
+                "altAnimeNames": [
+                    "Heroine Tarumono! Kiraware Heroine to Naisho no Oshigoto",
+                    "Heroines Run the Show"
+                ],
+                "altAnimeNamesAnswers": [],
+                "siteIds": {
+                    "annId": 24673,
+                    "malId": 49692,
+                    "kitsuId": null,
+                    "aniListId": 138459
+                },
+                "rebroadcast": 0,
+                "dub": 0,
+                "seasonInfo": null
+            },
+            "correctGuess": false,
+            "wrongGuess": true,
+            "answer": "The iDOLM@STER Cinderella Girls (14892ms)",
+            "correctCount": 3,
+            "wrongCount": 5,
+            "startPoint": 3,
+            "videoLength": 54.422,
+            "videoUrl": "https://naedist.animemusicquiz.com/hqhrnu.webm",
+            "correctGuessPlayers": [
+                "ArronChu",
+                "FurLain",
+                "AmamiyaSora"
+            ],
+            "listStates": [
+                {
+                    "name": "ArronChu",
+                    "status": 2,
+                    "score": 8
+                },
+                {
+                    "name": "FurLain",
+                    "status": 2,
+                    "score": 7
+                }
+            ]
+        }
+    ]
+}

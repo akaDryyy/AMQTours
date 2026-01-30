@@ -16,7 +16,7 @@ def main():
     MAIN_SHEET_WATCHED=1719516221
     SHEET_PLAYER_IDS=1903970832
     MAIN_SHEET_SPEED=165193471
-    MAIN_SHEET_SAKU=987991878
+    MAIN_SHEET_SAKU=1708161307
     MAIN_SHEET_OTHER=2090958619
     MAIN_SHEET_OPS=591917504
     MAIN_SHEET_EDS=601464032
@@ -328,7 +328,10 @@ def main():
             # Handle the players
             for correctGuesser in song["correctGuessPlayers"]:
                 # Get the correct Player which is inside the team
-                guesser = teamDB.lookup_player(playerDB.lookup_player_name(correctGuesser))
+                try:
+                    guesser = teamDB.lookup_player(playerDB.lookup_player_name(correctGuesser))
+                except AttributeError:
+                    print(f"{correctGuesser} not found. Might be an alias not yet known?")
                 single_song.add_guesser(guesser)
                 if guesser not in playersSeen:
                     playersSeen.append(guesser)
@@ -499,7 +502,7 @@ def main():
     stats_list = []
     for team in teamDB.teams:
         for p in team.players + team.subs:
-            p.post_process(TEAM_AVG)
+            p.post_process(TEAM_AVG, WLTcheck=False)
             d = asdict(p)
             stats_list.append(d)
 
@@ -666,7 +669,7 @@ def main():
 
     # Song statistics
     songDB.post_process()
-    saveSongStats(songDB=songDB, filename="Stats Songs.png")
+    saveSongStats(songDB=songDB, path=DIRECTORY, filename="Stats Songs.png")
 
     # Save to sheet
     # wks_send = sheet.get_worksheet_by_id(sendToSheet)
@@ -682,20 +685,24 @@ def main():
     separators = ["Player name", "Usefulness", "# 3/8s or below", "Lives saved", "Avg vintage played", "Total songs"]
     exclude_columns = ["Rank", "Guess rate", "0/8s", "7/8s"]
 
-    df_to_png(df=final_df1, filename="Stats.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
-    print(f"Stats about GR saved at {os.path.join(DIRECTORY, "Stats.png")}")
+    path = os.path.join(DIRECTORY, "Stats.png")
+    df_to_png(df=final_df1, path=DIRECTORY, filename="Stats.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
+    print(f"Stats about GR saved at {path}")
 
     exclude_columns = ["Rank", "Guess rate"]
     separators = ["Player name", "ΔUF", "# OPs played", "# EDs played"]
 
-    df_to_png(df=final_df2, filename="Stats2.png", reverse_cols=None, exclude_columns=exclude_columns, separators=separators)
-    print(f"Stats about Δ saved at {os.path.join(DIRECTORY, "Stats2.png")}")
+    path2 = os.path.join(DIRECTORY, "Stats2.png")
+    df_to_png(df=final_df2, path=DIRECTORY, filename="Stats2.png", reverse_cols=None, exclude_columns=exclude_columns, separators=separators)
+    print(f"Stats about Δ saved at {path2}")
+
     if is_list:
         exclude_columns = ["Rank"]
         separators = ["Player name", "Offlist", "Rigs Missed", "Offlist erigs"]
 
-        df_to_png(df=final_df3, filename="Stats3 - Watched Exclusive.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
-        print(f"Stats about watched saved at {os.path.join(DIRECTORY, "Stats3 - Watched Exclusive.png")}")
+        path3 = os.path.join(DIRECTORY, "Stats3 - Watched Exclusive.png")
+        df_to_png(df=final_df3, path=DIRECTORY, filename="Stats3 - Watched Exclusive.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
+        print(f"Stats about watched saved at {path3}")
 
     # print(f"{wks_send.url}?range={len_send + 2}:{len_send + 2}")
     _ = input('\npress enter to close')

@@ -110,7 +110,7 @@ class Player:
         self.AVGIN = get_stat(df, self.player_id, "avg_in")
         self.AVGIN = round(self.AVGIN, 3)
 
-    def post_process(self, AVGRANK):
+    def post_process(self, AVGRANK, WLTcheck=True):
         self.GR = round(self.totalSongsHit / self.totalSongsPlayed, 5) if self.totalSongsPlayed else 0.0
         self.GR = round(100*self.GR, 3)
         self.OPGR = round(self.OP / self.OPplayed, 5) if self.OPplayed else 0.0
@@ -126,7 +126,7 @@ class Player:
         self.avgoutofRigs = round(self.avgoutofRigs / self.rigAmount, 3) if self.rigAmount else 0.0
         self.avgVintagePlayed = round(self.avgVintagePlayed / self.totalSongsPlayed, 3) if self.totalSongsPlayed else 0.0
         self.avgVintageString = self.vintage_to_str(self.avgVintagePlayed)
-        self.avgVintageHit = round(self.avgVintageHit / self.totalSongsHit, 3) if self.totalSongsPlayed else 0.0
+        self.avgVintageHit = round(self.avgVintageHit / self.totalSongsHit, 3) if self.totalSongsHit else 0.0
         self.avgVintageHitString = self.vintage_to_str(self.avgVintageHit)
         self.avgVintageRig = round(self.avgVintageRig / self.rigAmount, 3) if self.rigAmount else 0.0
         self.avgVintageRigString = self.vintage_to_str(self.avgVintageRig)
@@ -139,6 +139,10 @@ class Player:
         self.OFFLIST = round(100 * (self.totalSongsHit - self.list_hit) / (self.totalSongsPlayed - self.rigAmount), 3) if self.totalSongsPlayed else 0.0
         self.ONLIST = round(100 * self.list_hit / self.rigAmount, 3) if self.rigAmount > 0 else 0.0
         self.RIGPERC = round(100* self.rigAmount  / self.totalSongsPlayed, 3) if self.totalSongsPlayed else 0.0
+        if (self.WIN + self.LOSE + self.TIE) == 0 and WLTcheck:
+            print(self.name)
+            input("W-L-T check failed. The sub might have been incorrectly reported on the challonge. Ping the current host to fix. Press anything to exit.")
+            exit()
         self.WLT = f"{self.WIN}-{self.LOSE}-{self.TIE}"
 
 @dataclass
@@ -180,6 +184,9 @@ class Team:
     # Function used to obtain the Player object in team given an alias
     def lookup_player(self, player: Player) -> Optional[Player]:
         for p in self.players:
+            if p.player_id == player.player_id:
+                return p
+        for p in self.subs:
             if p.player_id == player.player_id:
                 return p
         return None
