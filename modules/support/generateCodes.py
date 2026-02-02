@@ -76,6 +76,28 @@ def generate_codes_watched(gamemode, txtvar):
 """
     return txtvar
 
+def generate_codes_watched_gr(gamemode, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    match gamemode:
+        case "30":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000u0111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "35":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000z0111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "40":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```\n"
+        case "45":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100190111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "50":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
+"""
+    return txtvar
+
 def generate_codes_watched_in(gamemode, txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     match gamemode:
@@ -94,6 +116,28 @@ def generate_codes_watched_in(gamemode, txtvar):
 9-10.99: 4 Guesses
 7-8.99: 3 Guesses
 ≤7: 2 Guesses
+"""
+    return txtvar
+
+def generate_codes_watched_in_gr(gamemode, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    match gamemode:
+        case "30":
+            txtvar += "```e0g0z21111100130z000010010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000u0111002s01a111111111102a11111111111hg1k903-11111--```\n"
+        case "35":
+            txtvar += "```e0g0z21111100130z000010010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000z0111002s01a111111111102a11111111111hg1k903-11111--```\n"
+        case "40":
+            txtvar += "```e0g0z21111100130z000010010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111hg1k903-11111--```\n"
+        case "45":
+            txtvar += "```e0g0z21111100130z000010010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100190111002s01a111111111102a11111111111hg1k903-11111--```\n"
+        case "50":
+            txtvar += "```e0g0z21111100130z000010010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111hg1k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
 """
     return txtvar
 
@@ -116,6 +160,28 @@ def generate_codes_watched_cl(gamemode, txtvar):
 7-7.99: 3 guesses
 6-6.99: 2 guesses
 ≤5.99: 1 guess
+"""
+    return txtvar
+
+def generate_codes_watched_cl_gr(gamemode, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    match gamemode:
+        case "30":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000u0111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "35":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111000z0111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "40":
+            txtvar += "```e0g0z21111100130z000011100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111hg1k903-11111--```\n"
+        case "45":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100190111002s01a111111111102a11111111111i01k903-11111--```\n"
+        case "50":
+            txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
 """
     return txtvar
 
@@ -164,6 +230,17 @@ def generate_codes_op(txtvar):
 """
     return txtvar
 
+def generate_codes_op_gr(txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 4 guesses
+19% - 28% = 3 guesses
+8% - 19% = 2 guesses
+<8% = 1 guess
+"""
+    return txtvar
+
 def generate_codes_op_old(txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     txtvar += "```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
@@ -183,6 +260,17 @@ def generate_codes_ed(txtvar):
 8-10: 3 guesses
 5.5-8: 2 guesses
 ≤5.5: 1 guess
+"""
+    return txtvar
+
+def generate_codes_ed_gr(txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```e0g0z211111101100000z20100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 4 guesses
+19% - 28% = 3 guesses
+8% - 19% = 2 guesses
+<8% = 1 guess
 """
     return txtvar
 
@@ -208,6 +296,17 @@ def generate_codes_in(txtvar):
 """
     return txtvar
 
+def generate_codes_in_gr(txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```e0g0z211111101100000z10010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 4 guesses
+19% - 28% = 3 guesses
+8% - 19% = 2 guesses
+<8% = 1 guess
+"""
+    return txtvar
+
 def generate_codes_in_old(txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     txtvar += "```e0g0z211111101100000z10010000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
@@ -222,10 +321,21 @@ def generate_codes_in_old(txtvar):
 def generate_codes_cl(txtvar):
     txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
     txtvar += "```e0g0z211111101100000z11100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1k903-11111--```\n"
-    txtvar += """Random NGMC guess distributions:
+    txtvar += """Distribution of guesses:
 ≥10: 4 guesses
 6-10: 3 guesses
 3.5-6: 2 guesses
 ≤3.5: 1 guess
+"""
+    return txtvar
+
+def generate_codes_cl_gr(txtvar):
+    txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
+    txtvar += "```e0g0z211111101100000z11100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 4 guesses
+19% - 28% = 3 guesses
+8% - 19% = 2 guesses
+<8% = 1 guess
 """
     return txtvar

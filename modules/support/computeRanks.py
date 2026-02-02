@@ -1,22 +1,31 @@
 import numpy as np
 
-def spread_lower_tail(elo, knee=9.0, gamma=1.6, cap=25.0):
-        """
-        - elo: array/Series of current scores
-        - knee: values >= knee are left unchanged
-        - gamma > 1 spreads values in [0, knee) downward (more variety in 0–8)
-        - cap: optional max to clip at the top end
-        """
-        elo = np.asarray(elo, dtype=float)
-        below = elo < knee
-        out = elo.copy()
-        # map [0, knee) -> [0, knee) with f(0)=0, f(knee)=knee
-        out[below] = knee * (elo[below] / knee) ** gamma
-        if cap is not None:
-            out = np.clip(out, 0, cap)
-        return out
+def normalize_stats(df, normalization_specs):
+    df_norm = df.copy()
 
-def compute_ranks(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, min_score=0, max_score=25, GR_weight=0.35, spread=False):
+    for column in normalization_specs:
+        spec = normalization_specs[column]
+        min_val = spec.get("min", 0)
+        max_val = spec.get("max", 1)
+        direction = spec.get("direction", "max")
+        
+        norm = (df_norm[column] - min_val) / (max_val - min_val)
+        norm = norm.clip(0, 1)
+
+        if direction == "min":
+            norm = 1 - norm
+        
+        df_norm[column] = norm
+    
+    return df_norm
+
+def compute_rank_scores(df, alpha, midpoint, minRating, maxRating):
+    df["ELO"] = maxRating / (1 + np.exp(-alpha * (df["RANK"] - midpoint)))
+    return df
+
+def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weights, 
+                  alpha=3.75, midpoint=0.4, minRating=0, maxRating=25,
+                  full=True, path=None, isWatched = True):
     """
     Compute a smoothed rank score for players based on guess rate and usefulness.
 
@@ -31,24 +40,92 @@ def compute_ranks(df, gr_max=100, uf_max=30, alpha=3.75, midpoint=0.30, min_scor
     Returns:
         pd.DataFrame: DataFrame with avg_gr, avg_uf, norm_gr, norm_Uf, raw_score and elo columns.
     """
+    if isWatched:
+        player_stats = (
+            clean_stats
+            .groupby("Player ID", as_index=False)
+            .agg(
+                PlayerName=("Player name", "last"),
+                GuessRate=("Guess rate", "mean"),
+                erigs=("erigs", "mean"),
+                Seven8=("7/8s", "mean"),
+                avg8=("avg/8", "mean"),
+                LivesTaken=("Lives taken", "mean"),
+                LivesSaved=("Lives saved", "mean"),
+                WIN=("WIN", "sum"),
+                LOSE=("LOSE", "sum"),
+                TIE=("TIE", "sum"),
+                RigsHit=("Rigs hit", "mean"),
+                OfflistHit=("Offlist hit", "mean"),
+                Rigs=("Rigs", "mean"),
+                RigsMissed=("Rigs missed", "mean"),
+                SoloRigs=("Solo rigs", "mean"),
+                MissedSolos=("Missed solos", "mean"),
+                LivesLostOnRigs=("Lives lost on rigs", "mean"),
+                OfflistErigs=("Offlist erigs", "mean"),
+                rigs8=("avg/8 of your rigs", "mean"),
+                Samples=("Usefulness", "size")
+            )
+        )
+    else:
+        player_stats = (
+        clean_stats
+        .groupby("Player ID", as_index=False)
+        .agg(
+            PlayerName=("Player name", "last"),
+            GuessRate=("Guess rate", "mean"),
+            erigs=("erigs", "mean"),
+            Seven8=("7/8s", "mean"),
+            avg8=("avg/8", "mean"),
+            LivesTaken=("Lives taken", "mean"),
+            LivesSaved=("Lives saved", "mean"),
+            WIN=("WIN", "sum"),
+            LOSE=("LOSE", "sum"),
+            TIE=("TIE", "sum"),
+            Samples=("Usefulness", "size")
+        )
+    )
 
-    # Normalize guess rate and usefulness
-    df["norm_gr"] = df["avg_gr"] / gr_max
-    df["norm_uf"] = df["avg_uf"] / uf_max
+    if full:
+        player_stats = player_stats.round(3)
+        player_stats.to_csv(path, index=False, encoding="utf-8")
 
-    # Clip values to avoid weird outliers
-    df["norm_gr"] = df["norm_gr"].clip(0, 1)
-    df["norm_uf"] = df["norm_uf"].clip(0, 1)
+    stats = list(normalization_spec.keys())
+    weights = {}
+    for tier_name, stat_list in tiers.items():
+        n = len(stat_list)
+        for stat in stat_list:
+            weights[stat] = tier_weights[tier_name] / n
 
-    # Combine into a single raw score (equal weighting)
-    UF_weight = 1 - GR_weight
-    df["raw_score"] = GR_weight * df["norm_gr"] + UF_weight * df["norm_uf"]
+    final_ranks = normalize_stats(player_stats, normalization_spec)
+    final_ranks["RANK"]  = final_ranks.apply(lambda row: sum(row[stat]*weights[stat] for stat in stats), axis=1)
+    final_ranks["WIN"] = final_ranks["Player ID"].map(full_stats.set_index("Player ID")["WIN"])
+    final_ranks["LOSE"] = final_ranks["Player ID"].map(full_stats.set_index("Player ID")["LOSE"])
+    final_ranks["TIE"] = final_ranks["Player ID"].map(full_stats.set_index("Player ID")["TIE"])
+    final_ranks["WINSTREAK"] = final_ranks["Player ID"].map(player_stats.set_index("Player ID")["WIN"])
+    final_ranks["LOSESTREAK"] = final_ranks["Player ID"].map(player_stats.set_index("Player ID")["LOSE"])
+    final_ranks["TIESTREAK"] = final_ranks["Player ID"].map(player_stats.set_index("Player ID")["TIE"])
+    final_ranks.insert(2, "RANK", final_ranks.pop("RANK"))
+    final_ranks = compute_rank_scores(final_ranks, alpha, midpoint, minRating, maxRating)
+    final_ranks.insert(2, "ELO", final_ranks.pop("ELO"))
+    
+    # WR + Streak accounting
+    final_ranks["PALL"] = final_ranks["WIN"] + final_ranks["LOSE"] + final_ranks["TIE"]
+    final_ranks["PRECENT"] = final_ranks["WINSTREAK"] + final_ranks["LOSESTREAK"] + final_ranks["TIESTREAK"]
+    final_ranks["WR"] = (final_ranks["WIN"] + 0.5 * final_ranks["TIE"]) / final_ranks["PALL"]
+    final_ranks["STREAK"] = (final_ranks["WINSTREAK"] + 0.5 * final_ranks["TIESTREAK"]) / final_ranks["PRECENT"]
+    final_ranks["DELTAWR"] =  final_ranks["STREAK"] - final_ranks["WR"]
+    final_ranks["WR MODIFIER"] = np.where(
+        final_ranks["PALL"] > 30,
+        final_ranks["WR"] - 0.5,
+        0.0
+    )
+    final_ranks["STREAK MODIFIER"] = 0.5 * np.maximum(0, final_ranks["DELTAWR"]) ** 2
+    confidence = np.log1p(final_ranks["PALL"]) / np.log1p(final_ranks["PALL"].max())
+    final_ranks["STREAK MODIFIER"] *= confidence
+    final_ranks["WR MODIFIER"] *= confidence
+    final_ranks["ELO"] = final_ranks["ELO"] * (1 + final_ranks["WR MODIFIER"] + final_ranks["STREAK MODIFIER"])
+    final_ranks = final_ranks.round(3)
+    final_ranks = final_ranks.sort_values(by='ELO', ascending=False)
 
-    # Apply sigmoid transformation
-    sigmoid_vals = 1 / (1 + np.exp(-alpha * (df["raw_score"] - midpoint)))
-    df["elo"] = min_score + (max_score - min_score) * sigmoid_vals
-
-    if spread:
-        df["elo"] = spread_lower_tail(df["elo"], knee=9.0, gamma=1.6, cap=max_score)
-
-    return df
+    return final_ranks

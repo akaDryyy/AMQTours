@@ -8,7 +8,7 @@ from collections import defaultdict
 
 from modules.support.cleanData import *
 from modules.support.readCredentials import readCredentials
-from modules.support.trim import trim
+from modules.support.trim import *
 from modules.support.computeRanks import *
 from modules.support.changelogMVPs import *
 from modules.support.reset import reset_ranks
@@ -22,13 +22,9 @@ class TierMaker:
             tabStats, 
             tabIDs, 
             tabEloStorage, 
-            tabEloStorageCell, 
-            grWeight, 
-            monthWindow, 
-            maxFallbackWindow, 
-            pastTours, 
-            activeTours, 
-            chosenYear
+            tabEloStorageCell,
+            maxFallbackWindow,
+            activeTours
         ):
         """
         Tier Maker class
@@ -65,14 +61,12 @@ class TierMaker:
         self.STATSTABLETMINUS1 = os.path.join(self.directory, "stats_tminus1.csv")
         self.CLEANEDSTATS = os.path.join(self.directory, "stats_clean.csv")
         self.CLEANEDSTATSYEAR = os.path.join(self.directory, "stats_clean_year.csv")
+        self.FULLSTATS = os.path.join(self.directory, "stats_clean_full.csv")
+        self.AVGSTATS = os.path.join(self.directory, "stats_prenormalized.csv")
+        self.FINALSTATS = os.path.join(self.directory, "stats_postnormalized.csv")
 
-        self.grWeight = grWeight
-        self.ufWeight = 1 - grWeight
-        self.monthWindow = monthWindow
         self.maxFallbackWindow = maxFallbackWindow
-        self.pastTours = pastTours
         self.activeTours = activeTours
-        self.chosenYear = chosenYear
 
     def make_tiers(
             self,
@@ -80,8 +74,7 @@ class TierMaker:
             midpoint,
             minRating,
             maxRating,
-            ranksSpread = False,
-            hasExtraColumn = False
+            tourType
         ):
         parser = argparse.ArgumentParser(description="AMQ Tours")
         parser.add_argument('--keep', '-k', action='store_true',
@@ -106,23 +99,21 @@ class TierMaker:
                 writer = csv.writer(f)
                 writer.writerows(rows_ids)
 
-        clean_stats = clean_data(self.IDTABLE, self.STATSTABLE, self.CLEANEDSTATSYEAR, self.monthWindow, self.maxFallbackWindow, self.pastTours, self.activeTours, hasExtraColumn)
-        clean_stats = clean_stats.sort_values(["Player ID", "Tournament Date"])
+        self.tiers, self.tier_weights = get_tiers(tourType)
+
+        clean_stats, full_stats = clean_data(self.IDTABLE, self.STATSTABLE, self.CLEANEDSTATSYEAR, self.maxFallbackWindow, self.activeTours, tourType)
+        clean_stats = clean_stats.sort_values(["Player ID", "Timestamp"])
         clean_stats.to_csv(self.CLEANEDSTATS, index=False, encoding="utf-8")
-        player_stats = clean_stats.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-        final_ranks = compute_ranks(player_stats, uf_max=(clean_stats["usefulness"].max()),
-                                    alpha=alpha, midpoint=midpoint,
-                                    GR_weight=self.grWeight, 
-                                    min_score=minRating, max_score=maxRating, 
-                                    spread=ranksSpread)
-        ids = pd.read_csv(self.IDTABLE)
-        ids = ids.drop_duplicates(subset='Player ID', keep='first')
-        final_ranks = final_ranks.merge(ids[['Player ID', 'Player Name']], on='Player ID', how='left')
-        new_order = ['Player ID', 'Player Name', 'elo', 'avg_gr', 'avg_uf', 'count', 'norm_gr', 'norm_uf', 'raw_score']
-        final_ranks = final_ranks[new_order]
-        final_ranks = final_ranks.sort_values(by='elo', ascending=False)
+        full_stats = full_stats.sort_values(["Player ID", "Timestamp"])
+        full_stats.to_csv(self.FULLSTATS, index=False, encoding="utf-8")
+
+        normalization_spec = get_normalization_spec(full_stats, tourType)
+
+        final_ranks = compute_ranks(clean_stats, full_stats, normalization_spec, self.tiers, self.tier_weights,
+                                    alpha, midpoint, minRating, maxRating, path=self.AVGSTATS, isWatched=tourType.startswith("watched"))
         print(final_ranks)
-        rank_dict = dict(zip(final_ranks['Player Name'], final_ranks['elo'].round(3)))
+        final_ranks.to_csv(self.FINALSTATS, index=False, encoding="utf-8")
+        rank_dict = dict(zip(final_ranks['PlayerName'], final_ranks['ELO'].round(3)))
 
         with open(self.ELOS, 'r') as f:
             old_elos = json.load(f)
@@ -142,20 +133,13 @@ class TierMaker:
 
         makeChangelog(rank_dict, old_elos, self.CHANGELOG)
 
-        clean_stats_tnow = mini_clean(self.IDTABLE, self.STATSTABLE, hasExtraColumn)
-        clean_stats_tminus1 = mini_clean(self.IDTABLE, self.STATSTABLETMINUS1, hasExtraColumn)
+        clean_stats_tnow = mini_clean(self.IDTABLE, self.STATSTABLE, tourType)
+        clean_stats_tminus1 = mini_clean(self.IDTABLE, self.STATSTABLETMINUS1, tourType)
         last_tour = clean_stats_tnow.merge(clean_stats_tminus1, how='outer', indicator=True).query('_merge == "left_only"')
         if not last_tour.empty:
-            player_stats_tour = last_tour.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-            last_tour_ranks = compute_ranks(player_stats_tour, uf_max=(clean_stats["usefulness"].max()),
-                                            alpha=alpha, midpoint=midpoint,
-                                            GR_weight=self.grWeight, 
-                                            min_score=minRating, max_score=maxRating, 
-                                            spread=ranksSpread)
-            last_tour_ranks = last_tour_ranks.merge(ids[['Player ID', 'Player Name']], on='Player ID', how='left')
-            last_tour_ranks = last_tour_ranks[new_order]
-            last_tour_ranks = last_tour_ranks.sort_values(by='elo', ascending=False)
-            last_tour_dict = dict(zip(last_tour_ranks['Player Name'], last_tour_ranks['elo'].round(3)))
+            last_tour_ranks = compute_ranks(last_tour, full_stats, normalization_spec, self.tiers, self.tier_weights,
+                                            alpha, midpoint, minRating, maxRating, full=False)
+            last_tour_dict = dict(zip(last_tour_ranks['PlayerName'], last_tour_ranks['ELO']))
 
             makeMVPs(last_tour_dict, old_old_elos, self.MVPS)
 
@@ -166,3 +150,5 @@ class TierMaker:
 
         if not args.keep:
             saveElos(self.directory, self.tabEloStorage, self.sheetName, self.tabEloStorageCell, self.ELOS)
+
+        _ = input("Finished updating ranks. Press any key to continue...")

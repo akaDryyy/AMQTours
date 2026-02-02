@@ -5,7 +5,7 @@ from modules.support.readCredentials import readCredentials
 from modules.support.getAliases import getAliases
 from modules.support.getRanks import getRanks
 from modules.support.cleanData import *
-from modules.support.trim import trim
+from modules.support.trim import *
 from modules.support.LPProblem import LPProblem
 from modules.support.computeRanks import *
 from modules.support.getGuess import *
@@ -56,7 +56,7 @@ class Solver:
         self.CLEANEDSTATS = os.path.join(self.directory, "stats_clean.csv")
         self.CLEANEDSTATSYEAR = os.path.join(self.directory, "stats_clean_year.csv")
         self.TIERLIST = os.path.join(self.directory, "tierList.txt")
-        self.CLEANEDAVGS = os.path.join(self.directory, "stats_avgs.csv")
+        self.FULLSTATS = os.path.join(self.directory, "stats_clean_full.csv")
 
         self.foundSolutions = []
 
@@ -72,7 +72,6 @@ class Solver:
             tourType,
             grApproach = False,
             isAutorank = False,
-            grWeight = 0.35,
             ranksSpread = False,
             isOld = False
         ):
@@ -117,6 +116,8 @@ class Solver:
         if args.thinktime:
             thinkTime = args.thinktime
 
+        self.tiers, self.tier_weights = get_tiers(tourType)
+
         if grApproach:
             gc = readCredentials(self.directory)
 
@@ -134,22 +135,11 @@ class Solver:
                 writer = csv.writer(f)
                 writer.writerows(rows_ids)
 
-            if tourType == "usual":
-                clean_stats = clean_data(self.IDTABLE, self.STATSTABLE, self.CLEANEDSTATSYEAR, self.monthWindow, self.maxFallbackWindow, self.pastTours, self.activeTours, hasExtraColumn=True)
-            else:
-                clean_stats = clean_data(self.IDTABLE, self.STATSTABLE, self.CLEANEDSTATSYEAR, self.monthWindow, self.maxFallbackWindow, self.pastTours, self.activeTours)
-            clean_stats = clean_stats.sort_values(["Player ID", "Tournament Date"])
+            clean_stats, max_stats = clean_data(self.IDTABLE, self.STATSTABLE, self.CLEANEDSTATSYEAR, self.maxFallbackWindow, self.activeTours, tourType)
+            clean_stats = clean_stats.sort_values(["Player ID", "Timestamp"])
             clean_stats.to_csv(self.CLEANEDSTATS, index=False, encoding="utf-8")
-            player_stats = clean_stats.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-            ids = pd.read_csv(self.IDTABLE)
-            ids = ids.drop_duplicates(subset='Player ID', keep='first')
-            player_stats = player_stats.merge(ids[['Player ID', 'Player Name']], on='Player ID', how='left')
-            new_order = ['Player ID', 'Player Name', 'avg_gr', 'avg_uf', 'count']
-            player_stats = player_stats[new_order]
-            player_stats['avg_gr'] = round(player_stats['avg_gr'], 3)
-            player_stats['avg_uf'] = round(player_stats['avg_uf'], 3)
-            player_stats['count'] = player_stats['count'].astype(int)
-            player_stats.to_csv(self.CLEANEDAVGS, index=False, encoding="utf-8")
+            player_stats = clean_stats.sort_values(["Player ID", "Timestamp"])
+            max_stats.to_csv(self.FULLSTATS, index=False, encoding="utf-8")
 
         aliases = getAliases(self.ALIASES_PATH)
         
@@ -188,13 +178,12 @@ class Solver:
                             # Reset in case need to grab multiple IDs 
                             player_id = None
                             if not df.empty:
-                                player_stats = df.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-                                clean_fb = pd.read_csv(self.CLEANEDSTATSYEAR)
-                                final_df = compute_ranks(df=player_stats, uf_max=(clean_fb["usefulness"].max()), 
-                                                        GR_weight=grWeight, spread=ranksSpread)
-                                alias_df = alias_df.drop_duplicates(subset='Player ID', keep='first')
-                                final_df = final_df.merge(alias_df[['Player ID', 'Player Name']], on='Player ID', how='left')
-                                rank_dict = dict(zip(final_df['Player Name'], final_df['elo'].round(3)))
+                                clean_fb = pd.read_csv(self.FULLSTATS)
+                                normalization_spec = get_normalization_spec(clean_fb, tourType)
+                                final_df = compute_ranks(clean_stats=df, full_stats=clean_fb, normalization_spec=normalization_spec,
+                                                         tiers=self.tiers, tier_weights=self.tier_weights,
+                                                         full=False)
+                                rank_dict = dict(zip(final_df['PlayerName'], final_df['ELO'].round(3)))
                                 ranks.update(rank_dict)
                                 raw_ranks.update(rank_dict)
                                 players[player] = ranks[list(rank_dict.keys())[0]]
@@ -274,19 +263,28 @@ class Solver:
                 "normal": {
                     False: (get_guess_watched,     generate_codes_watched),
                     True:  (get_guess_old_watched, generate_codes_old_watched)
+                },
+                "gr": {
+                    False: (get_guess_watched_gr,   generate_codes_watched_gr)
                 }
             },
             "watched-in": {
                 "normal": {
                     False: (get_guess_watched_in,  generate_codes_watched_in)
+                },
+                "gr": {
+                    False: (get_guess_watched_gr,   generate_codes_watched_in_gr)
                 }
             },
             "watched-cl": {
                 "normal": {
                     False: (get_guess_watched_cl,  generate_codes_watched_cl)
+                },
+                "gr": {
+                    False: (get_guess_watched_gr,   generate_codes_watched_cl_gr)
                 }
             },
-            "5s": {
+            "watched-5s": {
                 "normal": {
                     False: (get_guess_watched_5s,  generate_codes_watched_5s)
                 }
@@ -295,23 +293,35 @@ class Solver:
                 "normal": {
                     False: (get_guess_op,     generate_codes_op),
                     True:  (get_guess_op_old, generate_codes_op_old)
+                },
+                "gr": {
+                    False: (get_guess_usual_gr,   generate_codes_op_gr)
                 }
             },
             "ed": {
                 "normal": {
                     False: (get_guess_ed,     generate_codes_ed),
                     True:  (get_guess_ed_old, generate_codes_ed_old)
+                },
+                "gr": {
+                    False: (get_guess_usual_gr,   generate_codes_ed_gr)
                 }
             },
             "in": {
                 "normal": {
                     False: (get_guess_in,     generate_codes_in),
                     True:  (get_guess_in_old, generate_codes_in_old)
+                },
+                "gr": {
+                    False: (get_guess_usual_gr,   generate_codes_in_gr)
                 }
             },
             "cl": {
                 "normal": {
                     False: (get_guess_cl,     generate_codes_cl)
+                },
+                "gr": {
+                    False: (get_guess_usual_gr,   generate_codes_cl_gr)
                 }
             }
         }
@@ -339,13 +349,23 @@ class Solver:
 
             kwargs = {}
             if grApproach:
-                kwargs = {
-                    "player_stats": player_stats,
-                    "idtable": self.IDTABLE,
-                    "oneg": self.oneGuess,
-                    "twog": self.twoGuess,
-                    "threeg": self.threeGuess
-                }
+                if tourType.startswith("watched"):
+                    kwargs = {
+                        "player_stats": player_stats,
+                        "idtable": self.IDTABLE,
+                        "oneg": self.oneGuess,
+                        "twog": self.twoGuess,
+                        "threeg": self.threeGuess,
+                        "fourg": self.fourGuess
+                    }
+                else:
+                    kwargs = {
+                        "player_stats": player_stats,
+                        "idtable": self.IDTABLE,
+                        "oneg": self.oneGuess,
+                        "twog": self.twoGuess,
+                        "threeg": self.threeGuess
+                    }
 
             return handleCodes(
                 foundSolutions=self.foundSolutions,
@@ -378,3 +398,5 @@ class Solver:
             f.write(final_code)
 
         reset_whitelist(self.WHITELIST_PATH)
+
+        _ = input("Finished making teams. Open `codes.txt` to find all the necessary. Press any key to continue...")

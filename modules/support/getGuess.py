@@ -17,10 +17,27 @@ def get_guess_usual_gr(name, player_stats, idtable, oneg, twog, threeg):
         alias_df = pd.read_csv(idtable)
         alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
         player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
-        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, 'avg_gr'].iloc[0]
+        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, "Guess rate"].mean()
     except IndexError:
         avg_gr = float(input(f"{name} not found. Give initial gr% (Example: 75 = 75%): "))
     return guess_gr([
+        (threeg, '4'),
+        (twog, '3'),
+        (oneg, '2'),
+        (-float('inf'), '1')
+    ], avg_gr)
+
+def get_guess_watched_gr(name, player_stats, idtable, oneg, twog, threeg, fourg):
+    try:
+        alias_df = pd.read_csv(idtable)
+        alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+        player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
+        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, "Guess rate"].mean()
+        print(name, avg_gr)
+    except IndexError:
+        avg_gr = float(input(f"{name} not found. Give initial gr% (Example: 75 = 75%): "))
+    return guess_gr([
+        (fourg, '5'),
         (threeg, '4'),
         (twog, '3'),
         (oneg, '2'),

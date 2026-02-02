@@ -2,19 +2,17 @@
 
 ### Solution 1 ###
 
-flato (11.382) coglionedown (11.350) poppysr (10.724) swapin (9.728) | Total = 43.184 | Guesses = [4443]
-oh95 (12.972) tvaz (11.947) kynn (11.232) icefeed2 (7.000) | Total = 43.151 | Guesses = [4442]
-catisam (17.764) legitted (9.000) shiku (8.944) yashadox (7.458) | Total = 43.166 | Guesses = [4332]
-miki_hoshii (20.084) yasashiikumo (7.754) mangalodon (7.745) mahzrunner (7.615) | Total = 43.198 | Guesses = [4222]
-yolowolf75 (13.319) cafezinho (10.339) saiki (10.060) annayanami (9.442) | Total = 43.160 | Guesses = [4443]
-alkios (15.552) kaededayo (11.276) konsumenci (9.682) legrandort (6.626) | Total = 43.136 | Guesses = [4432]
+civiltwlight (18.280) saiki (11.286) janoxx (10.971) feyfey (8.125) | Total = 48.662 | Guesses = [4443]
+milar (17.543) konsumenci (11.082) maplesyyrup (10.100) spartric (10.025) | Total = 48.750 | Guesses = [4433]
+flato (15.469) chrislefko (14.068) naizuri (10.697) qwecocacola (8.589) | Total = 48.823 | Guesses = [4442]
+kynn (14.842) l_elf10 (13.822) shiku (10.442) okitanobu (9.642) | Total = 48.748 | Guesses = [4443]
 
-Average: 43.1658
+Average: 48.7458
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
-≥10: 4 guesses
-8-10: 3 guesses
-5.5-8: 2 guesses
-≤5.5: 1 guess
+≥28% = 4 guesses
+19% - 28% = 3 guesses
+8% - 19% = 2 guesses
+<8% = 1 guess

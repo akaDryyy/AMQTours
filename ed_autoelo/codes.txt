@@ -2,14 +2,14 @@
 
 ### Solution 1 ###
 
-tsui (17.233) md22 (10.663) kirox (7.500) vuhrculls (6.587) | Total = 41.983 | Guesses = [4422]
-koroshiya (18.196) annayanami (8.487) animerod (8.250) janoxx (7.314) | Total = 42.247 | Guesses = [4332]
-milar (12.111) dry (11.227) anotherwish (9.839) saiki (9.255) | Total = 42.432 | Guesses = [4433]
-math1234 (15.000) chata (9.649) shiinamahiru (9.458) skychael (8.268) | Total = 42.375 | Guesses = [4333]
+eryth (20.664) neoburnz (12.762) pile (9.000) arpia97 (9.000) | Total = 51.426 | Guesses = [4433]
+koroshiya (18.661) claydoll (13.358) julialess64 (11.705) neumann (7.842) | Total = 51.566 | Guesses = [4442]
+diukes (16.686) lika (13.242) dry (11.460) yasashiikumo (10.270) | Total = 51.658 | Guesses = [4444]
+channina (22.718) mahirushiina (10.647) ruuka (9.000) jakemonkey (9.000) | Total = 51.365 | Guesses = [4433]
 
-Average: 42.2592
+Average: 51.5038
 
-<https://challonge.com/xkj0th0>
+<YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z20100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
 ≥10: 4 guesses

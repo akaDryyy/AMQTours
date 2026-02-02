@@ -6,24 +6,20 @@ def main():
     DIRECTORY = os.path.dirname(os.path.abspath(__file__))
     tiermaker = TierMaker(
         directory=DIRECTORY, 
-        sheetName="ngm stats", 
-        tabStats=560474782, 
-        tabIDs=220350629, 
-        tabEloStorage=716533894, 
-        tabEloStorageCell='A12', 
-        grWeight=0.35, 
-        monthWindow=2, 
-        maxFallbackWindow=6, 
-        pastTours=10, 
-        activeTours=20, 
-        chosenYear=2025
+        sheetName="NGM Stats Export v2", 
+        tabStats=2075065970, 
+        tabIDs=1903970832, 
+        tabEloStorage=82254993, 
+        tabEloStorageCell='A12',
+        maxFallbackWindow=6,
+        activeTours=10
     )
     tiermaker.make_tiers(
         alpha=3.75,
         midpoint=0.33,
         minRating=0,
         maxRating=25,
-        ranksSpread=True
+        tourType="in"
     )
 
 if __name__ == '__main__':

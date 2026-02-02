@@ -2,19 +2,17 @@
 
 ### Solution 1 ###
 
-comfv (15.655) diukes (14.571) hyonoobka (9.245) rhummy (3.310) | Total = 42.781 | Guesses = [4441]
-kar72 (14.896) florenz (10.173) chaabdu92 (9.109) saiki (8.683) | Total = 42.861 | Guesses = [4443]
-neoburnz (14.171) mami (12.579) comete (10.694) yashadox (5.382) | Total = 42.826 | Guesses = [4442]
-accelerator11 (15.851) dry (10.591) hmsuis (9.700) janoxx (6.725) | Total = 42.867 | Guesses = [4443]
-thaleko (16.300) kuterin (10.209) chemist (9.378) kabao (6.908) | Total = 42.795 | Guesses = [4443]
-arronchu (20.037) kirox (7.809) yasashiikumo (7.628) swapin (7.288) | Total = 42.762 | Guesses = [4333]
+civiltwlight (15.088) selaph (13.701) beautiful (12.658) neumann (12.360) | Total = 53.807 | Guesses = [4444]
+deafness (17.599) neoburnz (14.847) 753 (12.125) okitanobu (9.310) | Total = 53.881 | Guesses = [4442]
+eryth (18.690) chata (14.801) porte (10.730) feyfey (9.628) | Total = 53.849 | Guesses = [4422]
+akatsuki (21.086) chaabdu92 (11.695) kabao (11.393) 25 (9.671) | Total = 53.845 | Guesses = [4432]
 
-Average: 42.8153
+Average: 53.8455
 
-YOURCHALLONGEURLHERE
+<YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
-≥9: 4 guesses
-5.75-9: 3 guesses
-3.5-5.75: 2 guesses
-≤3.5: 1 guess
+≥28% = 4 guesses
+19% - 28% = 3 guesses
+8% - 19% = 2 guesses
+<8% = 1 guess
