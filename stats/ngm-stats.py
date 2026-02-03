@@ -176,7 +176,7 @@ def main():
     playerDB.build_lookups()
 
     # Obtain the tour players
-    with open(TEAMS, "r") as file:
+    with open(TEAMS, "r", encoding="utf-8") as file:
         for line in file.readlines():
             if line.lower().startswith(("average", "avg")):
                 TEAM_AVG = float(line.split(':')[-1].strip())
