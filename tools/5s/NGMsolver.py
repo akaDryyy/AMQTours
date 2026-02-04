@@ -6,6 +6,7 @@ def main():
     DIRECTORY = os.path.dirname(os.path.abspath(__file__))
     solver = Solver(
         directory=DIRECTORY, 
+<<<<<<< HEAD
         maxSolutions=1,
         sheetName="NGM Stats Export v2", 
         tabStats=676003100, 
@@ -21,6 +22,12 @@ def main():
     solver.solve(
         tourType="watched-5s",
         grApproach=True
+=======
+        maxSolutions=1
+    )
+    solver.solve(
+        tourType="5s"
+>>>>>>> e05c619 (trying to build an interface (not done))
     )
 
 if __name__ == '__main__':

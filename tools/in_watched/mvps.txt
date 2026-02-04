@@ -1,5 +1,8 @@
 # Full PV List:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e05c619 (trying to build an interface (not done))
 chommy played like a 14.382. (Current rank 12.484, Δ1.898)
 Spitzell played like a 12.358. (Current rank 11.027, Δ1.331)
 keysha18 played like a 11.465. (Current rank 10.723, Δ0.742)
@@ -21,6 +24,7 @@ mangoss played like a 11.845. (Current rank 13.542, Δ-1.697)
 :first_place: chommy. Played like a 14.382 rank (Current Rank: 12.484, Δ1.898)
 :second_place: Spitzell. Played like a 12.358 rank (Current Rank: 11.027, Δ1.331)
 :third_place: keysha18. Played like a 11.465 rank (Current Rank: 10.723, Δ0.742)
+<<<<<<< HEAD
 =======
 Vigard played like a 15.767. (Current rank 11.9, Δ3.867)
 Dav1d1 played like a 12.413. (Current rank 9.18, Δ3.233)
@@ -60,3 +64,5 @@ Janoxx played like a 8.57. (Current rank 11.154, Δ-2.584)
 :second_place: Dav1d1. Played like a 12.413 rank (Current Rank: 9.18, Δ3.233)
 :third_place: Bommie. Played like a 16.522 rank (Current Rank: 13.661, Δ2.861)
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> e05c619 (trying to build an interface (not done))

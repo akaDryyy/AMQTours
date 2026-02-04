@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"tour_id": "fo2amtep",
 	"time": "2026-01-30 17:00:00+02:00",
 	"teams": {
@@ -34,5 +35,42 @@
 		"catge": "initial elo: 9.898, new elo: 10.162, rating change: 0.264",
 		"dav1d1": "initial elo: 9.018, new elo: 9.266, rating change: 0.248",
 		"patoche49": "initial elo: 6.586, new elo: 6.845, rating change: 0.260"
+=======
+	"tour_id": "aeq4wtit",
+	"time": "2025-11-14 20:00:00+02:00",
+	"teams": {
+		"claydoll1091 (8.50) seismic (13.38) legrandort (12.41) gdadem (1.28) = 35.57": "1W 4L 0D",
+		"maki04 (12.63) lakumix (11.22) inta (10.27) icefeed2 (5.50) = 39.62": "2W 3L 0D",
+		"haruurara (11.07) dav1d1 (9.56) zokie (9.41) catge (8.24) = 38.28": "4W 1L 0D",
+		"omaisfraco (11.72) heleos (10.28) chommy (9.33) zarelyyyx (7.00) = 38.33": "2W 3L 0D",
+		"progenitor (11.81) annayanami (12.68) keysha18 (6.23) anicomi (6.17) = 36.90": "3W 2L 0D",
+		"vigard (12.17) shiratoriamaha (10.50) uy5gf (9.50) loirinzz (6.13) = 38.30": "3W 2L 0D"
+	},
+	"player": {
+		"claydoll1091": "initial elo: 8.500, new elo: 7.346, rating change: -1.154",
+		"seismic": "initial elo: 13.379, new elo: 12.417, rating change: -0.962",
+		"legrandort": "initial elo: 12.412, new elo: 11.738, rating change: -0.674",
+		"gdadem": "initial elo: 1.283, new elo: 0.237, rating change: -1.046",
+		"maki04": "initial elo: 12.628, new elo: 11.995, rating change: -0.633",
+		"lakumix": "initial elo: 11.216, new elo: 10.592, rating change: -0.624",
+		"inta": "initial elo: 10.274, new elo: 9.702, rating change: -0.572",
+		"icefeed2": "initial elo: 5.500, new elo: 4.803, rating change: -0.697",
+		"haruurara": "initial elo: 11.071, new elo: 12.126, rating change: 1.055",
+		"dav1d1": "initial elo: 9.560, new elo: 10.815, rating change: 1.255",
+		"zokie": "initial elo: 9.409, new elo: 10.236, rating change: 0.827",
+		"catge": "initial elo: 8.242, new elo: 9.386, rating change: 1.144",
+		"omaisfraco": "initial elo: 11.718, new elo: 11.072, rating change: -0.646",
+		"heleos": "initial elo: 10.283, new elo: 9.583, rating change: -0.700",
+		"chommy": "initial elo: 9.328, new elo: 8.792, rating change: -0.536",
+		"zarelyyyx": "initial elo: 7.000, new elo: 6.233, rating change: -0.767",
+		"progenitor": "initial elo: 11.810, new elo: 12.289, rating change: 0.479",
+		"annayanami": "initial elo: 12.685, new elo: 13.051, rating change: 0.367",
+		"keysha18": "initial elo: 6.229, new elo: 6.664, rating change: 0.436",
+		"anicomi": "initial elo: 6.173, new elo: 6.561, rating change: 0.388",
+		"vigard": "initial elo: 12.167, new elo: 12.692, rating change: 0.524",
+		"shiratoriamaha": "initial elo: 10.500, new elo: 11.117, rating change: 0.617",
+		"uy5gf": "initial elo: 9.500, new elo: 10.117, rating change: 0.617",
+		"loirinzz": "initial elo: 6.128, new elo: 6.693, rating change: 0.565"
+>>>>>>> e05c619 (trying to build an interface (not done))
 	}
 }

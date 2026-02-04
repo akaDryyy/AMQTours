@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Shadow (B+), chommy (C), Isekaijoucho (A), emdiel (S), neoburnz (SS), Tsui (Ubers), ruuka (S), Dry (C+), Atsui (B+), mangoss (S-), Patoche49 (B), 753 (S), pomo (B+), oolli (B), JustaWeirdo (C+), spitzell (A)
 =======
 Bommie (B+), janoxx (A), Heleos (C+), IAmAsianNoob (B-), Vigard (B+), Milar (SS-), AnnaYanami (A-), Saiki (A), MythAndroid (C), Zozo (B+), HaruUrara (B+), LordGrond (D-), Catge (C+), Amel (B-), watashiii (Anything Goes), YellowRose (B), Loirinzz (None), joey (A+), ShelterRin (A-), thaleko (SS+), pile (S-), Solosion (A-), xeyz (C+), Konsumenci (A-)
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+Shadow (B+), chommy (C), Isekaijoucho (A), emdiel (S), neoburnz (SS), Tsui (Ubers), ruuka (S), Dry (C+), Atsui (B+), mangoss (S-), Patoche49 (B), 753 (S), pomo (B+), oolli (B), JustaWeirdo (C+), spitzell (A)
+>>>>>>> e05c619 (trying to build an interface (not done))

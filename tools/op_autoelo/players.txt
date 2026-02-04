@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Milar (SS-), Konsumenci (A-), Tvaz (C+), Flato (A), Coglionedown (None), kishua (SS-), pile (S-), OkitaNobu (B-), Spartric (C+), Poppysr (B), fiftypercentweeb (B), koroshiya (SS), l_elf10 (C+), oh95 (S-), mahzrunner (A-), Saiki (A), janoxx (A-), Alkios (S+), RyoutaVN (B-), feyfey (B+), civiltwlight (SS+), Isekaijoucho (A), kar72 (SS), vr0003 (None)
 =======
 Konsumenci (A-), Naizuri (B+), Flato (A), OkitaNobu (B-), l_elf10 (C+), Spartric (C+), civiltwlight (SS+), janoxx (A-), Kynn (None), ChrisLefko (A), Shiku (B-), feyfey (B+), Saiki (A), qwecocacola (B+), Milar (SS-), MapleSyyrup (None)
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+Konsumenci (A-), Naizuri (B+), Flato (A), OkitaNobu (B-), l_elf10 (C+), Spartric (C+), civiltwlight (SS+), janoxx (A-), Kynn (None), ChrisLefko (A), Shiku (B-), feyfey (B+), Saiki (A), qwecocacola (B+), Milar (SS-), MapleSyyrup (None)
+>>>>>>> e05c619 (trying to build an interface (not done))

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 21: thaleko, stunar
 20: fayeurs
 18: watashiii
@@ -19,3 +20,24 @@
 2: icefeed2, unborned, wiwmek
 1: xeyz
 0: nunuchu42, gdadem
+=======
+20: fayeurs
+17: fortnayt
+16: kaorimaeda, neoburnz
+15: jakemonkey, kaededayo, poolnoodle, kabigon, tapumomo, anoru_
+14: zental, 80s
+13: annayanami, shiinamahiru, civiltwlight, vigard, provenance
+12: seismic, progenitor, haruurara, maki04, legrandort, julialess64, miiarad
+11: swapin, shiratoriamaha, omaisfraco, cipherkai, lika, dav1d1, dking20, comete, lakumix, shadow, spitzell
+10: zokie, uy5gf, chemist, inta, heleos
+9: catge, time2hack, pile, knotanymore, chommy
+8: justaweirdo, patoche49, vuhrculls, isekaijoucho
+7: claydoll1091, loirinzz, keysha18, anicomi, iamasiannoob, janoxx
+6: zarelyyyx, oolli
+5: icefeed2
+4: yashadox, unborned
+3: eljuanchi, amel, foopypoopy, anatharax
+2: lordgrond, wiwmek
+1: xeyz
+0: gdadem
+>>>>>>> e05c619 (trying to build an interface (not done))
