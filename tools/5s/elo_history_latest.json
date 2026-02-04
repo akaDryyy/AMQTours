@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"tour_id": "fo2amtep",
 	"time": "2026-01-30 17:00:00+02:00",
 	"teams": {
@@ -36,6 +37,8 @@
 		"dav1d1": "initial elo: 9.018, new elo: 9.266, rating change: 0.248",
 		"patoche49": "initial elo: 6.586, new elo: 6.845, rating change: 0.260"
 =======
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 	"tour_id": "aeq4wtit",
 	"time": "2025-11-14 20:00:00+02:00",
 	"teams": {
@@ -71,6 +74,9 @@
 		"shiratoriamaha": "initial elo: 10.500, new elo: 11.117, rating change: 0.617",
 		"uy5gf": "initial elo: 9.500, new elo: 10.117, rating change: 0.617",
 		"loirinzz": "initial elo: 6.128, new elo: 6.693, rating change: 0.565"
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 	}
 }

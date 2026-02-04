@@ -278,6 +278,7 @@
 			"loirinzz": "initial elo: 6.128, new elo: 6.693, rating change: 0.565"
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	},
 	{
 		"tour_id": "d4v3rm2t",
@@ -692,5 +693,7 @@
 		}
 =======
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 	}
 ]

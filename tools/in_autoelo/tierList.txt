@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 20.942: PoolNoodle
 20.032: watashiii
 16.453: Tsui
@@ -51,6 +52,8 @@
 =======
 =======
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 21.562: PoolNoodle
 16.818: neoburnz
 16.568: Tsui
@@ -88,6 +91,9 @@
 8.279: FoopyPoopy
 7.326: Luna
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
 =======
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))

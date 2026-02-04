@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"thaleko": 21.337,
 	"stunar": 20.928,
 	"fayeurs": 19.966,
@@ -111,6 +112,8 @@
 	"xeyz": 1.159,
 	"nunuchu42": 0.248,
 =======
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 	"fayeurs": 19.966,
 	"fortnayt": 16.799,
 	"kaorimaeda": 16.474,
@@ -178,6 +181,9 @@
 	"lordgrond": 2.276,
 	"wiwmek": 1.56,
 	"xeyz": 1.449,
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 	"gdadem": 0.237
 }

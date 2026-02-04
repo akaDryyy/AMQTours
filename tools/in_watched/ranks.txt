@@ -2,6 +2,7 @@
 10:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 9: isekaijoucho, vr0003
 =======
 9:
@@ -9,3 +10,6 @@
 =======
 9:
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+9:
+>>>>>>> 4e2514e (trying to build an interface (not done))

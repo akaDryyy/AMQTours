@@ -1,6 +1,7 @@
 11:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 10: dry
 =======
 10:
@@ -8,4 +9,7 @@
 =======
 10: dry
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+10:
+>>>>>>> 4e2514e (trying to build an interface (not done))
 9:

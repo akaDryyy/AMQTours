@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 19: neumann, poolnoodle
 18: fortnayt, watashiii
 16: lika, mami, neoburnz, shiinamahiru, thaleko, nephirea, progenitor, tapumomo
@@ -17,6 +18,8 @@
 3: feynox_, justaweirdo, mythandroid
 2: anicomi, 2skr
 =======
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 20: neumann
 19: poolnoodle
 18: watashiii
@@ -35,5 +38,8 @@
 5: oolli, 2skr, spitzell, chommy, kyuuuu
 4: anicomi, catge, arpia97
 3: iamasiannoob, justaweirdo, mythandroid
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 1: rhummy

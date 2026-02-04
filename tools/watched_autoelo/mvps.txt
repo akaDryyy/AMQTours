@@ -1,6 +1,7 @@
 # Full PV List:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 chommy played like a 13.348. (Current rank 10.718, Δ2.63)
 Tugia played like a 11.65. (Current rank 9.826, Δ1.824)
 Serozero played like a 13.036. (Current rank 11.547, Δ1.489)
@@ -52,6 +53,8 @@ Porte played like a 9.82. (Current rank 12.296, Δ-2.476)
 :second_place: Tugia. Played like a 11.65 rank (Current Rank: 9.826, Δ1.824)
 :third_place: Serozero. Played like a 13.036 rank (Current Rank: 11.547, Δ1.489)
 =======
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 psirockin played like a 12.461. (Current rank 10.448, Δ2.013)
 LordGrond played like a 12.079. (Current rank 10.711, Δ1.368)
 Provenance played like a 14.532. (Current rank 13.535, Δ0.997)
@@ -73,6 +76,7 @@ md22 played like a 10.39. (Current rank 12.386, Δ-1.996)
 :first_place: psirockin. Played like a 12.461 rank (Current Rank: 10.448, Δ2.013)
 :second_place: LordGrond. Played like a 12.079 rank (Current Rank: 10.711, Δ1.368)
 :third_place: Provenance. Played like a 14.532 rank (Current Rank: 13.535, Δ0.997)
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
 =======
 Heleos played like a 15.226. (Current rank 12.382, Δ2.844)
@@ -136,3 +140,5 @@ Serozero played like a 10.103. (Current rank 12.431, Δ-2.328)
 :second_place: CipherKai. Played like a 15.419 rank (Current Rank: 12.62, Δ2.799)
 :third_place: Caramel36. Played like a 11.281 rank (Current Rank: 8.921, Δ2.36)
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))

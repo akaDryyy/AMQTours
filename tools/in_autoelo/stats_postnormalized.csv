@@ -1,6 +1,7 @@
 Player ID,PlayerName,ELO,RANK,GuessRate,erigs,Seven8,avg8,LivesTaken,LivesSaved,WIN,LOSE,TIE,Samples,WINSTREAK,LOSESTREAK,TIESTREAK,PALL,PRECENT,WR,STREAK,DELTAWR,WR MODIFIER,STREAK MODIFIER
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 21,PoolNoodle,20.942,0.768,0.603,0.867,0.875,0.707,0.921,0.984,2,10,0,2,2,10,0,12,12,0.167,0.167,0.0,0.0,0.0
 4,watashiii,20.032,0.702,0.562,0.933,1.0,0.683,1.0,0.5,3,3,0,1,3,3,0,6,6,0.5,0.5,0.0,0.0,0.0
 33,Tsui,16.453,0.505,0.418,0.367,1.0,0.6,0.658,0.453,6,6,0,2,6,6,0,12,12,0.5,0.5,0.0,0.0,0.0
@@ -52,6 +53,8 @@ Player ID,PlayerName,ELO,RANK,GuessRate,erigs,Seven8,avg8,LivesTaken,LivesSaved,
 =======
 =======
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 21,PoolNoodle,21.562,0.82,0.635,1.0,1.0,0.725,1.0,1.0,2,4,0,1,2,4,0,6,6,0.333,0.333,0.0,0.0,0.0
 59,neoburnz,16.818,0.522,0.451,0.4,1.0,0.571,0.667,0.469,3,2,1,1,3,2,1,6,6,0.583,0.583,0.0,0.0,0.0
 33,Tsui,16.568,0.51,0.418,0.367,1.0,0.6,0.694,0.453,6,6,0,2,6,6,0,12,12,0.5,0.5,0.0,0.0,0.0
@@ -89,6 +92,9 @@ Player ID,PlayerName,ELO,RANK,GuessRate,erigs,Seven8,avg8,LivesTaken,LivesSaved,
 410,FoopyPoopy,8.279,0.143,0.056,0.067,0.5,0.592,0.056,0.031,2,4,0,1,2,4,0,6,6,0.333,0.333,0.0,0.0,0.0
 431,Luna,7.326,0.095,0.098,0.0,0.0,0.314,0.111,0.0,3,2,1,1,3,2,1,6,6,0.583,0.583,0.0,0.0,0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
 =======
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))

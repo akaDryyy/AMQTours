@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 21: thaleko (21.337), stunar (20.928)
 20: fayeurs (19.966)
 18: watashiii (17.901)
@@ -21,6 +22,8 @@
 1: xeyz (1.159)
 0: nunuchu42 (0.248), gdadem (0.237)
 =======
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
 20: fayeurs (19.966)
 17: fortnayt (16.799)
 16: kaorimaeda (16.474), neoburnz (15.538)
@@ -40,4 +43,7 @@
 2: lordgrond (2.276), wiwmek (1.56)
 1: xeyz (1.449)
 0: gdadem (0.237)
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))

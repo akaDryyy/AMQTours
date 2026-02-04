@@ -7,6 +7,7 @@ https://challonge.com/w7tl7xho
 https://challonge.com/fqo8y9sq
 https://challonge.com/eod7b365
 <<<<<<< HEAD
+<<<<<<< HEAD
 https://challonge.com/aeq4wtit
 https://challonge.com/d4v3rm2t
 https://challonge.com/2az5xv56
@@ -25,3 +26,6 @@ https://challonge.com/fo2amtep
 =======
 https://challonge.com/aeq4wtit
 >>>>>>> e05c619 (trying to build an interface (not done))
+=======
+https://challonge.com/aeq4wtit
+>>>>>>> 4e2514e (trying to build an interface (not done))
