@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMQ Tour Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<style>
+    .title {
+        margin: auto;
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+
+    .row {
+        padding-bottom: 20px;
+    }
+</style>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    
+    <div class="container">
+        <div class="title">
+            <h1>Random NGMC Solver</h1>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="elo-input" class="form-label">Current Elos</label>
+                <textarea class="form-control" id="elo-input" rows="5" disabled>{{ elos }}</textarea>
+                <input class="form-control" type="file" id="elo-file">
+                <button type="submit" class="btn btn-primary">Update elos.json</button>
+            </div>
+            <div class="col-3">
+                <label for="tourlist-input" class="form-label">Current Tour list</label>
+                <textarea class="form-control" id="tourlist-input" rows="5" disabled>{{ tourlist }}</textarea>
+                <input class="form-control" type="file" id="tourlist-file">
+                <button type="submit" class="btn btn-primary">Update tourlist.txt</button>
+            </div>
+            <div class="col-6">
+                <form action="{{ url_for('codes') }}" method="post">
+                    <div class="mb-3">
+                        <label for="playersInput" class="form-label">Players</label>
+                        <textarea class="form-control" id="playersInput" rows="3" name="players"
+                        onkeyup="parsePlayers()"
+                        placeholder="Format: name (Rank), name (Rank), ..."
+                        ></textarea>
+                    </div>
+                    <input type="hidden" name="action" value="start_tour">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</body>
+<script>
+const elos = JSON.parse(`{{ elos | tojson }}`);
+
+const elos_players = []
+for (const player in elos){
+    elos_players.push(player)
+}
+console.log(elos_players)
+
+function parsePlayers() {
+    const playersInput = document.getElementById("playersInput").value;
+    const players = playersInput.split(/[\n,]+/).map(p => p.trim().toLowerCase()).map(p => p.replace(/\s*\(.*?\)\s*/g, "")).filter(p => p.length > 0);
+    console.log(players)
+    for (const player of players){
+        if (!(elos_players.includes(player))){
+            console.log(player)
+            console.log("need a rank")
+        }
+    }
+}
+</script>
