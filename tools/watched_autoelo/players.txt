@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 qwecocacola (B+), 2skr (B-), JustaWeirdo (C+), rorf (A), Floth (A), civiltwlight (SS+), apurplenose (S-), Mayottatoki (A+), OkitaNobu (B-), feyfey (B+), KNotAnyMore (B+), Shadow (B+), legrandort (B), Isekaijoucho (A), MahiruShiina (S), miiarad (A), YunnN (None), neoburnz (SS), chaabdu92 (A+), xeyz (B-), Mami (S+), _nadeshiko (A+), mahzrunner (A-), YellowRose (B+)
+=======
+hubcioskubcio (C), Dry (S-), Bommie (B+), chommy (C), neoburnz (SS), qwecocacola (B+), MahiruShiina (S), Tsui (Ubers), kar72 (SS), PotassiumF (B-), 753 (S), YellowRose (B+), renzou (SS), Lakumix (A-), civiltwlight (SS+), spitzell (A), accelerator11 (SS+), Chata (S), HaruUrara (A), anicomi (B-), eljuanchi (C-), Baikinman (SS-), Floth (A), claydoll1091 (S), mahzrunner (A-), Fumiii (A+), IAmAsianNoob (B-), beautiful (S-), Komari (S-), Kirox (A-), janoxx (A-), erzakuran (D-), Neptune (S+), xeyz (B-), vr0003 (None), feyfey (B+), bamboo (S-), Naizuri (B+), LordGrond (C), Serozero (B), psirockin (B), Lightning (B), JustaWeirdo (C+), harges (B), Tugia (None), Milar (SS-), Konsumenci (A-), hmsuis (A)
+>>>>>>> 4e2514e (trying to build an interface (not done))

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "PoolNoodle": 20.942,
     "watashiii": 20.032,
     "Tsui": 16.453,
@@ -47,4 +48,42 @@
     "FoopyPoopy": 8.27,
     "rinshantsumo": 7.807,
     "Luna": 7.309
+=======
+    "PoolNoodle": 21.562,
+    "neoburnz": 16.818,
+    "Tsui": 16.568,
+    "accelerator11": 16.231,
+    "Saiki": 15.36,
+    "Chata": 15.311,
+    "doomchicken": 15.217,
+    "Baikinman": 15.181,
+    "joey": 14.365,
+    "MahiruShiina": 14.291,
+    "Selaph": 14.025,
+    "claydoll1091": 13.864,
+    "Fumiii": 13.85,
+    "neptune": 13.623,
+    "Alkios": 13.598,
+    "Orfey": 13.404,
+    "mahzrunner": 12.963,
+    "bamboo": 12.619,
+    "ss_r_white_pony": 12.61,
+    "Zozo": 12.469,
+    "Provenance": 11.966,
+    "Lakumix": 11.811,
+    "Comete": 11.503,
+    "Solosion": 11.402,
+    "kabao": 11.314,
+    "Nephirea": 11.04,
+    "chommy": 10.626,
+    "Bommie": 10.615,
+    "thjalago": 10.554,
+    "FeyFey": 10.271,
+    "ElJuanchi": 10.187,
+    "ShelterRin": 9.662,
+    "Janoxx": 9.368,
+    "JustAWeirdo": 8.929,
+    "FoopyPoopy": 8.279,
+    "Luna": 7.326
+>>>>>>> 4e2514e (trying to build an interface (not done))
 }

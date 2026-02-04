@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 20.942: PoolNoodle
 20.032: watashiii
 16.453: Tsui
@@ -46,3 +47,41 @@
 8.27: FoopyPoopy
 7.807: rinshantsumo
 7.309: Luna
+=======
+21.562: PoolNoodle
+16.818: neoburnz
+16.568: Tsui
+16.231: accelerator11
+15.36: Saiki
+15.311: Chata
+15.217: doomchicken
+15.181: Baikinman
+14.365: joey
+14.291: MahiruShiina
+14.025: Selaph
+13.864: claydoll1091
+13.85: Fumiii
+13.623: neptune
+13.598: Alkios
+13.404: Orfey
+12.963: mahzrunner
+12.619: bamboo
+12.61: ss_r_white_pony
+12.469: Zozo
+11.966: Provenance
+11.811: Lakumix
+11.503: Comete
+11.402: Solosion
+11.314: kabao
+11.04: Nephirea
+10.626: chommy
+10.615: Bommie
+10.554: thjalago
+10.271: FeyFey
+10.187: ElJuanchi
+9.662: ShelterRin
+9.368: Janoxx
+8.929: JustAWeirdo
+8.279: FoopyPoopy
+7.326: Luna
+>>>>>>> 4e2514e (trying to build an interface (not done))
