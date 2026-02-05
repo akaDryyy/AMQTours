@@ -2,6 +2,7 @@
 
 ### Solution 1 ###
 
+<<<<<<< HEAD
 mami (14.232) chaabdu92 (12.745) mahzrunner (10.969) knotanymore (10.597) | Total = 48.543 | Guesses = [5555]
 apurplenose (14.292) mayottatoki (12.487) shadow (11.406) yellowrose (10.348) | Total = 48.533 | Guesses = [5555]
 floth (12.480) miiarad (12.301) 2skr (12.259) qwecocacola (11.508) | Total = 48.548 | Guesses = [5545]
@@ -10,6 +11,22 @@ neoburnz (16.589) isekaijoucho (11.052) rorf (10.588) okitanobu (10.339) | Total
 mahirushiina (14.647) yunnn (12.004) legrandort (11.317) feyfey (10.588) | Total = 48.556 | Guesses = [5554]
 
 Average: 48.5465
+=======
+mahirushiina (14.677) dry (12.548) bommie (11.864) vr0003 (10.409) | Total = 49.498 | Guesses = [5555]
+kar72 (16.025) renzou (15.448) tugia (10.309) erzakuran (7.950) | Total = 49.732 | Guesses = [5552]
+bamboo (13.986) claydoll1091 (13.310) janoxx (12.069) hubcioskubcio (8.895) | Total = 48.260 | Guesses = [5553]
+neoburnz (16.892) accelerator11 (12.151) beautiful (12.129) eljuanchi (8.489) | Total = 49.661 | Guesses = [5554]
+komari (13.293) floth (12.973) harges (12.014) chommy (11.072) | Total = 49.352 | Guesses = [5555]
+spitzell (14.094) kirox (12.000) xeyz (11.490) potassiumf (10.963) | Total = 48.547 | Guesses = [5555]
+753 (13.233) serozero (12.741) naizuri (11.945) lightning (10.482) | Total = 48.401 | Guesses = [5555]
+chata (15.057) haruurara (12.690) qwecocacola (11.610) mahzrunner (10.583) | Total = 49.940 | Guesses = [5555]
+tsui (14.668) hmsuis (12.913) baikinman (11.617) iamasiannoob (9.643) | Total = 48.841 | Guesses = [5554]
+milar (16.408) lakumix (11.767) yellowrose (10.224) anicomi (9.903) | Total = 48.302 | Guesses = [5554]
+neptune (14.332) fumiii (13.511) lordgrond (10.711) psirockin (10.448) | Total = 49.002 | Guesses = [5544]
+civiltwlight (15.764) konsumenci (12.188) feyfey (10.707) justaweirdo (9.968) | Total = 48.627 | Guesses = [5544]
+
+Average: 49.0136
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
