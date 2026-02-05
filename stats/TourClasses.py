@@ -99,15 +99,15 @@ class Player:
         self.songsHit.append(song)
 
     def set_averages(self, df):
-        self.AVGGR = get_stat(df, self.player_id, "avg_gr")
+        self.AVGGR = get_stat(df, self.player_id, "Guess rate")
         self.AVGGR = round(self.AVGGR, 3)
-        self.AVGUF = get_stat(df, self.player_id, "avg_uf")
+        self.AVGUF = get_stat(df, self.player_id, "Usefulness")
         self.AVGUF = round(self.AVGUF, 3)
-        self.AVGOP = get_stat(df, self.player_id, "avg_op")
+        self.AVGOP = get_stat(df, self.player_id, "OP guess rate")
         self.AVGOP = round(self.AVGOP, 3)
-        self.AVGED = get_stat(df, self.player_id, "avg_ed")
+        self.AVGED = get_stat(df, self.player_id, "ED guess rate")
         self.AVGED = round(self.AVGED, 3)
-        self.AVGIN = get_stat(df, self.player_id, "avg_in")
+        self.AVGIN = get_stat(df, self.player_id, "IN guess rate")
         self.AVGIN = round(self.AVGIN, 3)
 
     def post_process(self, AVGRANK, WLTcheck=True):

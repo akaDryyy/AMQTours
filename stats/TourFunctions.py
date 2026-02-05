@@ -8,14 +8,7 @@ from PIL import Image
 import numpy as np
 import os
 
-def is_date(value):
-    try:
-        datetime.strptime(value, "%Y-%m-%d")
-        return True
-    except ValueError:
-        return False
-
-def internal_clean_data(idtable, statstable, hasExtraColumn):
+def internal_clean_data(idtable, statstable, isWatched):
     # Load alias table
     headers = idtable[0]
     data = idtable[1:]
@@ -23,145 +16,62 @@ def internal_clean_data(idtable, statstable, hasExtraColumn):
     alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
     alias_to_id = dict(zip(alias_df["Player Name"], alias_df["Player ID"]))
 
-    raw_lines = pd.DataFrame(statstable, dtype=str).fillna("").values.tolist()
-    if hasExtraColumn:
-        raw_lines = [row for row in raw_lines if row[0].strip() != ""]
-        processed_lines = []
-        for row in raw_lines:
-            if not is_date(row[0].strip()):
-                row = row[1:]
-            processed_lines.append(row)
-    else:
-        processed_lines = raw_lines
-    parsed_rows = []
-    current_date = None
-    columns = ["Player name", "guess rate", "usefulness", "avg diff", "erigs", "avg /8 correct", "OP guess rate", "ED guess rate", "IN guess rate"]
+    headers = statstable[0]
+    data = statstable[1:]
+    df = pd.DataFrame(data, columns=headers)
+    df = df.replace(r"^\s*$", pd.NA, regex=True).dropna(how="all")
+    df_names = set(df["Player name"].dropna().str.strip().str.lower())
+    known_names = set(alias_to_id.keys())
+    missing_players = df_names - known_names
+    if missing_players:
+        print(f"[WARN] Unknown players: {missing_players}. Ping a host so that they can be added.")
+
+    df["Player ID"] = df["Player name"].dropna().str.strip().str.lower().map(alias_to_id)
+
+    df["Timestamp"] = pd.to_datetime(df["Timestamp"], errors="coerce")
+    cols = ["Rank", "Guess rate", "Usefulness", "erigs", "7/8s", "avg/8", "Lives taken", "Lives saved", 
+            "WIN", "LOSE", "TIE", "Total hit", "OP guess rate", "ED guess rate", "IN guess rate"]
+    watched_cols = ["Rigs hit", "Rigs", "Rigs missed", "Solo rigs", 
+                    "Missed solos", "Lives lost on rigs", "Offlist erigs", "avg/8 of your rigs"]
     
-    # Parse manually
-    for row in processed_lines:
-        # Skip completely empty rows
-        if all(cell.strip() == "" for cell in row):
-            continue
-
-        first_cell = row[0].strip()
-        
-        # Check if the row is a tournament date
-        EMPTY_VALUES = {"", "#N/A"}
-        if first_cell and all(cell.strip() in EMPTY_VALUES for cell in row[1:]):
-            current_date = first_cell
-            continue
-
-        # Skip rows without tournament date assigned yet
-        if current_date is None:
-            continue
-
-        # Normalize name
-        player_name = first_cell.strip().lower()
-        player_id = alias_to_id.get(player_name)
-
-        if not player_id:
-            input(f"[WARN] Unknown player alias: {player_name}. Ping the current host to fix this.")
-            continue
-
-        # Pad short rows with empty strings
-        while len(row) < len(columns):
-            row.append("")
-
-        parsed_rows.append([current_date, player_id] + row[0:len(columns)])
+    df[cols] = df[cols].apply(pd.to_numeric, errors="coerce")
     
-    # Final DataFrame
-    final_columns = ["Tournament Date", "Player ID"] + columns[0:]
-    df = pd.DataFrame(parsed_rows, columns=final_columns)
-    df["guess rate"] = pd.to_numeric(df["guess rate"], errors='coerce')
-    df["usefulness"] = pd.to_numeric(df["usefulness"], errors='coerce')
-    df["OP guess rate"] = pd.to_numeric(df["OP guess rate"], errors='coerce')
-    df["ED guess rate"] = pd.to_numeric(df["ED guess rate"], errors='coerce')
-    df["IN guess rate"] = pd.to_numeric(df["IN guess rate"], errors='coerce')
-    df = df.dropna(subset=["usefulness", "guess rate"])
-    df = df[df["usefulness"].astype(str).str.strip() != ""]
-
-    # Ensure the Tournament Date is a datetime object
-    df["Tournament Date"] = pd.to_datetime(df["Tournament Date"], errors="coerce")
-    # Drop invalid dates
-    df = df.dropna(subset=["Tournament Date"])
-
+    if isWatched:
+        df[watched_cols] = df[watched_cols].apply(pd.to_numeric, errors="coerce")
+        cols.extend(watched_cols)
+        df["Offlist hit"] = df["Total hit"] - df["Rigs hit"]
+    
+    df = df[df["WIN"] + df["LOSE"] + df["TIE"] >= 4]
     return df
 
-def clean_data(idtable, statstable, monthWindow, maxFallbackWindow, pastTours, activeTours, hasExtraColumn):
-    df = internal_clean_data(idtable, statstable, hasExtraColumn)
+def clean_data(idtable, statstable, maxFallbackWindow, activeTours, is_list):
+    df = internal_clean_data(idtable, statstable, is_list)
 
     six_months_ago = datetime.now() - relativedelta(months=maxFallbackWindow)
     year_6m_ago = six_months_ago.year
     month_6m_ago = six_months_ago.month
 
     year_df = df[
-        ((df["Tournament Date"].dt.year > year_6m_ago)) |
-        ((df["Tournament Date"].dt.year == year_6m_ago) & (df["Tournament Date"].dt.month >= month_6m_ago))
+        ((df["Timestamp"].dt.year > year_6m_ago)) |
+        ((df["Timestamp"].dt.year == year_6m_ago) & (df["Timestamp"].dt.month >= month_6m_ago))
     ]
 
-    year_df = year_df.sort_values(["Player ID", "Tournament Date"])
-    # Sort by Player ID and Tournament Date
-    df = df.sort_values(["Player ID", "Tournament Date"])
-
-    two_months_ago = datetime.now() - relativedelta(months=monthWindow)
-    year_2m_ago = two_months_ago.year
-    month_2m_ago = two_months_ago.month
-
-    timely_df = df[
-        ((df["Tournament Date"].dt.year > year_2m_ago)) |
-        ((df["Tournament Date"].dt.year == year_2m_ago) & (df["Tournament Date"].dt.month >= month_2m_ago))
-    ]
+    year_df = year_df.sort_values(["Player ID", "Timestamp"])
+    result_df = year_df.groupby("Player ID").tail(activeTours)
+    GR = ["Guess rate", "Usefulness", "OP guess rate", "ED guess rate", "IN guess rate"]
+    agg_dict = {
+        col: "mean" if col in GR else "max"
+        for col in result_df.columns
+        if col != "Player ID"
+    }
+    result_df = result_df.groupby("Player ID").agg(agg_dict).reset_index()
+    result_df["Player ID"] = result_df["Player ID"].astype(int)
     
-    timely_counts = timely_df.groupby("Player ID").size()
-
-    enough_ids = timely_counts[timely_counts >= pastTours].index
-    not_enough_ids = timely_counts[timely_counts < pastTours].index
-
-    result_df = timely_df[timely_df["Player ID"].isin(enough_ids)]
-    result_df = result_df.groupby("Player ID").tail(activeTours)
-    fallback_df = (
-        year_df[year_df["Player ID"].isin(not_enough_ids)]
-        .groupby("Player ID", group_keys=False)
-        .tail(pastTours)
-    )
-
-    final_df = pd.concat([result_df, fallback_df], ignore_index=True)
-
-    return final_df
-
-def trim(group):
-    n = len(group)
-    player_name = group["Player name"].iloc[0]
-    if n < 10:
-        return pd.Series({
-            "Player name": player_name,
-            "avg_gr": group["guess rate"].mean(),
-            "avg_uf": group["usefulness"].mean(),
-            "avg_op": group["OP guess rate"].mean(),
-            "avg_ed": group["ED guess rate"].mean(),
-            "avg_in": group["IN guess rate"].mean(),
-            "count": n
-        })
-    else:
-        trimmed_gr = group["guess rate"].sort_values()#.iloc[1:-1]
-        trimmed_uf = group["usefulness"].sort_values()#.iloc[1:-1]
-        trimmed_op = group["OP guess rate"].sort_values()
-        trimmed_ed = group["ED guess rate"].sort_values()
-        trimmed_in = group["IN guess rate"].sort_values()
-        return pd.Series({
-            "Player name": player_name,
-            "avg_gr": trimmed_gr.mean(),
-            "avg_uf": trimmed_uf.mean(),
-            "avg_op": trimmed_op.mean(),
-            "avg_ed": trimmed_ed.mean(),
-            "avg_in": trimmed_in.mean(),
-            "count": n
-        })
+    return result_df
 
 def get_stat(df, player_id, column):
     try:
         filtered = df.loc[df["Player ID"] == player_id, column]
-
         if filtered.empty:
             return 0.0
     except KeyError:

@@ -319,7 +319,7 @@ def generate_codes_in_old(txtvar):
     return txtvar
 
 def generate_codes_cl(txtvar):
-    txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     txtvar += "```e0g0z211111101100000z11100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1k903-11111--```\n"
     txtvar += """Distribution of guesses:
 ≥10: 4 guesses
@@ -330,7 +330,7 @@ def generate_codes_cl(txtvar):
     return txtvar
 
 def generate_codes_cl_gr(txtvar):
-    txtvar += "\n[Challonge](YOUR_CHALLONGE_URL)\n"
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     txtvar += "```e0g0z211111101100000z11100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1k903-11111--```\n"
     txtvar += """Distribution of guesses:
 ≥28% = 4 guesses

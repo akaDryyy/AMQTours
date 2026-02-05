@@ -37,11 +37,7 @@ def internal_clean_data(idtable, statstable, isWatched):
     return df
 
 def clean_data(idtable, statstable, cleanedStatsYear, maxFallbackWindow, activeTours, tourType):
-    if tourType.startswith("watched"):
-        isWatched=True
-    else:
-        isWatched=False
-    df = internal_clean_data(idtable, statstable, isWatched)
+    df = internal_clean_data(idtable, statstable, tourType.startswith("watched"))
 
     six_months_ago = datetime.now() - relativedelta(months=maxFallbackWindow)
     year_6m_ago = six_months_ago.year

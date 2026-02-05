@@ -39,7 +39,6 @@ def get_guess_watched_gr(name, player_stats, idtable, oneg, twog, threeg, fourg)
             avg_gr = float(input(f"{name} not found. Give initial gr% (Example: 75 = 75%): "))
     except IndexError:
         avg_gr = float(input(f"{name} not found. Give initial gr% (Example: 75 = 75%): "))
-    print(name, avg_gr)
     return guess_gr([
         (fourg, '5'),
         (threeg, '4'),

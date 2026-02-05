@@ -35,7 +35,6 @@ def main():
     songDB = SongDB()
 
     sheetName = "NGM Stats Export v2"
-    hasExtraColumn = False
     orderToSheet = [
         "Timestamp",
         "Rank", 
@@ -84,8 +83,9 @@ def main():
 [8]: Random OPs
 [9]: Random EDs
 [10]: Random INs
-[11]: Other Random
-[12]: Other Watched
+[11]: Random OPEDs
+[12]: Other Random
+[13]: Other Watched
 """
 
     print(txtvar)
@@ -101,7 +101,6 @@ def main():
         case "1":
             gamemode = MAIN_SHEET_RANDOM
             sendToSheet = gamemode
-            # hasExtraColumn = False
         case "2":
             gamemode = MAIN_SHEET_WATCHED
             sendToSheet = gamemode
@@ -142,10 +141,13 @@ def main():
             gamemode = MAIN_SHEET_INS
             sendToSheet = gamemode
         case "11":
+            gamemode = MAIN_SHEET_OPEDS
+            sendToSheet = gamemode
+        case "12":
             gamemode = MAIN_SHEET_RANDOM
             sendToSheet = MAIN_SHEET_OTHER
             is_other = True
-        case "12":
+        case "13":
             gamemode = MAIN_SHEET_WATCHED
             sendToSheet = MAIN_SHEET_OTHER
             is_list = True
@@ -165,10 +167,8 @@ def main():
     wks_ids = sheet.get_worksheet_by_id(SHEET_PLAYER_IDS)
     rows_ids = wks_ids.get_all_values()
 
-    avg_df = clean_data(rows_ids, rows_stats, 2, 6, 10, 10, hasExtraColumn)
-    avg_df = avg_df.sort_values(["Player ID", "Tournament Date"])
-    avg_df = avg_df.groupby("Player ID").apply(trim, include_groups=False).reset_index()
-    avg_df["Player ID"] = pd.to_numeric(avg_df["Player ID"], errors="coerce")
+    avg_df = clean_data(rows_ids, rows_stats, 6, 10, is_list)
+    avg_df = avg_df.sort_values(["Player ID", "Timestamp"])
 
     # Build player DB
     for name, pid in rows_ids[1:]:
