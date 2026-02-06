@@ -59,4 +59,8 @@ Janoxx played like a 8.57. (Current rank 11.154, Δ-2.584)
 :first_place: Vigard. Played like a 15.767 rank (Current Rank: 11.9, Δ3.867)
 :second_place: Dav1d1. Played like a 12.413 rank (Current Rank: 9.18, Δ3.233)
 :third_place: Bommie. Played like a 16.522 rank (Current Rank: 13.661, Δ2.861)
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd

@@ -26,7 +26,11 @@ neptune (14.332) fumiii (13.511) lordgrond (10.711) psirockin (10.448) | Total =
 civiltwlight (15.764) konsumenci (12.188) feyfey (10.707) justaweirdo (9.968) | Total = 48.627 | Guesses = [5544]
 
 Average: 49.0136
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

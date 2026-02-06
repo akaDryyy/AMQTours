@@ -1,6 +1,7 @@
 cl-watched/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 tools/credentials/
 credentials/
 =======
@@ -10,3 +11,7 @@ tools/credentials/
 tools/credentials/
 credentials/
 >>>>>>> 9b3c06f (gitignore change)
+=======
+tools/credentials/
+credentials/
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd

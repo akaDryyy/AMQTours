@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "PoolNoodle": 20.942,
     "watashiii": 20.032,
     "Tsui": 16.453,
@@ -49,6 +50,8 @@
     "rinshantsumo": 7.807,
     "Luna": 7.309
 =======
+=======
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
     "PoolNoodle": 21.562,
     "neoburnz": 16.818,
     "Tsui": 16.568,
@@ -85,5 +88,8 @@
     "JustAWeirdo": 8.929,
     "FoopyPoopy": 8.279,
     "Luna": 7.326
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
 }

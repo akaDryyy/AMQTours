@@ -35,4 +35,8 @@ Distribution of guesses:
 9-10.99: 4 Guesses
 7-8.99: 3 Guesses
 ≤7: 2 Guesses
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
