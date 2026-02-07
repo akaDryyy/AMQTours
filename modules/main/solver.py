@@ -287,6 +287,9 @@ class Solver:
             "watched-5s": {
                 "normal": {
                     False: (get_guess_watched_5s,  generate_codes_watched_5s)
+                },
+                "gr": {
+                    False: (get_guess_watched_gr,   generate_codes_watched_5s_gr)
                 }
             },
             "op": {

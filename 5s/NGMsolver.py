@@ -6,10 +6,21 @@ def main():
     DIRECTORY = os.path.dirname(os.path.abspath(__file__))
     solver = Solver(
         directory=DIRECTORY, 
-        maxSolutions=1
+        maxSolutions=1,
+        sheetName="NGM Stats Export v2", 
+        tabStats=676003100, 
+        tabIDs=1903970832, 
+        thinkTime=15000,
+        maxFallbackWindow=6, 
+        activeTours=10, 
+        oneGuess=6, 
+        twoGuess=12, 
+        threeGuess=18,
+        fourGuess=28
     )
     solver.solve(
-        tourType="5s"
+        tourType="watched-5s",
+        grApproach=True
     )
 
 if __name__ == '__main__':

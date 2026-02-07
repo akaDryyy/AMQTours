@@ -1,28 +1,19 @@
-######################### Challonge #########################
-
-progenitor (12.500) komari (12.000) patoche49 (8.500) catge (8.000)
-fayeurs (22.000) mythandroid (7.000) anicomi (6.000) hubcioskubcio (6.000)
-mkby (13.000) bommie (10.000) zokie (9.000) keysha18 (8.500)
-maki04 (12.500) sssthnoob (10.000) annayanami (9.500) andrey_k (8.500)
-dry (11.000) swapin (11.000) time2hack (11.000) chommy (7.500)
-nephirea (14.500) shadow (9.500) porte (9.000) inta (7.500)
-
 ######################### Discord #########################
 
-progenitor (12.500) komari (12.000) patoche49 (8.500) catge (8.000) | Total = 41.0 | Guesses = [5554]
-fayeurs (22.000) mythandroid (7.000) anicomi (6.000) hubcioskubcio (6.000) | Total = 41.0 | Guesses = [5433]
-mkby (13.000) bommie (10.000) zokie (9.000) keysha18 (8.500) | Total = 40.5 | Guesses = [5555]
-maki04 (12.500) sssthnoob (10.000) annayanami (9.500) andrey_k (8.500) | Total = 40.5 | Guesses = [5555]
-dry (11.000) swapin (11.000) time2hack (11.000) chommy (7.500) | Total = 40.5 | Guesses = [5554]
-nephirea (14.500) shadow (9.500) porte (9.000) inta (7.500) | Total = 40.5 | Guesses = [5554]
+### Solution 1 ###
 
-Average: 40.6667
+annayanami (13.537) zokie (9.690) legrandort (8.591) eljuanchi (2.782) | Total = 34.600 | Guesses = [5452]
+komari (11.584) shadow (11.403) anicomi (9.477) icefeed2 (2.300) | Total = 34.764 | Guesses = [5533]
+catge (10.162) spitzell (9.062) justaweirdo (8.193) feynox_ (7.146) | Total = 34.563 | Guesses = [4524]
+qwecocacola (9.500) janoxx (8.679) bommie (8.653) zarelyyyx (7.743) | Total = 34.575 | Guesses = [5353]
 
-[Challonge](YOUR_CHALLONGE_URL)
+Average: 34.6255
+
+<YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z111111111111005051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k903-11111--```
-Random NGMC guess distributions:
-8.5≥: 5 Guesses
-7-8: 4 Guesses
-5.5-6.5: 3 Guesses
-3.5-5: 2 Guesses
-0-3: 1 Guess
+Distribution of guesses:
+≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess

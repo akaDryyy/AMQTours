@@ -185,7 +185,7 @@ def generate_codes_watched_cl_gr(gamemode, txtvar):
 """
     return txtvar
 
-def generate_codes_watched_5s(txtvar):
+def generate_codes_watched_5s(_, txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     txtvar += "```e0g0z21111100130z000011110000000z111111111111005051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Distribution of guesses:
@@ -194,6 +194,18 @@ def generate_codes_watched_5s(txtvar):
 6-7.49: 3 Guesses
 3.5-5.99: 2 Guesses
 ≤3.5: 1 Guess
+"""
+    return txtvar
+
+def generate_codes_watched_5s_gr(_, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```e0g0z21111100130z000011110000000z111111111111005051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k903-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
 """
     return txtvar
 
