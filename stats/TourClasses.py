@@ -130,7 +130,7 @@ class Player:
         self.avgVintageHitString = self.vintage_to_str(self.avgVintageHit)
         self.avgVintageRig = round(self.avgVintageRig / self.rigAmount, 3) if self.rigAmount else 0.0
         self.avgVintageRigString = self.vintage_to_str(self.avgVintageRig)
-        self.usefulness = round(self.usefulness * AVGRANK * 2 / self.totalSongsPlayed, 3)
+        self.usefulness = round(self.usefulness * AVGRANK * 2 / self.totalSongsPlayed, 3) if self.totalSongsPlayed else 0.0
         self.DELTAGR = round(self.GR - self.AVGGR, 3) if self.AVGGR > 0.0 else 0.0
         self.DELTAUF = round(self.usefulness - self.AVGUF, 3) if self.AVGUF > 0.0 else 0.0
         self.DELTAOP = round(self.OPGR - self.AVGOP, 3) if self.AVGOP > 0.0 else 0.0

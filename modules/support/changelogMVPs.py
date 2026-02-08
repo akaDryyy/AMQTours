@@ -6,7 +6,7 @@ def makeChangelog(rank_dict, old_elos, changelo_path):
             "rating_change": round(float(rank_dict[player]) - float(old_elos[player]), 3)
         }
         for player in old_elos
-        if player in rank_dict and float(rank_dict[player]) - float(old_elos[player]) != 0
+        if player in rank_dict and (abs(float(rank_dict[player]) - float(old_elos[player])) >= 0.01)
     }
 
     elo_diff_str = "\n".join(

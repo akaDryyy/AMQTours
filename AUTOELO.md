@@ -10,8 +10,8 @@ Stats based approach to determine a person rank.
 - Run it after stats are made for a tour to obtain the `changelog.txt` and `mvps.txt` files.
     - Those files work with the difference between data, if your local data copy is not updated it will make generate the logs for all the played tours at once
     - Run `-k` or `--keep` to do not download automatically latest data and simply do a local diff.
-    - This implies having to delete tours data from `tour_stats.csv` and `tour_stats_tminus1.csv`
-    - For example, delete last tour from `tour_stats.csv` and last two tours from `tour_stats_tminus1.csv` to obtain the changelog and mvps of the last tour.
+    - This implies having to delete tours data from `stats.csv` and `stats_tminus1.csv`
+    - For example, delete last tour from `stats.csv` and last two tours from `stats_tminus1.csv` to obtain the changelog and mvps of the last tour.
 
 # NGMSolver
 
@@ -36,34 +36,27 @@ Stats based approach to determine a person rank.
 Ranks differ from older ones, so the following guidelines will help assign one in case of a new or returning player.
 This is only needed for their first tour, as their elo will be calculated automatically afterwards.
 First, determine how many guesses the player is going to have, afterwards determine if they should be a high, low or mid inside the given amount of guesses.
-Compare with other existing players inside `gamemode_elos.json` to have guesstimate.
+Compare with other existing players inside `elos.json` to have guesstimate.
 
 ## Watched
 
-- ≥8.75: 5 guesses
-- 8-8.74: 4 guesses
-- 7-7.99: 3 guesses
-- 6-6.99: 2 guesses
-- ≤5.99: 1 guess
+≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
 
-## Usual
+## Random
 
-- ≥9: 4 guesses
-- 5.75-9: 3 guesses
-- 3.5-5.75: 2 guesses
-- ≤3.5: 1 guess
-
-## OP/ED/IN
-
-- ≥10: 4 guesses
-- 8-10: 3 guesses
-- 5.5-8: 2 guesses
-- ≤5.5: 1 guess
+≥28% = 4 guesses
+19% - 28% = 3 guesses
+8% - 19% = 2 guesses
+<8% = 1 guess
 
 FEEDBACK FOR THRESHOLDS ALWAYS APPRECIATED
 
 # Step by step if you didn't update ranks before tour start:
 - Run `TierMaker.py`. Your elos are now up to date with latest tour
-- Delete latest tour from `gamemode_stats.csv`
+- Delete latest tour from `stats.csv`
 - Run `TierMaker.py -k`. The flag `-k` means to use local files. Your elos are now what they were before the latest tour
 - Run `TierMaker.py` again without any flags. Your elos are now latest again but you have the correct delta for mvps
