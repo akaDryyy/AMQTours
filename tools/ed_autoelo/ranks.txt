@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 10: dry
 =======
 10:
@@ -12,4 +13,14 @@
 =======
 10:
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+10: dry
+=======
+10:
+<<<<<<< HEAD
+>>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 9:

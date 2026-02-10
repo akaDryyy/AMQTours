@@ -5,6 +5,9 @@ cl-watched/
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 tools/credentials/
 credentials/
 =======
@@ -16,6 +19,7 @@ credentials/
 >>>>>>> 9b3c06f (gitignore change)
 =======
 tools/credentials/
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
 =======
 tools/credentials/
@@ -28,3 +32,7 @@ tools/credentials/
 tools/credentials/
 credentials/
 >>>>>>> 9b3c06f (gitignore change)
+=======
+credentials/
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b

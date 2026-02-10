@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 20.942: PoolNoodle
 20.032: watashiii
 16.453: Tsui
@@ -51,9 +54,13 @@
 7.309: Luna
 =======
 =======
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 21.562: PoolNoodle
 16.818: neoburnz
 16.568: Tsui
@@ -92,8 +99,14 @@
 7.326: Luna
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
 =======
 >>>>>>> e05c619 (trying to build an interface (not done))
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b

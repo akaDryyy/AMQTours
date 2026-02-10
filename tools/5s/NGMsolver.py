@@ -8,6 +8,7 @@ def main():
         directory=DIRECTORY, 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         maxSolutions=1,
         sheetName="NGM Stats Export v2", 
         tabStats=676003100, 
@@ -26,14 +27,19 @@ def main():
 =======
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
         maxSolutions=1
     )
     solver.solve(
         tourType="5s"
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
     )
 
 if __name__ == '__main__':

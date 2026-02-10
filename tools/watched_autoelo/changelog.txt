@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 chommy, old rank: 10.718, new rank: 11.309, diff: 0.591
 Tugia, old rank: 9.826, new rank: 10.397, diff: 0.571
 ranny, old rank: 11.56, new rank: 11.967, diff: 0.407
@@ -94,6 +97,7 @@ keysha18, old rank: 10.821, new rank: 10.384, diff: -0.437
 redeyes, old rank: 12.571, new rank: 11.979, diff: -0.592
 OkitaNobu, old rank: 10.339, new rank: 9.481, diff: -0.858
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
 Provenance, old rank: 13.535, new rank: 14.002, diff: 0.467
@@ -113,6 +117,8 @@ md22, old rank: 12.386, new rank: 11.855, diff: -0.531
 Nunuchu42, old rank: 8.289, new rank: 6.948, diff: -1.341
 >>>>>>> 4e2514e (trying to build an interface (not done))
 =======
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 redeyes, old rank: 11.568, new rank: 12.571, diff: 1.003
 CipherKai, old rank: 12.62, new rank: 13.241, diff: 0.621
 chaabdu92, old rank: 12.173, new rank: 12.745, diff: 0.572
@@ -208,7 +214,31 @@ _nadeshiko, old rank: 12.12, new rank: 11.335, diff: -0.785
 Mami, old rank: 15.029, new rank: 14.232, diff: -0.797
 Serozero, old rank: 12.431, new rank: 11.547, diff: -0.884
 Bommie, old rank: 11.864, new rank: 10.375, diff: -1.489
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
 =======
 Nunuchu42, old rank: 8.289, new rank: 6.948, diff: -1.341
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+=======
+Provenance, old rank: 13.535, new rank: 14.002, diff: 0.467
+LordGrond, old rank: 10.711, new rank: 11.109, diff: 0.398
+JustAWeirdo, old rank: 9.968, new rank: 10.278, diff: 0.31
+psirockin, old rank: 10.448, new rank: 10.565, diff: 0.117
+Gabetin, old rank: 10.585, new rank: 10.685, diff: 0.1
+brandon_K, old rank: 7.611, new rank: 7.641, diff: 0.03
+FoopyPoopy, old rank: 9.205, new rank: 9.23, diff: 0.025
+Heleos, old rank: 12.356, new rank: 12.324, diff: -0.032
+Caramel36, old rank: 8.981, new rank: 8.915, diff: -0.066
+cafezinho, old rank: 14.823, new rank: 14.701, diff: -0.122
+Serozero, old rank: 12.741, new rank: 12.614, diff: -0.127
+PoolNoodle, old rank: 17.512, new rank: 17.044, diff: -0.468
+md22, old rank: 12.386, new rank: 11.855, diff: -0.531
+Nunuchu42, old rank: 8.289, new rank: 6.948, diff: -1.341
+<<<<<<< HEAD
+>>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b

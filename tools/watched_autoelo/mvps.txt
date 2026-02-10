@@ -2,6 +2,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 chommy played like a 13.348. (Current rank 10.718, Δ2.63)
 Tugia played like a 11.65. (Current rank 9.826, Δ1.824)
 Serozero played like a 13.036. (Current rank 11.547, Δ1.489)
@@ -53,6 +56,7 @@ Porte played like a 9.82. (Current rank 12.296, Δ-2.476)
 :second_place: Tugia. Played like a 11.65 rank (Current Rank: 9.826, Δ1.824)
 :third_place: Serozero. Played like a 13.036 rank (Current Rank: 11.547, Δ1.489)
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
 psirockin played like a 12.461. (Current rank 10.448, Δ2.013)
@@ -79,6 +83,8 @@ md22 played like a 10.39. (Current rank 12.386, Δ-1.996)
 <<<<<<< HEAD
 >>>>>>> 4e2514e (trying to build an interface (not done))
 =======
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 Heleos played like a 15.226. (Current rank 12.382, Δ2.844)
 CipherKai played like a 15.419. (Current rank 12.62, Δ2.799)
 Caramel36 played like a 11.281. (Current rank 8.921, Δ2.36)
@@ -139,6 +145,37 @@ Serozero played like a 10.103. (Current rank 12.431, Δ-2.328)
 :first_place: Heleos. Played like a 15.226 rank (Current Rank: 12.382, Δ2.844)
 :second_place: CipherKai. Played like a 15.419 rank (Current Rank: 12.62, Δ2.799)
 :third_place: Caramel36. Played like a 11.281 rank (Current Rank: 8.921, Δ2.36)
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+=======
+psirockin played like a 12.461. (Current rank 10.448, Δ2.013)
+LordGrond played like a 12.079. (Current rank 10.711, Δ1.368)
+Provenance played like a 14.532. (Current rank 13.535, Δ0.997)
+JustAWeirdo played like a 10.932. (Current rank 9.968, Δ0.964)
+Heleos played like a 13.271. (Current rank 12.356, Δ0.915)
+brandon_K played like a 8.262. (Current rank 7.611, Δ0.651)
+Gabetin played like a 11.161. (Current rank 10.585, Δ0.576)
+Serozero played like a 13.178. (Current rank 12.741, Δ0.437)
+FoopyPoopy played like a 9.432. (Current rank 9.205, Δ0.227)
+Caramel36 played like a 9.157. (Current rank 8.981, Δ0.176)
+PoolNoodle played like a 17.588. (Current rank 17.512, Δ0.076)
+FUCK_AMQ played like a 12.211. (Current rank 12.211, Δ0.0)
+yonyon played like a 8.476. (Current rank 8.476, Δ0.0)
+cafezinho played like a 14.069. (Current rank 14.823, Δ-0.754)
+Nunuchu42 played like a 7.373. (Current rank 8.289, Δ-0.916)
+md22 played like a 10.39. (Current rank 12.386, Δ-1.996)
+
+# MVPS:
+:first_place: psirockin. Played like a 12.461 rank (Current Rank: 10.448, Δ2.013)
+:second_place: LordGrond. Played like a 12.079 rank (Current Rank: 10.711, Δ1.368)
+:third_place: Provenance. Played like a 14.532 rank (Current Rank: 13.535, Δ0.997)
+<<<<<<< HEAD
+>>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b

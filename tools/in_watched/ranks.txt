@@ -3,13 +3,20 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 9: isekaijoucho, vr0003
 =======
 9:
 >>>>>>> 4e2514e (trying to build an interface (not done))
 =======
 9:
+<<<<<<< HEAD
 >>>>>>> e05c619 (trying to build an interface (not done))
 =======
 9:
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b

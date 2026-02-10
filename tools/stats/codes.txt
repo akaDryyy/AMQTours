@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 baikinman (14.000) nicole (13.000) cafezinho (10.000) foopypoopy (6.000) | Total = 43.000 | Guesses = [4442]
 kar72 (16.000) mami (13.000) mahzrunner (7.000) kabao (6.500) | Total = 42.500 | Guesses = [4433]
 thaleko (16.000) saiki (9.500) fiftypercentweeb (9.500) provenance (9.000) | Total = 44.000 | Guesses = [4333]
@@ -10,8 +13,23 @@ Average: 43.25
 
 https://challonge.com/i231kngm
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+_nadeshiko (13.578) qwecocacola (12.014) spitzell (11.181) keizan (9.881) | Total = 46.654 | Guesses = [5555]
+emdiel (14.097) floth (12.497) janoxx (11.161) andrey_k (8.961) | Total = 46.716 | Guesses = [5555]
+thaleko (17.409) tapumomo (11.634) serozero (9.876) anicomi (7.768) | Total = 46.687 | Guesses = [5553]
+tsui (16.684) nmapper (14.500) 2skr (8.547) eljuanchi (6.929) | Total = 46.660 | Guesses = [5542]
+mahirushiina (14.500) rorf (12.406) konsumenci (10.921) chommy (8.881) | Total = 46.708 | Guesses = [5555]
+julialess64 (14.704) annayanami (11.233) md22 (10.905) heleos (9.856) | Total = 46.698 | Guesses = [5555]
+
+Average: 46.6872
+
+https://challonge.com/xmpby4e8
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+=======
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
 serozero (12.750) qwecocacola (12.724) konsumenci (12.417) feyfey (10.916) | Total = 48.807 | Guesses = [5555]
 neoburnz (16.707) neptune (13.702) baikinman (10.835) eljuanchi (8.172) | Total = 49.416 | Guesses = [5554]
 civiltwlight (15.659) spitzell (13.904) potassiumf (10.984) erzakuran (7.743) | Total = 48.290 | Guesses = [5553]
@@ -27,6 +45,7 @@ bamboo (13.494) accelerator11 (13.000) claydoll1091 (12.980) iamasiannoob (9.388
 
 Average: 48.8717
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 https://challonge.com/p9unq82i
 >>>>>>> 4e2514e (trying to build an interface (not done))
@@ -45,3 +64,11 @@ https://challonge.com/xmpby4e8
 =======
 https://challonge.com/p9unq82i
 >>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+https://challonge.com/p9unq82i
+<<<<<<< HEAD
+>>>>>>> 4e2514e (trying to build an interface (not done))
+=======
+>>>>>>> 9b3c06fcb552a0775b7cc886a338b03d8f7568ea
+>>>>>>> 50f0b809f135fbc3f467f54e311f827aa15eb2fd
+>>>>>>> 2156e474dcc461d9422f44f58f4fcedff7bd919b
