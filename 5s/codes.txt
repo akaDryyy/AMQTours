@@ -2,10 +2,10 @@
 
 ### Solution 1 ###
 
-annayanami (13.537) zokie (9.690) legrandort (8.591) eljuanchi (2.782) | Total = 34.600 | Guesses = [5452]
-komari (11.584) shadow (11.403) anicomi (9.477) icefeed2 (2.300) | Total = 34.764 | Guesses = [5533]
-catge (10.162) spitzell (9.062) justaweirdo (8.193) feynox_ (7.146) | Total = 34.563 | Guesses = [4524]
-qwecocacola (9.500) janoxx (8.679) bommie (8.653) zarelyyyx (7.743) | Total = 34.575 | Guesses = [5353]
+annayanami (13.537) zokie (9.690) legrandort (8.591) eljuanchi (2.782) | Total = 34.600 | Guesses = [5553]
+komari (11.584) shadow (11.403) anicomi (9.477) icefeed2 (2.300) | Total = 34.764 | Guesses = [5534]
+catge (10.162) spitzell (9.062) justaweirdo (8.193) feynox_ (7.146) | Total = 34.563 | Guesses = [4434]
+qwecocacola (9.500) janoxx (8.679) bommie (8.653) zarelyyyx (7.743) | Total = 34.575 | Guesses = [5343]
 
 Average: 34.6255
 

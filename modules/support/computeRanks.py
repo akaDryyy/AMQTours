@@ -25,7 +25,7 @@ def compute_rank_scores(df, alpha, midpoint, minRating, maxRating):
 
 def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weights, 
                   alpha=3.75, midpoint=0.4, minRating=0, maxRating=25,
-                  full=True, path=None, isWatched = True):
+                  full=True, path=None, isWatched = True, wrpath=None):
     """
     Compute a smoothed rank score for players based on guess rate and usefulness.
 
@@ -109,6 +109,10 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
     final_ranks = compute_rank_scores(final_ranks, alpha, midpoint, minRating, maxRating)
     final_ranks.insert(2, "ELO", final_ranks.pop("ELO"))
     
+    if full:
+        final_ranks = final_ranks.round(3)
+        final_ranks.to_csv(wrpath, index=False, encoding="utf-8")
+
     # WR + Streak accounting
     final_ranks["PALL"] = final_ranks["WIN"] + final_ranks["LOSE"] + final_ranks["TIE"]
     final_ranks["PRECENT"] = final_ranks["WINSTREAK"] + final_ranks["LOSESTREAK"] + final_ranks["TIESTREAK"]
@@ -124,7 +128,10 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
     confidence = np.log1p(final_ranks["PALL"]) / np.log1p(final_ranks["PALL"].max())
     final_ranks["STREAK MODIFIER"] *= confidence
     final_ranks["WR MODIFIER"] *= confidence
-    final_ranks["ELO"] = final_ranks["ELO"] * (1 + final_ranks["WR MODIFIER"] + final_ranks["STREAK MODIFIER"])
+    final_ranks["FINALELO"] = final_ranks["ELO"] * (1 + final_ranks["WR MODIFIER"] + final_ranks["STREAK MODIFIER"])
+    final_ranks.insert(3, "STREAK MODIFIER", final_ranks.pop("STREAK MODIFIER"))
+    final_ranks.insert(3, "WR MODIFIER", final_ranks.pop("WR MODIFIER"))
+    final_ranks.insert(3, "FINALELO", final_ranks.pop("FINALELO"))
     final_ranks = final_ranks.round(3)
     final_ranks = final_ranks.sort_values(by='ELO', ascending=False)
 

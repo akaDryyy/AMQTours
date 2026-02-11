@@ -64,6 +64,7 @@ class TierMaker:
         self.FULLSTATS = os.path.join(self.directory, "stats_clean_full.csv")
         self.AVGSTATS = os.path.join(self.directory, "stats_prenormalized.csv")
         self.FINALSTATS = os.path.join(self.directory, "stats_postnormalized.csv")
+        self.PREWRSTATS = os.path.join(self.directory, "stats_prewinrate.csv")
 
         self.maxFallbackWindow = maxFallbackWindow
         self.activeTours = activeTours
@@ -110,7 +111,7 @@ class TierMaker:
         normalization_spec = get_normalization_spec(full_stats, tourType)
 
         final_ranks = compute_ranks(clean_stats, full_stats, normalization_spec, self.tiers, self.tier_weights,
-                                    alpha, midpoint, minRating, maxRating, path=self.AVGSTATS, isWatched=tourType.startswith("watched"))
+                                    alpha, midpoint, minRating, maxRating, path=self.AVGSTATS, isWatched=tourType.startswith("watched"), wrpath=self.PREWRSTATS)
         print(final_ranks)
         final_ranks.to_csv(self.FINALSTATS, index=False, encoding="utf-8")
         rank_dict = dict(zip(final_ranks['PlayerName'], final_ranks['ELO'].round(3)))

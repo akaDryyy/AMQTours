@@ -1,8 +1,10 @@
-florenz (15.121) flato (14.871) janoxx (11.518) saiki (10.632) | Total = 52.142 | Guesses = [4444]
-chrislefko (15.539) comete (14.760) koroshiya (13.431) atsui (8.438) | Total = 52.168 | Guesses = [4443]
-arronchu (16.456) thaleko (15.000) shiku (10.450) spartric (10.292) | Total = 52.198 | Guesses = [4444]
-kishua (18.410) chata (12.454) dry (11.500) okitanobu (9.839) | Total = 52.203 | Guesses = [4443]
+tvaz (12.964) annayanami (11.556) konsumenci (10.645) mahzrunner (10.460) | Total = 45.625 | Guesses = [4443]
+flato (14.562) chrislefko (14.553) spartric (10.535) hotpot (6.000) | Total = 45.650 | Guesses = [4442]
+l_elf10 (12.579) coglionedown (12.471) shiku (10.419) saiki (10.161) | Total = 45.630 | Guesses = [4444]
+_nadeshiko (15.982) okitanobu (10.020) skychael (10.000) andrey_k (9.703) | Total = 45.705 | Guesses = [4333]
 
-Average: 52.1778
+Average: 45.6525
 
-https://challonge.com/hwjcc37z
+https://challonge.com/pl/mbf3lq7z
+
+subs: FeyFey (8.319)
