@@ -182,7 +182,7 @@ def main():
                 TEAM_AVG = float(line.split(':')[-1].strip())
             # if line.startswith("https://"):
             #     line = line.strip()
-                #html = download_challonge_page(line)
+            #     html = download_challonge_page(line)
             if line.lower().startswith(("sub")):
                 if line.split(':')[-1]:
                     for name, rank in re.findall(r'(\S+)\s*\(([\d.]+)\)', line):
@@ -338,7 +338,7 @@ def main():
             for playerGotInList in song["listStates"]:
                 watcher = teamDB.lookup_player(playerDB.lookup_player_name(playerGotInList["name"]))
                 single_song.add_rig(watcher)
-                watcher.add("rigAmount")
+                watcher.add("rigAmount")  
                 if watcher not in playersSeen:
                     playersSeen.append(watcher)
         

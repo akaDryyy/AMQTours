@@ -2,14 +2,14 @@
 
 ### Solution 1 ###
 
-mami (14.232) chaabdu92 (12.745) mahzrunner (10.969) knotanymore (10.597) | Total = 48.543 | Guesses = [5555]
-apurplenose (14.292) mayottatoki (12.487) shadow (11.406) yellowrose (10.348) | Total = 48.533 | Guesses = [5555]
-floth (12.480) miiarad (12.301) 2skr (12.259) qwecocacola (11.508) | Total = 48.548 | Guesses = [5545]
-civiltwlight (15.699) _nadeshiko (11.335) xeyz (11.326) justaweirdo (10.171) | Total = 48.531 | Guesses = [5554]
-neoburnz (16.589) isekaijoucho (11.052) rorf (10.588) okitanobu (10.339) | Total = 48.568 | Guesses = [5554]
-mahirushiina (14.647) yunnn (12.004) legrandort (11.317) feyfey (10.588) | Total = 48.556 | Guesses = [5554]
+apurplenose (1247.457) shadow (978.243) mahzrunner (931.279) isekaijoucho (928.832) | Total = 4085.811 | Guesses = [5555]
+floth (1128.926) chaabdu92 (1080.267) _nadeshiko (962.174) mayottatoki (915.713) | Total = 4087.080 | Guesses = [5555]
+mahirushiina (1236.715) yunnn (1016.205) legrandort (948.235) xeyz (885.483) | Total = 4086.638 | Guesses = [5555]
+neoburnz (1413.795) qwecocacola (971.423) 2skr (886.122) justaweirdo (814.057) | Total = 4085.397 | Guesses = [5544]
+mami (1216.512) miiarad (1102.458) knotanymore (901.915) yellowrose (862.134) | Total = 4083.019 | Guesses = [5555]
+civiltwlight (1471.905) rorf (915.653) feyfey (880.208) okitanobu (818.532) | Total = 4086.298 | Guesses = [5544]
 
-Average: 48.5465
+Average: 4085.7072
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

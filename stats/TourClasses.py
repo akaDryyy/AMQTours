@@ -217,7 +217,7 @@ class TeamDB:
         for sub in self.subs:
             if sub.player_id == player.player_id:
                 return sub
-        print("Player not found")
+        print(f"{player.name} not found")
         return None
 
     def get_team_by_player(self, player: Player) -> Optional[Team]:

@@ -20,7 +20,12 @@ def normalize_stats(df, normalization_specs):
     return df_norm
 
 def compute_rank_scores(df, alpha, midpoint, minRating, maxRating):
-    df["ELO"] = maxRating / (1 + np.exp(-alpha * (df["RANK"] - midpoint)))
+    mu = df["RANK"].mean()
+    sigma = df["RANK"].std()
+
+    z = (df["RANK"] - mu) / sigma
+    df["ELO"] = 1000 + 200 * z
+    df["ELO"] = (df["ELO"] / 10).round(2)
     return df
 
 def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weights, 
@@ -107,7 +112,8 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
     final_ranks["TIESTREAK"] = final_ranks["Player ID"].map(player_stats.set_index("Player ID")["TIE"])
     final_ranks.insert(2, "RANK", final_ranks.pop("RANK"))
     final_ranks = compute_rank_scores(final_ranks, alpha, midpoint, minRating, maxRating)
-    final_ranks.insert(2, "ELO", final_ranks.pop("ELO"))
+    final_ranks["ELONOWR"] = final_ranks["ELO"]
+    final_ranks.insert(2, "ELONOWR", final_ranks.pop("ELONOWR"))
     
     if full:
         final_ranks = final_ranks.round(3)
@@ -128,10 +134,10 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
     confidence = np.log1p(final_ranks["PALL"]) / np.log1p(final_ranks["PALL"].max())
     final_ranks["STREAK MODIFIER"] *= confidence
     final_ranks["WR MODIFIER"] *= confidence
-    final_ranks["FINALELO"] = final_ranks["ELO"] * (1 + final_ranks["WR MODIFIER"] + final_ranks["STREAK MODIFIER"])
+    final_ranks["ELO"] = final_ranks["ELONOWR"] * (1 + final_ranks["WR MODIFIER"] + final_ranks["STREAK MODIFIER"])
     final_ranks.insert(3, "STREAK MODIFIER", final_ranks.pop("STREAK MODIFIER"))
     final_ranks.insert(3, "WR MODIFIER", final_ranks.pop("WR MODIFIER"))
-    final_ranks.insert(3, "FINALELO", final_ranks.pop("FINALELO"))
+    final_ranks.insert(3, "ELO", final_ranks.pop("ELO"))
     final_ranks = final_ranks.round(3)
     final_ranks = final_ranks.sort_values(by='ELO', ascending=False)
 

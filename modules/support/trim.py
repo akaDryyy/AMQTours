@@ -21,33 +21,61 @@ def get_tiers(tourType):
     if tourType.startswith("watched"):
         tiers = {
             "Tier1": ["GuessRate"],
-            "Tier2": ["LivesTaken", "LivesSaved", "erigs", "avg8", "rigs8"],
-            "Tier3": ["Rigs", "OfflistErigs", "SoloRigs"],
-            "Tier4": ["RigsHit", "OfflistHit"],
-            "Tier5": ["LivesLostOnRigs", "RigsMissed", "MissedSolos", "Seven8"]
+            "Tier2": ["LivesTaken", "erigs", "avg8", "SoloRigs", "rigs8"],
+            "Tier3": ["Rigs", "LivesSaved", "OfflistErigs", "RigsHit", "OfflistHit"],
+            "Tier4": ["LivesLostOnRigs", "RigsMissed", "MissedSolos", "Seven8"]
         }
 
         tier_weights = {
-            "Tier1": 0.3,
-            "Tier2": 0.45,
+            "Tier1": 0.4,
+            "Tier2": 0.4,
             "Tier3": 0.15,
-            "Tier4": 0.05,
-            "Tier5": 0.05
+            "Tier4": 0.05
         }
     else:
         tiers = {
             "Tier1": ["GuessRate"],
-            "Tier2": ["LivesTaken", "LivesSaved"],
-            "Tier3": ["erigs", "avg8"],
+            "Tier2": ["LivesTaken", "erigs", "avg8"],
+            "Tier3": ["LivesSaved"],
             "Tier4": ["Seven8"]
         }
 
         tier_weights = {
             "Tier1": 0.4,
-            "Tier2": 0.3,
-            "Tier3": 0.25,
+            "Tier2": 0.4,
+            "Tier3": 0.15,
             "Tier4": 0.05
         }
+    # if tourType.startswith("watched"):
+    #     tiers = {
+    #         "Tier1": ["GuessRate"],
+    #         "Tier2": ["LivesTaken", "LivesSaved", "erigs", "avg8", "rigs8"],
+    #         "Tier3": ["Rigs", "OfflistErigs", "SoloRigs"],
+    #         "Tier4": ["RigsHit", "OfflistHit"],
+    #         "Tier5": ["LivesLostOnRigs", "RigsMissed", "MissedSolos", "Seven8"]
+    #     }
+
+    #     tier_weights = {
+    #         "Tier1": 0.3,
+    #         "Tier2": 0.45,
+    #         "Tier3": 0.15,
+    #         "Tier4": 0.05,
+    #         "Tier5": 0.05
+    #     }
+    # else:
+    #     tiers = {
+    #         "Tier1": ["GuessRate"],
+    #         "Tier2": ["LivesTaken", "LivesSaved"],
+    #         "Tier3": ["erigs", "avg8"],
+    #         "Tier4": ["Seven8"]
+    #     }
+
+    #     tier_weights = {
+    #         "Tier1": 0.4,
+    #         "Tier2": 0.3,
+    #         "Tier3": 0.25,
+    #         "Tier4": 0.05
+    #     }
 
     return tiers, tier_weights
 
