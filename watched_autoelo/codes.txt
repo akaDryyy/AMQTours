@@ -2,14 +2,12 @@
 
 ### Solution 1 ###
 
-apurplenose (1247.457) shadow (978.243) mahzrunner (931.279) isekaijoucho (928.832) | Total = 4085.811 | Guesses = [5555]
-floth (1128.926) chaabdu92 (1080.267) _nadeshiko (962.174) mayottatoki (915.713) | Total = 4087.080 | Guesses = [5555]
-mahirushiina (1236.715) yunnn (1016.205) legrandort (948.235) xeyz (885.483) | Total = 4086.638 | Guesses = [5555]
-neoburnz (1413.795) qwecocacola (971.423) 2skr (886.122) justaweirdo (814.057) | Total = 4085.397 | Guesses = [5544]
-mami (1216.512) miiarad (1102.458) knotanymore (901.915) yellowrose (862.134) | Total = 4083.019 | Guesses = [5555]
-civiltwlight (1471.905) rorf (915.653) feyfey (880.208) okitanobu (818.532) | Total = 4086.298 | Guesses = [5544]
+emdiel (115.520) janoxx (99.749) justaweirdo (87.781) iamasiannoob (75.930) | Total = 378.980 | Guesses = [5554]
+pile (116.251) konsumenci (100.404) anicomi (88.497) hubcioskubcio (73.943) | Total = 379.095 | Guesses = [5544]
+mangoss (112.418) maki04 (112.141) mythandroid (80.250) foopypoopy (74.794) | Total = 379.603 | Guesses = [5544]
+tugia (98.690) shadow (98.620) qwecocacola (96.766) metak (86.966) | Total = 381.042 | Guesses = [5555]
 
-Average: 4085.7072
+Average: 379.68
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

@@ -699,7 +699,8 @@ def main():
     if is_list:
         exclude_columns = ["Rank"]
         separators = ["Player name", "Offlist", "Rigs Missed", "Offlist erigs"]
-
+        additional_reverse = ["avg/8 of your rigs"]
+        reverse_columns.extend(additional_reverse)
         path3 = os.path.join(DIRECTORY, "Stats3 - Watched Exclusive.png")
         df_to_png(df=final_df3, path=DIRECTORY, filename="Stats3 - Watched Exclusive.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
         print(f"Stats about watched saved at {path3}")

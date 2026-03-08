@@ -2,15 +2,15 @@
 
 ### Solution 1 ###
 
-civiltwlight (15.088) selaph (13.701) beautiful (12.658) neumann (12.360) | Total = 53.807 | Guesses = [4444]
-deafness (17.599) neoburnz (14.847) 753 (12.125) okitanobu (9.310) | Total = 53.881 | Guesses = [4442]
-eryth (18.690) chata (14.801) porte (10.730) feyfey (9.628) | Total = 53.849 | Guesses = [4422]
-akatsuki (21.086) chaabdu92 (11.695) kabao (11.393) 25 (9.671) | Total = 53.845 | Guesses = [4432]
+fayeurs (160.000) milar (128.529) janoxx (97.725) feyfey (89.154) | Total = 475.408 | Guesses = [4433]
+kar72 (132.675) koroshiya (117.200) md22 (111.514) orfey (111.064) | Total = 472.453 | Guesses = [4444]
+watashiii (167.059) dry (106.250) julialess64 (104.637) saiki (94.225) | Total = 472.171 | Guesses = [4443]
+chata (120.987) hejsan (119.110) lelpop (117.310) mrwolf2 (114.320) | Total = 471.727 | Guesses = [4444]
 
-Average: 53.8455
+Average: 472.9398
 
-<YOURCHALLONGEURLHERE>
-```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
+<https://challonge.com/wczle0tx>
+```f0g0z2111111011100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111101hg1jt03-11111--```
 Distribution of guesses:
 ≥28% = 4 guesses
 19% - 28% = 3 guesses

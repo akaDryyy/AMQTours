@@ -37,7 +37,7 @@ gw13	x_____________
 mitsorubi	mitsurobi
 uomi	joey
 ayamenakirium	monkeygangleader
-753	fujimasakura	kezzy
+753	fujimasakura	kezzy	IrinaShidou
 kitasanblack	pleasety
 wuffles	ailane	mekokicco
 liljakatsuragi	asahinamafuyu	sanabanana	OTae
@@ -65,3 +65,5 @@ BijouKoseki	oshino_bu
 Luna	Shiroha
 kryuell	raidenmei
 feyfey	feyf
+seismic	SIXSEVEN
+Miki_Hoshii Erza_Asiaversal

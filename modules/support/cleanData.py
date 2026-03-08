@@ -21,7 +21,7 @@ def internal_clean_data(idtable, statstable, isWatched):
 
     df["Timestamp"] = pd.to_datetime(df["Timestamp"], errors="coerce")
     cols = ["Rank", "Guess rate", "Usefulness", "erigs", "7/8s", "avg/8", "Lives taken", "Lives saved", 
-            "WIN", "LOSE", "TIE", "Total hit"]
+            "WIN", "LOSE", "TIE", "Total hit", "Total songs"]
     watched_cols = ["Rigs hit", "Rigs", "Rigs missed", "Solo rigs", 
                     "Missed solos", "Lives lost on rigs", "Offlist erigs", "avg/8 of your rigs"]
     
@@ -58,12 +58,8 @@ def clean_data(idtable, statstable, cleanedStatsYear, maxFallbackWindow, activeT
         if col != "Player ID"
     }
     df = df.groupby("Player ID").agg(agg_dict).reset_index()
-    
+
     return result_df, df
 
 def mini_clean(idtable, statstable, tourType):
-    if tourType.startswith("watched"):
-        isWatched=True
-    else:
-        isWatched=False
-    return internal_clean_data(idtable, statstable, isWatched)
+    return internal_clean_data(idtable, statstable, tourType.startswith("watched"))

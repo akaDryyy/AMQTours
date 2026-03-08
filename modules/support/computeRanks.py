@@ -69,6 +69,7 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
                 LivesLostOnRigs=("Lives lost on rigs", "mean"),
                 OfflistErigs=("Offlist erigs", "mean"),
                 rigs8=("avg/8 of your rigs", "mean"),
+                TotalSongs=("Total songs", "mean"),
                 Samples=("Usefulness", "size")
             )
         )
@@ -84,6 +85,7 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
             avg8=("avg/8", "mean"),
             LivesTaken=("Lives taken", "mean"),
             LivesSaved=("Lives saved", "mean"),
+            TotalSongs=("Total songs", "mean"),
             WIN=("WIN", "sum"),
             LOSE=("LOSE", "sum"),
             TIE=("TIE", "sum"),
@@ -101,7 +103,7 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
         n = len(stat_list)
         for stat in stat_list:
             weights[stat] = tier_weights[tier_name] / n
-
+    player_stats["erigs"] = player_stats["erigs"] / player_stats["TotalSongs"]
     final_ranks = normalize_stats(player_stats, normalization_spec)
     final_ranks["RANK"]  = final_ranks.apply(lambda row: sum(row[stat]*weights[stat] for stat in stats), axis=1)
     final_ranks["WIN"] = final_ranks["Player ID"].map(full_stats.set_index("Player ID")["WIN"])

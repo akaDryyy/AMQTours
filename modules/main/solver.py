@@ -240,7 +240,7 @@ class Solver:
         nums = [val for _, val in players]
         k = int(len(nums) / team_size)
         p_values = {p[0]: p[1] for p in players}
-
+        
         self.foundSolutions = LPProblem(players, team_size, self.blacklist, self.whitelist, self.maxSolutions, thinkTime)
 
         # Automatic code generation
