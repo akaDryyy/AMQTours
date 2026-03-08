@@ -55,7 +55,6 @@ class Solver:
         self.STATSTABLE = os.path.join(self.directory, "stats.csv")
         self.CLEANEDSTATS = os.path.join(self.directory, "stats_clean.csv")
         self.CLEANEDSTATSYEAR = os.path.join(self.directory, "stats_clean_year.csv")
-        self.TIERLIST = os.path.join(self.directory, "tierList.txt")
         self.FULLSTATS = os.path.join(self.directory, "stats_clean_full.csv")
 
         self.foundSolutions = []
@@ -232,10 +231,6 @@ class Solver:
 
             with open(self.ELOS, "w") as f:
                 json.dump(raw_ranks, f, indent=4)
-            with open(self.TIERLIST, "w") as f:
-                for score in sorted(score_to_players.keys(), reverse=True):
-                    string_players = ", ".join(score_to_players[score])
-                    f.write(f"{score}: {string_players}\n")
 
         nums = [val for _, val in players]
         k = int(len(nums) / team_size)

@@ -55,7 +55,6 @@ class TierMaker:
         self.MVPS = os.path.join(self.directory, "mvps.txt")
         self.CHANGELOG = os.path.join(self.directory, "changelog.txt")
         self.ELOS = os.path.join(self.directory, "elos.json")
-        self.TIERLIST = os.path.join(self.directory, "tierList.txt")
         self.IDTABLE = os.path.join(self.directory, "ids.csv")
         self.STATSTABLE = os.path.join(self.directory, "stats.csv")
         self.STATSTABLETMINUS1 = os.path.join(self.directory, "stats_tminus1.csv")
@@ -126,11 +125,6 @@ class TierMaker:
         score_to_players = defaultdict(list)
         for player, score in rank_dict.items():
             score_to_players[round(score, 3)].append(player)
-
-        with open(self.TIERLIST, "w") as f:
-            for score in sorted(score_to_players.keys(), reverse=True):
-                players = ", ".join(score_to_players[score])
-                f.write(f"{score}: {players}\n")
 
         makeChangelog(rank_dict, old_elos, self.CHANGELOG)
 
