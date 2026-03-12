@@ -225,10 +225,6 @@ class Solver:
         if isAutorank:
             raw_ranks.update(post_ranks_fixup)
             raw_ranks = dict(sorted(raw_ranks.items(), key=lambda x: -x[1]))
-            score_to_players = defaultdict(list)
-            for player_to_append, score in raw_ranks.items():
-                score_to_players[round(score, 3)].append(player_to_append)
-
             with open(self.ELOS, "w") as f:
                 json.dump(raw_ranks, f, indent=4)
 
@@ -381,7 +377,9 @@ class Solver:
             kwargs["player_stats"] = player_stats
         if "gamemode" in locals():
             kwargs["gamemode"] = gamemode
-            
+        print("kwargs")
+        print(kwargs)
+        print("end")
         final_code = process_code(
             self,
             tourType=tourType, 
