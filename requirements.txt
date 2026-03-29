@@ -16,3 +16,6 @@ gspread
 curl_cffi
 html2image
 pillow
+flask
+fastapi
+uvicorn

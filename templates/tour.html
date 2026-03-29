@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMQ Tour Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<style>
+    .title {
+        margin: auto;
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+
+    .row {
+        padding-bottom: 20px;
+    }
+</style>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    NGMC Solver Random
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url_for('usual') }}">Usual</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('quagsual') }}">Quagsual</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ url_for('random_op') }}">Random OP</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('random_ed') }}">Random ED</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('random_in') }}">Random INS</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('random_cl') }}">Random CL</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    NGMC Solver Watched
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url_for('watched') }}">Watched</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('watched_5s') }}">Watched 5s</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ url_for('watched_in') }}">Watched INS</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="https://docs.google.com/spreadsheets/d/1Fm6pMyXv7qhOQkLah4yX9HNow4WaDR4HJuAVMukQl34/edit?gid=2023469160#gid=2023469160" target="_blank">NGM Stats</a></li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <div class="container">
+        <div class="title">
+            <h1>{{ tourType }} NGMC Solver</h1>
+            {% if tourType not in ["random", "random 15s", "watched 5s"] %}
+            <button type="button" class="btn btn-primary" onclick="tiermaker()">Update Elos</button>
+            <div id="loading-tiermaker" style="display:none;">
+                ⏳ Loading...
+            </div>
+            <div id="error-tiermaker" style="display:none;">
+                ❌ Could not update elos
+            </div>
+            {% endif %}
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home" type="button">Solver</button>
+            </li>
+            {% if tourType in ["random", "random 15s", "watched 5s"] %}
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#menu0" type="button">Eloscrape</button>
+            </li>
+            {% else %}
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#menu1" type="button">MVPs/Changelog</button>
+            </li>
+            {% endif %}
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#menu2" type="button">Elos</button>
+            </li>
+        </ul>
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="home">
+                <div class="row">
+                    <div class="col-6">
+                        <h2>Whitelist</h2>
+                        <div name="whitelist" id="whitelist"></div>
+                    </div>
+                    <div class="col-6">
+                        <form>
+                            <div class="mb-3">
+                                <label for="team-size" class="form-label">Team Size</label>
+                                <input type="number" class="form-control" id="team-size" value="4">
+                                <label for="playersInput" class="form-label">Players</label>
+                                <textarea class="form-control" id="playersInput" rows="4" name="players"
+                                onkeyup="parsePlayers()"
+                                placeholder="Format: name (Rank), name (Rank), ..."
+                                ></textarea>
+                            </div>
+                            <div id="add-elo">
+                            </div>
+                            <input type="hidden" name="action" value="start_tour">
+                            <button type="button" class="btn btn-primary" onclick="solver()">Solver</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="loading" style="display:none;">
+                    ⏳ Loading...
+                </div>
+                <div class="row">
+                    <h2>Codes</h2>
+                    <button class="btn btn-primary" onclick="copy('codes')">Copy to clipboard</button>
+                    <!--<label for="codes" class="form-label">Codes</label>-->
+                    <textarea class="form-control" id="codes" rows="10" readonly></textarea>
+                </div>
+            </div>
+            {% if tourType in ["random", "random 15s", "watched 5s"] %}
+            <div class="tab-pane fade" id="menu0">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="elo-input" class="form-label">Current Elos</label>
+                        <textarea class="form-control" id="elo-input" rows="5" disabled>{{ elos }}</textarea>
+                        <!--<input class="form-control" type="file" id="elo-file">
+                        <button type="submit" class="btn btn-primary">Update elos.json</button>-->
+                    </div>
+                    <div class="col-6">
+                        <label for="tourlist-input" class="form-label">Current Tour list</label>
+                        <textarea class="form-control" id="tourlist-input" rows="5" disabled>{{ tourlist }}</textarea>
+                        <!--<input class="form-control" type="file" id="tourlist-file">
+                        <button type="submit" class="btn btn-primary">Update tourlist.txt</button>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label for="tourlist-add" class="form-label">Challonge Link</label>
+                        <input type="text" class="form-control" id="tourlist-add">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary" onclick="eloscrape()">Run eloscrape</button>
+                        <div id="loading-eloscrape" style="display:none;">
+                            ⏳ Loading...
+                        </div>
+                        <div id="error-eloscrape" style="display:none;">
+                            ❌ Could not update elos
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            {% else %}
+            <div class="tab-pane fade" id="menu1">
+                <div class="row">
+                    <button class="btn btn-primary" onclick="copy('mvps')">Copy MVPs to clipboard</button>
+                    <textarea class="form-control" id="mvps" rows="10" readonly>{{ mvps }}</textarea>
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary" onclick="copy('changelog')">Copy Changelog to clipboard</button>
+                    <textarea class="form-control" id="changelog" rows="10" readonly>{{ changelog }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+            <div class="tab-pane fade" id="menu2">
+                <div class="row">
+                    <h2>Players Elos</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Player</th>
+                            <th scope="col">Elo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for player, elo in elos.items() %}
+                        <tr>
+                            <td> {{ player }} </td>
+                            <td> {{ elo }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+const elos = JSON.parse(`{{ elos | tojson }}`);
+const tourType = `{{ tourType }}`
+
+const elos_players = {};
+
+for (const [player, elo] of Object.entries(elos)) {
+    elos_players[player.toLowerCase()] = elo;
+}
+
+const container = document.getElementById("whitelist");
+const select = document.createElement("select");
+const select2 = document.createElement("select");
+const button = document.createElement("button");
+button.textContent = "Add to whitelist";
+button.classList.add("btn", "btn-primary")
+container.appendChild(select);
+container.appendChild(select2);
+container.appendChild(button);
+
+const list = document.createElement("div");
+container.appendChild(list);
+
+let whitelistPairs = [];
+
+function renderList() {
+  list.innerHTML = "";
+
+  whitelistPairs.forEach((pair, index) => {
+    const row = document.createElement("div");
+
+    const text = document.createElement("span");
+    text.classList.add("btn", "btn-success");
+    text.textContent = `${pair.player1} + ${pair.player2} `;
+
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("btn","btn-outline-danger");
+    removeBtn.textContent = "❌";
+
+    removeBtn.addEventListener("click", () => {
+      whitelistPairs.splice(index, 1); // supprime la paire
+      renderList(); // refresh affichage
+    });
+
+    row.appendChild(text);
+    row.appendChild(removeBtn);
+    list.appendChild(row);
+  });
+}
+
+button.addEventListener("click", function () {
+  const player1 = select.value;
+  const player2 = select2.value;
+
+  whitelistPairs.push({player1: player1,player2: player2 });
+  renderList();
+});
+
+function populateSelects(players) {
+  select.innerHTML = "";
+  select2.innerHTML = "";
+
+  players.forEach(player => {
+    const option1 = document.createElement("option");
+    option1.value = player;
+    option1.text = player;
+    select.add(option1);
+
+    const option2 = document.createElement("option");
+    option2.value = player;
+    option2.text = player;
+    select2.add(option2);
+  });
+}
+
+function parsePlayers() {
+    const playersInput = document.getElementById("playersInput").value;
+    const players = playersInput.split(/[\n,]+/).map(p => p.trim().toLowerCase()).map(p => p.replace(/\s*\(.*?\)\s*/g, "")).filter(p => p.length > 0);
+    populateSelects(players);
+    const div = document.getElementById("add-elo");
+    div.innerHTML = "";
+    for (const player of players){
+        if (!(player.toLowerCase() in elos_players)){
+            const row_div = document.createElement("div")
+            row_div.classList.add("row")
+
+            const sub_div = document.createElement("div")
+            sub_div.classList.add("col-6")
+            const span = document.createElement("span")
+            span.textContent = player;
+            span.classList.add("input-group-text");
+            sub_div.appendChild(span);
+
+            const sub_div_2 = document.createElement("div")
+            sub_div_2.classList.add("col-6")
+            const input = document.createElement("input");
+            input.classList.add("form-control");
+            input.type = "number";
+            input.name = `${player}-rank`;
+            input.placeholder = "Give a Rank";
+            sub_div_2.appendChild(input);
+
+            row_div.appendChild(sub_div)
+            row_div.appendChild(sub_div_2)
+            div.appendChild(row_div)
+        }
+    }
+}
+
+async function solver() {
+    const loading = document.getElementById("loading");
+    loading.style.display = "block";
+    const playersInput = document.getElementById("playersInput").value;
+    const players = playersInput.split(/[\n,]+/).map(p => p.trim().toLowerCase()).map(p => p.replace(/\s*\(.*?\)\s*/g, "")).filter(p => p.length > 0);
+    const playersList = []
+    for (const player of players){
+        console.log(player)
+        let player_rating;
+        if (player.toLowerCase() in elos_players){
+            console.log(elos_players[player])
+            player_rating = {
+                name: player,
+                rating: elos_players[player]
+            }
+        }
+        else {
+            const input = document.getElementsByName(`${player}-rank`)[0];
+            const playerRank = input ? input.value : null;
+            player_rating = {
+                name: player,
+                rating: playerRank
+            }
+        }
+        playersList.push(player_rating)
+    }
+    request = {people: {players: playersList}, whitelist: {teams: whitelistPairs}}
+    console.log(request)
+    const teamSize = document.getElementById("team-size").value;
+    const grApproach = true;
+    const response = await fetch(`http://127.0.0.1:8000/solver?team_size=${teamSize}&tourType=${tourType}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(request)
+    });
+    loading.style.display = "none";
+    const data = await response.json();
+    document.getElementById("codes").value = data;
+}
+
+function copy(id) {
+    console.log("Copy to clipboard")
+    let textarea = document.getElementById(id);
+    textarea.select();
+    document.execCommand("copy");
+}
+
+async function tiermaker(){
+    const loading = document.getElementById("loading-tiermaker");
+    const loadingWrong = document.getElementById("error-tiermaker");
+    loading.style.display = "block";
+    const response = await fetch(`http://127.0.0.1:8000/tiermaker?tourType=${tourType}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    });
+    loading.style.display = "none";
+    const data = await response.json();
+    if (data == true){
+        window.location.reload();
+    } else {
+        loadingWrong.style.display = "block"
+    }
+}
+
+async function eloscrape(){
+    const loading = document.getElementById("loading-eloscrape");
+    const loadingWrong = document.getElementById("error-eloscrape");
+    loading.style.display = "block";
+    const challonge = document.getElementById("tourlist-add").value;
+    const request = {challonge: challonge}
+    const response = await fetch(`http://127.0.0.1:8000/eloscrape?tourType=${tourType}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(request)
+    });
+    loading.style.display = "none";
+    const data = await response.json();
+    if (data == true){
+        window.location.reload();
+    } else {
+        loadingWrong.style.display = "block"
+    }
+}
+</script>
