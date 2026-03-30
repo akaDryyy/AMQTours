@@ -74,15 +74,17 @@ class TierMaker:
             midpoint,
             minRating,
             maxRating,
-            tourType
+            tourType,
+            gui=False
         ):
-        parser = argparse.ArgumentParser(description="AMQ Tours")
-        parser.add_argument('--keep', '-k', action='store_true',
-                            help="Keep the current CSVs for stats, used for when doing changelogs one at the time after not running the script for multiple tours",
-                            required=False)
-        args = parser.parse_args()
+        if not gui:
+            parser = argparse.ArgumentParser(description="AMQ Tours")
+            parser.add_argument('--keep', '-k', action='store_true',
+                                help="Keep the current CSVs for stats, used for when doing changelogs one at the time after not running the script for multiple tours",
+                                required=False)
+            args = parser.parse_args()
 
-        if not args.keep:
+        if gui or not args.keep:
             gc = readCredentials(self.directory)
 
             sheet = gc.open(self.sheetName)
@@ -143,7 +145,7 @@ class TierMaker:
 
         reset_ranks(self.RANKS)
 
-        if not args.keep:
+        if gui or not args.keep:
             saveElos(self.directory, self.tabEloStorage, self.sheetName, self.tabEloStorageCell, self.ELOS)
-
-        _ = input("Finished updating ranks. Press any key to continue...")
+        if not gui:
+            _ = input("Finished updating ranks. Press any key to continue...")
