@@ -101,6 +101,12 @@
                     <div class="col-6">
                         <form>
                             <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="separate-t1">
+                                    <label class="form-check-label" for="separate-t1">
+                                        Separate T1s ?
+                                    </label>
+                                </div>
                                 <label for="team-size" class="form-label">Team Size</label>
                                 <input type="number" class="form-control" id="team-size" value="4">
                                 <label for="playersInput" class="form-label">Players</label>
@@ -334,8 +340,16 @@ async function solver() {
     request = {people: {players: playersList}, whitelist: {teams: whitelistPairs}}
     console.log(request)
     const teamSize = document.getElementById("team-size").value;
+    const checkbox = document.getElementById("separate-t1");
+    let separateT1 = false;
+    if (checkbox.checked) {
+        console.log("Separate T1");
+        separateT1 = true;
+    } else {
+        console.log("Don't separate T1");
+    }
     const grApproach = true;
-    const response = await fetch(`http://127.0.0.1:8000/solver?team_size=${teamSize}&tourType=${tourType}`, {
+    const response = await fetch(`http://127.0.0.1:8000/solver?team_size=${teamSize}&tourType=${tourType}&separateT1=${separateT1}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

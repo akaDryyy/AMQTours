@@ -1,7 +1,9 @@
 from pulp import *
 from copy import deepcopy
+from heapq import nlargest
+from itertools import combinations
 
-def LPProblem(players, team_size, blacklist, whitelist, max_solutions, think_time):
+def LPProblem(players, team_size, blacklist, whitelist, max_solutions, think_time, separateT1=False):
     found_solutions = []
     optimal_value = None
     nums = [val for _, val in players]
@@ -35,6 +37,13 @@ def LPProblem(players, team_size, blacklist, whitelist, max_solutions, think_tim
                 prob += x[a][p] + x[b][p] <= 1
         else:
             pass
+    
+    if separateT1:
+        t1s = nlargest(k, p_values, key = p_values.get)
+        couples = list(combinations(t1s, 2))
+        for a, b in couples:
+            for p in range(k):
+                prob += x[a][p] + x[b][p] <= 1
 
     # Constraint: Whitelisted pairs in the same partition
     for a, b in whitelist:

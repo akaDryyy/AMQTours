@@ -15,14 +15,14 @@ origins = ["http://127.0.0.1:5000", "http://localhost:5000"]
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 @app.post("/solver")
-def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optional[WhiteList]):
+def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optional[WhiteList], separateT1: bool):
     players = [(p.name, p.rating) for p in people.players]
     whitelist = [[team.player1, team.player2] for team in whitelist.teams]
     p_values = {p.name: p.rating for p in people.players}
     teams_number = int(len(players) / team_size)
     blacklist = get_blacklist()
-    teams = LPProblem(players, team_size, blacklist, whitelist, max_solutions=1, think_time=15000)
-
+    teams = LPProblem(players, team_size, blacklist, whitelist, max_solutions=1, think_time=15000, separateT1=separateT1)
+    
     match tourType:
         case TourType.WATCHED:
             path = "watched_autoelo"
