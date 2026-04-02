@@ -104,7 +104,13 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="separate-t1">
                                     <label class="form-check-label" for="separate-t1">
-                                        Separate T1s ?
+                                        Separate T1s
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="split-tour">
+                                    <label class="form-check-label" for="split-tour">
+                                        Split Tour (only if players > 32)
                                     </label>
                                 </div>
                                 <label for="team-size" class="form-label">Team Size</label>
@@ -310,6 +316,17 @@ function parsePlayers() {
         }
     }
 }
+async function solverAPI(request, teamSize, separateT1){
+    const response = await fetch(`http://127.0.0.1:8000/solver?team_size=${teamSize}&tourType=${tourType}&separateT1=${separateT1}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(request)
+    });
+    const data = await response.json();
+    return data;
+}
 
 async function solver() {
     const loading = document.getElementById("loading");
@@ -318,10 +335,8 @@ async function solver() {
     const players = playersInput.split(/[\n,]+/).map(p => p.trim().toLowerCase()).map(p => p.replace(/\s*\(.*?\)\s*/g, "")).filter(p => p.length > 0);
     const playersList = []
     for (const player of players){
-        console.log(player)
         let player_rating;
         if (player.toLowerCase() in elos_players){
-            console.log(elos_players[player])
             player_rating = {
                 name: player,
                 rating: elos_players[player]
@@ -337,27 +352,46 @@ async function solver() {
         }
         playersList.push(player_rating)
     }
-    request = {people: {players: playersList}, whitelist: {teams: whitelistPairs}}
-    console.log(request)
     const teamSize = document.getElementById("team-size").value;
-    const checkbox = document.getElementById("separate-t1");
+
+    //Handle separate T1s option
+    const checkboxSeparate = document.getElementById("separate-t1");
     let separateT1 = false;
-    if (checkbox.checked) {
-        console.log("Separate T1");
+    if (checkboxSeparate.checked) {
         separateT1 = true;
-    } else {
-        console.log("Don't separate T1");
     }
-    const grApproach = true;
-    const response = await fetch(`http://127.0.0.1:8000/solver?team_size=${teamSize}&tourType=${tourType}&separateT1=${separateT1}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(request)
-    });
+
+    //Handle splitting tours option
+    const checkboxSplit = document.getElementById("split-tour");
+    let splitTour = false;
+    if (checkboxSplit.checked) {
+        splitTour = true;
+    }
+
+    //Use Solver API
+    let data;
+    if (splitTour && players.length >= 32){
+        playersList.sort((a, b) => b.rating - a.rating);
+        let separator;
+        if ((players.length/2) % 8 == 0){
+            separator = Math.ceil(playersList.length /2)
+        } else {
+            separator = Math.ceil(playersList.length /2) - 4
+        }
+        let higherPlayers = playersList.splice(0, separator);
+        let lowerPlayers = playersList;
+        let higherRequest = {people: {players: lowerPlayers}, whitelist: {teams: whitelistPairs}};
+        let lowerRequest = {people: {players: higherPlayers}, whitelist: {teams: whitelistPairs}};
+        data = "# First Tour\n"
+        data += await solverAPI(higherRequest, teamSize, separateT1);
+        data += "\n\n";
+        data += "# Second Tour\n"
+        data += await solverAPI(lowerRequest, teamSize, separateT1);
+    } else {
+        request = {people: {players: playersList}, whitelist: {teams: whitelistPairs}}
+        data = await solverAPI(request, teamSize, separateT1);
+    }
     loading.style.display = "none";
-    const data = await response.json();
     document.getElementById("codes").value = data;
 }
 

@@ -22,14 +22,14 @@ def handleCodes(
 
     txtvar = ""
 
-    header = f"{'#'*25} Discord {'#'*25}\n"
-    print(header)
-    txtvar += header
-    txtvar += "\n"
+    #header = f"{'#'*25} Discord {'#'*25}\n"
+    #print(header)
+    #txtvar += header
+    #txtvar += "\n"
     for idx, sol in enumerate(foundSolutions, 1):
-        sol_msg = f"### Solution {idx} ###\n\n"
-        print(sol_msg)
-        txtvar += sol_msg
+        #sol_msg = f"### Solution {idx} ###\n\n"
+        #print(sol_msg)
+        #txtvar += sol_msg
         team_map = [[] for _ in range(k)]
         for name, p in sol.items():
             team_map[p].append((name, p_values[name]))
