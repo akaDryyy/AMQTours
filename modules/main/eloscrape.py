@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from curl_cffi.requests import AsyncSession
 import os
 from modules.support.saveElos import saveElos
-from modules.support.getAliases import getAliases
+from modules.support.getAliases import *
 from modules.support.getTourlist import getTourlist
 
 class EloScrape:
@@ -51,6 +51,7 @@ class EloScrape:
         self.ELOS_HISTORY_LATEST = os.path.join(self.directory, "elo_history_latest.json")
         self.ELOS_ADJUSTED_TL = os.path.join(self.directory, "elo_adjusted_tl.txt")
         self.ELOS_ADJUSTED_TL_FINEGRAINED = os.path.join(self.directory, "elo_adjusted_tl_finegrained.txt")
+        self.IDTABLE = os.path.join(self.directory, "ids.csv")
         self.PROXY_SERVER = '' # get from tsui if necessary
         self.TEAMSIZE = 4
 
@@ -113,7 +114,7 @@ class EloScrape:
         def start_time(tag):
             return tag.name == 'div' and tag.has_attr('class') and 'start-time' in tag['class']
 
-        def get_players(teamstr, elos, aliases, teamid):
+        def get_players(teamstr, elos, teamid):
             player_strs = teamstr.rstrip(')').split(') ')
             players = {}
             rounds_played = {
@@ -124,13 +125,17 @@ class EloScrape:
                     continue
                 player, rank = player_str.split(' (')
                 player = player.strip().lower()
+                player_id = getAliasesID(aliases, player)
                 if '[' in player:
                     player, rounds_played_str = player.split(' [')
-                    if player not in elos and player in aliases:
-                        player = aliases[player]
+                    player_id = getAliasesID(aliases, player)
+                    if player not in elos and player_id is not None:
+                        player = getAliasesFirstName(aliases, player_id)
+                        player = player.strip().lower()
                     rounds_played[teamid][player] = json.loads('[' + rounds_played_str)
-                if player in aliases:
-                    player = aliases[player]
+                if player_id is not None:
+                    player = getAliasesFirstName(aliases, player_id)
+                    player = player.strip().lower()
                 if player in elos:
                     players[player] = elos[player]
                 else:
@@ -178,7 +183,7 @@ class EloScrape:
 
         init_timezones()
 
-        aliases = getAliases(self.ALIASES_PATH)
+        aliases = getAliasesDF(self.IDTABLE)
 
         tourlist = getTourlist(self.TOURLIST_PATH)
         
@@ -217,7 +222,7 @@ class EloScrape:
                     
                     # add teams to tour 
                     if team1_id not in teams:
-                        team1, team1_rounds = get_players(match['player1']['display_name'], elos, aliases, team1_id)
+                        team1, team1_rounds = get_players(match['player1']['display_name'], elos, team1_id)
                         teams[team1_id] = team1
                         rounds_played.update(team1_rounds)
                         teamstr = ''
@@ -236,7 +241,7 @@ class EloScrape:
                             'draw': 0
                             }
                     if team2_id not in teams:
-                        team2, team2_rounds = get_players(match['player2']['display_name'], elos, aliases, team2_id)
+                        team2, team2_rounds = get_players(match['player2']['display_name'], elos, team2_id)
                         teams[team2_id] = team2
                         rounds_played.update(team2_rounds)
                         teamstr = ''

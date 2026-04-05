@@ -1,15 +1,11 @@
-######################### Discord #########################
+channina (25.174) renzou (12.301) apurplenose (9.976) dav1d (2.255) | Total = 49.706 | Guesses = [4442]
+shadowpandax (20.959) dry (12.247) julialess64 (10.854) feyfey (5.631) | Total = 49.691 | Guesses = [4442]
+sniparook (17.457) diukes (15.706) claydoll1091 (12.141) vuhrculls (4.357) | Total = 49.661 | Guesses = [4442]
+watashiii (23.338) asleep (13.203) peeku (10.201) arpia97 (2.840) | Total = 49.582 | Guesses = [4443]
 
-### Solution 1 ###
+Average: 49.66
 
-sniparook (18.199) neoburnz (14.206) feyfey (6.512) chommy (1.763) | Total = 40.680 | Guesses = [4422]
-mrwolf2 (13.344) alkios (13.283) dry (10.423) porte (3.499) | Total = 40.549 | Guesses = [4442]
-kaorimaeda (13.366) peeku (9.711) yokipi (9.710) skychael (7.519) | Total = 40.306 | Guesses = [4443]
-fortnayt (17.367) mami (12.537) kirox (5.685) jakemonkey (4.929) | Total = 40.518 | Guesses = [4433]
-
-Average: 40.5132
-
-https://challonge.com/5846cnhl
+<YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
 ≥28% = 4 guesses

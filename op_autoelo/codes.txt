@@ -1,13 +1,11 @@
-######################### Discord #########################
+flato (114.803) poolnoodle (107.340) provenance (103.648) swapin (95.012) | Total = 420.803 | Guesses = [4444]
+miki_hoshii (142.554) saiki (96.206) skychael (93.730) haruurara (87.680) | Total = 420.170 | Guesses = [4443]
+comete (128.775) dry (106.530) furlain (95.000) spartric (90.655) | Total = 420.960 | Guesses = [4444]
+fanna (139.810) naizuri (102.396) konsumenci (93.960) liljakatsuragi (84.290) | Total = 420.456 | Guesses = [4443]
+chrislefko (118.759) florenz (114.560) chemist (94.915) shiku (92.744) | Total = 420.978 | Guesses = [4444]
+baikinman (147.033) tvaz (106.564) maplesyyrup (93.530) thepiegod (73.750) | Total = 420.877 | Guesses = [4431]
 
-### Solution 1 ###
-
-chrislefko (14.068) neoburnz (14.000) saiki (10.936) mahzrunner (10.476) | Total = 49.480 | Guesses = [4443]
-milar (18.388) naizuri (10.703) kirox (10.513) okitanobu (9.849) | Total = 49.453 | Guesses = [4443]
-flato (15.372) tvaz (13.137) janoxx (10.782) spartric (10.147) | Total = 49.438 | Guesses = [4444]
-oh95 (13.356) l_elf10 (13.318) poppysr (11.755) konsumenci (10.993) | Total = 49.422 | Guesses = [4444]
-
-Average: 49.4482
+Average: 420.7073
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z21000000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```

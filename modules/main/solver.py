@@ -2,7 +2,7 @@ import argparse, json, os, csv
 import pandas as pd
 from collections import defaultdict
 from modules.support.readCredentials import readCredentials
-from modules.support.getAliases import getAliases
+from modules.support.getAliases import *
 from modules.support.getRanks import getRanks
 from modules.support.cleanData import *
 from modules.support.trim import *
@@ -140,7 +140,7 @@ class Solver:
             player_stats = clean_stats.sort_values(["Player ID", "Timestamp"])
             max_stats.to_csv(self.FULLSTATS, index=False, encoding="utf-8")
 
-        aliases = getAliases(self.ALIASES_PATH)
+        aliases = getAliasesDF(self.IDTABLE)
         
         players = {}
         if isAutorank:
@@ -150,12 +150,13 @@ class Solver:
                     player = player.strip().split(' (')[0]
                     player = player.lower()
                     player_key = player
+                    player_id = getAliasesID(aliases, player_key)
                     if player_key in ranks:
                         new_player = {player: ranks[player_key]}
                         players.update(new_player)
                     # Check aliases
-                    elif player_key in aliases:
-                        main_name = aliases[player_key]
+                    elif player_id is not None:
+                        main_name = getAliasesFirstName(aliases, player_id)
                         main_name = main_name.strip().lower()
                         if main_name in ranks:
                             players[player] = ranks[main_name]
@@ -202,14 +203,14 @@ class Solver:
                     player = player.strip().split(' (')[0]
                     player = player.lower()
                     player_key = player
+                    player_id = getAliasesID(aliases, player_key)
                     if player_key in ranks:
                         new_player = {player: ranks[player_key]}
                         players.update(new_player)
                     # Check aliases
-                    elif player_key in aliases:
-                        main_name = aliases[player_key]
-                        print(main_name)
-    
+                    elif player_id is not None:
+                        main_name = getAliasesFirstName(aliases, player_id)
+                        main_name = main_name.strip().lower()
                         if main_name in ranks:
                             players[player] = ranks[main_name]
                         else:
@@ -377,9 +378,7 @@ class Solver:
             kwargs["player_stats"] = player_stats
         if "gamemode" in locals():
             kwargs["gamemode"] = gamemode
-        print("kwargs")
-        print(kwargs)
-        print("end")
+
         final_code = process_code(
             self,
             tourType=tourType, 

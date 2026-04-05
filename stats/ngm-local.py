@@ -353,6 +353,8 @@ def main():
                 team2 = teamDB.get_team_by_player(teamDB.lookup_player(player))
                 if team2 is not team1:
                     break
+                else:
+                    team2 = None
             for player in team1.players:
                 if player not in playersSeen:
                     zerozeroT1.append(player)

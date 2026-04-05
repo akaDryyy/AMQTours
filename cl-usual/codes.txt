@@ -2,14 +2,14 @@
 
 ### Solution 1 ###
 
-orfey (115.000) dry (109.830) provenance (97.330) xeyz (85.000) | Total = 407.160 | Guesses = [4443]
-hejsan (111.850) mrwolf2 (110.000) flato (96.650) saiki (88.360) | Total = 406.860 | Guesses = [4443]
-sniparook (130.000) alkios (107.020) janoxx (90.000) unborned (80.000) | Total = 407.020 | Guesses = [4432]
-koroshiya (135.990) haruurara (100.000) neumann (86.320) mahzrunner (84.190) | Total = 406.500 | Guesses = [4343]
+baikinman (115.080) annayanami (95.000) saiki (93.210) mahzrunner (85.500) | Total = 388.790 | Guesses = [4333]
+diukes (111.180) pile (105.000) flato (95.700) janoxx (76.750) | Total = 388.630 | Guesses = [4443]
+dry (108.870) comfv (105.000) kaededayo (100.000) maplesyyrup (75.000) | Total = 388.870 | Guesses = [4442]
+milar (109.810) alkios (109.130) tvaz (95.000) shiku (75.000) | Total = 388.940 | Guesses = [4432]
 
-Average: 406.885
+Average: 388.8075
 
-<https://challonge.com/2py02rcc>
+<https://challonge.com/me3yqu68>
 ```e0g0z211111101100000z11100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1k903-11111--```
 Distribution of guesses:
 ≥28% = 4 guesses
