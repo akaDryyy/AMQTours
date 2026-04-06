@@ -135,7 +135,7 @@ class TierMaker:
         last_tour = clean_stats_tnow.merge(clean_stats_tminus1, how='outer', indicator=True).query('_merge == "left_only"')
         if not last_tour.empty:
             last_tour_ranks = compute_ranks(last_tour, full_stats, normalization_spec, self.tiers, self.tier_weights,
-                                            alpha, midpoint, minRating, maxRating, full=False, isWatched=tourType.startswith("watched"))
+                                            alpha, midpoint, minRating, maxRating, full=False, isWatched=tourType.startswith("watched"), isMVP=True)
             last_tour_dict = dict(zip(last_tour_ranks['PlayerName'], last_tour_ranks['ELO']))
 
             makeMVPs(last_tour_dict, old_old_elos, self.MVPS)

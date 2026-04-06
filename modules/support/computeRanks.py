@@ -30,7 +30,7 @@ def compute_rank_scores(df, alpha, midpoint, minRating, maxRating):
 
 def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weights, 
                   alpha=3.75, midpoint=0.4, minRating=0, maxRating=25,
-                  full=True, path=None, isWatched = True, wrpath=None):
+                  full=True, path=None, isWatched = True, wrpath=None, isMVP=False):
     """
     Compute a smoothed rank score for players based on guess rate and usefulness.
 
@@ -120,6 +120,9 @@ def compute_ranks(clean_stats, full_stats, normalization_spec, tiers, tier_weigh
     if full:
         final_ranks = final_ranks.round(3)
         final_ranks.to_csv(wrpath, index=False, encoding="utf-8")
+
+    if isMVP:
+        return final_ranks
 
     # WR + Streak accounting
     final_ranks["PALL"] = final_ranks["WIN"] + final_ranks["LOSE"] + final_ranks["TIE"]
