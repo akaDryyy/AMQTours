@@ -1,0 +1,28 @@
+{
+	"tour_id": "65d2thxl",
+	"time": "2026-02-06 22:00:00-08:00",
+	"teams": {
+		"jakemonkey (14.47) civiltwlight (12.29) spartric (7.85) nomu (4.85) = 39.47": "4W 2L 0D",
+		"kar72 (13.24) cipherkai (10.55) brandon_k (10.00) foopypoopy (5.67) = 39.46": "1W 5L 0D",
+		"porte (13.68) apurplenose (13.66) catge (6.81) oolli (5.29) = 39.44": "5W 1L 0D",
+		"naizuri (10.46) harges (10.00) whales6978 (10.00) annayanami (9.22) = 39.68": "2W 4L 0D"
+	},
+	"player": {
+		"jakemonkey": "initial elo: 14.467, new elo: 14.834, rating change: 0.367",
+		"civiltwlight": "initial elo: 12.294, new elo: 12.700, rating change: 0.406",
+		"spartric": "initial elo: 7.852, new elo: 8.217, rating change: 0.365",
+		"nomu": "initial elo: 4.855, new elo: 5.299, rating change: 0.444",
+		"kar72": "initial elo: 13.241, new elo: 12.060, rating change: -1.181",
+		"cipherkai": "initial elo: 10.547, new elo: 9.353, rating change: -1.193",
+		"brandon_k": "initial elo: 10.000, new elo: 8.602, rating change: -1.398",
+		"foopypoopy": "initial elo: 5.669, new elo: 4.377, rating change: -1.292",
+		"porte": "initial elo: 13.678, new elo: 14.825, rating change: 1.147",
+		"apurplenose": "initial elo: 13.659, new elo: 14.839, rating change: 1.180",
+		"catge": "initial elo: 6.814, new elo: 7.985, rating change: 1.171",
+		"oolli": "initial elo: 5.285, new elo: 6.383, rating change: 1.098",
+		"naizuri": "initial elo: 10.458, new elo: 9.989, rating change: -0.469",
+		"harges": "initial elo: 10.000, new elo: 9.432, rating change: -0.568",
+		"whales6978": "initial elo: 10.000, new elo: 9.432, rating change: -0.568",
+		"annayanami": "initial elo: 9.224, new elo: 8.763, rating change: -0.461"
+	}
+}

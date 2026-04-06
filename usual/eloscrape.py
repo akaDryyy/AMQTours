@@ -7,9 +7,9 @@ async def main():
     DIRECTORY = os.path.dirname(os.path.abspath(__file__))
     eloscraper = EloScrape(
         directory=DIRECTORY, 
-        tabEloStorage=716533894, 
+        tabEloStorage=82254993, 
         tabEloStorageCell="A1", 
-        sheetName="ngm stats", 
+        sheetName="NGM Stats Export v2", 
         mu=12, 
         sigma=1.75, 
         beta=7, 

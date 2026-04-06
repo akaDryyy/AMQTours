@@ -47,6 +47,25 @@ def get_guess_watched_gr(name, player_stats, idtable, oneg, twog, threeg, fourg)
         (-float('inf'), '1')
     ], avg_gr)
 
+def get_guess_watched_28_gr(name, player_stats, idtable, zerog, oneg, twog, threeg, fourg):
+    try:
+        alias_df = pd.read_csv(idtable)
+        alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+        player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
+        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, "Guess rate"].mean()
+        if pd.isna(avg_gr):
+            avg_gr = float(input(f"{name} not found. Give initial gr% (Example: 75 = 75%): "))
+    except IndexError:
+        avg_gr = float(input(f"{name} not found. Give initial gr% (Example: 75 = 75%): "))
+    return guess_gr([
+        (fourg, '5'),
+        (threeg, '4'),
+        (twog, '3'),
+        (oneg, '2'),
+        (zerog, '1'),
+        (-float('inf'), '0')
+    ], avg_gr)
+
 get_guess_usual = make_guess_function([
     (9, '4'),
     (5.75, '3'),
@@ -85,6 +104,14 @@ get_guess_watched_cl = make_guess_function([
 ])
 
 get_guess_watched_5s = make_guess_function([
+    (10.5, '5'),
+    (7.5, '4'),
+    (6, '3'),
+    (3.5, '2'),
+    (-float('inf'), '1')
+])
+
+get_guess_watched_28 = make_guess_function([
     (10.5, '5'),
     (7.5, '4'),
     (6, '3'),

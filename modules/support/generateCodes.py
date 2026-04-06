@@ -209,6 +209,31 @@ def generate_codes_watched_5s_gr(_, txtvar):
 """
     return txtvar
 
+def generate_codes_watched_28(_, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```e0g0z21111100130z000011110000000z111111111111002051o008000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k803-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥10.5: 5 Guesses
+7.5-10.49: 4 Guesses
+6-7.49: 3 Guesses
+3.5-5.99: 2 Guesses
+≤3.5: 1 Guess
+"""
+    return txtvar
+
+def generate_codes_watched_28_gr(_, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```e0g0z21111100130z000011110000000z111111111111002051o008000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k803-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥25% = 5 guesses
+20% - 25% = 4 guesses
+15% - 20% = 3 guesses
+10% - 15% = 2 guesses
+5% - 10% = 1 guess
+0% - 5% = 0 guess, can erig and block
+"""
+    return txtvar
+
 def generate_codes_old_watched(gamemode, txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     match gamemode:

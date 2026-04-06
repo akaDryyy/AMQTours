@@ -284,6 +284,14 @@ class Solver:
                     False: (get_guess_watched_gr,   generate_codes_watched_5s_gr)
                 }
             },
+            "watched-2+8": {
+                "normal": {
+                    False: (get_guess_watched_28,  generate_codes_watched_28)
+                },
+                "gr": {
+                    False: (get_guess_watched_28_gr,   generate_codes_watched_28_gr)
+                }
+            },
             "op": {
                 "normal": {
                     False: (get_guess_op,     generate_codes_op),
@@ -344,7 +352,17 @@ class Solver:
 
             kwargs = {}
             if grApproach:
-                if tourType.startswith("watched"):
+                if tourType.startswith("watched-2+8"):
+                    kwargs = {
+                        "player_stats": player_stats,
+                        "idtable": self.IDTABLE,
+                        "zerog": self.zeroGuess,
+                        "oneg": self.oneGuess,
+                        "twog": self.twoGuess,
+                        "threeg": self.threeGuess,
+                        "fourg": self.fourGuess
+                    }
+                elif tourType.startswith("watched"):
                     kwargs = {
                         "player_stats": player_stats,
                         "idtable": self.IDTABLE,

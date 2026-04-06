@@ -8,8 +8,8 @@ async def main():
     eloscraper = EloScrape(
         directory=DIRECTORY, 
         tabEloStorage=82254993, 
-        tabEloStorageCell="A2", 
-        sheetName="NGM Stats Export v2",  
+        tabEloStorageCell="A4", 
+        sheetName="NGM Stats Export v2", 
         mu=10, 
         sigma=3, 
         beta=3, 

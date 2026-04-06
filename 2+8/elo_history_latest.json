@@ -1,28 +1,28 @@
 {
-	"tour_id": "65d2thxl",
-	"time": "2026-02-06 22:00:00-08:00",
+	"tour_id": "1k3h2aj1",
+	"time": "2026-04-02 11:17:00-04:00",
 	"teams": {
-		"jakemonkey (14.47) civiltwlight (12.29) spartric (7.85) nomu (4.85) = 39.47": "4W 2L 0D",
-		"kar72 (13.24) cipherkai (10.55) brandon_k (10.00) foopypoopy (5.67) = 39.46": "1W 5L 0D",
-		"porte (13.68) apurplenose (13.66) catge (6.81) oolli (5.29) = 39.44": "5W 1L 0D",
-		"naizuri (10.46) harges (10.00) whales6978 (10.00) annayanami (9.22) = 39.68": "2W 4L 0D"
+		"porte (13.91) shadow (8.47) vuhrculls (7.64) icefeed2 (7.17) = 37.19": "2W 1L 0D",
+		"patoche49 (12.53) catge (12.08) spartric (6.78) eljuanchi (5.69) = 37.08": "2W 1L 0D",
+		"neoburnz (16.26) pomo (14.11) isekaijoucho (9.55) xeyz (-3.11) = 36.81": "1W 2L 0D",
+		"mangoss (10.25) annayanami (9.41) luna (9.23) zokie (8.20) = 37.10": "1W 2L 0D"
 	},
 	"player": {
-		"jakemonkey": "initial elo: 14.467, new elo: 14.834, rating change: 0.367",
-		"civiltwlight": "initial elo: 12.294, new elo: 12.700, rating change: 0.406",
-		"spartric": "initial elo: 7.852, new elo: 8.217, rating change: 0.365",
-		"nomu": "initial elo: 4.855, new elo: 5.299, rating change: 0.444",
-		"kar72": "initial elo: 13.241, new elo: 12.060, rating change: -1.181",
-		"cipherkai": "initial elo: 10.547, new elo: 9.353, rating change: -1.193",
-		"brandon_k": "initial elo: 10.000, new elo: 8.602, rating change: -1.398",
-		"foopypoopy": "initial elo: 5.669, new elo: 4.377, rating change: -1.292",
-		"porte": "initial elo: 13.678, new elo: 14.825, rating change: 1.147",
-		"apurplenose": "initial elo: 13.659, new elo: 14.839, rating change: 1.180",
-		"catge": "initial elo: 6.814, new elo: 7.985, rating change: 1.171",
-		"oolli": "initial elo: 5.285, new elo: 6.383, rating change: 1.098",
-		"naizuri": "initial elo: 10.458, new elo: 9.989, rating change: -0.469",
-		"harges": "initial elo: 10.000, new elo: 9.432, rating change: -0.568",
-		"whales6978": "initial elo: 10.000, new elo: 9.432, rating change: -0.568",
-		"annayanami": "initial elo: 9.224, new elo: 8.763, rating change: -0.461"
+		"porte": "initial elo: 13.909, new elo: 14.075, rating change: 0.167",
+		"shadow": "initial elo: 8.472, new elo: 8.642, rating change: 0.170",
+		"vuhrculls": "initial elo: 7.645, new elo: 7.817, rating change: 0.173",
+		"icefeed2": "initial elo: 7.167, new elo: 7.338, rating change: 0.171",
+		"patoche49": "initial elo: 12.529, new elo: 13.042, rating change: 0.512",
+		"catge": "initial elo: 12.079, new elo: 12.602, rating change: 0.523",
+		"spartric": "initial elo: 6.780, new elo: 7.291, rating change: 0.511",
+		"eljuanchi": "initial elo: 5.691, new elo: 6.203, rating change: 0.512",
+		"neoburnz": "initial elo: 16.256, new elo: 16.093, rating change: -0.163",
+		"pomo": "initial elo: 14.112, new elo: 13.960, rating change: -0.152",
+		"isekaijoucho": "initial elo: 9.551, new elo: 9.393, rating change: -0.157",
+		"xeyz": "initial elo: -3.105, new elo: -3.263, rating change: -0.158",
+		"mangoss": "initial elo: 10.253, new elo: 9.722, rating change: -0.531",
+		"annayanami": "initial elo: 9.413, new elo: 8.888, rating change: -0.525",
+		"luna": "initial elo: 9.234, new elo: 8.685, rating change: -0.549",
+		"zokie": "initial elo: 8.202, new elo: 7.686, rating change: -0.515"
 	}
 }
