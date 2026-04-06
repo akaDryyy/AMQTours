@@ -16,6 +16,9 @@ app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True
 
 @app.post("/solver")
 def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optional[WhiteList], separateT1: bool):
+    """
+    Teams maker for watched, usual, random op/ed/ins, watched ins, 5s, 2+8
+    """
     players = [(p.name, p.rating) for p in people.players]
     whitelist = [[team.player1, team.player2] for team in whitelist.teams]
     p_values = {p.name: p.rating for p in people.players}
@@ -86,6 +89,13 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 8, "twog": 19, "threeg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_random,
                 kwargs_guesses=kwargs or None, get_codes=generate_codes_cl_gr, gamemode=None, gr_based=True)
+            
+        case tourType.WATCHED_2_PLUS_8:
+            path = "2+8"
+            player_stats, idtable = get_player_stats(path=path, tabStats=165193471, tabIDs=1903970832, type="watched-2+8")
+            kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 10, "twog": 15, "threeg": 20, "fourg":25}
+            finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
+                kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_28_gr, gamemode="2+8", gr_based=True)
 
     return finalcodes
 
@@ -145,10 +155,18 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
             await eloscraper.eloscrape()
             return True
         
+        case TourType.WATCHED_2_PLUS_8:
+            path = "2+8"
+            add_to_tourlist(tour=challonge_str, folder=path)
+            eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A2", sheetName="NGM Stats Export v2", 
+                mu=10, sigma=3, beta=3, tau=0.5, draw_probability=0.01)
+            await eloscraper.eloscrape()
+            return True
+        
         case TourType.RANDOM:
             path = "usual"
             add_to_tourlist(tour=challonge_str, folder=path)
-            eloscraper = EloScrape(directory=path, tabEloStorage=716533894, tabEloStorageCell="A1", sheetName="ngm stats", 
+            eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A1", sheetName="NGM Stats Export v2", 
                 mu=12, sigma=1.75, beta=7, tau=0.09, draw_probability=0.04)
             await eloscraper.eloscrape()
             return True
@@ -156,7 +174,7 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
         case TourType.RANDOM_15S:
             path = "usual"
             add_to_tourlist(tour=challonge_str, folder=path)
-            eloscraper = EloScrape(directory=path, tabEloStorage=716533894, tabEloStorageCell="A1", sheetName="ngm stats", 
+            eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A1", sheetName="NGM Stats Export v2", 
                 mu=12, sigma=1.75, beta=7, tau=0.09, draw_probability=0.04)
             await eloscraper.eloscrape()
             return True

@@ -26,6 +26,7 @@ class TourType(str, Enum):
     RANDOM_CL = "random cl"
     WATCHED_INS = "watched ins"
     WATCHED_5S = "watched 5s"
+    WATCHED_2_PLUS_8 = "watched 2 8"
 
 class Tour(BaseModel):
     type: TourType

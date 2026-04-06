@@ -90,6 +90,12 @@ def watched_5s():
     tourlist = get_tourlist("5s")
     return render_template("tour.html", elos=elos, tourType="watched 5s", tourlist=tourlist)
 
+@app.get("/watched_2_8")
+def watched_2_8():
+    elos = get_elos("2+8")
+    tourlist = get_tourlist("2+8")
+    return render_template("tour.html", elos=elos, tourType="watched 2 8", tourlist=tourlist)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000, debug=True)
 
