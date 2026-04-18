@@ -156,12 +156,11 @@ class Solver:
                         players.update(new_player)
                     # Check aliases
                     elif player_id is not None:
-                        main_name = getAliasesFirstName(aliases, player_id)
-                        main_name = main_name.strip().lower()
-                        if main_name in ranks:
-                            players[player] = ranks[main_name]
-                        else:
-                            input(f"[WARN] Alias '{player}' maps to '{main_name}', but '{main_name}' not in ranks. Press Enter to continue.")
+                        all_names = getAliasesAllNames(aliases, player_id)
+                        for main_name in all_names:
+                            if main_name in ranks:
+                                players[player] = ranks[main_name]
+                                break
                     else:
                         # Not in current elo, check if new player or stats exist for them
                         alias_df = pd.read_csv(self.IDTABLE)
@@ -209,13 +208,10 @@ class Solver:
                         players.update(new_player)
                     # Check aliases
                     elif player_id is not None:
-                        main_name = getAliasesFirstName(aliases, player_id)
-                        main_name = main_name.strip().lower()
-                        if main_name in ranks:
-                            players[player] = ranks[main_name]
-                        else:
-                            input(f"[WARN] Alias '{player}' maps to '{main_name}', but '{main_name}' not in ranks. Press Enter to exit.")
-                            exit()
+                        all_names = getAliasesAllNames(aliases, player_id)
+                        for main_name in all_names:
+                            if main_name in ranks:
+                                players[player] = ranks[main_name]
                     else:
                         input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
                         exit()

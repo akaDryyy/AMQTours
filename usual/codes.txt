@@ -1,9 +1,11 @@
-channina (25.174) renzou (12.301) apurplenose (9.976) dav1d (2.255) | Total = 49.706 | Guesses = [4442]
-shadowpandax (20.959) dry (12.247) julialess64 (10.854) feyfey (5.631) | Total = 49.691 | Guesses = [4442]
-sniparook (17.457) diukes (15.706) claydoll1091 (12.141) vuhrculls (4.357) | Total = 49.661 | Guesses = [4442]
-watashiii (23.338) asleep (13.203) peeku (10.201) arpia97 (2.840) | Total = 49.582 | Guesses = [4443]
+milar (14.322) alkios (13.598) yashadox (4.521) aryssiel (3.374) | Total = 35.815 | Guesses = [4432]
+diukes (16.080) yahallonyanpasu (11.569) saiki (7.653) eljuanchi (0.339) | Total = 35.641 | Guesses = [4432]
+claydoll1091 (11.714) baikinman (11.257) feyfey (6.495) annayanami (6.292) | Total = 35.758 | Guesses = [4423]
+akatsuki (21.578) chemist (9.006) yellowrose (4.529) luna (0.605) | Total = 35.718 | Guesses = [4432]
+hejsan (13.897) dry (12.005) kirox (5.663) spartric (4.196) | Total = 35.761 | Guesses = [4433]
+channina (25.002) skychael (6.692) mahzrunner (4.944) ryoutavn (-0.818) | Total = 35.820 | Guesses = [4332]
 
-Average: 49.66
+Average: 35.7522
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```

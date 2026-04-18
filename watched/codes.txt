@@ -1,39 +1,27 @@
-######################### Discord #########################
+mami (14.500) chemist (11.500) konsumenci (11.000) heroftime (0.500) | Total = 37.500 | Guesses = [5551]
+diukes (15.000) arpia97 (8.000) poppysr (7.500) inta (7.500) | Total = 38.000 | Guesses = [5444]
+dry (11.000) annayanami (9.500) zokie (9.000) xeyz (8.500) | Total = 38.000 | Guesses = [5555]
+math1234 (17.000) 2skr (8.000) mythandroid (7.000) anicomi (6.000) | Total = 38.000 | Guesses = [5443]
 
-### Solution 1 ###
+dry (11.000) konsumenci (11.000) annayanami (9.500) anicomi (6.000) | Total = 37.500 | Guesses = [5553]
+math1234 (17.000) chemist (11.500) zokie (9.000) heroftime (0.500) | Total = 38.000 | Guesses = [5551]
+diukes (15.000) 2skr (8.000) poppysr (7.500) inta (7.500) | Total = 38.000 | Guesses = [5444]
+mami (14.500) xeyz (8.500) arpia97 (8.000) mythandroid (7.000) | Total = 38.000 | Guesses = [5544]
 
-mami (14.500) zokie (9.000) poppysr (7.500) mythandroid (7.000) | Total = 38.000 | Guesses = [5544]
-dry (11.000) konsumenci (11.000) 2skr (8.000) arpia97 (8.000) | Total = 38.000 | Guesses = [5544]
-diukes (15.000) annayanami (9.500) inta (7.500) anicomi (6.000) | Total = 38.000 | Guesses = [5543]
 math1234 (17.000) chemist (11.500) xeyz (8.500) heroftime (0.500) | Total = 37.500 | Guesses = [5551]
+dry (11.000) konsumenci (11.000) 2skr (8.000) arpia97 (8.000) | Total = 38.000 | Guesses = [5544]
+mami (14.500) zokie (9.000) poppysr (7.500) mythandroid (7.000) | Total = 38.000 | Guesses = [5544]
+diukes (15.000) annayanami (9.500) inta (7.500) anicomi (6.000) | Total = 38.000 | Guesses = [5543]
 
-### Solution 2 ###
-
-diukes (15.000) chemist (11.500) konsumenci (11.000) heroftime (0.500) | Total = 38.000 | Guesses = [5551]
-mami (14.500) xeyz (8.500) arpia97 (8.000) mythandroid (7.000) | Total = 38.000 | Guesses = [5544]
-math1234 (17.000) poppysr (7.500) inta (7.500) anicomi (6.000) | Total = 38.000 | Guesses = [5443]
-dry (11.000) annayanami (9.500) zokie (9.000) 2skr (8.000) | Total = 37.500 | Guesses = [5554]
-
-### Solution 3 ###
-
-mami (14.500) xeyz (8.500) arpia97 (8.000) mythandroid (7.000) | Total = 38.000 | Guesses = [5544]
-dry (11.000) annayanami (9.500) zokie (9.000) 2skr (8.000) | Total = 37.500 | Guesses = [5554]
-diukes (15.000) chemist (11.500) konsumenci (11.000) heroftime (0.500) | Total = 38.000 | Guesses = [5551]
-math1234 (17.000) poppysr (7.500) inta (7.500) anicomi (6.000) | Total = 38.000 | Guesses = [5443]
-
-### Solution 4 ###
-
-math1234 (17.000) mami (14.500) anicomi (6.000) heroftime (0.500) | Total = 38.000 | Guesses = [5531]
-konsumenci (11.000) annayanami (9.500) zokie (9.000) arpia97 (8.000) | Total = 37.500 | Guesses = [5554]
-chemist (11.500) dry (11.000) 2skr (8.000) poppysr (7.500) | Total = 38.000 | Guesses = [5544]
+mami (14.500) zokie (9.000) 2skr (8.000) anicomi (6.000) | Total = 37.500 | Guesses = [5543]
+math1234 (17.000) dry (11.000) annayanami (9.500) heroftime (0.500) | Total = 38.000 | Guesses = [5551]
 diukes (15.000) xeyz (8.500) inta (7.500) mythandroid (7.000) | Total = 38.000 | Guesses = [5544]
+chemist (11.500) konsumenci (11.000) arpia97 (8.000) poppysr (7.500) | Total = 38.000 | Guesses = [5544]
 
-### Solution 5 ###
-
-math1234 (17.000) konsumenci (11.000) annayanami (9.500) heroftime (0.500) | Total = 38.000 | Guesses = [5551]
-diukes (15.000) zokie (9.000) arpia97 (8.000) anicomi (6.000) | Total = 38.000 | Guesses = [5543]
+diukes (15.000) chemist (11.500) dry (11.000) heroftime (0.500) | Total = 38.000 | Guesses = [5551]
+konsumenci (11.000) annayanami (9.500) zokie (9.000) arpia97 (8.000) | Total = 37.500 | Guesses = [5554]
+math1234 (17.000) 2skr (8.000) mythandroid (7.000) anicomi (6.000) | Total = 38.000 | Guesses = [5443]
 mami (14.500) xeyz (8.500) poppysr (7.500) inta (7.500) | Total = 38.000 | Guesses = [5544]
-chemist (11.500) dry (11.000) 2skr (8.000) mythandroid (7.000) | Total = 37.500 | Guesses = [5544]
 
 Average: 37.875
 

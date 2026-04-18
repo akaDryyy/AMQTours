@@ -29,3 +29,9 @@ def getAliasesFirstName(idtable, player_id):
     id_to_primary_name = idtable.groupby("Player ID")["Player Name"].first().to_dict()
 
     return id_to_primary_name.get(player_id)
+
+def getAliasesAllNames(idtable, player_id):
+    idtable["Player Name"] = idtable["Player Name"].str.strip()
+    id_to_all_names = idtable.groupby("Player ID")["Player Name"].apply(list).to_dict()
+    
+    return id_to_all_names.get(player_id, [])

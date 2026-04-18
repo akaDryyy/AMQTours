@@ -130,12 +130,18 @@ class EloScrape:
                     player, rounds_played_str = player.split(' [')
                     player_id = getAliasesID(aliases, player)
                     if player not in elos and player_id is not None:
-                        player = getAliasesFirstName(aliases, player_id)
-                        player = player.strip().lower()
+                        all_names = getAliasesAllNames(aliases, player_id)
+                        for main_name in all_names:
+                            if main_name in elos:
+                                player = main_name
+                                break
                     rounds_played[teamid][player] = json.loads('[' + rounds_played_str)
                 if player_id is not None:
-                    player = getAliasesFirstName(aliases, player_id)
-                    player = player.strip().lower()
+                    all_names = getAliasesAllNames(aliases, player_id)
+                    for main_name in all_names:
+                        if main_name in elos:
+                            player = main_name
+                            break
                 if player in elos:
                     players[player] = elos[player]
                 else:
