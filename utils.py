@@ -7,6 +7,7 @@ from modules.support.trim import *
 from modules.support.computeRanks import *
 from modules.support.changelogMVPs import *
 from modules.support.readCredentials import readCredentials
+from modules.support.getAliases import *
 
 def get_player_stats(path, tabStats, tabIDs, type):
     gc = readCredentials(path)
@@ -97,8 +98,26 @@ def get_blacklist():
     
 def get_elos(folder):
     with open(f"./{folder}/elos.json") as f:
-     content = f.read()
-     return json.loads(content)
+        content = f.read()
+        elos = json.loads(content)
+    f = open(f"./{folder}/ranks.txt", "r")
+    aliases = getAliasesDF(f"./{folder}/ids.csv")
+    lines = f.readlines()
+    for line in lines:
+        ranks = line.split(":")
+        rank = float(ranks[0])
+        players = ranks[1].strip().split(",")
+        for player in players:
+            if player not in elos:
+                player_id = getAliasesID(aliases, player)
+                all_names = getAliasesAllNames(aliases, player_id)
+                is_in_elos = False
+                for main_name in all_names:
+                    if main_name in elos:
+                        is_in_elos = True
+                if not is_in_elos:
+                    elos[player.strip()] = rank
+    return elos
 
 def get_mvps(folder):
     with open(f"./{folder}/mvps.txt", encoding="utf-8") as f:
