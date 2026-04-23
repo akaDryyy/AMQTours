@@ -5,7 +5,7 @@ from modules.support.handleCodes import handleCodes
 from modules.support.generateCodes import *
 from models import Players, WhiteList, TourType, Challonge
 from typing import Optional
-from utils import get_guess_watched, get_guess_random, get_player_stats, get_blacklist, add_to_tourlist
+from utils import get_guess_watched, get_guess_random, get_player_stats, get_blacklist, add_to_tourlist, get_guess_watched_28_gr
 from modules.main.eloscrape import EloScrape
 from modules.main.tierMaker import TierMaker
 
@@ -93,8 +93,8 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
         case tourType.WATCHED_2_PLUS_8:
             path = "2+8"
             player_stats, idtable = get_player_stats(path=path, tabStats=165193471, tabIDs=1903970832, type="watched-2+8")
-            kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 10, "twog": 15, "threeg": 20, "fourg":25}
-            finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
+            kwargs = {"player_stats": player_stats, "idtable": idtable, "zerog":5, "oneg": 10, "twog": 15, "threeg": 20, "fourg":25}
+            finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched_28_gr,
                 kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_28_gr, gamemode="2+8", gr_based=True)
         
         case tourType.WATCHED_X_2009:

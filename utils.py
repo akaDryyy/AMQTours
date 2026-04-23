@@ -86,6 +86,25 @@ def get_guess_random(name, player_stats, idtable, oneg, twog, threeg):
         (-float('inf'), '1')
     ], avg_gr)
 
+def get_guess_watched_28_gr(name, player_stats, idtable, zerog, oneg, twog, threeg, fourg):
+    try:
+        alias_df = pd.read_csv(idtable)
+        alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+        player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
+        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, "Guess rate"].mean()
+        if pd.isna(avg_gr):
+            avg_gr = None
+    except IndexError:
+        avg_gr = None
+    return guess_gr([
+        (fourg, '5'),
+        (threeg, '4'),
+        (twog, '3'),
+        (oneg, '2'),
+        (zerog, '1'),
+        (-float('inf'), '0')
+    ], avg_gr)
+
 def add_to_tourlist(tour, folder):
    with open(f"./{folder}/tourlist.txt", "a") as f:
     f.write("\n")
