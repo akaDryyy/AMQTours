@@ -94,3 +94,22 @@ def get_blacklist():
     with open("./blacklist.json") as f:
      content = f.read()
      return json.loads(content)
+    
+def get_elos(folder):
+    with open(f"./{folder}/elos.json") as f:
+     content = f.read()
+     return json.loads(content)
+
+def get_mvps(folder):
+    with open(f"./{folder}/mvps.txt", encoding="utf-8") as f:
+     content = f.read()
+     return content
+
+def get_changelog(folder):
+    with open(f"./{folder}/changelog.txt", encoding="utf-8") as f:
+     content = f.read()
+     return content
+
+def get_tourlist(folder):
+    with open(f"./{folder}/tourlist.txt", encoding="utf-8") as f:
+     return f.read()

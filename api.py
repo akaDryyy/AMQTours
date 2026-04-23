@@ -96,7 +96,14 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 10, "twog": 15, "threeg": 20, "fourg":25}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
                 kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_28_gr, gamemode="2+8", gr_based=True)
-
+        
+        case tourType.WATCHED_X_2009:
+            path = "x-2009"
+            player_stats, idtable = get_player_stats(path=path, tabStats=1955111089, tabIDs=1903970832, type="watched-2009")
+            kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg":28}
+            finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
+                kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_2009_gr, gamemode="2009", gr_based=True)
+            
     return finalcodes
 
 @app.get("/tiermaker")
@@ -140,7 +147,7 @@ def tiermaker(tourType: TourType):
                 tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A13',maxFallbackWindow=6,activeTours=10)
             tiermaker.make_tiers(alpha=3.75,midpoint=0.33,minRating=0,maxRating=25,tourType="cl",gui=True)
             return True
-
+        
     return False
 
 @app.post("/eloscrape")
@@ -175,6 +182,14 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
             path = "usual"
             add_to_tourlist(tour=challonge_str, folder=path)
             eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A1", sheetName="NGM Stats Export v2", 
+                mu=12, sigma=1.75, beta=7, tau=0.09, draw_probability=0.04)
+            await eloscraper.eloscrape()
+            return True
+        
+        case TourType.WATCHED_X_2009:
+            path = "x-2009"
+            add_to_tourlist(tour=challonge_str, folder=path)
+            eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A15", sheetName="NGM Stats Export v2", 
                 mu=12, sigma=1.75, beta=7, tau=0.09, draw_probability=0.04)
             await eloscraper.eloscrape()
             return True
