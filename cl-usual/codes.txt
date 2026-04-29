@@ -1,15 +1,11 @@
-######################### Discord #########################
+milar (118.690) dry (110.780) chaabdu92 (100.000) spartric (80.000) | Total = 409.470 | Guesses = [4443]
+hejsan (113.900) alkios (113.000) saiki (93.240) kirox (90.000) | Total = 410.140 | Guesses = [4433]
+koroshiya (134.410) diukes (127.940) orfey (97.850) lotte_616 (50.000) | Total = 410.200 | Guesses = [4441]
+thaleko (118.660) md22 (105.000) yasashiikumo (93.690) neumann (93.100) | Total = 410.450 | Guesses = [4444]
 
-### Solution 1 ###
+Average: 410.065
 
-baikinman (115.080) annayanami (95.000) saiki (93.210) mahzrunner (85.500) | Total = 388.790 | Guesses = [4333]
-diukes (111.180) pile (105.000) flato (95.700) janoxx (76.750) | Total = 388.630 | Guesses = [4443]
-dry (108.870) comfv (105.000) kaededayo (100.000) maplesyyrup (75.000) | Total = 388.870 | Guesses = [4442]
-milar (109.810) alkios (109.130) tvaz (95.000) shiku (75.000) | Total = 388.940 | Guesses = [4432]
-
-Average: 388.8075
-
-<https://challonge.com/me3yqu68>
+<YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1k903-11111--```
 Distribution of guesses:
 ≥28% = 4 guesses
