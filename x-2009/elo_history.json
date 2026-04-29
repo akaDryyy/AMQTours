@@ -1,0 +1,40 @@
+[
+	{
+		"tour_id": "ilipdoc6",
+		"time": "2026-04-22 14:30:00-05:00",
+		"teams": {
+			"yahallonyanpasu (15.00) psirockin (10.00) anotherwish (10.00) vuhrculls (7.00) = 42.00": "2W 3L 0D",
+			"hejsan (15.00) bamboo (13.00) haruurara (9.00) xeyz (5.00) = 42.00": "3W 2L 0D",
+			"serozero (11.00) keizan (11.00) hmsuis (10.00) saiki (9.00) = 41.00": "2W 3L 0D",
+			"orfey (16.00) renzou (12.00) andrey_k (8.00) anicomi (5.00) = 41.00": "3W 2L 0D",
+			"milar (16.00) feyfey (12.00) bijoukoseki (8.00) aryssiel (5.00) = 41.00": "1W 4L 0D",
+			"kar72 (14.00) tapumomo (12.00) porte (10.00) mythandroid (5.00) = 41.00": "4W 1L 0D"
+		},
+		"player": {
+			"yahallonyanpasu": "initial elo: 15.000, new elo: 14.875, rating change: -0.125",
+			"psirockin": "initial elo: 10.000, new elo: 9.875, rating change: -0.125",
+			"anotherwish": "initial elo: 10.000, new elo: 9.875, rating change: -0.125",
+			"vuhrculls": "initial elo: 7.000, new elo: 6.875, rating change: -0.125",
+			"hejsan": "initial elo: 15.000, new elo: 15.106, rating change: 0.106",
+			"bamboo": "initial elo: 13.000, new elo: 13.106, rating change: 0.106",
+			"haruurara": "initial elo: 9.000, new elo: 9.106, rating change: 0.106",
+			"xeyz": "initial elo: 5.000, new elo: 5.106, rating change: 0.106",
+			"serozero": "initial elo: 11.000, new elo: 10.873, rating change: -0.127",
+			"keizan": "initial elo: 11.000, new elo: 10.873, rating change: -0.127",
+			"hmsuis": "initial elo: 10.000, new elo: 9.873, rating change: -0.127",
+			"saiki": "initial elo: 9.000, new elo: 8.873, rating change: -0.127",
+			"orfey": "initial elo: 16.000, new elo: 16.129, rating change: 0.129",
+			"renzou": "initial elo: 12.000, new elo: 12.129, rating change: 0.129",
+			"andrey_k": "initial elo: 8.000, new elo: 8.129, rating change: 0.129",
+			"anicomi": "initial elo: 5.000, new elo: 5.129, rating change: 0.129",
+			"milar": "initial elo: 16.000, new elo: 15.650, rating change: -0.350",
+			"feyfey": "initial elo: 12.000, new elo: 11.650, rating change: -0.350",
+			"bijoukoseki": "initial elo: 8.000, new elo: 7.650, rating change: -0.350",
+			"aryssiel": "initial elo: 5.000, new elo: 4.650, rating change: -0.350",
+			"kar72": "initial elo: 14.000, new elo: 14.368, rating change: 0.368",
+			"tapumomo": "initial elo: 12.000, new elo: 12.368, rating change: 0.368",
+			"porte": "initial elo: 10.000, new elo: 10.368, rating change: 0.368",
+			"mythandroid": "initial elo: 5.000, new elo: 5.368, rating change: 0.368"
+		}
+	}
+]

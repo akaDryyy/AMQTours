@@ -115,7 +115,7 @@ class Solver:
         if args.thinktime:
             thinkTime = args.thinktime
 
-        self.tiers, self.tier_weights = get_tiers(tourType)
+        self.tiers, self.tier_weights = get_tiers(tourType) #tourType is useless for now
 
         if grApproach:
             gc = readCredentials(self.directory)
@@ -295,6 +295,11 @@ class Solver:
                 },
                 "gr": {
                     False: (get_guess_watched_28_gr,   generate_codes_watched_28_gr)
+                }
+            },
+            "watched-2009": {
+                "gr": {
+                    False: (get_guess_watched_gr,   generate_codes_watched_2009_gr)
                 }
             },
             "op": {

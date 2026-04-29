@@ -7,6 +7,7 @@ from modules.support.trim import *
 from modules.support.computeRanks import *
 from modules.support.changelogMVPs import *
 from modules.support.readCredentials import readCredentials
+from modules.support.getAliases import *
 
 def get_player_stats(path, tabStats, tabIDs, type):
     gc = readCredentials(path)
@@ -85,6 +86,25 @@ def get_guess_random(name, player_stats, idtable, oneg, twog, threeg):
         (-float('inf'), '1')
     ], avg_gr)
 
+def get_guess_watched_28_gr(name, player_stats, idtable, zerog, oneg, twog, threeg, fourg):
+    try:
+        alias_df = pd.read_csv(idtable)
+        alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+        player_id = alias_df.loc[alias_df["Player Name"] == name, 'Player ID'].iloc[0]
+        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, "Guess rate"].mean()
+        if pd.isna(avg_gr):
+            avg_gr = None
+    except IndexError:
+        avg_gr = None
+    return guess_gr([
+        (fourg, '5'),
+        (threeg, '4'),
+        (twog, '3'),
+        (oneg, '2'),
+        (zerog, '1'),
+        (-float('inf'), '0')
+    ], avg_gr)
+
 def add_to_tourlist(tour, folder):
    with open(f"./{folder}/tourlist.txt", "a") as f:
     f.write("\n")
@@ -94,3 +114,40 @@ def get_blacklist():
     with open("./blacklist.json") as f:
      content = f.read()
      return json.loads(content)
+    
+def get_elos(folder):
+    with open(f"./{folder}/elos.json") as f:
+        content = f.read()
+        elos = json.loads(content)
+    f = open(f"./{folder}/ranks.txt", "r")
+    aliases = getAliasesDF(f"./{folder}/ids.csv")
+    lines = f.readlines()
+    for line in lines:
+        ranks = line.split(":")
+        rank = float(ranks[0])
+        players = ranks[1].strip().split(",")
+        for player in players:
+            if player not in elos:
+                player_id = getAliasesID(aliases, player)
+                all_names = getAliasesAllNames(aliases, player_id)
+                is_in_elos = False
+                for main_name in all_names:
+                    if main_name in elos:
+                        is_in_elos = True
+                if not is_in_elos:
+                    elos[player.strip()] = rank
+    return elos
+
+def get_mvps(folder):
+    with open(f"./{folder}/mvps.txt", encoding="utf-8") as f:
+     content = f.read()
+     return content
+
+def get_changelog(folder):
+    with open(f"./{folder}/changelog.txt", encoding="utf-8") as f:
+     content = f.read()
+     return content
+
+def get_tourlist(folder):
+    with open(f"./{folder}/tourlist.txt", encoding="utf-8") as f:
+     return f.read()

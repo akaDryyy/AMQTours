@@ -55,6 +55,8 @@
                     <li><a class="dropdown-item" href="{{ url_for('watched_2_8') }}">Watched 2+8</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{{ url_for('watched_in') }}">Watched INS</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ url_for('watched_2009') }}">Watched x-2009</a></li>
                 </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="https://docs.google.com/spreadsheets/d/1Fm6pMyXv7qhOQkLah4yX9HNow4WaDR4HJuAVMukQl34/edit?gid=2023469160#gid=2023469160" target="_blank">NGM Stats</a></li>
@@ -65,7 +67,7 @@
     <div class="container">
         <div class="title">
             <h1>{{ tourType }} NGMC Solver</h1>
-            {% if tourType not in ["random", "random 15s", "watched 5s", "watched 2+8"] %}
+            {% if dryelo %}
             <button type="button" class="btn btn-primary" onclick="tiermaker()">Update Elos</button>
             <div id="loading-tiermaker" style="display:none;">
                 ⏳ Loading...
@@ -79,7 +81,7 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home" type="button">Solver</button>
             </li>
-            {% if tourType in ["random", "random 15s", "watched 5s", "watched 2+8"] %}
+            {% if not dryelo %}
             <li class="nav-item" role="presentation">
                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#menu0" type="button">Eloscrape</button>
             </li>
@@ -135,11 +137,10 @@
                 <div class="row">
                     <h2>Codes</h2>
                     <button class="btn btn-primary" onclick="copy('codes')">Copy to clipboard</button>
-                    <!--<label for="codes" class="form-label">Codes</label>-->
                     <textarea class="form-control" id="codes" rows="10" readonly></textarea>
                 </div>
             </div>
-            {% if tourType in ["random", "random 15s", "watched 5s", "watched 2+8"] %}
+            {% if not dryelo %}
             <div class="tab-pane fade" id="menu0">
                 <div class="row">
                     <div class="col-6">
