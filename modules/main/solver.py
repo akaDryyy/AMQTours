@@ -156,11 +156,15 @@ class Solver:
                         players.update(new_player)
                     # Check aliases
                     elif player_id is not None:
+                        found = False
                         all_names = getAliasesAllNames(aliases, player_id)
                         for main_name in all_names:
                             if main_name in ranks:
+                                found = True
                                 players[player] = ranks[main_name]
-                                break
+                        if not found:
+                            input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
+                            exit()  
                     else:
                         # Not in current elo, check if new player or stats exist for them
                         alias_df = pd.read_csv(self.IDTABLE)
@@ -208,10 +212,15 @@ class Solver:
                         players.update(new_player)
                     # Check aliases
                     elif player_id is not None:
+                        found = False
                         all_names = getAliasesAllNames(aliases, player_id)
                         for main_name in all_names:
                             if main_name in ranks:
+                                found = True
                                 players[player] = ranks[main_name]
+                        if not found:
+                            input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
+                            exit()    
                     else:
                         input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
                         exit()
@@ -228,7 +237,7 @@ class Solver:
         nums = [val for _, val in players]
         k = int(len(nums) / team_size)
         p_values = {p[0]: p[1] for p in players}
-        
+
         self.foundSolutions = LPProblem(players, team_size, self.blacklist, self.whitelist, self.maxSolutions, thinkTime)
 
         # Automatic code generation

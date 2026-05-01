@@ -1,11 +1,9 @@
-milar (14.322) alkios (13.598) yashadox (4.521) aryssiel (3.374) | Total = 35.815 | Guesses = [4432]
-diukes (16.080) yahallonyanpasu (11.569) saiki (7.653) eljuanchi (0.339) | Total = 35.641 | Guesses = [4432]
-claydoll1091 (11.714) baikinman (11.257) feyfey (6.495) annayanami (6.292) | Total = 35.758 | Guesses = [4423]
-akatsuki (21.578) chemist (9.006) yellowrose (4.529) luna (0.605) | Total = 35.718 | Guesses = [4432]
-hejsan (13.897) dry (12.005) kirox (5.663) spartric (4.196) | Total = 35.761 | Guesses = [4433]
-channina (25.002) skychael (6.692) mahzrunner (4.944) ryoutavn (-0.818) | Total = 35.820 | Guesses = [4332]
+milar (14.241) hejsan (12.963) zokie (6.867) ryoutavn (-0.799) | Total = 33.272 | Guesses = [4442]
+fortnayt (18.417) janoxx (7.724) gua (6.746) eljuanchi (0.345) | Total = 33.232 | Guesses = [4332]
+baikinman (11.595) hmsuis (9.932) bigsmo (6.060) feyfey (5.760) | Total = 33.347 | Guesses = [4433]
+irinashidou (10.500) progenitor (8.140) saiki (7.663) yasashiikumo (7.056) | Total = 33.359 | Guesses = [4433]
 
-Average: 35.7522
+Average: 33.3025
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
