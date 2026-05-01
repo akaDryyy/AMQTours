@@ -4,6 +4,7 @@ from typing import List, Optional, Dict, Any
 from math import comb
 from collections import Counter
 from TourFunctions import *
+from chanting import chantingSongsIDs
 
 @dataclass
 class Player:
@@ -231,6 +232,7 @@ class TeamDB:
 class Song:
     data: Any
 
+    ann_song_id: int = 0
     anime_name: str = ""
     anime_id: int = 0
     video_id: str = ""
@@ -261,6 +263,7 @@ class Song:
             2: "ED",
             3: "IN"
         }
+        self.ann_song_id = self.data["songInfo"]["annSongId"]
         self.anime_name = self.data["songInfo"]["animeNames"]["english"]
         self.anime_id = (
             self.data["songInfo"]["siteIds"]["malId"]
@@ -314,6 +317,7 @@ class SongDB:
     topAnimeID: List[Song] = field(default_factory=list)
     topVideoID: List[Song] = field(default_factory=list)
     songsAmount: int = 0
+    chantings: List[Song] = field(default_factory=list)
 
     def build_lookups(self):
         self._songs_by_id = {s.video_id: s for s in self.songs}
@@ -344,6 +348,9 @@ class SongDB:
 
             if song.rebroadcast:
                 self.rbs.append(song)
+            
+            if song.ann_song_id in chantingSongsIDs:
+                self.chantings.append(song)
 
             songtype = song.song_type
             key = f"{songtype}"

@@ -284,6 +284,7 @@ def render_songdb_summary_html(songDB) -> str:
     <div class="section-title">Overview</div>
     <div class="line">Total Songs: <b>{songDB.songsAmount}</b></div>
     <div class="line">Rebroadcasts: <b>{len(songDB.rbs)}</b></div>
+    <div class="line">Chantings: <b>{round(((len(songDB.chantings)/songDB.songsAmount)*100), 2)} %</b></div>
 </div>
 """
 
