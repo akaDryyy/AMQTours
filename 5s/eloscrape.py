@@ -7,16 +7,16 @@ async def main():
     DIRECTORY = os.path.dirname(os.path.abspath(__file__))
     eloscraper = EloScrape(
         directory=DIRECTORY, 
-        tabEloStorage=716533894, 
+        tabEloStorage=82254993, 
         tabEloStorageCell="A3", 
-        sheetName="ngm stats", 
+        sheetName="NGM Stats Export v2", 
         mu=12, 
         sigma=4, 
         beta=7, 
         tau=0.09, 
         draw_probability=0.04
         )
-    await eloscraper.eloscrape()
+    await eloscraper.eloscrape(tourlist_cell="C3")
 
 if __name__ == '__main__':
     asyncio.run(main())

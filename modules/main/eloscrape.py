@@ -55,15 +55,14 @@ class EloScrape:
         self.PROXY_SERVER = '' # get from tsui if necessary
         self.TEAMSIZE = 4
 
-    async def eloscrape(self, saveToSheet = True):  
+    async def eloscrape(self, saveToSheet = True, tourlist_cell = None):  
         trueskill.setup(
             mu=self.mu,
             sigma=self.sigma, 
             beta=self.beta, 
             tau=self.tau, 
             draw_probability=self.draw_probability,
-            backend='mpmath'
-            )
+            backend='mpmath')
 
         tzd = {}
         def init_timezones():
@@ -330,4 +329,4 @@ class EloScrape:
                 f.write(f'{tier}: {", ".join([f"{player} ({elos_print[player]})" for player in tierlist[tier]])}\n')
 
         if saveToSheet:
-            saveElos(self.directory, self.tabEloStorage, self.sheetName, self.tabEloStorageCell, self.ELOS)
+            saveElos(self.directory, self.tabEloStorage, self.sheetName, self.tabEloStorageCell, self.ELOS, tourlist_path=self.TOURLIST_PATH, tourlist_cell=tourlist_cell)

@@ -67,7 +67,6 @@
     <div class="container">
         <div class="title">
             <h1>{{ tourType }} NGMC Solver</h1>
-            {% if dryelo %}
             <button type="button" class="btn btn-primary" onclick="tiermaker()">Update Elos</button>
             <div id="loading-tiermaker" style="display:none;">
                 ⏳ Loading...
@@ -75,7 +74,6 @@
             <div id="error-tiermaker" style="display:none;">
                 ❌ Could not update elos
             </div>
-            {% endif %}
         </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">

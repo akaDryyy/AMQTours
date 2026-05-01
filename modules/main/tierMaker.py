@@ -5,7 +5,7 @@ import csv
 import shutil
 import argparse
 from collections import defaultdict
-
+import json
 from modules.support.cleanData import *
 from modules.support.readCredentials import readCredentials
 from modules.support.trim import *
@@ -149,3 +149,18 @@ class TierMaker:
             saveElos(self.directory, self.tabEloStorage, self.sheetName, self.tabEloStorageCell, self.ELOS)
         if not gui:
             _ = input("Finished updating ranks. Press any key to continue...")
+        
+    def update_elos(self, tourlist_cell):
+        gc = readCredentials(self.directory)
+
+        sheet = gc.open(self.sheetName)
+        wks_elos = sheet.get_worksheet_by_id(self.tabEloStorage)
+        elos = json.loads(wks_elos.get_values(self.tabEloStorageCell)[0][0])
+
+        with open(self.ELOS, 'w') as f:
+            json.dump(elos, f, indent=4)
+
+        tourlist_file = os.path.join(self.directory, "tourlist.txt")
+        with open(tourlist_file, "w") as t:
+            tourlist_content = wks_elos.get_values(tourlist_cell)[0][0]
+            t.write(tourlist_content)

@@ -16,7 +16,7 @@ async def main():
         tau=0.5, 
         draw_probability=0.01
     )
-    await eloscraper.eloscrape()
+    await eloscraper.eloscrape(tourlist_cell="C2")
 
 if __name__ == '__main__':
     asyncio.run(main())

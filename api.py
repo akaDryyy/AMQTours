@@ -148,6 +148,43 @@ def tiermaker(tourType: TourType):
             tiermaker.make_tiers(alpha=3.75,midpoint=0.33,minRating=0,maxRating=25,tourType="cl",gui=True)
             return True
         
+        # Not Dry Elo
+        case TourType.WATCHED_5S:
+            path = "5s"
+            #only tabelostoragecell and tourlist_cell matter
+            tiermaker = TierMaker(directory=path, sheetName="NGM Stats Export v2", tabStats=0, 
+                tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A3', maxFallbackWindow=6, activeTours=10)
+            tiermaker.update_elos(tourlist_cell="C3") #important
+            return True
+        
+        case TourType.WATCHED_2_PLUS_8:
+            path = "2+8"
+            tiermaker = TierMaker(directory=path, sheetName="NGM Stats Export v2", tabStats=0, 
+                tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A2', maxFallbackWindow=6, activeTours=10)
+            tiermaker.update_elos(tourlist_cell="C2")
+            return True
+        
+        case TourType.RANDOM:
+            path = "usual"
+            tiermaker = TierMaker(directory=path, sheetName="NGM Stats Export v2", tabStats=0, 
+                tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A1', maxFallbackWindow=6, activeTours=10)
+            tiermaker.update_elos(tourlist_cell="C1")
+            return True
+        
+        case TourType.RANDOM_15S:
+            path = "usual"
+            tiermaker = TierMaker(directory=path, sheetName="NGM Stats Export v2", tabStats=0, 
+                tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A1', maxFallbackWindow=6, activeTours=10)
+            tiermaker.update_elos(tourlist_cell="C1")
+            return True
+        
+        case TourType.WATCHED_X_2009:
+            path = "x-2009"
+            tiermaker = TierMaker(directory=path, sheetName="NGM Stats Export v2", tabStats=0, 
+                tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A15', maxFallbackWindow=6, activeTours=10)
+            tiermaker.update_elos(tourlist_cell="C15")
+            return True
+        
     return False
 
 @app.post("/eloscrape")
@@ -159,7 +196,7 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
             add_to_tourlist(tour=challonge_str, folder=path)
             eloscraper = EloScrape(directory=path, tabEloStorage=716533894, tabEloStorageCell="A3", sheetName="ngm stats", 
                 mu=12, sigma=4, beta=7, tau=0.09, draw_probability=0.04)
-            await eloscraper.eloscrape()
+            await eloscraper.eloscrape(tourlist_cell="C3")
             return True
         
         case TourType.WATCHED_2_PLUS_8:
@@ -167,7 +204,7 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
             add_to_tourlist(tour=challonge_str, folder=path)
             eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A2", sheetName="NGM Stats Export v2", 
                 mu=10, sigma=3, beta=3, tau=0.5, draw_probability=0.01)
-            await eloscraper.eloscrape()
+            await eloscraper.eloscrape(tourlist_cell="C2")
             return True
         
         case TourType.RANDOM:
@@ -175,7 +212,7 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
             add_to_tourlist(tour=challonge_str, folder=path)
             eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A1", sheetName="NGM Stats Export v2", 
                 mu=12, sigma=1.75, beta=7, tau=0.09, draw_probability=0.04)
-            await eloscraper.eloscrape()
+            await eloscraper.eloscrape(tourlist_cell="C1")
             return True
         
         case TourType.RANDOM_15S:
@@ -183,7 +220,7 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
             add_to_tourlist(tour=challonge_str, folder=path)
             eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A1", sheetName="NGM Stats Export v2", 
                 mu=12, sigma=1.75, beta=7, tau=0.09, draw_probability=0.04)
-            await eloscraper.eloscrape()
+            await eloscraper.eloscrape(tourlist_cell="C1")
             return True
         
         case TourType.WATCHED_X_2009:
@@ -191,7 +228,7 @@ async def eloscrape(tourType: TourType, challonge: Challonge):
             add_to_tourlist(tour=challonge_str, folder=path)
             eloscraper = EloScrape(directory=path, tabEloStorage=82254993, tabEloStorageCell="A15", sheetName="NGM Stats Export v2", 
                 mu=12, sigma=1.75, beta=7, tau=0.09, draw_probability=0.04)
-            await eloscraper.eloscrape()
+            await eloscraper.eloscrape(tourlist_cell="C15")
             return True
         
     return False
