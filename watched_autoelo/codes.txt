@@ -1,9 +1,9 @@
-emdiel (115.645) chemist (96.651) aryssiel (93.367) mythandroid (80.607) | Total = 386.270 | Guesses = [5544]
-miiarad (110.879) liljakatsuragi (107.065) 2skr (94.075) hotpot (74.647) | Total = 386.666 | Guesses = [5544]
-tsui (137.644) chommy (94.740) serozero (93.293) brandon_k (60.497) | Total = 386.174 | Guesses = [5552]
-shelterrin (112.734) solosion (102.756) catge (86.681) arpia97 (83.861) | Total = 386.032 | Guesses = [5555]
+shelterrin (111.547) arpia97 (104.721) solosion (100.002) mythandroid (82.441) | Total = 398.711 | Guesses = [5554]
+tsui (137.888) serozero (102.581) aryssiel (100.186) brandon_k (57.555) | Total = 398.210 | Guesses = [5542]
+emdiel (120.164) liljakatsuragi (106.860) 2skr (95.161) hotpot (77.564) | Total = 399.749 | Guesses = [5544]
+miiarad (111.271) chommy (96.480) catge (95.549) chemist (95.496) | Total = 398.796 | Guesses = [5555]
 
-Average: 386.2855
+Average: 398.8665
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```

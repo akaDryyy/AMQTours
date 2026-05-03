@@ -144,27 +144,16 @@ class Solver:
         
         players = {}
         if isAutorank:
-            ranks, raw_ranks, post_ranks_fixup = getRanks(self.RANKS, self.ELOS, returnFixup=True)
+            ranks, raw_ranks, post_ranks_fixup = getRanks(self.RANKS, self.ELOS, aliases, returnFixup=True)
             with open(self.PLAYERS, 'r') as file:
                 for player in file.read().split(','):
                     player = player.strip().split(' (')[0]
                     player = player.lower()
                     player_key = player
                     player_id = getAliasesID(aliases, player_key)
-                    if player_key in ranks:
-                        new_player = {player: ranks[player_key]}
+                    if player_id in ranks:
+                        new_player = {player: ranks[player_id]}
                         players.update(new_player)
-                    # Check aliases
-                    elif player_id is not None:
-                        found = False
-                        all_names = getAliasesAllNames(aliases, player_id)
-                        for main_name in all_names:
-                            if main_name in ranks:
-                                found = True
-                                players[player] = ranks[main_name]
-                        if not found:
-                            input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
-                            exit()  
                     else:
                         # Not in current elo, check if new player or stats exist for them
                         alias_df = pd.read_csv(self.IDTABLE)
@@ -198,29 +187,18 @@ class Solver:
                             exit()
         else:
             if isOld:
-                ranks = getRanks(self.RANKS)
+                ranks = getRanks(self.RANKS, None, aliases)
             else:
-                ranks = getRanks(self.RANKS, self.ELOS)
+                ranks = getRanks(self.RANKS, self.ELOS, aliases)
             with open(self.PLAYERS, 'r') as file:
                 for player in file.read().split(','):
                     player = player.strip().split(' (')[0]
                     player = player.lower()
                     player_key = player
                     player_id = getAliasesID(aliases, player_key)
-                    if player_key in ranks:
-                        new_player = {player: ranks[player_key]}
-                        players.update(new_player)
-                    # Check aliases
-                    elif player_id is not None:
-                        found = False
-                        all_names = getAliasesAllNames(aliases, player_id)
-                        for main_name in all_names:
-                            if main_name in ranks:
-                                found = True
-                                players[player] = ranks[main_name]
-                        if not found:
-                            input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
-                            exit()    
+                    if player_id in ranks:
+                        new_player = {player: ranks[player_id]}
+                        players.update(new_player) 
                     else:
                         input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
                         exit()
