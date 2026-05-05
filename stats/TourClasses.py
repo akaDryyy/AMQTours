@@ -4,7 +4,6 @@ from typing import List, Optional, Dict, Any
 from math import comb
 from collections import Counter
 from TourFunctions import *
-from chanting import chantingSongsIDs
 
 @dataclass
 class Player:
@@ -331,6 +330,8 @@ class SongDB:
     
     def post_process(self):
         self.songsAmount = len(self.songs)
+        chantingSongsIDs = [int(songID) for songID in open("chanting.txt")]
+
         for song in self.songs:
             vintage = song.vintage
             decade = int((vintage // 10) * 10)

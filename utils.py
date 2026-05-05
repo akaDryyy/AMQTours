@@ -8,6 +8,7 @@ from modules.support.computeRanks import *
 from modules.support.changelogMVPs import *
 from modules.support.readCredentials import readCredentials
 from modules.support.getAliases import *
+from modules.support.getRanks import getRanks
 
 def get_player_stats(path, tabStats, tabIDs, type):
     gc = readCredentials(path)
@@ -114,29 +115,21 @@ def get_blacklist():
     with open("./blacklist.json") as f:
      content = f.read()
      return json.loads(content)
-    
+
 def get_elos(folder):
-    with open(f"./{folder}/elos.json") as f:
-        content = f.read()
-        elos = json.loads(content)
-    f = open(f"./{folder}/ranks.txt", "r")
-    aliases = getAliasesDF(f"./{folder}/ids.csv")
-    lines = f.readlines()
-    for line in lines:
-        ranks = line.split(":")
-        rank = float(ranks[0])
-        players = ranks[1].strip().split(",")
-        for player in players:
-            if player not in elos:
-                player_id = getAliasesID(aliases, player)
-                all_names = getAliasesAllNames(aliases, player_id)
-                is_in_elos = False
-                for main_name in all_names:
-                    if main_name in elos:
-                        is_in_elos = True
-                if not is_in_elos:
-                    elos[player.strip()] = rank
-    return elos
+    players_ids = {}
+    idtable = os.path.join(folder, "ids.csv")
+    rank_path = os.path.join(folder, "ranks.txt")
+    elos_path = os.path.join(folder, "elos.json")
+    aliases = getAliasesDF(idtable)
+    ranks = getRanks(rank_path, elos_path, aliases)
+    aliases["Player Name"] = aliases["Player Name"].str.strip().str.lower()
+    id_to_all_names = aliases.groupby("Player ID")["Player Name"].apply(list).to_dict()
+    for player_id, names in id_to_all_names.items():
+        for name in names:
+            if player_id in ranks:
+                players_ids[name] = ranks[player_id]
+    return players_ids
 
 def get_mvps(folder):
     with open(f"./{folder}/mvps.txt", encoding="utf-8") as f:
