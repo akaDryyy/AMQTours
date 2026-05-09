@@ -1,13 +1,11 @@
-irinashidou (10.047) hmsuis (9.591) saiki (8.289) yasashiikumo (6.984) | Total = 34.911 | Guesses = [4433]
-chata (14.580) beautiful (9.948) progenitor (8.248) shiku (2.243) | Total = 35.019 | Guesses = [4433]
-dry (11.741) orfey (11.216) apurplenose (8.382) keysha18 (3.557) | Total = 34.896 | Guesses = [4442]
-baikinman (11.683) shiinamahiru (10.551) komari (6.751) zokie (5.937) | Total = 34.922 | Guesses = [4433]
-arronchu (21.486) lakumix (7.220) vr0003 (4.143) zomg (2.234) | Total = 35.083 | Guesses = [4332]
-fortnayt (18.340) swapin (6.648) shelterrin (5.174) miiarad (4.829) | Total = 34.991 | Guesses = [4333]
+diukes (15.434) baikinman (11.683) jakemonkey (6.967) zokie (5.916) | Total = 40.000 | Guesses = [4433]
+hejsan (13.127) peeku (11.046) saiki (9.019) joey (6.635) | Total = 39.827 | Guesses = [4433]
+thaleko (17.002) dry (11.741) _nadeshiko (9.221) shiku (2.039) | Total = 40.003 | Guesses = [4443]
+yahallonyanpasu (14.618) cafezinho (10.889) chemist (10.282) tvaz (4.200) | Total = 39.989 | Guesses = [4443]
 
-Average: 34.9703
+Average: 39.9547
 
-<YOURCHALLONGEURLHERE>
+<https://challonge.com/nbc77rn9>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
 ≥28% = 4 guesses

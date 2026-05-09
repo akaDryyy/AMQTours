@@ -1,0 +1,22 @@
+# Full PV List:
+tmokenc played like a 118.88. (Current rank 60.0, Δ58.88)
+Swapin played like a 105.13. (Current rank 84.92, Δ20.21)
+Saiki played like a 107.79. (Current rank 89.59, Δ18.2)
+2skr played like a 97.08. (Current rank 84.29, Δ12.79)
+inta played like a 102.65. (Current rank 92.53, Δ10.12)
+hubcioskubcio played like a 76.67. (Current rank 68.842, Δ7.828)
+Diukes played like a 152.36. (Current rank 146.55, Δ5.81)
+Progenitor played like a 118.36. (Current rank 117.13, Δ1.23)
+sssthnoob played like a 102.71. (Current rank 102.539, Δ0.171)
+Spitzell played like a 98.13. (Current rank 98.13, Δ0.0)
+MythAndroid played like a 78.6. (Current rank 78.6, Δ0.0)
+Catge played like a 79.65. (Current rank 79.65, Δ0.0)
+PotassiumF played like a 96.01. (Current rank 96.01, Δ0.0)
+brandon_K played like a 77.23. (Current rank 77.23, Δ0.0)
+Dry played like a 109.16. (Current rank 120.82, Δ-11.66)
+xeyz played like a 79.58. (Current rank 93.97, Δ-14.39)
+
+# MVPS:
+:first_place: tmokenc. Played like a 118.88 rank (Current Rank: 60.0, Δ58.88)
+:second_place: Swapin. Played like a 105.13 rank (Current Rank: 84.92, Δ20.21)
+:third_place: Saiki. Played like a 107.79 rank (Current Rank: 89.59, Δ18.2)

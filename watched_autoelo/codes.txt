@@ -1,9 +1,11 @@
-shelterrin (111.547) arpia97 (104.721) solosion (100.002) mythandroid (82.441) | Total = 398.711 | Guesses = [5554]
-tsui (137.888) serozero (102.581) aryssiel (100.186) brandon_k (57.555) | Total = 398.210 | Guesses = [5542]
-emdiel (120.164) liljakatsuragi (106.860) 2skr (95.161) hotpot (77.564) | Total = 399.749 | Guesses = [5544]
-miiarad (111.271) chommy (96.480) catge (95.549) chemist (95.496) | Total = 398.796 | Guesses = [5555]
+naizuri (59.750) cafezinho (57.700) heleos (43.380) yonakax_ (20.000) | Total = 180.830 | Guesses = [5555]
+comete (61.420) shiku (53.740) lordgrond (33.680) psirockin (31.970) | Total = 180.810 | Guesses = [5544]
+l_elf10 (64.660) hmsuis (53.610) inta (36.070) tateyamaayano (26.470) | Total = 180.810 | Guesses = [4544]
+pile (69.620) swapin (54.790) xeyz (40.370) brandon_k (15.960) | Total = 180.740 | Guesses = [5552]
+kynn (61.420) yahallonyanpasu (50.080) saiki (47.520) justaweirdo (22.270) | Total = 181.290 | Guesses = [5554]
+paperyoshi10 (90.750) gabetin (45.170) foopypoopy (31.540) lotte_616 (13.890) | Total = 181.350 | Guesses = [5542]
 
-Average: 398.8665
+Average: 180.9717
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
