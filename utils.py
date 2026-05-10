@@ -9,6 +9,17 @@ from modules.support.changelogMVPs import *
 from modules.support.readCredentials import readCredentials
 from modules.support.getAliases import *
 from modules.support.getRanks import getRanks
+from modules.support.LPProblem import LPProblem
+
+def create_teams(path, players, team_size, whitelist, blacklist, separateT1):
+    aliases = getAliasesDF(os.path.join(path, "ids.csv"))
+    players_ids = {getAliasesID(aliases, player): player for player, _ in players}
+    players_ids_ranks = [(getAliasesID(aliases, player), rank) for player, rank in players]
+    blacklist_ids = [[getAliasesID(aliases, player1), getAliasesID(aliases, player2)] for (player1, player2) in blacklist]
+    whitelist_ids = [[getAliasesID(aliases, player1), getAliasesID(aliases, player2)] for (player1, player2) in whitelist]
+    solution = LPProblem(players_ids_ranks, team_size, blacklist_ids, whitelist_ids, max_solutions=1, think_time=15000, separateT1=separateT1)[0]
+    teams = [{players_ids[player_id]: solution[player_id] for player_id in solution}]
+    return teams
 
 def get_player_stats(path, tabStats, tabIDs, type):
     gc = readCredentials(path)

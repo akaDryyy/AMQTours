@@ -216,7 +216,19 @@ class Solver:
         k = int(len(nums) / team_size)
         p_values = {p[0]: p[1] for p in players}
 
-        self.foundSolutions = LPProblem(players, team_size, self.blacklist, self.whitelist, self.maxSolutions, thinkTime)
+        # Associating player id to player name
+        players_ids = {getAliasesID(aliases, player): player for player, _ in players}
+
+        # Convert players names to ids
+        players_ids_ranks = [(getAliasesID(aliases, player), rank) for player, rank in players]
+        blacklist_ids = [[getAliasesID(aliases, player1), getAliasesID(aliases, player2)] for (player1, player2) in self.blacklist]
+        whitelist_ids = [[getAliasesID(aliases, player1), getAliasesID(aliases, player2)] for (player1, player2) in self.whitelist]
+
+        # Get solution using only ids
+        solution = LPProblem(players_ids_ranks, team_size, blacklist_ids, whitelist_ids, self.maxSolutions, thinkTime)[0]
+
+        # Convert players ids solution to players names solution
+        self.foundSolutions = [{players_ids[player_id]: solution[player_id] for player_id in solution}]
 
         # Automatic code generation
         CODE_HANDLERS = {

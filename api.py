@@ -6,8 +6,11 @@ from modules.support.generateCodes import *
 from models import Players, WhiteList, TourType, Challonge
 from typing import Optional
 from utils import get_guess_watched, get_guess_random, get_player_stats, get_blacklist, add_to_tourlist, get_guess_watched_28_gr
+from utils import create_teams
 from modules.main.eloscrape import EloScrape
 from modules.main.tierMaker import TierMaker
+from modules.support.getAliases import *
+import os
 
 app = FastAPI()
 
@@ -24,11 +27,11 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
     p_values = {p.name: p.rating for p in people.players}
     teams_number = int(len(players) / team_size)
     blacklist = get_blacklist()
-    teams = LPProblem(players, team_size, blacklist, whitelist, max_solutions=1, think_time=15000, separateT1=separateT1)
     
     match tourType:
         case TourType.WATCHED:
             path = "watched_autoelo"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=1719516221, tabIDs=1903970832, type="watched")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
@@ -36,6 +39,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.WATCHED_INS:
             path = "in_watched"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=1177294729, tabIDs=1903970832, type="watched-in")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
@@ -43,6 +47,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.WATCHED_5S:
             path = "5s"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=676003100, tabIDs=1903970832, type="watched-5s")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
@@ -50,6 +55,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.RANDOM:
             path = "usual"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=0, tabIDs=1903970832, type="usual")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 8, "twog": 19, "threeg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_random,
@@ -57,6 +63,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.RANDOM_15S:
             path = "usual"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=0, tabIDs=1903970832, type="usual")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 8, "twog": 19, "threeg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_random,
@@ -64,6 +71,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.RANDOM_OP:
             path = "op_autoelo"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=591917504, tabIDs=1903970832, type="op")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 8, "twog": 19, "threeg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_random,
@@ -71,6 +79,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.RANDOM_ED:
             path = "ed_autoelo"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=601464032, tabIDs=1903970832, type="ed")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 8, "twog": 19, "threeg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_random,
@@ -78,6 +87,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.RANDOM_INS:
             path = "in_autoelo"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=2075065970, tabIDs=1903970832, type="in")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 8, "twog": 19, "threeg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_random,
@@ -85,6 +95,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case TourType.RANDOM_CL:
             path = "cl-usual"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=1506914251, tabIDs=1903970832, type="cl")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 8, "twog": 19, "threeg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_random,
@@ -92,6 +103,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case tourType.WATCHED_2_PLUS_8:
             path = "2+8"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=165193471, tabIDs=1903970832, type="watched-2+8")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "zerog":5, "oneg": 10, "twog": 15, "threeg": 20, "fourg":25}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched_28_gr,
@@ -99,6 +111,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
         
         case tourType.WATCHED_X_2009:
             path = "x-2009"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=1955111089, tabIDs=1903970832, type="watched-2009")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg":28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
@@ -106,6 +119,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             
         case tourType.WATCHED_ED:
             path = "ed_watched"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=484347985, tabIDs=1903970832, type="watched-ed")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg":28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
@@ -113,6 +127,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
         
         case tourType.WATCHED_OP:
             path = "op_watched"
+            teams = create_teams(path, players, team_size, whitelist, blacklist, separateT1)
             player_stats, idtable = get_player_stats(path=path, tabStats=1478248904, tabIDs=1903970832, type="watched-op")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg":28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
