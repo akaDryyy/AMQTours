@@ -19,7 +19,7 @@ def main():
         midpoint=0.4,
         minRating=0,
         maxRating=25,
-        tourType="watched"
+        tourType="watched-op"
     )
 
 if __name__ == '__main__':

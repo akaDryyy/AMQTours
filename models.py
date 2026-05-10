@@ -29,6 +29,7 @@ class TourType(str, Enum):
     WATCHED_2_PLUS_8 = "watched 2 8"
     WATCHED_X_2009 = "watched x-2009"
     WATCHED_ED = "watched ed"
+    WATCHED_OP = "watched op"
 
 class Tour(BaseModel):
     type: TourType

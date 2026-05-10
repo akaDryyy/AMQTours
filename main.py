@@ -73,6 +73,14 @@ def watched_ed():
     changelog = get_changelog(folder)
     return render_template("tour.html", elos=elos, tourType="watched ed", mvps=mvps, changelog=changelog, dryelo=True)
 
+@app.get("/watched_op")
+def watched_op():
+    folder = "op_watched"
+    elos = get_elos(folder)
+    mvps = get_mvps(folder)
+    changelog = get_changelog(folder)
+    return render_template("tour.html", elos=elos, tourType="watched op", mvps=mvps, changelog=changelog, dryelo=True)
+
 @app.get("/watched_5s")
 def watched_5s():
     folder = "5s"
