@@ -251,6 +251,11 @@ class Solver:
                     False: (get_guess_watched_gr,   generate_codes_watched_in_gr)
                 }
             },
+            "watched-ed": {
+                "gr": {
+                    False: (get_guess_watched_gr,   generate_codes_watched_ed_gr)
+                }
+            },
             "watched-cl": {
                 "normal": {
                     False: (get_guess_watched_cl,  generate_codes_watched_cl)

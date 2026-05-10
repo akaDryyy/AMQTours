@@ -19,7 +19,7 @@ def main():
         fourGuess=28
     )
     solver.solve(
-        tourType="watched",
+        tourType="watched-ed",
         isAutorank=True,
         grApproach=True
     )

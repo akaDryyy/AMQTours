@@ -104,6 +104,13 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
                 kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_2009_gr, gamemode="2009", gr_based=True)
             
+        case tourType.WATCHED_ED:
+            path = "ed_watched"
+            player_stats, idtable = get_player_stats(path=path, tabStats=484347985, tabIDs=1903970832, type="watched-ed")
+            kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg":28}
+            finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
+                kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_ed_gr, gamemode="ed", gr_based=True)
+
     return finalcodes
 
 @app.get("/tiermaker")
@@ -122,6 +129,12 @@ def tiermaker(tourType: TourType):
             tiermaker = TierMaker(directory="in_watched", sheetName="NGM Stats Export v2", tabStats=1177294729, 
                 tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A8',maxFallbackWindow=6,activeTours=10)
             tiermaker.make_tiers(alpha=3.75,midpoint=0.4,minRating=0,maxRating=25,tourType="watched-in",gui=True)
+            return True
+        
+        case TourType.WATCHED_ED:
+            tiermaker = TierMaker(directory="ed_watched", sheetName="NGM Stats Export v2", tabStats=484347985, 
+                tabIDs=1903970832, tabEloStorage=82254993, tabEloStorageCell='A18', maxFallbackWindow=6,activeTours=10)
+            tiermaker.make_tiers(alpha=3.75,midpoint=0.4,minRating=0,maxRating=25,tourType="watched-ed",gui=True)
             return True
   
         case TourType.RANDOM_OP:

@@ -246,6 +246,18 @@ def generate_codes_watched_2009_gr(_, txtvar):
 """
     return txtvar
 
+def generate_codes_watched_ed_gr(_, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```j0g0z211111001130z000010100000000z11111111111100k051o000000f111100k012r02i0a46533a11002s01111111111100140111002s01a111111111102a111111111050017pr11hg1ka03-11111--```\n"
+    txtvar += """Distribution of guesses:
+≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
+"""
+    return txtvar
+
 def generate_codes_old_watched(gamemode, txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     match gamemode:
