@@ -171,15 +171,16 @@ class EloScrape:
 
         async def get_challonge_info(session, url):
             tour_id = url.rstrip('/').split('/')[-1]
+            html = os.path.join(self.directory, f"htmls/{tour_id}.html")
             try:
-                with open(f'htmls/{tour_id}.html', 'r', encoding='utf-8') as f:
+                with open(html, 'r', encoding='utf-8') as f:
                     text = f.read()
                 match_info = await parse_challonge_html(text)
             except:
                 print(f'cached html for {tour_id} not found, querying challonge...')
                 resp = await session.get(url)
                 text = resp.text
-                with open(f'htmls/{tour_id}.html', 'w', encoding='utf-8') as f:
+                with open(html, 'w', encoding='utf-8') as f:
                     f.write(text)
                 match_info = await parse_challonge_html(text)
             
