@@ -94,6 +94,12 @@ class Solver:
                                 default="usual",
                                 required=False,
                                 help="Define the tour mode, currently usual or quag")
+        elif tourType.startswith("watched-in"):
+            parser.add_argument('--mode', '-m', 
+                            choices=['30', '35', '40', '45', '50'],
+                            default='45',
+                            required=False,
+                            help="Define the tour difficulty range")
         elif tourType.startswith("watched"):
             parser.add_argument('--mode', '-m', 
                             choices=['30', '35', '40', '45', '50'],

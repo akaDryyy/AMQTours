@@ -43,7 +43,7 @@ def solver(people: Players, team_size: int, tourType: TourType, whitelist: Optio
             player_stats, idtable = get_player_stats(path=path, tabStats=1177294729, tabIDs=1903970832, type="watched-in")
             kwargs = {"player_stats": player_stats, "idtable": idtable, "oneg": 6, "twog": 12, "threeg": 18, "fourg": 28}
             finalcodes = handleCodes(foundSolutions=teams, p_values=p_values, k=teams_number, get_guesses=get_guess_watched,
-                kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_in_gr, gamemode="40", gr_based=True)
+                kwargs_guesses=kwargs or None, get_codes=generate_codes_watched_in_gr, gamemode="45", gr_based=True)
             
         case TourType.WATCHED_5S:
             path = "5s"
