@@ -157,6 +157,12 @@ class TierMaker:
         wks_elos = sheet.get_worksheet_by_id(self.tabEloStorage)
         elos = json.loads(wks_elos.get_values(self.tabEloStorageCell)[0][0])
 
+        wks_ids = sheet.get_worksheet_by_id(self.tabIDs)
+        rows_ids = wks_ids.get_all_values()
+        with open(self.IDTABLE, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerows(rows_ids)
+
         with open(self.ELOS, 'w') as f:
             json.dump(elos, f, indent=4)
 
