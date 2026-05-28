@@ -826,6 +826,11 @@ def run_ngm_sheet_stats():
         values = df_players[orderToSheet].values.tolist()
         wks_send.update(values=values, range_name='A'+str(len_send + 2))
 
+    codes_text = ""
+    if os.path.exists(TEAMS):
+        with open(TEAMS, "r", encoding="utf-8") as codes_file:
+            codes_text = codes_file.read()
+
     log_export_data(
         sheet=sheet,
         tour_type=tour_type_label,
@@ -834,6 +839,7 @@ def run_ngm_sheet_stats():
         raw_json_songs=raw_json_songs,
         alias_to_id=alias_to_id,
         id_to_aliases=id_to_aliases,
+        codes_text=codes_text,
     )
 
     reverse_columns = ["avg/8", "Avg diff hit", "Avg diff played", "Rigs missed", "Missed solos", "Lives lost on rigs"]
@@ -945,6 +951,7 @@ JSON_DATA_FIELDS = [
     "correctGuessPlayers",
     "incorrectGuessPlayers",
     "listStates",
+    "codesText",
 ]
 
 
@@ -988,7 +995,7 @@ def get_incorrect_guess_players(song, game_player_names, alias_to_id):
     return incorrect_players[:max_incorrect]
 
 
-def ordered_song_json_values(song, game_player_names, alias_to_id):
+def ordered_song_json_values(song, game_player_names, alias_to_id, codes_text):
     incorrect_guess_players = get_incorrect_guess_players(song, game_player_names, alias_to_id)
     values = []
     for field in JSON_DATA_FIELDS:
@@ -999,12 +1006,14 @@ def ordered_song_json_values(song, game_player_names, alias_to_id):
             values.append(len(incorrect_guess_players))
         elif field == "incorrectGuessPlayers":
             values.append(log_cell_value(incorrect_guess_players))
+        elif field == "codesText":
+            values.append(codes_text)
         else:
             values.append(get_nested_json_value(song, field))
     return values
 
 
-def log_export_data(sheet, tour_type, export_time, list_guess_counts, raw_json_songs, alias_to_id, id_to_aliases):
+def log_export_data(sheet, tour_type, export_time, list_guess_counts, raw_json_songs, alias_to_id, id_to_aliases, codes_text):
     if list_guess_counts:
         list_row = [tour_type, export_time]
         for player_name, guess_counts in sorted(list_guess_counts.items(), key=lambda item: item[0].casefold()):
@@ -1014,7 +1023,7 @@ def log_export_data(sheet, tour_type, export_time, list_guess_counts, raw_json_s
 
     json_rows = []
     for song_label, file_name, song, game_player_names in raw_json_songs:
-        json_rows.append([tour_type, export_time, song_label, file_name] + ordered_song_json_values(song, game_player_names, alias_to_id))
+        json_rows.append([tour_type, export_time, song_label, file_name] + ordered_song_json_values(song, game_player_names, alias_to_id, codes_text))
     if json_rows:
         json_wks = get_or_create_worksheet(sheet, "JsonData")
         existing_json_rows = json_wks.get_all_values()
