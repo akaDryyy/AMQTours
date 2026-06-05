@@ -1,0 +1,21 @@
+pip install
+
+aiohttp
+trueskill
+beautifulsoup4
+mpmath
+python-dateutil
+Brotli
+lxml
+certifi
+curl-cffi
+requests
+PuLP
+Gooey 
+pandas
+numpy
+gspread
+curl_cffi
+html2image
+pillow
+openpyxl
