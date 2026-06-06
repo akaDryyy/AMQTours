@@ -4,7 +4,7 @@
 	"teams": {
 		"porte (13.91) shadow (8.47) vuhrculls (7.64) icefeed2 (7.17) = 37.19": "2W 1L 0D",
 		"patoche49 (12.53) catge (12.08) spartric (6.78) eljuanchi (5.69) = 37.08": "2W 1L 0D",
-		"neoburnz (16.26) pomo (14.11) isekaijoucho (9.55) xeyz (-3.11) = 36.81": "1W 2L 0D",
+		"neoburnz (16.26) shiroganelily (14.11) isekaijoucho (9.55) xeyz (-3.11) = 36.81": "1W 2L 0D",
 		"mangoss (10.25) annayanami (9.41) luna (9.23) zokie (8.20) = 37.10": "1W 2L 0D"
 	},
 	"player": {
@@ -17,7 +17,7 @@
 		"spartric": "initial elo: 6.780, new elo: 7.291, rating change: 0.511",
 		"eljuanchi": "initial elo: 5.691, new elo: 6.203, rating change: 0.512",
 		"neoburnz": "initial elo: 16.256, new elo: 16.093, rating change: -0.163",
-		"pomo": "initial elo: 14.112, new elo: 13.960, rating change: -0.152",
+		"shiroganelily": "initial elo: 14.112, new elo: 13.960, rating change: -0.152",
 		"isekaijoucho": "initial elo: 9.551, new elo: 9.393, rating change: -0.157",
 		"xeyz": "initial elo: -3.105, new elo: -3.263, rating change: -0.158",
 		"mangoss": "initial elo: 10.253, new elo: 9.722, rating change: -0.531",

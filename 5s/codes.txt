@@ -1,13 +1,9 @@
-######################### Discord #########################
+qwecocacola (10.897) zarelyyyx (8.713) justaweirdo (7.895) janoxx (7.800) | Total = 35.305 | Guesses = [5333]
+annayanami (13.590) komari (12.073) feynox_ (7.510) eljuanchi (2.244) | Total = 35.417 | Guesses = [5543]
+zokie (10.647) spitzell (8.476) legrandort (8.431) bommie (7.745) | Total = 35.299 | Guesses = [5454]
+shadow (11.478) catge (10.638) anicomi (9.762) icefeed2 (3.596) | Total = 35.474 | Guesses = [5434]
 
-### Solution 1 ###
-
-annayanami (13.537) zokie (9.690) legrandort (8.591) eljuanchi (2.782) | Total = 34.600 | Guesses = [5553]
-komari (11.584) shadow (11.403) anicomi (9.477) icefeed2 (2.300) | Total = 34.764 | Guesses = [5534]
-catge (10.162) spitzell (9.062) justaweirdo (8.193) feynox_ (7.146) | Total = 34.563 | Guesses = [4434]
-qwecocacola (9.500) janoxx (8.679) bommie (8.653) zarelyyyx (7.743) | Total = 34.575 | Guesses = [5343]
-
-Average: 34.6255
+Average: 35.3738
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z21111100130z000011110000000z111111111111005051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k903-11111--```

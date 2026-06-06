@@ -7,7 +7,7 @@ def main():
     tiermaker = TierMaker(
         directory=DIRECTORY, 
         sheetName="NGM Stats Export v2", 
-        tabStats=1177294729, 
+        tabStats=154982033, 
         tabIDs=1903970832, 
         tabEloStorage=82254993, 
         tabEloStorageCell='A19',

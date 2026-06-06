@@ -1,11 +1,11 @@
-diukes (15.434) baikinman (11.683) jakemonkey (6.967) zokie (5.916) | Total = 40.000 | Guesses = [4433]
-hejsan (13.127) peeku (11.046) saiki (9.019) joey (6.635) | Total = 39.827 | Guesses = [4433]
-thaleko (17.002) dry (11.741) _nadeshiko (9.221) shiku (2.039) | Total = 40.003 | Guesses = [4443]
-yahallonyanpasu (14.618) cafezinho (10.889) chemist (10.282) tvaz (4.200) | Total = 39.989 | Guesses = [4443]
+bop (18.000) kishua (12.000) _nadeshiko (8.611) shiku (2.859) | Total = 41.470 | Guesses = [4443]
+hejsan (12.942) dry (11.919) peeku (11.044) tvaz (5.665) | Total = 41.570 | Guesses = [4443]
+diukes (16.332) chemist (10.201) joey (8.300) jakemonkey (6.731) | Total = 41.564 | Guesses = [4434]
+thaleko (17.176) cafezinho (10.882) saiki (8.163) zokie (5.340) | Total = 41.561 | Guesses = [4434]
 
-Average: 39.9547
+Average: 41.5412
 
-<https://challonge.com/nbc77rn9>
+<YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
 ≥28% = 4 guesses

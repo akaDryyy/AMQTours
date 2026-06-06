@@ -1,12 +1,12 @@
-beokros (106.850) janoxx (95.200) catge (79.540) cm02 (72.000) | Total = 353.590 | Guesses = [5444]
-bamboo (99.450) fuck_amq (93.000) maikasasaki (90.000) ryoutavn (70.000) | Total = 352.450 | Guesses = [5444]
-redeyes (115.000) orfey (99.860) foopypoopy (77.560) chiabobo (60.000) | Total = 352.420 | Guesses = [4544]
-diukes (150.330) lordgrond (79.970) zomg (62.120) hakohoka (60.000) | Total = 352.420 | Guesses = [5434]
+bamboo (103.070) cm02 (93.860) kirivert (88.550) foopypoopy (73.181) | Total = 358.661 | Guesses = [5544]
+redeyes (107.100) janoxx (91.825) ryoutavn (83.710) lordgrond (76.300) | Total = 358.935 | Guesses = [5554]
+beokros (109.880) orfey (98.710) catge (76.010) zomg (73.220) | Total = 357.820 | Guesses = [5544]
+diukes (130.064) maikasasaki (100.920) hakohoka (65.570) chiabobo (62.500) | Total = 359.054 | Guesses = [5532]
 
-Average: 352.72
+Average: 358.6175
 
 <YOURCHALLONGEURLHERE>
-```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s011111111100140111002s01a111111111102a11111111111i01k803-11111--```
+```j0g0z211111001130z000010100000000z11111111111100k051o000000f111100k012r02i0a46533a11002s01111111111100140111002s01a111111111102a111111111050017pr11hg1ka03-11111--```
 Distribution of guesses:
 ≥28% = 5 guesses
 18% - 28% = 4 guesses

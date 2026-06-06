@@ -1,9 +1,9 @@
-milar (118.690) dry (110.780) chaabdu92 (100.000) spartric (80.000) | Total = 409.470 | Guesses = [4443]
-hejsan (113.900) alkios (113.000) saiki (93.240) kirox (90.000) | Total = 410.140 | Guesses = [4433]
-koroshiya (134.410) diukes (127.940) orfey (97.850) lotte_616 (50.000) | Total = 410.200 | Guesses = [4441]
-thaleko (118.660) md22 (105.000) yasashiikumo (93.690) neumann (93.100) | Total = 410.450 | Guesses = [4444]
+milar (102.720) hejsan (94.970) yasashiikumo (79.000) spartric (69.590) | Total = 346.280 | Guesses = [4443]
+koroshiya (119.270) alkios (100.930) orfey (90.370) lotte_616 (36.010) | Total = 346.580 | Guesses = [4441]
+diukes (110.250) neumann (86.440) chaabdu92 (74.700) saiki (74.170) | Total = 345.560 | Guesses = [4443]
+thaleko (108.310) dry (90.387) md22 (75.740) kirox (70.940) | Total = 345.377 | Guesses = [4443]
 
-Average: 410.065
+Average: 345.9492
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11100000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1k903-11111--```

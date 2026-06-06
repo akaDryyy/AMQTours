@@ -11,7 +11,7 @@ from modules.support.trim import *
 from modules.support.computeRanks import *
 from modules.support.changelogMVPs import *
 from modules.support.reset import reset_ranks
-from modules.support.saveElos import saveElos
+from modules.support.saveElos import *
 
 class TierMaker:
     def __init__(
@@ -114,18 +114,17 @@ class TierMaker:
                                     alpha, midpoint, minRating, maxRating, path=self.AVGSTATS, isWatched=tourType.startswith("watched"), wrpath=self.PREWRSTATS)
         print(final_ranks)
         final_ranks.to_csv(self.FINALSTATS, index=False, encoding="utf-8")
-        rank_dict = dict(zip(final_ranks['PlayerName'], final_ranks['ELO'].round(3)))
+        rank_dict = dict(
+            zip(
+                zip(final_ranks["Player ID"], final_ranks["PlayerName"]),
+                final_ranks["ELO"].round(3),
+            )
+        )
 
-        with open(self.ELOS, 'r') as f:
-            old_elos = json.load(f)
-            old_old_elos = old_elos
+        old_elos = load_composite_dict_from_json(self.ELOS)
+        old_old_elos = old_elos
 
-        with open(self.ELOS, 'w') as f:
-            json.dump(rank_dict, f, indent=4)
-
-        score_to_players = defaultdict(list)
-        for player, score in rank_dict.items():
-            score_to_players[round(score, 3)].append(player)
+        save_composite_dict_to_json(rank_dict, self.ELOS)
 
         makeChangelog(rank_dict, old_elos, self.CHANGELOG)
 
@@ -135,7 +134,12 @@ class TierMaker:
         if not last_tour.empty:
             last_tour_ranks = compute_ranks(last_tour, full_stats, normalization_spec, self.tiers, self.tier_weights,
                                             alpha, midpoint, minRating, maxRating, full=False, isWatched=tourType.startswith("watched"), isMVP=True)
-            last_tour_dict = dict(zip(last_tour_ranks['PlayerName'], last_tour_ranks['ELO']))
+            last_tour_dict = dict(
+                zip(
+                    zip(last_tour_ranks["Player ID"], last_tour_ranks["PlayerName"]),
+                    last_tour_ranks["ELO"].round(3),
+                )
+            )
 
             makeMVPs(last_tour_dict, old_old_elos, self.MVPS)
 

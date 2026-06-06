@@ -1,5 +1,6 @@
 import json
 from modules.support.getAliases import *
+from modules.support.saveElos import *
 
 def getRanks(RANKS_PATH, ELOS_PATH=None, ALIAS_PATH=None, returnFixup=False):
     ranks = {}
@@ -26,11 +27,10 @@ def getRanks(RANKS_PATH, ELOS_PATH=None, ALIAS_PATH=None, returnFixup=False):
     updated_elos = {getAliasesID(ALIAS_PATH, player) or player: rating for player, rating in ranks.items()}
 
     if ELOS_PATH:
-        with open(ELOS_PATH, 'r') as f:
-            raw_ranks = json.load(f)
-            cleaned_ranks = {k.strip().lower(): v for k, v in raw_ranks.items()}
-            cleaned_ranks_id = {getAliasesID(ALIAS_PATH, player) or player: rating for player, rating in cleaned_ranks.items()}
-            updated_elos.update(cleaned_ranks_id)
+        raw_ranks = load_composite_dict_from_json(ELOS_PATH)
+        cleaned_ranks = {id: v for (id, k), v in raw_ranks.items()}
+
+        updated_elos.update(cleaned_ranks)
 
     if returnFixup:
         return updated_elos, raw_ranks, post_ranks_fixup

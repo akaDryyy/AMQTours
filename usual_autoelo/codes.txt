@@ -1,9 +1,9 @@
-watashiii (167.059) hejsan (119.110) janoxx (97.725) feyfey (89.154) | Total = 473.048 | Guesses = [4422]
-fayeurs (160.000) mrwolf2 (114.320) julialess64 (104.637) saiki (94.225) | Total = 473.182 | Guesses = [4443]
-milar (128.529) chata (120.987) koroshiya (117.200) dry (106.250) | Total = 472.966 | Guesses = [4444]
-kar72 (132.675) lelpop (117.310) md22 (111.514) orfey (111.064) | Total = 472.563 | Guesses = [4444]
+watashiii (136.900) orfey (91.782) md22 (79.323) janoxx (70.183) | Total = 378.188 | Guesses = [4443]
+kar72 (102.937) lelpop (97.358) julialess64 (89.247) dry (88.611) | Total = 378.153 | Guesses = [4444]
+fayeurs (120.000) chata (101.701) mrwolf (90.807) feyfey (65.071) | Total = 377.579 | Guesses = [4443]
+koroshiya (102.735) milar (100.404) hejsan (97.954) saiki (77.268) | Total = 378.361 | Guesses = [4443]
 
-Average: 472.9398
+Average: 378.0702
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```

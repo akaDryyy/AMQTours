@@ -1,9 +1,9 @@
-neptune (115.020) julialess64 (109.840) janoxx (88.135) 2skr (84.337) | Total = 397.332 | Guesses = [5555]
-zozo (109.922) shelterrin (104.320) chommy (92.262) potassiumf (90.724) | Total = 397.228 | Guesses = [5555]
-yurimeguri (124.930) mahzrunner (105.840) chemist (87.510) metak (79.200) | Total = 397.480 | Guesses = [5555]
-neoburnz (122.285) fumiii (115.736) yahallonyanpasu (91.500) xeyz (67.815) | Total = 397.336 | Guesses = [5555]
+neptune (112.220) mahzrunner (104.600) janoxx (86.120) 2skr (80.260) | Total = 383.200 | Guesses = [5555]
+fumiii (116.759) julialess64 (97.210) chommy (88.420) chemist (80.850) | Total = 383.239 | Guesses = [5555]
+neoburnz (120.470) zozo (107.870) potassiumf (86.870) metak (67.670) | Total = 382.880 | Guesses = [5555]
+yurimeguri (124.930) shelterrin (103.100) bop (91.500) xeyz (63.725) | Total = 383.255 | Guesses = [5555]
 
-Average: 397.344
+Average: 383.1435
 
 <YOURCHALLONGEURLHERE>
 Distribution of guesses:

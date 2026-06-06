@@ -6,7 +6,7 @@ import dateutil.parser as dp
 from bs4 import BeautifulSoup
 from curl_cffi.requests import AsyncSession
 import os
-from modules.support.saveElos import saveElos
+from modules.support.saveElos import *
 from modules.support.getAliases import *
 from modules.support.getTourlist import getTourlist
 
@@ -114,7 +114,7 @@ class EloScrape:
         def start_time(tag):
             return tag.name == 'div' and tag.has_attr('class') and 'start-time' in tag['class']
 
-        def get_players(teamstr, elos, teamid):
+        def get_players(teamstr, elos, teamid, aliases):
             player_strs = teamstr.rstrip(')').split(') ')
             players = {}
             rounds_played = {
@@ -282,7 +282,7 @@ class EloScrape:
                     
                     # add teams to tour 
                     if team1_id not in teams:
-                        team1, team1_rounds = get_players(match['player1']['display_name'], elos, team1_id)
+                        team1, team1_rounds = get_players(match['player1']['display_name'], elos, team1_id, aliases)
                         teams[team1_id] = team1
                         rounds_played.update(team1_rounds)
                         teamstr = ''
@@ -301,7 +301,7 @@ class EloScrape:
                             'draw': 0
                             }
                     if team2_id not in teams:
-                        team2, team2_rounds = get_players(match['player2']['display_name'], elos, team2_id)
+                        team2, team2_rounds = get_players(match['player2']['display_name'], elos, team2_id, aliases)
                         teams[team2_id] = team2
                         rounds_played.update(team2_rounds)
                         teamstr = ''
@@ -355,9 +355,22 @@ class EloScrape:
         
         print(rounds_played)
         
-        with open(self.ELOS, 'w', encoding='utf-8') as f:
-            elos_print = {player: round(rating.mu, 3) for player, rating in sorted(elos.items(), key=lambda elo: elo[1], reverse=True)}
-            json.dump(elos_print, f, indent='\t')
+        elos_print = {
+            player: round(rating.mu, 3) 
+            for player, rating in sorted(elos.items(), key=lambda elo: elo[1], reverse=True)
+        }
+
+        df_unique = aliases.drop_duplicates(subset=["Player ID"], keep="first").copy()
+        df_unique["ELO"] = df_unique["Player Name"].map(elos_print)
+        df_unique = df_unique.dropna(subset=["ELO"])
+        df_unique = df_unique.sort_values(by="ELO", ascending=False)
+        rank_dict = dict(
+            zip(
+                zip(df_unique["Player ID"], df_unique["Player Name"]),
+                df_unique["ELO"].round(3),
+            )
+        )
+        save_composite_dict_to_json(rank_dict, self.ELOS)
         
         with open(self.ELOS_HISTORY, 'w', encoding='utf-8') as f:
             json.dump(elo_history_list, f, indent='\t')

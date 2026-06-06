@@ -12,6 +12,7 @@ from modules.support.getGuess import *
 from modules.support.generateCodes import *
 from modules.support.handleCodes import handleCodes
 from modules.support.reset import reset_whitelist
+from modules.support.saveElos import *
 
 class Solver:
     def __init__(
@@ -149,6 +150,7 @@ class Solver:
         aliases = getAliasesDF(self.IDTABLE)
         
         players = {}
+        warned_players = []
         if isAutorank:
             ranks, raw_ranks, post_ranks_fixup = getRanks(self.RANKS, self.ELOS, aliases, returnFixup=True)
             with open(self.PLAYERS, 'r') as file:
@@ -157,8 +159,9 @@ class Solver:
                     player = player.lower()
                     player_key = player
                     player_id = getAliasesID(aliases, player_key)
-                    if player_id in ranks:
-                        new_player = {player: ranks[player_id]}
+                    if player_id in ranks or player_key in ranks:
+                        player_id = player_id or player_key
+                        new_player = {player_id: ranks[player_id]}
                         players.update(new_player)
                     else:
                         # Not in current elo, check if new player or stats exist for them
@@ -182,15 +185,22 @@ class Solver:
                                                          tiers=self.tiers, tier_weights=self.tier_weights,
                                                          full=False)
                                 rank_dict = dict(zip(final_df['PlayerName'], final_df['ELO'].round(3)))
+                                raw_rank_dict = dict(
+                                        zip(
+                                            zip(final_df["Player ID"], final_df["PlayerName"]),
+                                            final_df["ELO"].round(3),
+                                        )
+                                    )
                                 ranks.update(rank_dict)
-                                raw_ranks.update(rank_dict)
+                                raw_ranks.update(raw_rank_dict)
                                 players[player] = ranks[list(rank_dict.keys())[0]]
                             else:
-                                input(f"[WARN] Player '{player}' was found in ranks but has no data in the past months. Manually add to ranks.txt. Press Enter to exit.")
-                                exit()
+                                warned_players.append(player)
                         else:
-                            input(f"[WARN] Player '{player}' not found in ranks or aliases. Manually add to ranks.txt. Press Enter to exit.")
-                            exit()
+                            warned_players.append(player)
+            if warned_players:
+                input(f"[WARN] Players: {warned_players} not found in ranks or aliases. Manually add to ranks.txt. Press Enter to exit.")
+                exit()
         else:
             if isOld:
                 ranks = getRanks(self.RANKS, None, aliases)
@@ -202,39 +212,39 @@ class Solver:
                     player = player.lower()
                     player_key = player
                     player_id = getAliasesID(aliases, player_key)
-                    if player_id in ranks:
-                        new_player = {player: ranks[player_id]}
+                    if player_id in ranks or player_key in ranks:
+                        player_id = player_id or player_key
+                        new_player = {player_id: ranks[player_id]}
                         players.update(new_player) 
                     else:
-                        input(f"[WARN] Player '{player}' not found in ranks or aliases. Press Enter to exit.")
-                        exit()
-
-        players = dict(sorted(((k.lower(), v) for k, v in players.items()), key=lambda x: x[1], reverse=True))
+                        warned_players.append(player)
+            if warned_players:
+                input(f"[WARN] Player {warned_players} not found in ranks or aliases. Press Enter to exit.")
+                exit()
+        
+        #players = dict(sorted(((k.lower(), v) for (elo, k), v in players.items()), key=lambda x: x[1], reverse=True))
         players = list(players.items())
 
         if isAutorank:
-            raw_ranks.update(post_ranks_fixup)
+            raw_ranks |= {
+                (fake_id, player): elo
+                for fake_id, (player, elo) in enumerate(post_ranks_fixup.items(), start=999999)
+            }
             raw_ranks = dict(sorted(raw_ranks.items(), key=lambda x: -x[1]))
-            with open(self.ELOS, "w") as f:
-                json.dump(raw_ranks, f, indent=4)
+            save_composite_dict_to_json(raw_ranks, self.ELOS)
 
         nums = [val for _, val in players]
         k = int(len(nums) / team_size)
-        p_values = {p[0]: p[1] for p in players}
+        p_values = {(getAliasesFirstName(aliases, p[0]) or p[0]): p[1] for p in players}
 
-        # Associating player id to player name
-        players_ids = {getAliasesID(aliases, player): player for player, _ in players}
-
-        # Convert players names to ids
-        players_ids_ranks = [(getAliasesID(aliases, player), rank) for player, rank in players]
         blacklist_ids = [[getAliasesID(aliases, player1), getAliasesID(aliases, player2)] for (player1, player2) in self.blacklist]
         whitelist_ids = [[getAliasesID(aliases, player1), getAliasesID(aliases, player2)] for (player1, player2) in self.whitelist]
 
         # Get solution using only ids
-        solution = LPProblem(players_ids_ranks, team_size, blacklist_ids, whitelist_ids, self.maxSolutions, thinkTime)[0]
+        solution = LPProblem(players, team_size, blacklist_ids, whitelist_ids, self.maxSolutions, thinkTime)[0]
 
         # Convert players ids solution to players names solution
-        self.foundSolutions = [{players_ids[player_id]: solution[player_id] for player_id in solution}]
+        self.foundSolutions = [{(getAliasesFirstName(aliases, player_id) or player_id): solution[player_id] for player_id in solution}]
 
         # Automatic code generation
         CODE_HANDLERS = {

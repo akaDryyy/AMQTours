@@ -1,21 +1,22 @@
 21: thaleko, stunar
 20: fayeurs
+19: kaorimaeda
 18: watashiii
-17: fortnayt, beanman87
-16: poolnoodle, kaededayo, kaorimaeda, jakemonkey
-15: kabigon, anoru_, tsui
-14: neoburnz, tapumomo, mami, zental, 80s, neptune, neumann, bamboo, cipherkai, annayanami
-13: mangoss, provenance, shiinamahiru, peeku, comete, haruurara, progenitor, liljakatsuragi
-12: seismic, maki04, kar72, civiltwlight, rorf, julialess64, komari, chemist, heleos
-11: chommy, shadow, miiarad, yoshiapelao, swapin, nephirea, shiratoriamaha, omaisfraco, vigard, lika, lakumix
-10: chata, raku51, mahirushiina, catge, uy5gf, zokie
-9: anicomi, mahzrunner, inta, dking20, dav1d1, time2hack, spitzell, pratasz, pile, _nadeshiko, typonoob, knotanymore, janoxx, bommie, legrandort
-8: justaweirdo, chrislefko, nmapper, zarelyyyx, vuhrculls
-7: akatsukikirika, claydoll1091, feynox_, loomi, loirinzz, hotpot, patoche49, iamasiannoob, ryoutavn
-6: benevelante, okitanobu, oolli, spartric, md22
-5: thjalago, shiku, keysha18, isekaijoucho, foopypoopy, konsumenci
-4: yashadox, 2skr, darkwarriory, hyo
-3: lordgrond, amel, anatharax, eljuanchi
-2: icefeed2, unborned, wiwmek
-1: xeyz
-0: nunuchu42, gdadem
+17: beanman87, yurimeguri
+16: fortnayt, kaededayo, mangoss
+15: kabigon, anoru_, jakemonkey, poolnoodle, tsui
+14: neoburnz, shiinamahiru, tapumomo, zental, 80s, neumann, bamboo, annayanami
+13: neptune, cipherkai, lika, provenance, peeku, progenitor, yoshiapelao, liljakatsuragi, heleos, comete
+12: haruurara, seismic, maki04, komari, kar72, civiltwlight, rorf, julialess64, chemist
+11: shadow, mami, chommy, miiarad, swapin, nephirea, shiratoriamaha, omaisfraco, vigard, qwecocacola, zokie, catge, lakumix, asleep, atsui, aitsukinakuru
+10: zozo, chata, raku51, mahirushiina, uy5gf, anicomi, renzou, gabetin
+9: mahzrunner, dav1d1, inta, dking20, time2hack, pratasz, pile, _nadeshiko, typonoob, knotanymore, zarelyyyx
+8: spitzell, legrandort, ss_r_white_pony, nmapper, ryoutavn, justaweirdo, janoxx, bommie, vuhrculls, hotpot, feynox_
+7: akatsukikirika, claydoll1091, loomi, loirinzz, keysha18, iamasiannoob
+6: spartric, benevelante, okitanobu, oolli, zomg, md22
+5: thjalago, foopypoopy, shiku, redeyes, isekaijoucho, patoche49, konsumenci
+4: yashadox, 2skr, arpia97, darkwarriory, anatharax, hyo, icefeed2
+3: lordgrond, amel, chrislefko
+2: eljuanchi, unborned, wiwmek
+1: hakohoka
+0: nunuchu42, gdadem, xeyz
