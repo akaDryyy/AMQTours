@@ -1090,8 +1090,10 @@ def run_ngm_sheet_stats(is_local):
 [15]: Other Random
 [16]: Other Watched
 [17]: Brute-force
-[18]: Masquerade
 """
+
+    if not is_local:
+        txtvar += "[18]: Masquerade\n"
 
     print(txtvar)
     is_list = False
@@ -1212,6 +1214,10 @@ def run_ngm_sheet_stats(is_local):
         case "17":
             brute_force = True
         case "18":
+            if is_local:
+                print("Masquerade mode requires Challonge and is only available through ngm_stats.py.")
+                _ = input('\npress enter to close')
+                return
             masquerade_mode = True
             gamemode = MAIN_SHEET_RANDOM
             sendToSheet = gamemode
@@ -1225,7 +1231,7 @@ def run_ngm_sheet_stats(is_local):
 
     challonge_link = None
     if not masquerade_mode:
-        challonge_link = validate_codes_file(TEAMS, TEAMS_RE, require_challonge=True)
+        challonge_link = validate_codes_file(TEAMS, TEAMS_RE, require_challonge=not is_local)
     preflight_json_files(JSONS, REGEX)
 
     # Grab necessary files
@@ -1275,6 +1281,9 @@ def run_ngm_sheet_stats(is_local):
                     )
                 TEAM_AVG = float(avg_match.group(0))
             if line.startswith("http"):
+                if is_local:
+                    continue
+
                 challonge_link = line.strip()
                 try:
                     html = download_challonge_page(challonge_link)
@@ -1332,26 +1341,28 @@ def run_ngm_sheet_stats(is_local):
     playerDB.build_lookups()
     USEFULNESS = Usefulness(TEAM_SIZE, TEAM_AVG)
     
-    # Handle W-L-T
-    if not html:
-        common_error(
-            "Missing Challonge link.",
-            ["The script could not find or download a Challonge page from codes.txt."],
-            ["Paste the Challonge link at the bottom of codes.txt, then rerun stats."],
-        )
-    try:
-        data = extract_challonge_store_data(html)
-    except Exception as exc:
-        common_error(
-            "Could not read Challonge tournament data.",
-            [str(exc)],
-            [
-                "Check that the Challonge link points to the tournament page, not a dashboard/editor page.",
-                "If Challonge is temporarily blocking/loading slowly, try again in a bit.",
-            ],
-        )
-    validate_challonge_finalized(data)
-    validate_challonge_players_against_codes(data, teamDB, playerDB, alias_to_id, id_to_aliases, masquerade_mapping)
+    # W-L-T is Challonge-derived and intentionally unavailable in local mode.
+    data = {"matches_by_round": {}}
+    if not is_local:
+        if not html:
+            common_error(
+                "Missing Challonge link.",
+                ["The script could not find or download a Challonge page from codes.txt."],
+                ["Paste the Challonge link at the bottom of codes.txt, then rerun stats."],
+            )
+        try:
+            data = extract_challonge_store_data(html)
+        except Exception as exc:
+            common_error(
+                "Could not read Challonge tournament data.",
+                [str(exc)],
+                [
+                    "Check that the Challonge link points to the tournament page, not a dashboard/editor page.",
+                    "If Challonge is temporarily blocking/loading slowly, try again in a bit.",
+                ],
+            )
+        validate_challonge_finalized(data)
+        validate_challonge_players_against_codes(data, teamDB, playerDB, alias_to_id, id_to_aliases, masquerade_mapping)
 
     for round_key, matches in data["matches_by_round"].items():
         for match in matches:
@@ -1688,7 +1699,11 @@ def run_ngm_sheet_stats(is_local):
     scale_usefulness = not masquerade_mode
     for team in teamDB.teams:
         for p in team.players + team.subs:
-            p.post_process(TEAM_AVG, scale_usefulness=scale_usefulness)
+            p.post_process(
+                TEAM_AVG,
+                WLTcheck=not is_local,
+                scale_usefulness=scale_usefulness,
+            )
             d = asdict(p)
             stats_list.append(d)
 
@@ -1906,6 +1921,8 @@ def run_ngm_sheet_stats(is_local):
         "Avg answer time",
         "W-L-T",
     ])
+    if is_local:
+        finalOrder2.remove("W-L-T")
 
     finalOrder3 = [
         "Rank", 
