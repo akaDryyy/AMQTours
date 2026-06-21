@@ -331,7 +331,7 @@ def read_challonge_link_from_codes(codes_path):
     return None
 
 
-def common_error(title, details=None, fixes=None, wait=True):
+def common_error(title, details=None, fixes=None):
     print("\n=== Common setup issue detected ===")
     print(title)
     if details:
@@ -342,9 +342,15 @@ def common_error(title, details=None, fixes=None, wait=True):
         print("\nHow to fix it:")
         for fix in fixes:
             print(f"- {fix}")
-    if wait:
-        input("\nPress Enter to exit.")
-    raise SystemExit(1)
+    try:
+        print("----------------")
+        continue_anyways = input("Do you want to try to continue anyways? [y/N]")
+    except (ValueError, IndexError):
+        print("Exiting...")
+        raise SystemExit(1)
+    if continue_anyways.upper() != "Y":
+        print("Exiting...")
+        raise SystemExit(1)
 
 
 def known_player_name(name, playerDB, alias_to_id):
@@ -480,7 +486,7 @@ def parse_challonge_rounds(rounds_text):
     return rounds
 
 
-def validate_challonge_finalized(challonge_data):
+def validate_challonge_finalized(challonge_data, is_local):
     incomplete = []
     for round_key, matches in challonge_data.get("matches_by_round", {}).items():
         for match_index, match in enumerate(matches, start=1):
@@ -1350,7 +1356,7 @@ def run_ngm_sheet_stats(is_local):
                 "If Challonge is temporarily blocking/loading slowly, try again in a bit.",
             ],
         )
-    validate_challonge_finalized(data)
+    validate_challonge_finalized(data, is_local)
     validate_challonge_players_against_codes(data, teamDB, playerDB, alias_to_id, id_to_aliases, masquerade_mapping)
 
     for round_key, matches in data["matches_by_round"].items():
