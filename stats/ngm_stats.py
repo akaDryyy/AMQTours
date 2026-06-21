@@ -1280,7 +1280,10 @@ def run_ngm_sheet_stats(is_local):
                         ["Paste the complete Average line from codes.txt, such as Average: 31.2045."],
                     )
                 TEAM_AVG = float(avg_match.group(0))
-            if line.startswith("http") and not is_local:
+            if line.startswith("http"):
+                if is_local:
+                    continue
+
                 challonge_link = line.strip()
                 try:
                     html = download_challonge_page(challonge_link)
