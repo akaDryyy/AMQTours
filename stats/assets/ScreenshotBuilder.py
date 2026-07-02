@@ -74,7 +74,7 @@ def pct_text(value):
 
 
 def pct_text_with_fraction(value, fraction_string):
-    return f"@ {pct_text(value)} ({fraction_string})"
+    return f"({pct_text(value)}, {fraction_string})"
 
 
 def number_text(value, _ignore=None):
@@ -965,7 +965,7 @@ def export_extra_stats_screenshot(server_average_mode, gc=None, ask_cleanup=Fals
         "blocker_average": np.mean([player_blocks[n] for n in plist]) if plist else 0,
         "server_attacker_average": image_server_attacker,
         "server_blocker_average": image_server_blocker,
-        "has_chanting": bool(chanting_ids),
+        "has_chanting": total_chanting_songs != 0,
         "right_only": server_average_mode.startswith("random"),
         "chanting_total": f"{total_chanting_songs} ({chan_pct:.2%})",
         "chanting_gr": avg_chan_gr,

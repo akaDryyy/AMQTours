@@ -1055,7 +1055,7 @@ def run_ngm_sheet_stats(is_local):
 
     path2 = os.path.join(DIRECTORY, "Stats2.png")
     df_to_png(df=final_df2, path=DIRECTORY, filename="Stats2.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
-    print(f"Stats about Δ saved at {path2}")
+    print(f"Stats about delta saved at {path2}")
 
     if is_list:
         exclude_columns = ["Rank"]
