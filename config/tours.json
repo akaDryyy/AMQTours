@@ -6,10 +6,39 @@
     "tour_type": "random",
     "state_dir": "data/tours/usual",
     "dry_elo": false,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A1"},
-    "solver": {"stats_tab": 0, "stats_type": "usual", "guess_mode": "random", "code_generator": "usual_gr", "gamemode": "usual", "thresholds": {"one": 8, "two": 19, "three": 28}},
-    "tiermaker": {"mode": "update_elos", "tourlist_cell": "C1"},
-    "eloscrape": {"cache_mode": "usual", "tourlist_cell": "C1", "trueskill": {"mu": 12, "sigma": 1.75, "beta": 7, "tau": 0.09, "draw_probability": 0.04}}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A1"
+    },
+    "solver": {
+      "stats_tab": 0,
+      "stats_type": "usual",
+      "guess_mode": "random",
+      "code_generator": "usual_gr",
+      "gamemode": "usual",
+      "thresholds": {
+        "one": 8,
+        "two": 19,
+        "three": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "update_elos",
+      "tourlist_cell": "C1"
+    },
+    "eloscrape": {
+      "cache_mode": "usual",
+      "tourlist_cell": "C1",
+      "trueskill": {
+        "mu": 12,
+        "sigma": 2.5,
+        "beta": 7,
+        "tau": 0.1,
+        "draw_probability": 0.04
+      }
+    }
   },
   "usual_house": {
     "label": "Usual In-House",
@@ -19,10 +48,39 @@
     "state_dir": "data/tours/usual_house",
     "dry_elo": false,
     "supports_inhouse": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A20"},
-    "solver": {"stats_tab": 0, "stats_type": "usual", "guess_mode": "random", "code_generator": "usual_gr", "gamemode": "usual", "sync_ids": true, "thresholds": {"one": 8, "two": 19, "three": 28}},
-    "tiermaker": {"mode": "update_elos"},
-    "inhouse": {"cache_mode": "usual_house", "inhouse_type": "random", "trueskill": {"mu": 12, "sigma": 4, "beta": 7, "tau": 5, "draw_probability": 0.04}}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A20"
+    },
+    "solver": {
+      "stats_tab": 0,
+      "stats_type": "usual",
+      "guess_mode": "random",
+      "code_generator": "usual_gr",
+      "gamemode": "usual",
+      "sync_ids": true,
+      "thresholds": {
+        "one": 8,
+        "two": 19,
+        "three": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "update_elos"
+    },
+    "inhouse": {
+      "cache_mode": "usual_house",
+      "inhouse_type": "random",
+      "trueskill": {
+        "mu": 12,
+        "sigma": 4,
+        "beta": 7,
+        "tau": 5,
+        "draw_probability": 0.04
+      }
+    }
   },
   "watched_house": {
     "label": "Watched In-House",
@@ -32,10 +90,40 @@
     "state_dir": "data/tours/watched_house",
     "dry_elo": false,
     "supports_inhouse": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A21"},
-    "solver": {"stats_tab": 1719516221, "stats_type": "watched", "guess_mode": "watched", "code_generator": "watched_gr", "gamemode": "40", "sync_ids": true, "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "update_elos"},
-    "inhouse": {"cache_mode": "watched_house", "inhouse_type": "watched", "trueskill": {"mu": 12, "sigma": 4, "beta": 7, "tau": 5, "draw_probability": 0.04}}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A21"
+    },
+    "solver": {
+      "stats_tab": 1719516221,
+      "stats_type": "watched",
+      "guess_mode": "watched",
+      "code_generator": "watched_gr",
+      "gamemode": "40",
+      "sync_ids": true,
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "update_elos"
+    },
+    "inhouse": {
+      "cache_mode": "watched_house",
+      "inhouse_type": "watched",
+      "trueskill": {
+        "mu": 12,
+        "sigma": 4,
+        "beta": 7,
+        "tau": 5,
+        "draw_probability": 0.04
+      }
+    }
   },
   "random_op": {
     "label": "OP",
@@ -44,9 +132,32 @@
     "tour_type": "random op",
     "state_dir": "data/tours/random_op",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A10"},
-    "solver": {"stats_tab": 591917504, "stats_type": "op", "guess_mode": "random", "code_generator": "op_gr", "thresholds": {"one": 8, "two": 19, "three": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": 591917504, "stats_type": "op", "alpha": 3.75, "midpoint": 0.33, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A10"
+    },
+    "solver": {
+      "stats_tab": 591917504,
+      "stats_type": "op",
+      "guess_mode": "random",
+      "code_generator": "op_gr",
+      "thresholds": {
+        "one": 8,
+        "two": 19,
+        "three": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 591917504,
+      "stats_type": "op",
+      "alpha": 3.75,
+      "midpoint": 0.33,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "random_ed": {
     "label": "Random ED",
@@ -55,9 +166,33 @@
     "tour_type": "random ed",
     "state_dir": "data/tours/random_ed",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A11"},
-    "solver": {"stats_tab": 601464032, "stats_type": "ed", "guess_mode": "random", "code_generator": "ed_gr", "thresholds": {"one": 8, "two": 19, "three": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": 601464032, "stats_type": "ed", "alpha": 3.75, "midpoint": 0.33, "min_rating": 0, "max_rating": 25, "min_games": 3}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A11"
+    },
+    "solver": {
+      "stats_tab": 601464032,
+      "stats_type": "ed",
+      "guess_mode": "random",
+      "code_generator": "ed_gr",
+      "thresholds": {
+        "one": 8,
+        "two": 19,
+        "three": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 601464032,
+      "stats_type": "ed",
+      "alpha": 3.75,
+      "midpoint": 0.33,
+      "min_rating": 0,
+      "max_rating": 25,
+      "min_games": 3
+    }
   },
   "random_ins": {
     "label": "Random INS",
@@ -66,9 +201,32 @@
     "tour_type": "random ins",
     "state_dir": "data/tours/random_ins",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A12"},
-    "solver": {"stats_tab": 2075065970, "stats_type": "in", "guess_mode": "random", "code_generator": "in_gr", "thresholds": {"one": 8, "two": 19, "three": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": 2075065970, "stats_type": "in", "alpha": 3.75, "midpoint": 0.33, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A12"
+    },
+    "solver": {
+      "stats_tab": 2075065970,
+      "stats_type": "in",
+      "guess_mode": "random",
+      "code_generator": "in_gr",
+      "thresholds": {
+        "one": 8,
+        "two": 19,
+        "three": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 2075065970,
+      "stats_type": "in",
+      "alpha": 3.75,
+      "midpoint": 0.33,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "random_oped": {
     "label": "Random OPED",
@@ -77,9 +235,32 @@
     "tour_type": "random oped",
     "state_dir": "data/tours/random_oped",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A13"},
-    "solver": {"stats_tab": "Random OPED", "stats_type": "cl", "guess_mode": "random", "code_generator": "cl_gr", "thresholds": {"one": 8, "two": 19, "three": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": "Random OPED", "stats_type": "cl", "alpha": 3.75, "midpoint": 0.33, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A13"
+    },
+    "solver": {
+      "stats_tab": "Random OPED",
+      "stats_type": "cl",
+      "guess_mode": "random",
+      "code_generator": "cl_gr",
+      "thresholds": {
+        "one": 8,
+        "two": 19,
+        "three": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": "Random OPED",
+      "stats_type": "cl",
+      "alpha": 3.75,
+      "midpoint": 0.33,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "random_chanting": {
     "label": "Random Chanting",
@@ -88,9 +269,33 @@
     "tour_type": "random chanting",
     "state_dir": "data/tours/random_chanting",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A14"},
-    "solver": {"stats_tab": "Random Chanting", "stats_type": "chanting", "guess_mode": "random", "code_generator": "usual_gr", "gamemode": "usual", "thresholds": {"one": 8, "two": 19, "three": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": "Random Chanting", "stats_type": "chanting", "alpha": 3.75, "midpoint": 0.33, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A14"
+    },
+    "solver": {
+      "stats_tab": "Random Chanting",
+      "stats_type": "chanting",
+      "guess_mode": "random",
+      "code_generator": "usual_gr",
+      "gamemode": "usual",
+      "thresholds": {
+        "one": 8,
+        "two": 19,
+        "three": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": "Random Chanting",
+      "stats_type": "chanting",
+      "alpha": 3.75,
+      "midpoint": 0.33,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "watched": {
     "label": "Watched",
@@ -99,9 +304,34 @@
     "tour_type": "watched",
     "state_dir": "data/tours/watched",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A7"},
-    "solver": {"stats_tab": 1719516221, "stats_type": "watched", "guess_mode": "watched", "code_generator": "watched_gr", "gamemode": "40", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": 1719516221, "stats_type": "watched", "alpha": 3.75, "midpoint": 0.4, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A7"
+    },
+    "solver": {
+      "stats_tab": 1719516221,
+      "stats_type": "watched",
+      "guess_mode": "watched",
+      "code_generator": "watched_gr",
+      "gamemode": "40",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 1719516221,
+      "stats_type": "watched",
+      "alpha": 3.75,
+      "midpoint": 0.4,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "watched_5s": {
     "label": "Watched 5s",
@@ -110,10 +340,40 @@
     "tour_type": "watched 5s",
     "state_dir": "data/tours/watched_5s",
     "dry_elo": false,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A3"},
-    "solver": {"stats_tab": 676003100, "stats_type": "watched-5s", "guess_mode": "watched", "code_generator": "watched_5s_gr", "gamemode": "no", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "update_elos", "tourlist_cell": "C3"},
-    "eloscrape": {"cache_mode": "5s", "tourlist_cell": "C3", "trueskill": {"mu": 12, "sigma": 4, "beta": 7, "tau": 0.09, "draw_probability": 0.04}}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A3"
+    },
+    "solver": {
+      "stats_tab": 676003100,
+      "stats_type": "watched-5s",
+      "guess_mode": "watched",
+      "code_generator": "watched_5s_gr",
+      "gamemode": "no",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "update_elos",
+      "tourlist_cell": "C3"
+    },
+    "eloscrape": {
+      "cache_mode": "5s",
+      "tourlist_cell": "C3",
+      "trueskill": {
+        "mu": 12,
+        "sigma": 4,
+        "beta": 7,
+        "tau": 0.09,
+        "draw_probability": 0.04
+      }
+    }
   },
   "watched_2_8": {
     "label": "Watched 2+8",
@@ -122,10 +382,41 @@
     "tour_type": "watched 2 8",
     "state_dir": "data/tours/watched_2_8",
     "dry_elo": false,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A2"},
-    "solver": {"stats_tab": 165193471, "stats_type": "watched-2+8", "guess_mode": "watched_28", "code_generator": "watched_28_gr", "gamemode": "2+8", "thresholds": {"zero": 5, "one": 10, "two": 15, "three": 20, "four": 25}},
-    "tiermaker": {"mode": "update_elos", "tourlist_cell": "C2"},
-    "eloscrape": {"cache_mode": "2+8", "tourlist_cell": "C2", "trueskill": {"mu": 10, "sigma": 3, "beta": 3, "tau": 0.5, "draw_probability": 0.01}}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A2"
+    },
+    "solver": {
+      "stats_tab": 165193471,
+      "stats_type": "watched-2+8",
+      "guess_mode": "watched_28",
+      "code_generator": "watched_28_gr",
+      "gamemode": "2+8",
+      "thresholds": {
+        "zero": 5,
+        "one": 10,
+        "two": 15,
+        "three": 20,
+        "four": 25
+      }
+    },
+    "tiermaker": {
+      "mode": "update_elos",
+      "tourlist_cell": "C2"
+    },
+    "eloscrape": {
+      "cache_mode": "2+8",
+      "tourlist_cell": "C2",
+      "trueskill": {
+        "mu": 10,
+        "sigma": 3,
+        "beta": 3,
+        "tau": 0.5,
+        "draw_probability": 0.01
+      }
+    }
   },
   "watched_op": {
     "label": "Watched OP",
@@ -134,9 +425,34 @@
     "tour_type": "watched op",
     "state_dir": "data/tours/watched_op",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A17"},
-    "solver": {"stats_tab": 1478248904, "stats_type": "watched-op", "guess_mode": "watched", "code_generator": "watched_op_gr", "gamemode": "op", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": 1478248904, "stats_type": "watched-op", "alpha": 3.75, "midpoint": 0.4, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A17"
+    },
+    "solver": {
+      "stats_tab": 1478248904,
+      "stats_type": "watched-op",
+      "guess_mode": "watched",
+      "code_generator": "watched_op_gr",
+      "gamemode": "op",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 1478248904,
+      "stats_type": "watched-op",
+      "alpha": 3.75,
+      "midpoint": 0.4,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "watched_ed": {
     "label": "Watched ED",
@@ -145,9 +461,35 @@
     "tour_type": "watched ed",
     "state_dir": "data/tours/watched_ed",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A18"},
-    "solver": {"stats_tab": "Watched EDs", "stats_type": "watched-ed", "guess_mode": "watched", "code_generator": "watched_ed_gr", "gamemode": "ed", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": "Watched EDs", "stats_type": "watched-ed", "alpha": 3.75, "midpoint": 0.4, "min_rating": 0, "max_rating": 25, "min_games": 3}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A18"
+    },
+    "solver": {
+      "stats_tab": "Watched EDs",
+      "stats_type": "watched-ed",
+      "guess_mode": "watched",
+      "code_generator": "watched_ed_gr",
+      "gamemode": "ed",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": "Watched EDs",
+      "stats_type": "watched-ed",
+      "alpha": 3.75,
+      "midpoint": 0.4,
+      "min_rating": 0,
+      "max_rating": 25,
+      "min_games": 3
+    }
   },
   "watched_ins": {
     "label": "Watched INS",
@@ -156,9 +498,34 @@
     "tour_type": "watched ins",
     "state_dir": "data/tours/watched_ins",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A8"},
-    "solver": {"stats_tab": "Watched INs", "stats_type": "watched-in", "guess_mode": "watched", "code_generator": "watched_in_gr", "gamemode": "45", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": "Watched INs", "stats_type": "watched-in", "alpha": 3.75, "midpoint": 0.4, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A8"
+    },
+    "solver": {
+      "stats_tab": "Watched INs",
+      "stats_type": "watched-in",
+      "guess_mode": "watched",
+      "code_generator": "watched_in_gr",
+      "gamemode": "45",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": "Watched INs",
+      "stats_type": "watched-in",
+      "alpha": 3.75,
+      "midpoint": 0.4,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "watched_ins_no_chanting": {
     "label": "Watched INS - No Chanting",
@@ -167,9 +534,34 @@
     "tour_type": "watched ins no chanting",
     "state_dir": "data/tours/watched_ins_no_chanting",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A19"},
-    "solver": {"stats_tab": 154982033, "stats_type": "watched-in-no-chanting", "guess_mode": "watched", "code_generator": "watched_in_no_chanting_gr", "gamemode": "40", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": 154982033, "stats_type": "watched-in-no-chanting", "alpha": 3.75, "midpoint": 0.4, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A19"
+    },
+    "solver": {
+      "stats_tab": 154982033,
+      "stats_type": "watched-in-no-chanting",
+      "guess_mode": "watched",
+      "code_generator": "watched_in_no_chanting_gr",
+      "gamemode": "40",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 154982033,
+      "stats_type": "watched-in-no-chanting",
+      "alpha": 3.75,
+      "midpoint": 0.4,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "watched_oped": {
     "label": "Watched OPED",
@@ -178,9 +570,34 @@
     "tour_type": "watched oped",
     "state_dir": "data/tours/watched_oped",
     "dry_elo": true,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A22"},
-    "solver": {"stats_tab": 231019448, "stats_type": "watched-oped", "guess_mode": "watched", "code_generator": "watched_oped_gr", "gamemode": "oped", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "make_tiers", "stats_tab": 231019448, "stats_type": "watched-oped", "alpha": 3.75, "midpoint": 0.4, "min_rating": 0, "max_rating": 25}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A22"
+    },
+    "solver": {
+      "stats_tab": 231019448,
+      "stats_type": "watched-oped",
+      "guess_mode": "watched",
+      "code_generator": "watched_oped_gr",
+      "gamemode": "oped",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 231019448,
+      "stats_type": "watched-oped",
+      "alpha": 3.75,
+      "midpoint": 0.4,
+      "min_rating": 0,
+      "max_rating": 25
+    }
   },
   "watched_x_2009": {
     "label": "Watched x-2009",
@@ -189,9 +606,39 @@
     "tour_type": "watched x-2009",
     "state_dir": "data/tours/watched_x_2009",
     "dry_elo": false,
-    "sheet": {"name": "NGM Stats Export v2", "tab_ids": 1903970832, "elo_storage_gid": 82254993, "elo_storage_cell": "A15"},
-    "solver": {"stats_tab": 1955111089, "stats_type": "watched-2009", "guess_mode": "watched", "code_generator": "watched_2009_gr", "gamemode": "2009", "thresholds": {"one": 6, "two": 12, "three": 18, "four": 28}},
-    "tiermaker": {"mode": "update_elos", "tourlist_cell": "C15"},
-    "eloscrape": {"cache_mode": "x-2009", "tourlist_cell": "C15", "trueskill": {"mu": 12, "sigma": 1.75, "beta": 7, "tau": 0.09, "draw_probability": 0.04}}
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A15"
+    },
+    "solver": {
+      "stats_tab": 1955111089,
+      "stats_type": "watched-2009",
+      "guess_mode": "watched",
+      "code_generator": "watched_2009_gr",
+      "gamemode": "2009",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "update_elos",
+      "tourlist_cell": "C15"
+    },
+    "eloscrape": {
+      "cache_mode": "x-2009",
+      "tourlist_cell": "C15",
+      "trueskill": {
+        "mu": 12,
+        "sigma": 1.75,
+        "beta": 7,
+        "tau": 0.09,
+        "draw_probability": 0.04
+      }
+    }
   }
 }

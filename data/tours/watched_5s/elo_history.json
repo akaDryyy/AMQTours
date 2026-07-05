@@ -899,5 +899,71 @@
 			"spitzell": "initial elo: 8.476, new elo: 8.101, rating change: -0.375",
 			"justaweirdo": "initial elo: 7.895, new elo: 7.582, rating change: -0.313"
 		}
+	},
+	{
+		"tour_id": "9aoeuikc",
+		"time": "2026-06-19 16:31:00+02:00",
+		"teams": {
+			"neoburnz (14.41) neptune (13.46) zokie (10.61) raphtelia (2.00) = 40.48": "2W 4L 0D",
+			"lika (13.31) dav1d1 (9.40) dking20 (9.39) legrandort (8.41) = 40.52": "3W 3L 0D",
+			"mangoss (15.54) catge (11.07) akatsukikirika (7.46) keysha18 (6.56) = 40.64": "2W 4L 0D",
+			"kaededayo (16.15) sssthnoob (11.14) spitzell (8.10) patoche49 (5.23) = 40.63": "5W 1L 0D"
+		},
+		"player": {
+			"neoburnz": "initial elo: 14.408, new elo: 13.621, rating change: -0.787",
+			"neptune": "initial elo: 13.461, new elo: 12.784, rating change: -0.676",
+			"zokie": "initial elo: 10.607, new elo: 10.239, rating change: -0.368",
+			"raphtelia": "initial elo: 2.000, new elo: 1.037, rating change: -0.963",
+			"lika": "initial elo: 13.315, new elo: 13.305, rating change: -0.010",
+			"dav1d1": "initial elo: 9.402, new elo: 9.392, rating change: -0.010",
+			"dking20": "initial elo: 9.387, new elo: 9.379, rating change: -0.008",
+			"legrandort": "initial elo: 8.411, new elo: 8.403, rating change: -0.008",
+			"mangoss": "initial elo: 15.543, new elo: 14.969, rating change: -0.574",
+			"catge": "initial elo: 11.075, new elo: 10.670, rating change: -0.404",
+			"akatsukikirika": "initial elo: 7.463, new elo: 6.495, rating change: -0.968",
+			"keysha18": "initial elo: 6.561, new elo: 6.224, rating change: -0.337",
+			"kaededayo": "initial elo: 16.153, new elo: 17.641, rating change: 1.489",
+			"sssthnoob": "initial elo: 11.141, new elo: 12.944, rating change: 1.803",
+			"spitzell": "initial elo: 8.101, new elo: 8.900, rating change: 0.799",
+			"patoche49": "initial elo: 5.231, new elo: 6.061, rating change: 0.830"
+		}
+	},
+	{
+		"tour_id": "htv2da4d",
+		"time": "2026-06-21 16:20:00+02:00",
+		"teams": {
+			"kaorimaeda (18.88) lika (13.31) janoxx (7.80) raphtelia (1.04) = 41.02": "7W 3L 0D",
+			"cipherkai (13.37) sssthnoob (12.94) shadow (11.11) lordgrond (3.39) = 40.81": "5W 5L 0D",
+			"watashiii (17.86) bigsmo (9.00) ryoutavn (7.91) patoche49 (6.06) = 40.83": "8W 2L 0D",
+			"tapumomo (14.16) haruurara (12.46) dking20 (9.38) redeyes (5.04) = 41.04": "3W 7L 0D",
+			"neoburnz (13.62) gabetin (9.43) kyuuuu (9.00) knotanymore (8.89) = 40.95": "3W 7L 0D",
+			"shiinamahiru (14.32) catge (10.67) atsui (10.52) foopypoopy (5.37) = 40.87": "4W 6L 0D"
+		},
+		"player": {
+			"kaorimaeda": "initial elo: 18.876, new elo: 20.278, rating change: 1.402",
+			"lika": "initial elo: 13.305, new elo: 14.364, rating change: 1.059",
+			"janoxx": "initial elo: 7.800, new elo: 8.790, rating change: 0.990",
+			"raphtelia": "initial elo: 1.037, new elo: 2.667, rating change: 1.630",
+			"cipherkai": "initial elo: 13.370, new elo: 13.384, rating change: 0.014",
+			"sssthnoob": "initial elo: 12.944, new elo: 12.952, rating change: 0.009",
+			"shadow": "initial elo: 11.109, new elo: 11.125, rating change: 0.016",
+			"lordgrond": "initial elo: 3.387, new elo: 3.402, rating change: 0.015",
+			"watashiii": "initial elo: 17.862, new elo: 19.294, rating change: 1.432",
+			"bigsmo": "initial elo: 9.000, new elo: 11.133, rating change: 2.133",
+			"ryoutavn": "initial elo: 7.911, new elo: 9.610, rating change: 1.699",
+			"patoche49": "initial elo: 6.061, new elo: 6.857, rating change: 0.796",
+			"tapumomo": "initial elo: 14.161, new elo: 13.031, rating change: -1.130",
+			"haruurara": "initial elo: 12.458, new elo: 11.205, rating change: -1.253",
+			"dking20": "initial elo: 9.379, new elo: 8.075, rating change: -1.304",
+			"redeyes": "initial elo: 5.039, new elo: 3.302, rating change: -1.737",
+			"neoburnz": "initial elo: 13.621, new elo: 12.817, rating change: -0.804",
+			"gabetin": "initial elo: 9.434, new elo: 8.562, rating change: -0.872",
+			"kyuuuu": "initial elo: 9.000, new elo: 7.875, rating change: -1.125",
+			"knotanymore": "initial elo: 8.892, new elo: 7.879, rating change: -1.014",
+			"shiinamahiru": "initial elo: 14.316, new elo: 13.817, rating change: -0.499",
+			"catge": "initial elo: 10.670, new elo: 10.318, rating change: -0.352",
+			"atsui": "initial elo: 10.516, new elo: 9.656, rating change: -0.860",
+			"foopypoopy": "initial elo: 5.370, new elo: 4.862, rating change: -0.508"
+		}
 	}
 ]

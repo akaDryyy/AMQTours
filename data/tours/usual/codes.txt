@@ -1,14 +1,12 @@
-akatsuki (22.186) tugia (5.567) kabao (4.980) kyuuuu (1.774) | Total = 34.507 | Guesses = [4332]
-sakurabarola (14.457) neoburnz (11.837) vr0003 (4.746) spartric (3.616) | Total = 34.656 | Guesses = [4433]
-miki_hoshii (20.218) mayottatoki (7.163) maikasasaki (4.091) sabetin (3.213) | Total = 34.685 | Guesses = [4442]
-milar (12.581) beautiful (10.309) saiki (8.447) nekko_khayal (3.132) | Total = 34.469 | Guesses = [4432]
-civiltwlight (16.640) chrislefko (6.697) bigsmo (5.836) mahzrunner (5.451) | Total = 34.624 | Guesses = [4343]
-fortnayt (17.610) hihi (10.456) seanpk (3.757) zomg (2.791) | Total = 34.614 | Guesses = [4422]
+dry (11.500) fumiii (6.500) jakemonkey (6.500) ryoutavn (2.500) | Total = 27.000 | Guesses = [4432]
+haruurara (8.500) bigsmo (7.500) mahzrunner (5.500) vr0003 (5.000) | Total = 26.500 | Guesses = [4433]
+alkios (13.000) saiki (8.000) shelterrin (4.500) lordgrond (1.000) | Total = 26.500 | Guesses = [4332]
+mami (12.000) lakumix (9.500) porte (3.500) anicomi (1.500) | Total = 26.500 | Guesses = [4322]
 
-Average: 34.5925
+Average: 26.625
 
 <YOURCHALLONGEURLHERE>
-```e0g0z211111100100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111hg1ka03-11111--```
+```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
 ≥28% = 4 guesses
 19% - 28% = 3 guesses

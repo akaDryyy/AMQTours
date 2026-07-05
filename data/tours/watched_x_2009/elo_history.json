@@ -149,5 +149,109 @@
 			"cafezinho": "initial elo: 11.465, new elo: 11.431, rating change: -0.034",
 			"porte": "initial elo: 9.242, new elo: 9.209, rating change: -0.033"
 		}
+	},
+	{
+		"tour_id": "6ua01y37",
+		"time": "2026-06-19 14:30:00-05:00",
+		"teams": {
+			"orfey (15.67) zental (14.00) xeyz (5.11) ryoutavn (5.00) = 39.78": "2W 3L 0D",
+			"janoxx (13.46) chemist (12.00) shadismith (9.00) anicomi (5.36) = 39.82": "3W 2L 0D",
+			"dry (13.02) feyfey (12.77) hmsuis (9.89) lordgrond (4.00) = 39.67": "3W 2L 0D",
+			"provenance (14.00) porte (9.21) psirockin (8.50) andrey_k (8.13) = 39.83": "1W 4L 0D",
+			"renzou (12.25) annayanami (9.42) saiki (9.13) haruurara (9.11) = 39.91": "4W 1L 0D",
+			"skychael (13.43) anotherwish (10.10) pile (10.00) eljuanchi (6.00) = 39.53": "2W 3L 0D"
+		},
+		"player": {
+			"orfey": "initial elo: 15.673, new elo: 15.571, rating change: -0.102",
+			"zental": "initial elo: 14.000, new elo: 13.893, rating change: -0.107",
+			"xeyz": "initial elo: 5.106, new elo: 5.000, rating change: -0.106",
+			"ryoutavn": "initial elo: 5.000, new elo: 4.893, rating change: -0.107",
+			"janoxx": "initial elo: 13.461, new elo: 13.582, rating change: 0.121",
+			"chemist": "initial elo: 12.000, new elo: 12.122, rating change: 0.122",
+			"shadismith": "initial elo: 9.000, new elo: 9.122, rating change: 0.122",
+			"anicomi": "initial elo: 5.357, new elo: 5.477, rating change: 0.119",
+			"dry": "initial elo: 13.015, new elo: 13.132, rating change: 0.117",
+			"feyfey": "initial elo: 12.770, new elo: 12.881, rating change: 0.111",
+			"hmsuis": "initial elo: 9.890, new elo: 10.004, rating change: 0.114",
+			"lordgrond": "initial elo: 4.000, new elo: 4.118, rating change: 0.118",
+			"provenance": "initial elo: 14.000, new elo: 13.639, rating change: -0.361",
+			"porte": "initial elo: 9.209, new elo: 8.867, rating change: -0.342",
+			"psirockin": "initial elo: 8.497, new elo: 8.152, rating change: -0.346",
+			"andrey_k": "initial elo: 8.129, new elo: 7.771, rating change: -0.357",
+			"renzou": "initial elo: 12.250, new elo: 12.604, rating change: 0.354",
+			"annayanami": "initial elo: 9.424, new elo: 9.774, rating change: 0.350",
+			"saiki": "initial elo: 9.133, new elo: 9.485, rating change: 0.351",
+			"haruurara": "initial elo: 9.106, new elo: 9.465, rating change: 0.360",
+			"skychael": "initial elo: 13.431, new elo: 13.302, rating change: -0.130",
+			"anotherwish": "initial elo: 10.103, new elo: 9.972, rating change: -0.131",
+			"pile": "initial elo: 10.000, new elo: 9.865, rating change: -0.135",
+			"eljuanchi": "initial elo: 6.000, new elo: 5.865, rating change: -0.135"
+		}
+	},
+	{
+		"tour_id": "b5dnrsbr",
+		"time": "2026-06-26 14:30:00-05:00",
+		"teams": {
+			"janoxx (13.58) cafezinho (11.43) saiki (9.48) psirockin (8.15) = 42.65": "4W 1L 0D",
+			"orfey (15.57) feyfey (12.88) chrislefko (7.00) i_dont_like_loli (7.00) = 42.45": "0W 5L 0D",
+			"skychael (13.30) tapumomo (12.37) unborned (9.12) andrey_k (7.77) = 42.56": "1W 3L 1D",
+			"watashiii (21.00) kirox (11.52) eljuanchi (5.87) lordgrond (4.12) = 42.50": "3W 2L 0D",
+			"kar72 (14.49) renzou (12.60) thjalago (10.00) anicomi (5.48) = 42.57": "3W 2L 0D",
+			"provenance (13.64) dry (13.13) animerod (12.65) wolbachia (3.00) = 42.43": "3W 1L 1D"
+		},
+		"player": {
+			"janoxx": "initial elo: 13.582, new elo: 13.927, rating change: 0.345",
+			"cafezinho": "initial elo: 11.431, new elo: 11.775, rating change: 0.344",
+			"saiki": "initial elo: 9.485, new elo: 9.822, rating change: 0.338",
+			"psirockin": "initial elo: 8.152, new elo: 8.486, rating change: 0.334",
+			"orfey": "initial elo: 15.571, new elo: 15.000, rating change: -0.571",
+			"feyfey": "initial elo: 12.881, new elo: 12.317, rating change: -0.565",
+			"chrislefko": "initial elo: 7.000, new elo: 6.398, rating change: -0.602",
+			"i_dont_like_loli": "initial elo: 7.000, new elo: 6.398, rating change: -0.602",
+			"skychael": "initial elo: 13.302, new elo: 13.081, rating change: -0.221",
+			"tapumomo": "initial elo: 12.368, new elo: 12.139, rating change: -0.229",
+			"unborned": "initial elo: 9.123, new elo: 8.895, rating change: -0.228",
+			"andrey_k": "initial elo: 7.771, new elo: 7.545, rating change: -0.227",
+			"watashiii": "initial elo: 21.000, new elo: 21.112, rating change: 0.112",
+			"kirox": "initial elo: 11.522, new elo: 11.632, rating change: 0.111",
+			"eljuanchi": "initial elo: 5.865, new elo: 5.976, rating change: 0.111",
+			"lordgrond": "initial elo: 4.118, new elo: 4.228, rating change: 0.111",
+			"kar72": "initial elo: 14.489, new elo: 14.621, rating change: 0.132",
+			"renzou": "initial elo: 12.604, new elo: 12.735, rating change: 0.131",
+			"thjalago": "initial elo: 10.000, new elo: 10.135, rating change: 0.135",
+			"anicomi": "initial elo: 5.477, new elo: 5.608, rating change: 0.131",
+			"provenance": "initial elo: 13.639, new elo: 13.869, rating change: 0.231",
+			"dry": "initial elo: 13.132, new elo: 13.362, rating change: 0.230",
+			"animerod": "initial elo: 12.654, new elo: 12.879, rating change: 0.225",
+			"wolbachia": "initial elo: 3.000, new elo: 3.233, rating change: 0.233"
+		}
+	},
+	{
+		"tour_id": "x2009diukes",
+		"time": "2026-07-02 21:30:00+02:00",
+		"teams": {
+			"hmsuis (10.00) haruurara (9.47) porte (8.87) mahzrunner (3.78) = 32.12": "3W 3L 0D",
+			"orfey (15.00) zokie (9.00) anicomi (5.61) dav1d1 (2.53) = 32.13": "4W 2L 0D",
+			"anotherwish (9.97) annayanami (9.77) i_dont_like_loli (6.40) eljuanchi (5.98) = 32.12": "2W 4L 0D",
+			"serozero (11.81) beokros (11.00) patoche49 (5.00) lordgrond (4.23) = 32.03": "3W 3L 0D"
+		},
+		"player": {
+			"hmsuis": "initial elo: 10.004, new elo: 10.019, rating change: 0.015",
+			"haruurara": "initial elo: 9.465, new elo: 9.481, rating change: 0.015",
+			"porte": "initial elo: 8.867, new elo: 8.882, rating change: 0.015",
+			"mahzrunner": "initial elo: 3.782, new elo: 3.798, rating change: 0.015",
+			"orfey": "initial elo: 15.000, new elo: 15.232, rating change: 0.232",
+			"zokie": "initial elo: 9.000, new elo: 9.246, rating change: 0.246",
+			"anicomi": "initial elo: 5.608, new elo: 5.844, rating change: 0.236",
+			"dav1d1": "initial elo: 2.527, new elo: 2.770, rating change: 0.243",
+			"anotherwish": "initial elo: 9.972, new elo: 9.743, rating change: -0.229",
+			"annayanami": "initial elo: 9.774, new elo: 9.545, rating change: -0.229",
+			"i_dont_like_loli": "initial elo: 6.398, new elo: 6.162, rating change: -0.237",
+			"eljuanchi": "initial elo: 5.976, new elo: 5.741, rating change: -0.234",
+			"serozero": "initial elo: 11.806, new elo: 11.784, rating change: -0.022",
+			"beokros": "initial elo: 11.000, new elo: 10.978, rating change: -0.022",
+			"patoche49": "initial elo: 5.000, new elo: 4.978, rating change: -0.022",
+			"lordgrond": "initial elo: 4.228, new elo: 4.207, rating change: -0.022"
+		}
 	}
 ]

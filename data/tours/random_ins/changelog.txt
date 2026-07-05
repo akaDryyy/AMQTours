@@ -1,0 +1,7 @@
+komari, old rank: 80.48, new rank: 90.63, diff: 10.15
+maikasasaki, old rank: 77.54, new rank: 85.8, diff: 8.26
+neoburnz, old rank: 93.62, new rank: 100.708, diff: 7.088
+justaweirdo, old rank: 53.011, new rank: 56.504, diff: 3.493
+luna, old rank: 53.07, new rank: 56.16, diff: 3.09
+eljuanchi, old rank: 65.74, new rank: 64.38, diff: -1.36
+mahzrunner, old rank: 82.083, new rank: 80.295, diff: -1.788

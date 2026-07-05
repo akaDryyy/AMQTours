@@ -1,28 +1,24 @@
 {
-	"tour_id": "b48lu58q",
-	"time": "2026-06-11 23:47:00+09:00",
+	"tour_id": "auaz63n7",
+	"time": "2026-07-03 18:00:00+03:00",
 	"teams": {
-		"shiinamahiru (14.13) spitzell (13.76) annayanami (12.97) xeyz (-2.28) = 38.59": "4W 2L 0D",
-		"maikasasaki (15.10) patoche49 (12.97) raphtelia (6.25) eljuanchi (4.37) = 38.69": "1W 5L 0D",
-		"lika (19.81) catge (9.59) bigsmo (5.84) keysha18 (3.59) = 38.83": "3W 3L 0D",
-		"mangoss (14.49) sssthnoob (10.95) gabetin (7.57) legrandort (5.63) = 38.64": "4W 2L 0D"
+		"progenitor (16.13) legrandort (8.13) icefeed2 (7.46) = 31.73": "3W 2L 1D",
+		"spitzell (17.84) saorihayami (10.00) janeremover (5.59) = 33.43": "0W 5L 1D",
+		"ryoutavn (12.41) okitanobu (11.84) miiarad (8.74) = 32.99": "4W 2L 0D",
+		"lika (19.53) chommy (12.67) keysha18 (-0.61) = 31.59": "4W 2L 0D"
 	},
 	"player": {
-		"shiinamahiru": "initial elo: 14.132, new elo: 15.201, rating change: 1.069",
-		"spitzell": "initial elo: 13.764, new elo: 14.817, rating change: 1.053",
-		"annayanami": "initial elo: 12.974, new elo: 14.022, rating change: 1.048",
-		"xeyz": "initial elo: -2.276, new elo: -1.211, rating change: 1.065",
-		"maikasasaki": "initial elo: 15.104, new elo: 13.448, rating change: -1.656",
-		"patoche49": "initial elo: 12.970, new elo: 11.411, rating change: -1.560",
-		"raphtelia": "initial elo: 6.249, new elo: 4.456, rating change: -1.793",
-		"eljuanchi": "initial elo: 4.369, new elo: 2.773, rating change: -1.595",
-		"lika": "initial elo: 19.815, new elo: 19.993, rating change: 0.179",
-		"catge": "initial elo: 9.591, new elo: 9.769, rating change: 0.179",
-		"bigsmo": "initial elo: 5.842, new elo: 6.021, rating change: 0.179",
-		"keysha18": "initial elo: 3.585, new elo: 3.765, rating change: 0.179",
-		"mangoss": "initial elo: 14.492, new elo: 14.831, rating change: 0.339",
-		"sssthnoob": "initial elo: 10.953, new elo: 11.291, rating change: 0.339",
-		"gabetin": "initial elo: 7.571, new elo: 7.914, rating change: 0.343",
-		"legrandort": "initial elo: 5.628, new elo: 5.969, rating change: 0.341"
+		"progenitor": "initial elo: 16.133, new elo: 16.423, rating change: 0.290",
+		"legrandort": "initial elo: 8.131, new elo: 8.416, rating change: 0.285",
+		"icefeed2": "initial elo: 7.464, new elo: 7.749, rating change: 0.286",
+		"spitzell": "initial elo: 17.842, new elo: 15.789, rating change: -2.053",
+		"saorihayami": "initial elo: 10.000, new elo: 7.485, rating change: -2.515",
+		"janeremover": "initial elo: 5.591, new elo: 3.386, rating change: -2.205",
+		"ryoutavn": "initial elo: 12.406, new elo: 13.351, rating change: 0.945",
+		"okitanobu": "initial elo: 11.842, new elo: 12.912, rating change: 1.070",
+		"miiarad": "initial elo: 8.739, new elo: 9.724, rating change: 0.985",
+		"lika": "initial elo: 19.528, new elo: 20.338, rating change: 0.810",
+		"chommy": "initial elo: 12.671, new elo: 13.492, rating change: 0.821",
+		"keysha18": "initial elo: -0.608, new elo: 0.207, rating change: 0.815"
 	}
 }

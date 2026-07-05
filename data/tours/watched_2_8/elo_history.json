@@ -4290,5 +4290,235 @@
 			"gabetin": "initial elo: 7.571, new elo: 7.914, rating change: 0.343",
 			"legrandort": "initial elo: 5.628, new elo: 5.969, rating change: 0.341"
 		}
+	},
+	{
+		"tour_id": "YEYETWOPLUSEIGHT",
+		"time": "2026-06-14 17:30:00+03:00",
+		"teams": {
+			"lika (19.99) spitzell (14.82) keysha18 (3.76) mythandroid (3.31) = 41.89": "3W 3L 0D",
+			"shiinamahiru (15.20) hihi (12.24) konomi (10.00) raphtelia (4.46) = 41.90": "3W 3L 0D",
+			"maikasasaki (13.45) civiltwlight (11.42) vr0003 (9.39) mayottatoki (7.60) = 41.86": "2W 4L 0D",
+			"janoxx (14.11) furlain (9.82) dking20 (9.71) metak (8.25) = 41.89": "4W 2L 0D"
+		},
+		"player": {
+			"lika": "initial elo: 19.993, new elo: 19.664, rating change: -0.329",
+			"spitzell": "initial elo: 14.817, new elo: 14.489, rating change: -0.328",
+			"keysha18": "initial elo: 3.765, new elo: 3.435, rating change: -0.330",
+			"mythandroid": "initial elo: 3.311, new elo: 2.981, rating change: -0.329",
+			"shiinamahiru": "initial elo: 15.201, new elo: 15.312, rating change: 0.112",
+			"hihi": "initial elo: 12.242, new elo: 12.354, rating change: 0.113",
+			"konomi": "initial elo: 10.000, new elo: 10.124, rating change: 0.124",
+			"raphtelia": "initial elo: 4.456, new elo: 4.572, rating change: 0.117",
+			"maikasasaki": "initial elo: 13.448, new elo: 13.291, rating change: -0.157",
+			"civiltwlight": "initial elo: 11.420, new elo: 11.251, rating change: -0.169",
+			"vr0003": "initial elo: 9.386, new elo: 9.173, rating change: -0.213",
+			"mayottatoki": "initial elo: 7.602, new elo: 7.437, rating change: -0.165",
+			"janoxx": "initial elo: 14.110, new elo: 14.487, rating change: 0.376",
+			"furlain": "initial elo: 9.818, new elo: 10.206, rating change: 0.387",
+			"dking20": "initial elo: 9.713, new elo: 10.099, rating change: 0.385",
+			"metak": "initial elo: 8.252, new elo: 8.650, rating change: 0.399"
+		}
+	},
+	{
+		"tour_id": "TWOPLUSEIGHT",
+		"time": "2026-06-18 17:30:00+03:00",
+		"teams": {
+			"spitzell (14.49) janoxx (14.49) chaabdu92 (12.97) skychael (-1.09) = 40.86": "4W 2L 0D",
+			"kaorimaeda (15.78) porte (11.53) chommy (10.83) mythandroid (2.98) = 41.12": "3W 3L 0D",
+			"lika (19.66) maikasasaki (13.29) raphtelia (4.57) keysha18 (3.44) = 40.96": "2W 4L 0D",
+			"neoburnz (15.80) patoche49 (11.41) gabetin (7.91) legrandort (5.97) = 41.09": "3W 3L 0D"
+		},
+		"player": {
+			"spitzell": "initial elo: 14.489, new elo: 14.914, rating change: 0.424",
+			"janoxx": "initial elo: 14.487, new elo: 14.921, rating change: 0.434",
+			"chaabdu92": "initial elo: 12.974, new elo: 13.407, rating change: 0.433",
+			"skychael": "initial elo: -1.092, new elo: -0.658, rating change: 0.434",
+			"kaorimaeda": "initial elo: 15.778, new elo: 16.017, rating change: 0.240",
+			"porte": "initial elo: 11.529, new elo: 11.767, rating change: 0.237",
+			"chommy": "initial elo: 10.828, new elo: 11.066, rating change: 0.238",
+			"mythandroid": "initial elo: 2.981, new elo: 3.218, rating change: 0.237",
+			"lika": "initial elo: 19.664, new elo: 18.916, rating change: -0.748",
+			"maikasasaki": "initial elo: 13.291, new elo: 12.521, rating change: -0.770",
+			"raphtelia": "initial elo: 4.572, new elo: 3.788, rating change: -0.784",
+			"keysha18": "initial elo: 3.435, new elo: 2.684, rating change: -0.751",
+			"neoburnz": "initial elo: 15.796, new elo: 15.876, rating change: 0.080",
+			"patoche49": "initial elo: 11.411, new elo: 11.491, rating change: 0.080",
+			"gabetin": "initial elo: 7.914, new elo: 7.995, rating change: 0.080",
+			"legrandort": "initial elo: 5.969, new elo: 6.050, rating change: 0.080"
+		}
+	},
+	{
+		"tour_id": "kgmrqdfk",
+		"time": "2026-06-22 09:30:00-05:00",
+		"teams": {
+			"lika (18.92) uy5gf (11.27) konomi (10.12) skychael (-0.66) = 39.66": "5W 1L 0D",
+			"spitzell (14.91) tapumomo (12.59) zokie (8.49) keysha18 (2.68) = 38.68": "1W 5L 0D",
+			"kaorimaeda (16.02) porte (11.77) legrandort (6.05) zomg (5.96) = 39.80": "4W 2L 0D",
+			"shiinamahiru (15.31) sssthnoob (11.29) catge (9.77) mythandroid (3.22) = 39.59": "2W 4L 0D"
+		},
+		"player": {
+			"lika": "initial elo: 18.916, new elo: 19.902, rating change: 0.986",
+			"uy5gf": "initial elo: 11.274, new elo: 12.263, rating change: 0.989",
+			"konomi": "initial elo: 10.124, new elo: 11.273, rating change: 1.149",
+			"skychael": "initial elo: -0.658, new elo: 0.341, rating change: 0.998",
+			"spitzell": "initial elo: 14.914, new elo: 13.390, rating change: -1.524",
+			"tapumomo": "initial elo: 12.591, new elo: 11.069, rating change: -1.522",
+			"zokie": "initial elo: 8.488, new elo: 6.981, rating change: -1.507",
+			"keysha18": "initial elo: 2.684, new elo: 1.155, rating change: -1.528",
+			"kaorimaeda": "initial elo: 16.017, new elo: 17.093, rating change: 1.076",
+			"porte": "initial elo: 11.767, new elo: 12.832, rating change: 1.065",
+			"legrandort": "initial elo: 6.050, new elo: 7.128, rating change: 1.078",
+			"zomg": "initial elo: 5.962, new elo: 7.080, rating change: 1.118",
+			"shiinamahiru": "initial elo: 15.312, new elo: 14.781, rating change: -0.531",
+			"sssthnoob": "initial elo: 11.291, new elo: 10.750, rating change: -0.541",
+			"catge": "initial elo: 9.769, new elo: 9.231, rating change: -0.538",
+			"mythandroid": "initial elo: 3.218, new elo: 2.693, rating change: -0.525"
+		}
+	},
+	{
+		"tour_id": "watchedtwopluseight",
+		"time": "2026-06-25 17:30:00+03:00",
+		"teams": {
+			"chaabdu92 (13.41) akatsukikirika (10.83) sssthnoob (10.75) keysha18 (1.16) = 36.14": "1W 4L 0D",
+			"porte (12.83) patoche49 (11.49) gabetin (7.99) raphtelia (3.79) = 36.11": "1W 4L 0D",
+			"deja_ (15.26) denero (11.20) catge (9.23) skychael (0.34) = 36.03": "3W 2L 0D",
+			"janoxx (14.92) konomi (11.27) chommy (11.07) xeyz (-1.21) = 36.05": "4W 1L 0D",
+			"spitzell (13.39) ryoutavn (10.32) spartric (6.72) dav1d1 (5.71) = 36.14": "5W 0L 0D",
+			"lakumix (13.97) peashooter (10.00) icefeed2 (9.43) mythandroid (2.69) = 36.10": "1W 4L 0D"
+		},
+		"player": {
+			"chaabdu92": "initial elo: 13.407, new elo: 12.314, rating change: -1.093",
+			"akatsukikirika": "initial elo: 10.826, new elo: 9.731, rating change: -1.095",
+			"sssthnoob": "initial elo: 10.750, new elo: 9.650, rating change: -1.100",
+			"keysha18": "initial elo: 1.155, new elo: 0.065, rating change: -1.090",
+			"porte": "initial elo: 12.832, new elo: 11.430, rating change: -1.402",
+			"patoche49": "initial elo: 11.491, new elo: 10.080, rating change: -1.411",
+			"gabetin": "initial elo: 7.995, new elo: 6.573, rating change: -1.422",
+			"raphtelia": "initial elo: 3.788, new elo: 2.332, rating change: -1.457",
+			"deja_": "initial elo: 15.257, new elo: 15.879, rating change: 0.622",
+			"denero": "initial elo: 11.204, new elo: 11.830, rating change: 0.626",
+			"catge": "initial elo: 9.231, new elo: 9.845, rating change: 0.613",
+			"skychael": "initial elo: 0.341, new elo: 0.961, rating change: 0.621",
+			"janoxx": "initial elo: 14.921, new elo: 15.956, rating change: 1.036",
+			"konomi": "initial elo: 11.273, new elo: 12.411, rating change: 1.138",
+			"chommy": "initial elo: 11.066, new elo: 12.083, rating change: 1.017",
+			"xeyz": "initial elo: -1.211, new elo: -0.178, rating change: 1.033",
+			"spitzell": "initial elo: 13.390, new elo: 15.361, rating change: 1.971",
+			"ryoutavn": "initial elo: 10.321, new elo: 12.296, rating change: 1.975",
+			"spartric": "initial elo: 6.721, new elo: 8.700, rating change: 1.979",
+			"dav1d1": "initial elo: 5.705, new elo: 7.685, rating change: 1.980",
+			"lakumix": "initial elo: 13.974, new elo: 12.863, rating change: -1.111",
+			"peashooter": "initial elo: 10.000, new elo: 8.613, rating change: -1.387",
+			"icefeed2": "initial elo: 9.430, new elo: 8.346, rating change: -1.084",
+			"mythandroid": "initial elo: 2.693, new elo: 1.608, rating change: -1.086"
+		}
+	},
+	{
+		"tour_id": "nyehehe",
+		"time": "2026-06-26 13:30:00+03:00",
+		"teams": {
+			"maikasasaki (12.52) chommy (12.08) tateyamaayano (6.49) eljuanchi (2.77) = 33.87": "4W 2L 0D",
+			"spitzell (15.36) shadow (9.78) legrandort (7.13) mythandroid (1.61) = 33.87": "4W 2L 0D",
+			"uy5gf (12.26) porte (11.43) aitsukinakuru (7.83) justaweirdo (2.31) = 33.84": "0W 6L 0D",
+			"mangoss (14.83) catge (9.84) iamasiannoob (7.27) kyuuuu (1.65) = 33.59": "4W 2L 0D"
+		},
+		"player": {
+			"maikasasaki": "initial elo: 12.521, new elo: 13.117, rating change: 0.596",
+			"chommy": "initial elo: 12.083, new elo: 12.671, rating change: 0.589",
+			"tateyamaayano": "initial elo: 6.490, new elo: 7.083, rating change: 0.594",
+			"eljuanchi": "initial elo: 2.773, new elo: 3.369, rating change: 0.596",
+			"spitzell": "initial elo: 15.361, new elo: 16.381, rating change: 1.021",
+			"shadow": "initial elo: 9.776, new elo: 10.790, rating change: 1.014",
+			"legrandort": "initial elo: 7.128, new elo: 8.131, rating change: 1.003",
+			"mythandroid": "initial elo: 1.608, new elo: 2.615, rating change: 1.007",
+			"uy5gf": "initial elo: 12.263, new elo: 10.030, rating change: -2.233",
+			"porte": "initial elo: 11.430, new elo: 9.243, rating change: -2.187",
+			"aitsukinakuru": "initial elo: 7.833, new elo: 5.610, rating change: -2.223",
+			"justaweirdo": "initial elo: 2.313, new elo: 0.086, rating change: -2.227",
+			"mangoss": "initial elo: 14.831, new elo: 15.435, rating change: 0.604",
+			"catge": "initial elo: 9.845, new elo: 10.451, rating change: 0.606",
+			"iamasiannoob": "initial elo: 7.269, new elo: 7.873, rating change: 0.604",
+			"kyuuuu": "initial elo: 1.647, new elo: 2.258, rating change: 0.611"
+		}
+	},
+	{
+		"tour_id": "2PLUS8",
+		"time": "2026-06-28 17:30:00+03:00",
+		"teams": {
+			"lika (19.90) tapumomo (11.07) dav1d1 (7.69) hubcioskubcio (5.68) = 44.33": "3W 3L 0D",
+			"kaorimaeda (17.09) maikasasaki (13.12) haruurara (8.18) bigsmo (6.02) = 44.42": "2W 4L 0D",
+			"janoxx (15.96) konomi (12.41) provenance (9.49) gabetin (6.57) = 44.43": "5W 1L 0D",
+			"emdiel (15.27) kaededayo (12.69) porte (9.24) zomg (7.08) = 44.28": "2W 4L 0D"
+		},
+		"player": {
+			"lika": "initial elo: 19.902, new elo: 20.195, rating change: 0.293",
+			"tapumomo": "initial elo: 11.069, new elo: 11.359, rating change: 0.291",
+			"dav1d1": "initial elo: 7.685, new elo: 7.980, rating change: 0.294",
+			"hubcioskubcio": "initial elo: 5.677, new elo: 5.968, rating change: 0.292",
+			"kaorimaeda": "initial elo: 17.093, new elo: 15.964, rating change: -1.129",
+			"maikasasaki": "initial elo: 13.117, new elo: 11.966, rating change: -1.151",
+			"haruurara": "initial elo: 8.184, new elo: 7.020, rating change: -1.164",
+			"bigsmo": "initial elo: 6.021, new elo: 4.879, rating change: -1.142",
+			"janoxx": "initial elo: 15.956, new elo: 17.427, rating change: 1.471",
+			"konomi": "initial elo: 12.411, new elo: 13.980, rating change: 1.569",
+			"provenance": "initial elo: 9.486, new elo: 11.033, rating change: 1.548",
+			"gabetin": "initial elo: 6.573, new elo: 8.028, rating change: 1.455",
+			"emdiel": "initial elo: 15.270, new elo: 14.667, rating change: -0.603",
+			"kaededayo": "initial elo: 12.692, new elo: 12.048, rating change: -0.644",
+			"porte": "initial elo: 9.243, new elo: 8.619, rating change: -0.623",
+			"zomg": "initial elo: 7.080, new elo: 6.455, rating change: -0.625"
+		}
+	},
+	{
+		"tour_id": "oioioioi2plus8",
+		"time": "2026-06-30 17:30:00+03:00",
+		"teams": {
+			"janoxx (17.43) icefeed2 (8.35) dav1d1 (7.98) foopypoopy (3.12) = 36.88": "2W 4L 0D",
+			"konomi (13.98) ryoutavn (12.30) porte (8.62) anicomi (1.83) = 36.73": "3W 3L 0D",
+			"spitzell (16.38) tapumomo (11.36) gabetin (8.03) skychael (0.96) = 36.73": "5W 1L 0D",
+			"lika (20.20) patoche49 (10.08) janeremover (6.35) keysha18 (0.07) = 36.69": "2W 4L 0D"
+		},
+		"player": {
+			"janoxx": "initial elo: 17.427, new elo: 16.537, rating change: -0.891",
+			"icefeed2": "initial elo: 8.346, new elo: 7.464, rating change: -0.882",
+			"dav1d1": "initial elo: 7.980, new elo: 7.090, rating change: -0.890",
+			"foopypoopy": "initial elo: 3.124, new elo: 2.200, rating change: -0.924",
+			"konomi": "initial elo: 13.980, new elo: 14.094, rating change: 0.113",
+			"ryoutavn": "initial elo: 12.296, new elo: 12.406, rating change: 0.110",
+			"porte": "initial elo: 8.619, new elo: 8.730, rating change: 0.110",
+			"anicomi": "initial elo: 1.835, new elo: 1.947, rating change: 0.112",
+			"spitzell": "initial elo: 16.381, new elo: 17.842, rating change: 1.461",
+			"tapumomo": "initial elo: 11.359, new elo: 12.803, rating change: 1.444",
+			"gabetin": "initial elo: 8.028, new elo: 9.481, rating change: 1.453",
+			"skychael": "initial elo: 0.961, new elo: 2.433, rating change: 1.472",
+			"lika": "initial elo: 20.195, new elo: 19.528, rating change: -0.667",
+			"patoche49": "initial elo: 10.080, new elo: 9.416, rating change: -0.664",
+			"janeremover": "initial elo: 6.351, new elo: 5.591, rating change: -0.760",
+			"keysha18": "initial elo: 0.065, new elo: -0.608, rating change: -0.673"
+		}
+	},
+	{
+		"tour_id": "auaz63n7",
+		"time": "2026-07-03 18:00:00+03:00",
+		"teams": {
+			"progenitor (16.13) legrandort (8.13) icefeed2 (7.46) = 31.73": "3W 2L 1D",
+			"spitzell (17.84) saorihayami (10.00) janeremover (5.59) = 33.43": "0W 5L 1D",
+			"ryoutavn (12.41) okitanobu (11.84) miiarad (8.74) = 32.99": "4W 2L 0D",
+			"lika (19.53) chommy (12.67) keysha18 (-0.61) = 31.59": "4W 2L 0D"
+		},
+		"player": {
+			"progenitor": "initial elo: 16.133, new elo: 16.423, rating change: 0.290",
+			"legrandort": "initial elo: 8.131, new elo: 8.416, rating change: 0.285",
+			"icefeed2": "initial elo: 7.464, new elo: 7.749, rating change: 0.286",
+			"spitzell": "initial elo: 17.842, new elo: 15.789, rating change: -2.053",
+			"saorihayami": "initial elo: 10.000, new elo: 7.485, rating change: -2.515",
+			"janeremover": "initial elo: 5.591, new elo: 3.386, rating change: -2.205",
+			"ryoutavn": "initial elo: 12.406, new elo: 13.351, rating change: 0.945",
+			"okitanobu": "initial elo: 11.842, new elo: 12.912, rating change: 1.070",
+			"miiarad": "initial elo: 8.739, new elo: 9.724, rating change: 0.985",
+			"lika": "initial elo: 19.528, new elo: 20.338, rating change: 0.810",
+			"chommy": "initial elo: 12.671, new elo: 13.492, rating change: 0.821",
+			"keysha18": "initial elo: -0.608, new elo: 0.207, rating change: 0.815"
+		}
 	}
 ]
