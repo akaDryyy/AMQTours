@@ -1,14 +1,15 @@
-sniparook (16.827) selaph (13.055) apurplenose (10.841) julialess64 (10.267) | Total = 50.990 | Guesses = [5444]
-jlin2 (17.303) milar (13.812) asleep (12.883) feyfey (6.956) | Total = 50.954 | Guesses = [5443]
-sakurabarola (16.077) alkios (15.768) dry (10.402) harges (8.651) | Total = 50.898 | Guesses = [4444]
-deafness (18.348) diukes (13.969) lily (13.285) zokie (5.262) | Total = 50.864 | Guesses = [5444]
+shag (18.226) hmsuis (10.023) hihi (7.883) okitanobu (3.650) | Total = 39.782 | Guesses = [5443]
+alkios (15.768) lily (13.285) mahirushiina (9.482) eljuanchi (0.914) | Total = 39.449 | Guesses = [4442]
+deafness (18.348) emdiel (8.970) saiki (8.172) yashadox (4.162) | Total = 39.652 | Guesses = [5433]
+watashiii (24.150) haruurara (7.631) solosion (6.182) anicomi (1.772) | Total = 39.735 | Guesses = [5432]
 
-Average: 50.9265
+Average: 39.6545
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
 Distribution of guesses:
-≥28% = 4 guesses
+≥50 = 5 guesses
+28% - 50% = 4 guesses
 19% - 28% = 3 guesses
 8% - 19% = 2 guesses
 <8% = 1 guess
