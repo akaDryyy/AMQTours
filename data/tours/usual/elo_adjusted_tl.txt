@@ -1,10 +1,26 @@
-13: alkios
-12: mami, dry
-10: lakumix
-8: haruurara, saiki
-7: bigsmo, fumiii, jakemonkey
-5: mahzrunner, vr0003
-4: shelterrin, porte
-3: ryoutavn
-2: anicomi
-1: lordgrond
+24: watashiii
+23: stunar, akatsuki, eryth
+22: arronchu, shadowpandax
+21: bai
+19: fortnayt, tsui
+18: deafness, thaleko, shag
+17: civiltwlight, accelerator11, jlin2, zippy, sniparook
+16: math_, poolnoodle, sakurabarola, alkios, chata
+15: kar72, revel, kawada6
+14: gonzaloh, diukes, milar, baguett
+13: mami, lilycat, selaph, konomi, asleep, anonimus_opinion, lelpop
+12: doomchicken, peeku, beautiful, neumann, neoburnz, kishua, renzou
+11: kaorimaeda, apurplenose, moosepi, lika, pile, orfey, kaededayo, cafezinho
+10: florenz, mrwolf, dry, julialess64, shiinamahiru, cipherkai, claydoll1091, hmsuis, lakumix, wuffles
+9: mahirushiina, jube, ruuka, spanky, kuterin, emdiel, bamboo, harges, oh95, chemist
+8: mayottatoki, fumiii, saiki, kazaseno, konsumenci, kryuell, hihi, zeal_kido, moltenashes, zozo, jungwheein, haruurara
+7: jakemonkey, yasashiikumo, provenance, fiftypercentweeb, md22, progenitor, feyfey, andrey_k, kabao, kynn, keizan, jaimeywea
+6: maki04, skychael, redeyes, annayanami, solosion, anotherwish, swapin, chaabdu92, komari, liljakatsuragi, kirox, naizuri, bigsmo, arpia97, nekko_khayal
+5: tugia, mahzrunner, atsui, maikasasaki, zokie, janoxx, chrislefko, isekaijoucho, nephirea, ekkaiaenoia, vr0003, shelterrin, yellowrose, floth
+4: spartric, yashadox, heleos, yolowolf75, ryoutavn, tskr, okitanobu, velocity111, xeyz
+3: appurupai, joljol, unborned, david, icefeed2, hakuikoyori, kyuu, metak, saorihayami, shadow
+2: patoche49, goko8765, uy5gf, shiku, transfer, lordgrond, gabetin, porte, keysha18, justaweirdo, dking20, lightning, pekorrat, anicomi, chommy, serozero, legrandort, akatsukikirika
+1: vuhrculls, zarelyyyx, catge, zomg, eljuanchi, luna, rhummy
+0: thepiegod, kombofuud, foopypoopy, janeremover, binesh, tateyamaayano
+-1: denero
+-2: superzinc

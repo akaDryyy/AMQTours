@@ -41,6 +41,7 @@ def get_guess_watched_28_ui(name, player_stats, idtable, zerog, oneg, twog, thre
 
 GUESS_HANDLERS = {
     "random": get_guess_random_ui,
+    "random5g": get_guess_watched_ui,
     "watched": get_guess_watched_ui,
     "watched_28": get_guess_watched_28_ui,
 }

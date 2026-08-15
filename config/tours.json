@@ -15,13 +15,14 @@
     "solver": {
       "stats_tab": 0,
       "stats_type": "usual",
-      "guess_mode": "random",
+      "guess_mode": "random5g",
       "code_generator": "usual_gr",
       "gamemode": "usual",
       "thresholds": {
         "one": 8,
         "two": 19,
-        "three": 28
+        "three": 28,
+        "four": 50
       }
     },
     "tiermaker": {
@@ -57,14 +58,15 @@
     "solver": {
       "stats_tab": 0,
       "stats_type": "usual",
-      "guess_mode": "random",
+      "guess_mode": "random5g",
       "code_generator": "usual_gr",
       "gamemode": "usual",
       "sync_ids": true,
       "thresholds": {
         "one": 8,
         "two": 19,
-        "three": 28
+        "three": 28,
+        "four": 50
       }
     },
     "tiermaker": {

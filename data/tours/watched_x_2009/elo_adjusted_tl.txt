@@ -1,16 +1,17 @@
 21: watashiii
-16: lika, milar
-15: hejsan, bop, orfey, kar72
-14: comfv, janoxx, zental, provenance, diukes, bamboo
-13: dry, konomi, skychael, animerod, renzou
-12: feyfey, joey, tapumomo, chemist, serozero, cafezinho, kirox
-11: moltenashes, beokros, keizan
-10: thjalago, hmsuis, pile, saiki, anotherwish, annayanami
-9: haruurara, zokie, miiarad, zomg, shadismith, unborned, porte
-8: psirockin, bijoukoseki, andrey_k
-7: vuhrculls
-6: chrislefko, i_dont_like_loli, anicomi, eljuanchi
-5: mythandroid, aryssiel, xeyz, patoche49, ryoutavn, yosiiz
-4: lordgrond, mahzrunner
-3: osxtrafton, wolbachia, dav1d1
-2: foopypoopy
+16: milar, lika
+15: hejsan, bop, kar72
+14: orfey, dry, provenance, comfv, zental, bamboo, janoxx, renzou
+13: diukes, saroarsten, konomi, animerod, skychael
+12: joey, tapumomo, chemist, feyfey, cafezinho, kirox, serozero
+11: moltenashes, beokros, uy5gf, hmsuis, gonzaloh, keizan
+10: anotherwish, thjalago, pile, saiki, annayanami, haruurara
+9: zokie, miiarad, zomg, shadismith, unborned, porte
+8: bijoukoseki
+7: psirockin, andrey_k, vuhrculls
+6: chrislefko, i_dont_like_loli, anicomi
+5: mythandroid, xeyz, justaweirdo, aryssiel, patoche49, ryoutavn, yosiiz, eljuanchi, lordgrond
+4: mahzrunner
+3: david, osxtrafton, wolbachia, catge
+2: okitanobu, janeremover, foopypoopy, transfer, tatsuya
+1: raphtelia, gluglugsemen

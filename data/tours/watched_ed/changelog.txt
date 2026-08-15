@@ -1,6 +1,0 @@
-chommy, old rank: 84.03, new rank: 92.55, diff: 8.52
-haruurara, old rank: 97.19, new rank: 102.72, diff: 5.53
-skychael, old rank: 91.388, new rank: 91.779, diff: 0.391
-swapin, old rank: 86.96, new rank: 87.33, diff: 0.37
-konomi, old rank: 118.42, new rank: 117.83, diff: -0.59
-tugia, old rank: 100.97, new rank: 100.305, diff: -0.665

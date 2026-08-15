@@ -41,7 +41,7 @@ def discover_json_files(json_dir, regex):
         if not file_name.lower().endswith(".json"):
             continue
         songs_played = None
-        if not file_name.startswith("amq_song_expoert"):
+        if not file_name.startswith("amq_song_export"):
             reg_match = re.search(regex, file_name)
             if reg_match is not None:
                 songs_played = int(reg_match.group(1))
@@ -595,7 +595,7 @@ def preflight_json_files(json_dir, regex, teamDB=None, playerDB=None, alias_to_i
 
     for file_name in json_files:
         songs_played = None
-        if not file_name.startswith("amq_song_expoert"):
+        if not file_name.startswith("amq_song_export"):
             reg_match = re.search(regex, file_name)
             if reg_match is not None:
                 songs_played = int(reg_match.group(1))

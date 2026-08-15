@@ -467,7 +467,7 @@ def run_ngm_sheet_stats(is_local):
     for file_name in sorted(os.listdir(JSONS)):
         if not file_name.lower().endswith(".json"):
             continue
-        if file_name.startswith('amq_song_expoert'):
+        if file_name.startswith('amq_song_export'):
             songs_played = None
         else:
             reg_match = re.search(REGEX, file_name)

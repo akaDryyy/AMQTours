@@ -1,28 +1,28 @@
 {
-	"tour_id": "x2009diukes",
-	"time": "2026-07-02 21:30:00+02:00",
+	"tour_id": "n7f3mrm2",
+	"time": "2026-08-05 14:30:00-05:00",
 	"teams": {
-		"hmsuis (10.00) haruurara (9.47) porte (8.87) mahzrunner (3.78) = 32.12": "3W 3L 0D",
-		"orfey (15.00) zokie (9.00) anicomi (5.61) dav1d1 (2.53) = 32.13": "4W 2L 0D",
-		"anotherwish (9.97) annayanami (9.77) i_dont_like_loli (6.40) eljuanchi (5.98) = 32.12": "2W 4L 0D",
-		"serozero (11.81) beokros (11.00) patoche49 (5.00) lordgrond (4.23) = 32.03": "3W 3L 0D"
+		"provenance (13.87) hmsuis (10.35) anicomi (5.36) mahzrunner (3.80) = 33.38": "5W 1L 0D",
+		"konomi (13.11) pile (9.75) haruurara (9.60) transfer (2.00) = 34.47": "3W 3L 0D",
+		"orfey (14.61) feyfey (12.01) eljuanchi (4.93) tatsuya (2.00) = 33.55": "2W 4L 0D",
+		"diukes (13.59) saiki (9.93) psirockin (7.69) foopypoopy (2.33) = 33.54": "2W 4L 0D"
 	},
 	"player": {
-		"hmsuis": "initial elo: 10.004, new elo: 10.019, rating change: 0.015",
-		"haruurara": "initial elo: 9.465, new elo: 9.481, rating change: 0.015",
-		"porte": "initial elo: 8.867, new elo: 8.882, rating change: 0.015",
-		"mahzrunner": "initial elo: 3.782, new elo: 3.798, rating change: 0.015",
-		"orfey": "initial elo: 15.000, new elo: 15.232, rating change: 0.232",
-		"zokie": "initial elo: 9.000, new elo: 9.246, rating change: 0.246",
-		"anicomi": "initial elo: 5.608, new elo: 5.844, rating change: 0.236",
-		"dav1d1": "initial elo: 2.527, new elo: 2.770, rating change: 0.243",
-		"anotherwish": "initial elo: 9.972, new elo: 9.743, rating change: -0.229",
-		"annayanami": "initial elo: 9.774, new elo: 9.545, rating change: -0.229",
-		"i_dont_like_loli": "initial elo: 6.398, new elo: 6.162, rating change: -0.237",
-		"eljuanchi": "initial elo: 5.976, new elo: 5.741, rating change: -0.234",
-		"serozero": "initial elo: 11.806, new elo: 11.784, rating change: -0.022",
-		"beokros": "initial elo: 11.000, new elo: 10.978, rating change: -0.022",
-		"patoche49": "initial elo: 5.000, new elo: 4.978, rating change: -0.022",
-		"lordgrond": "initial elo: 4.228, new elo: 4.207, rating change: -0.022"
+		"provenance": "initial elo: 13.869, new elo: 14.353, rating change: 0.484",
+		"hmsuis": "initial elo: 10.354, new elo: 10.820, rating change: 0.466",
+		"anicomi": "initial elo: 5.364, new elo: 5.823, rating change: 0.460",
+		"mahzrunner": "initial elo: 3.798, new elo: 4.281, rating change: 0.483",
+		"konomi": "initial elo: 13.112, new elo: 13.090, rating change: -0.022",
+		"pile": "initial elo: 9.753, new elo: 9.732, rating change: -0.022",
+		"haruurara": "initial elo: 9.600, new elo: 9.578, rating change: -0.021",
+		"transfer": "initial elo: 2.000, new elo: 1.978, rating change: -0.022",
+		"orfey": "initial elo: 14.607, new elo: 14.398, rating change: -0.209",
+		"feyfey": "initial elo: 12.012, new elo: 11.802, rating change: -0.210",
+		"eljuanchi": "initial elo: 4.935, new elo: 4.718, rating change: -0.217",
+		"tatsuya": "initial elo: 2.000, new elo: 1.772, rating change: -0.228",
+		"diukes": "initial elo: 13.587, new elo: 13.348, rating change: -0.239",
+		"saiki": "initial elo: 9.934, new elo: 9.705, rating change: -0.228",
+		"psirockin": "initial elo: 7.688, new elo: 7.462, rating change: -0.226",
+		"foopypoopy": "initial elo: 2.333, new elo: 2.096, rating change: -0.237"
 	}
 }

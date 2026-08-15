@@ -30,7 +30,7 @@ def guess_kwargs(tour, player_stats, idtable):
             "threeg": thresholds["three"],
             "fourg": thresholds["four"],
         })
-    elif tour["solver"]["guess_mode"] == "watched":
+    elif tour["solver"]["guess_mode"] == "watched" or tour["solver"]["guess_mode"] == "random5g":
         kwargs.update({
             "oneg": thresholds["one"],
             "twog": thresholds["two"],

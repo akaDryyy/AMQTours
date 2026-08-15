@@ -1,9 +1,9 @@
-dry (11.500) fumiii (6.500) jakemonkey (6.500) ryoutavn (2.500) | Total = 27.000 | Guesses = [4432]
-haruurara (8.500) bigsmo (7.500) mahzrunner (5.500) vr0003 (5.000) | Total = 26.500 | Guesses = [4433]
-alkios (13.000) saiki (8.000) shelterrin (4.500) lordgrond (1.000) | Total = 26.500 | Guesses = [4332]
-mami (12.000) lakumix (9.500) porte (3.500) anicomi (1.500) | Total = 26.500 | Guesses = [4322]
+sniparook (16.827) selaph (13.055) apurplenose (10.841) julialess64 (10.267) | Total = 50.990 | Guesses = [5444]
+jlin2 (17.303) milar (13.812) asleep (12.883) feyfey (6.956) | Total = 50.954 | Guesses = [5443]
+sakurabarola (16.077) alkios (15.768) dry (10.402) harges (8.651) | Total = 50.898 | Guesses = [4444]
+deafness (18.348) diukes (13.969) lily (13.285) zokie (5.262) | Total = 50.864 | Guesses = [5444]
 
-Average: 26.625
+Average: 50.9265
 
 <YOURCHALLONGEURLHERE>
 ```e0g0z211111101100000z11110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```
