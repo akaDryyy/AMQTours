@@ -6,7 +6,8 @@ def generate_codes_usual_gr(gamemode, txtvar):
         case "quag":
             txtvar += "```e0g0z211111101100000z11110000000z11111111111100f051o000000f11100k012r02i0a46533a11002s0111111111002s0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Distribution of guesses:
-≥28% = 4 guesses
+≥50 = 5 guesses
+28% - 50% = 4 guesses
 19% - 28% = 3 guesses
 8% - 19% = 2 guesses
 <8% = 1 guess
@@ -91,6 +92,19 @@ def generate_codes_watched_gr(gamemode, txtvar):
             txtvar += "```e0g0z21111100130z000011110000000z11111111111100k051o000000f11100k012r02i0a46533a11002s0111111111001e0111002s01a111111111102a11111111111i01k903-11111--```\n"
     txtvar += """Distribution of guesses:
 ≥28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
+"""
+    return txtvar
+
+
+def generate_codes_watched_0_100_gr(_, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```m020z1110110011130z000011110000000z11111111111100k051o000000f152143331110000k012r02i0a46533a11002s011111111111002s0111002s01a111111111102a111111111050017pr11hg1ka03-11111--```\n"
+    txtvar += """Distribution of guesses:
+>=28% = 5 guesses
 18% - 28% = 4 guesses
 12% - 18% = 3 guesses
 6% - 12% = 2 guesses

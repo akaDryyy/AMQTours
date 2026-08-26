@@ -2,20 +2,14 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
 import re
 import shutil
-import subprocess
 import sys
 import threading
 import asyncio
-import tempfile
 import tkinter as tk
 import traceback
-import urllib.request
-import urllib.error
 import webbrowser
-import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 from tkinter import ttk
@@ -39,6 +33,8 @@ from modules.support.hostConfig import (
 )
 from modules.support import hostHistory
 from modules.support.playerRatings import MissingRatingsError, normalize_alias_key, resolve_player_ratings
+from modules.main.substitutionPanel import SubstitutionPanel
+from modules.main.hostUpdater import HostScriptUpdater
 from tour_config import TOURS
 
 
@@ -46,11 +42,6 @@ UI_SETTINGS_PATH = PROJECT_ROOT / "config" / "ui_settings.json"
 HOST_VERSION_PATH = PROJECT_ROOT / "config" / "host_script_version.json"
 SETUP_CODES_PATH = PROJECT_ROOT / "config" / "setup_codes.json"
 SETUP_CODES = load_setup_codes(SETUP_CODES_PATH)
-GITHUB_REPO = "akaDryyy/AMQTours"
-GITHUB_BRANCH = "main"
-GITHUB_COMMIT_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/commits/{GITHUB_BRANCH}"
-GITHUB_ZIP_URL = f"https://github.com/{GITHUB_REPO}/archive/refs/heads/{GITHUB_BRANCH}.zip"
-
 PLAYER_PATTERN = re.compile(r"^(.*?)\s*(?:\(([^()]*)\))?\s*$")
 
 
@@ -75,7 +66,12 @@ class AMQTourUI(tk.Tk):
         self.startup_eloscrape_running = False
         self.startup_eloscrape_errors = []
         self.ui_settings = self.load_ui_settings()
+        saved_tour_id = self.ui_settings.get("selected_tour_id")
+        if saved_tour_id in TOURS:
+            self.selected_tour_id = saved_tour_id
+        self.selected_category = self.category_for_tour(self.selected_tour_id)
         self.boot_tour_ids = set(self.ui_settings.get("boot_tour_ids") or self.default_boot_tour_ids())
+        self.do_not_autoload = bool(self.ui_settings.get("do_not_autoload", False))
         self.boot_mode_vars: dict[str, tk.BooleanVar] = {}
         self.loaded_tour_ids: set[str] = set()
         self.loading_tour_ids: set[str] = set()
@@ -83,6 +79,7 @@ class AMQTourUI(tk.Tk):
         self.tour_load_lock = threading.Lock()
         self.last_startup_status = ""
         self.version_update_running = False
+        self.host_updater = HostScriptUpdater(PROJECT_ROOT, HOST_VERSION_PATH)
         self.host_version_state = {
             "status": "checking",
             "local": "",
@@ -106,11 +103,15 @@ class AMQTourUI(tk.Tk):
         self.inhouse_result_rows = []
         self.inhouse_logging = False
         self.elos_search_var = tk.StringVar()
+        self.whitelist_players: list[str] = []
+        self.whitelist_popup = None
+        self.whitelist_popup_list = None
+        self.whitelist_popup_target = None
 
         self._configure_style()
         self._build_layout()
-        self.select_category("Random")
-        self.select_tour("usual")
+        self.select_category(self.selected_category, select_first=False)
+        self.select_tour(self.selected_tour_id)
         self.ui_ready = True
         self.after(300, self.start_startup_eloscrape)
         self.after(600, self.start_host_version_check)
@@ -247,9 +248,21 @@ class AMQTourUI(tk.Tk):
     def save_ui_settings(self):
         self.ui_settings["dark_mode"] = self.dark_mode.get()
         self.ui_settings["boot_tour_ids"] = sorted(self.boot_tour_ids)
+        self.ui_settings["selected_tour_id"] = self.selected_tour_id
+        self.ui_settings["do_not_autoload"] = self.do_not_autoload
         UI_SETTINGS_PATH.parent.mkdir(parents=True, exist_ok=True)
         with UI_SETTINGS_PATH.open("w", encoding="utf-8") as f:
             json.dump(self.ui_settings, f, indent=2)
+
+    def category_for_tour(self, tour_id):
+        for category, entries in CATEGORIES.items():
+            if any(entry_tour_id == tour_id for _label, entry_tour_id in entries):
+                return category
+        return "Random"
+
+    def is_tour_loaded(self, tour_id):
+        with self.tour_load_lock:
+            return tour_id in self.loaded_tour_ids
 
     def loadable_tour_ids(self):
         return [
@@ -266,6 +279,8 @@ class AMQTourUI(tk.Tk):
 
     def selected_boot_tour_ids(self):
         selected = set(self.boot_tour_ids)
+        if not self.do_not_autoload:
+            selected.add(self.selected_tour_id)
         return [tour_id for tour_id in self.loadable_tour_ids() if tour_id in selected]
 
     def open_settings_dialog(self):
@@ -285,8 +300,20 @@ class AMQTourUI(tk.Tk):
             wraplength=520,
         ).grid(row=1, column=0, columnspan=3, sticky="w", pady=(0, 12))
 
+        do_not_autoload_var = tk.BooleanVar(value=self.do_not_autoload)
+        ttk.Checkbutton(
+            frame,
+            text="Do not autoload",
+            variable=do_not_autoload_var,
+        ).grid(row=2, column=0, columnspan=3, sticky="w")
+        ttk.Label(
+            frame,
+            text="When enabled, opening an unloaded mode will not sync it. It will load when you use Make Teams.",
+            wraplength=520,
+        ).grid(row=3, column=0, columnspan=3, sticky="w", pady=(0, 8))
+
         vars_by_tour = {}
-        row = 2
+        row = 4
         for category in ["Random", "Watched", "Speed", "Inhouse"]:
             available = [(label, tour_id) for label, tour_id in CATEGORIES.get(category, []) if tour_id in TOURS and tour_id in self.loadable_tour_ids()]
             if not available:
@@ -318,6 +345,7 @@ class AMQTourUI(tk.Tk):
 
         def save():
             self.boot_tour_ids = {tour_id for tour_id, var in vars_by_tour.items() if var.get()}
+            self.do_not_autoload = do_not_autoload_var.get()
             self.save_ui_settings()
             self.set_status("Startup sync settings saved.")
             dialog.destroy()
@@ -417,138 +445,11 @@ class AMQTourUI(tk.Tk):
         self.last_startup_status = base_message
         self.update_eloscrape_progress(100, self.startup_done_message(base_message))
 
-    def run_git_command(self, args, timeout=25):
-        return subprocess.run(
-            ["git", *args],
-            cwd=PROJECT_ROOT,
-            text=True,
-            capture_output=True,
-            timeout=timeout,
-            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
-        )
-
-    def has_git_updater(self):
-        return bool(shutil.which("git") and (PROJECT_ROOT / ".git").exists())
-
-    def github_main_sha(self):
-        request = urllib.request.Request(
-            GITHUB_COMMIT_API_URL,
-            headers={
-                "Accept": "application/vnd.github+json",
-                "User-Agent": "AMQ-Host-Script",
-            },
-        )
-        with urllib.request.urlopen(request, timeout=25) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-        return str(payload.get("sha", "")).strip()
-
-    def local_zip_version_sha(self):
-        try:
-            with HOST_VERSION_PATH.open(encoding="utf-8") as f:
-                payload = json.load(f)
-            return str(payload.get("github_main_sha", "")).strip()
-        except (OSError, json.JSONDecodeError):
-            return ""
-
-    def zip_version_state(self):
-        local = self.local_zip_version_sha()
-        try:
-            remote = self.github_main_sha()
-        except urllib.error.HTTPError as exc:
-            return {
-                "status": "update_available",
-                "local": local,
-                "remote": "",
-                "message": f"Host Script version check unavailable ({exc.code}); update anyway",
-                "updater": "zip",
-            }
-        except Exception:
-            return {
-                "status": "update_available",
-                "local": local,
-                "remote": "",
-                "message": "Host Script version check unavailable; update anyway",
-                "updater": "zip",
-            }
-        if not remote:
-            return {
-                "status": "update_available",
-                "local": local,
-                "remote": remote,
-                "message": "Host Script version check unavailable; update anyway",
-                "updater": "zip",
-            }
-        if local and local == remote:
-            return {
-                "status": "up_to_date",
-                "local": local,
-                "remote": remote,
-                "message": "Host Script is up to date",
-                "updater": "zip",
-            }
-        return {
-            "status": "update_available",
-            "local": local,
-            "remote": remote,
-            "message": "Host Script update available",
-            "updater": "zip",
-        }
-
     def start_host_version_check(self):
         threading.Thread(target=self.host_version_check_in_background, daemon=True).start()
 
     def host_version_check_in_background(self):
-        try:
-            if not self.has_git_updater():
-                state = self.zip_version_state()
-                self.after(0, lambda s=state: self.finish_host_version_check(s))
-                return
-
-            fetch_result = self.run_git_command(["fetch", "--quiet", "origin", "main"], timeout=45)
-            if fetch_result.returncode != 0:
-                raise RuntimeError(fetch_result.stderr.strip() or fetch_result.stdout.strip() or "git fetch failed")
-            local_result = self.run_git_command(["rev-parse", "HEAD"])
-            remote_result = self.run_git_command(["rev-parse", "origin/main"])
-            local = local_result.stdout.strip()
-            remote = remote_result.stdout.strip()
-            if local_result.returncode != 0 or remote_result.returncode != 0 or not local or not remote:
-                state = {
-                    "status": "unknown",
-                    "local": local,
-                    "remote": remote,
-                    "message": "Host Script version could not be checked",
-                }
-            elif local == remote or self.run_git_command(["merge-base", "--is-ancestor", "origin/main", "HEAD"]).returncode == 0:
-                state = {
-                    "status": "up_to_date",
-                    "local": local,
-                    "remote": remote,
-                    "message": "Host Script is up to date",
-                    "updater": "git",
-                }
-            elif self.run_git_command(["merge-base", "--is-ancestor", "HEAD", "origin/main"]).returncode == 0:
-                state = {
-                    "status": "update_available",
-                    "local": local,
-                    "remote": remote,
-                    "message": "Host Script update available",
-                    "updater": "git",
-                }
-            else:
-                state = {
-                    "status": "unknown",
-                    "local": local,
-                    "remote": remote,
-                    "message": "Host Script differs from GitHub main",
-                    "updater": "git",
-                }
-        except Exception as exc:
-            state = {
-                "status": "unknown",
-                "local": "",
-                "remote": "",
-                "message": f"Host Script version could not be checked: {type(exc).__name__}",
-            }
+        state = self.host_updater.check_version()
         self.after(0, lambda s=state: self.finish_host_version_check(s))
 
     def finish_host_version_check(self, state):
@@ -571,161 +472,12 @@ class AMQTourUI(tk.Tk):
 
     def host_script_update_in_background(self):
         try:
-            if self.has_git_updater():
-                result = self.update_from_git()
-            else:
-                result = self.prepare_zip_update()
+            result = self.host_updater.install_update()
             error = None
         except Exception as exc:
             result = ""
             error = f"{type(exc).__name__}: {exc}"
         self.after(0, lambda r=result, e=error: self.finish_host_script_update(r, e))
-
-    def update_from_git(self):
-        fetch = self.run_git_command(["fetch", "origin", "main"], timeout=60)
-        if fetch.returncode != 0:
-            raise RuntimeError(fetch.stderr.strip() or fetch.stdout.strip() or "git fetch failed")
-        pull = self.run_git_command(["pull", "--ff-only", "origin", "main"], timeout=90)
-        if pull.returncode != 0:
-            raise RuntimeError(pull.stderr.strip() or pull.stdout.strip() or "git pull failed")
-        return "Host Script updated. Restart the script to use the newest version."
-
-    def prepare_zip_update(self):
-        try:
-            remote_sha = self.github_main_sha()
-        except Exception:
-            remote_sha = ""
-
-        temp_root = Path(tempfile.mkdtemp(prefix="amqtours_update_"))
-        zip_path = temp_root / "amqtours_main.zip"
-        extract_root = temp_root / "extracted"
-        request = urllib.request.Request(GITHUB_ZIP_URL, headers={"User-Agent": "AMQ-Host-Script"})
-        with urllib.request.urlopen(request, timeout=60) as response:
-            zip_path.write_bytes(response.read())
-        with zipfile.ZipFile(zip_path) as archive:
-            archive.extractall(extract_root)
-
-        candidates = [path for path in extract_root.iterdir() if path.is_dir()]
-        if not candidates:
-            raise RuntimeError("Downloaded update package was empty.")
-        package_root = candidates[0]
-        version_path = package_root / "config" / "host_script_version.json"
-        version_path.parent.mkdir(parents=True, exist_ok=True)
-        version_path.write_text(
-            json.dumps(
-                {
-                    "github_main_sha": remote_sha,
-                    "updated_at": datetime.now(timezone.utc).isoformat(),
-                    "source": "zip",
-                    "source_url": GITHUB_ZIP_URL,
-                },
-                indent=2,
-            ),
-            encoding="utf-8",
-        )
-
-        self.start_zip_update_process(package_root, temp_root)
-        return "Update downloaded. Close the host script to finish installing it."
-
-    def start_zip_update_process(self, package_root, temp_root):
-        runner_path = temp_root / "finish_amqtours_update.py"
-        runner_path.write_text(self.zip_update_runner_script(), encoding="utf-8")
-        subprocess.Popen(
-            [
-                sys.executable,
-                str(runner_path),
-                str(os.getpid()),
-                str(package_root),
-                str(PROJECT_ROOT),
-                str(temp_root),
-            ],
-            cwd=str(temp_root),
-            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
-        )
-
-    def zip_update_runner_script(self):
-        return r'''
-from __future__ import annotations
-
-import ctypes
-import os
-import shutil
-import sys
-import time
-import traceback
-from pathlib import Path
-
-
-def wait_for_process(pid: int):
-    if os.name == "nt":
-        synchronize = 0x00100000
-        handle = ctypes.windll.kernel32.OpenProcess(synchronize, False, pid)
-        if handle:
-            try:
-                ctypes.windll.kernel32.WaitForSingleObject(handle, 0xFFFFFFFF)
-            finally:
-                ctypes.windll.kernel32.CloseHandle(handle)
-            return
-    while True:
-        try:
-            os.kill(pid, 0)
-        except OSError:
-            return
-        time.sleep(1)
-
-
-def copy_update(source: Path, target: Path, temp_root: Path):
-    if not source.exists():
-        raise FileNotFoundError(f"Update source not found: {source}")
-    if not target.exists():
-        raise FileNotFoundError(f"Update target not found: {target}")
-
-    ui_settings = target / "config" / "ui_settings.json"
-    ui_backup = temp_root / "ui_settings.backup.json"
-    if ui_settings.exists():
-        ui_backup.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(ui_settings, ui_backup)
-
-    skip_top_level = {".git", "credentials", "__pycache__"}
-    ignore = shutil.ignore_patterns("__pycache__")
-    for item in source.iterdir():
-        if item.name in skip_top_level:
-            continue
-        destination = target / item.name
-        if item.is_dir():
-            shutil.copytree(item, destination, dirs_exist_ok=True, ignore=ignore)
-        else:
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(item, destination)
-
-    if ui_backup.exists():
-        ui_settings.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(ui_backup, ui_settings)
-
-    version_source = source / "config" / "host_script_version.json"
-    version_target = target / "config" / "host_script_version.json"
-    if version_source.exists():
-        version_target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(version_source, version_target)
-
-
-def main():
-    pid = int(sys.argv[1])
-    source = Path(sys.argv[2])
-    target = Path(sys.argv[3])
-    temp_root = Path(sys.argv[4])
-    log_path = temp_root / "amqtours_update.log"
-    try:
-        wait_for_process(pid)
-        copy_update(source, target, temp_root)
-        shutil.rmtree(temp_root, ignore_errors=True)
-    except Exception:
-        log_path.write_text(traceback.format_exc(), encoding="utf-8")
-
-
-if __name__ == "__main__":
-    main()
-'''
 
     def finish_host_script_update(self, result="", error=None):
         self.version_update_running = False
@@ -746,6 +498,8 @@ if __name__ == "__main__":
                 background=self.colors["field"],
                 foreground=self.colors["text"],
                 insertbackground=self.colors["text"],
+                selectbackground=self.colors["accent"],
+                inactiveselectbackground=self.colors["accent"],
                 highlightbackground=self.colors["border"],
                 highlightcolor=self.colors["accent"],
             )
@@ -758,6 +512,13 @@ if __name__ == "__main__":
                 selectforeground=self.colors["selected_text"],
                 highlightbackground=self.colors["border"],
                 highlightcolor=self.colors["accent"],
+            )
+        if hasattr(self, "substitution_panel"):
+            self.substitution_panel.apply_theme(self.colors)
+        if hasattr(self, "tour_list_canvas"):
+            self.tour_list_canvas.configure(
+                background=self.colors["panel"],
+                highlightbackground=self.colors["panel"],
             )
 
     def _build_layout(self):
@@ -790,10 +551,10 @@ if __name__ == "__main__":
 
         sidebar = ttk.Frame(root, style="Panel.TFrame", padding=12)
         sidebar.grid(row=1, column=0, sticky="nsw", padx=(0, 14))
-        sidebar.configure(width=190)
+        sidebar.configure(width=190, height=600)
         sidebar.grid_propagate(False)
         sidebar.columnconfigure(0, weight=1)
-        sidebar.rowconfigure(8, weight=1)
+        sidebar.rowconfigure(7, weight=1)
         ttk.Label(sidebar, text="Categories", style="Panel.TLabel", font=("Segoe UI", 11, "bold")).grid(row=0, column=0, sticky="w", pady=(0, 8))
 
         for index, category in enumerate(["Random", "Watched", "Speed", "Inhouse"], start=1):
@@ -804,12 +565,18 @@ if __name__ == "__main__":
         ttk.Separator(sidebar).grid(row=5, column=0, sticky="ew", pady=12)
         ttk.Label(sidebar, text="Tour Types", style="Panel.TLabel", font=("Segoe UI", 11, "bold")).grid(row=6, column=0, sticky="w", pady=(0, 8))
 
-        self.tour_list = ttk.Frame(sidebar, style="Panel.TFrame")
-        self.tour_list.grid(row=7, column=0, sticky="new")
+        self.tour_list_canvas = tk.Canvas(sidebar, borderwidth=0, highlightthickness=0, height=260)
+        self.tour_list_canvas.grid(row=7, column=0, columnspan=2, sticky="nsew")
+        self.tour_list = ttk.Frame(self.tour_list_canvas, style="Panel.TFrame")
+        self.tour_list_window = self.tour_list_canvas.create_window((0, 0), window=self.tour_list, anchor="nw")
         self.tour_list.columnconfigure(0, weight=1, minsize=166)
+        self.tour_list_canvas.bind("<Configure>", self.on_tour_list_canvas_resize)
+        self.tour_list.bind("<Configure>", self.update_tour_list_scrollregion)
+        self.bind_tour_list_scroll(self.tour_list_canvas)
+        self.bind_tour_list_scroll(self.tour_list)
 
         self.recalculate_button = ttk.Button(sidebar, text="Recalculate All", width=18, command=self.confirm_recalculate_all)
-        self.recalculate_button.grid(row=9, column=0, sticky="sew", pady=(12, 0))
+        self.recalculate_button.grid(row=8, column=0, columnspan=2, sticky="sew", pady=(12, 0))
 
         content = ttk.Frame(root)
         content.grid(row=1, column=1, sticky="nsew")
@@ -890,10 +657,16 @@ if __name__ == "__main__":
         whitelist_panel.columnconfigure(0, weight=1)
         whitelist_panel.columnconfigure(1, weight=1)
         whitelist_panel.rowconfigure(2, weight=1)
-        self.whitelist_a = ttk.Combobox(whitelist_panel, values=[])
-        self.whitelist_b = ttk.Combobox(whitelist_panel, values=[])
+        self.whitelist_a = ttk.Combobox(whitelist_panel, values=[], state="normal")
+        self.whitelist_b = ttk.Combobox(whitelist_panel, values=[], state="normal")
         self.whitelist_a.grid(row=0, column=0, sticky="ew", padx=(0, 6))
         self.whitelist_b.grid(row=0, column=1, sticky="ew", padx=(6, 0))
+        for combobox in (self.whitelist_a, self.whitelist_b):
+            combobox.bind("<FocusIn>", lambda _event, box=combobox: self.show_whitelist_dropdown(box))
+            combobox.bind("<FocusOut>", lambda _event, box=combobox: self.schedule_whitelist_dropdown_hide(box))
+            combobox.bind("<Button-1>", lambda event, box=combobox: self.on_whitelist_click(event, box))
+            combobox.bind("<KeyRelease>", lambda event, box=combobox: self.on_whitelist_key_release(event, box))
+            combobox.bind("<Return>", lambda _event, box=combobox: self.lock_whitelist_player(box))
         ttk.Button(whitelist_panel, text="Add Pair", command=self.add_whitelist_pair).grid(row=1, column=0, columnspan=2, sticky="ew", pady=8)
         list_frame = ttk.Frame(whitelist_panel)
         list_frame.grid(row=2, column=0, columnspan=2, sticky="nsew")
@@ -1003,24 +776,40 @@ if __name__ == "__main__":
         self.apply_widget_theme()
 
     def _build_elos_tab(self):
-        self.elos_tab.columnconfigure(0, weight=1)
-        self.elos_tab.rowconfigure(1, weight=1)
-        elos_controls = ttk.Frame(self.elos_tab)
+        self.elos_tab.columnconfigure(0, weight=2)
+        self.elos_tab.columnconfigure(1, weight=3)
+        self.elos_tab.rowconfigure(0, weight=1)
+
+        elos_panel = ttk.Frame(self.elos_tab)
+        elos_panel.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
+        elos_panel.columnconfigure(0, weight=1)
+        elos_panel.rowconfigure(1, weight=1)
+        elos_controls = ttk.Frame(elos_panel)
         elos_controls.grid(row=0, column=0, sticky="ew", pady=(0, 8))
-        elos_controls.columnconfigure(2, weight=1)
-        ttk.Button(elos_controls, text="Refresh Elos", command=self.refresh_elos).grid(row=0, column=0, sticky="w")
-        ttk.Label(elos_controls, text="Search").grid(row=0, column=1, sticky="w", padx=(14, 6))
-        self.elos_search_entry = ttk.Entry(elos_controls, textvariable=self.elos_search_var, width=28)
-        self.elos_search_entry.grid(row=0, column=2, sticky="w")
+        elos_controls.columnconfigure(1, weight=1)
+        ttk.Label(elos_controls, text="Search").grid(row=0, column=0, sticky="w", padx=(0, 6))
+        self.elos_search_entry = ttk.Entry(elos_controls, textvariable=self.elos_search_var)
+        self.elos_search_entry.grid(row=0, column=1, sticky="ew")
         self.elos_search_entry.bind("<KeyRelease>", lambda _event: self.refresh_elos())
-        self.elos_table = ttk.Treeview(self.elos_tab, columns=("player", "elo"), show="headings", height=20)
+        self.elos_table = ttk.Treeview(elos_panel, columns=("player", "elo"), show="headings", height=20)
         self.elos_table.heading("player", text="Player")
         self.elos_table.heading("elo", text="Elo")
-        self.elos_table.column("player", width=320, anchor="w")
-        self.elos_table.column("elo", width=120, anchor="e")
+        self.elos_table.column("player", width=180, anchor="w", stretch=True)
+        self.elos_table.column("elo", width=90, anchor="e", stretch=False)
         self.elos_table.grid(row=1, column=0, sticky="nsew")
 
-    def select_category(self, category: str):
+        sub_panel = ttk.Frame(self.elos_tab)
+        sub_panel.grid(row=0, column=1, sticky="nsew", padx=(8, 0))
+        self.substitution_panel = SubstitutionPanel(
+            root=self,
+            parent=sub_panel,
+            get_tour=lambda: TOURS.get(self.selected_tour_id),
+            normalize_key=self.normalize_alias_key,
+            set_status=self.set_status,
+            colors=self.colors,
+        )
+
+    def select_category(self, category: str, select_first=True):
         self.selected_category = category
         for name, button in self.category_buttons.items():
             button.configure(style="Selected.TButton" if name == category else "TButton")
@@ -1028,23 +817,48 @@ if __name__ == "__main__":
         for child in self.tour_list.winfo_children():
             child.destroy()
         self.tour_buttons.clear()
+        self.tour_list_canvas.yview_moveto(0)
 
         for row, (label, tour_id) in enumerate(CATEGORIES[category]):
             if tour_id and tour_id in TOURS:
                 button = ttk.Button(self.tour_list, text=label, width=18, command=lambda tid=tour_id: self.select_tour(tid))
                 button.grid(row=row, column=0, sticky="ew", pady=3)
+                self.bind_tour_list_scroll(button)
                 self.tour_buttons[tour_id] = button
             else:
                 button = ttk.Button(self.tour_list, text=f"{label}  (soon)", width=18, state="disabled")
                 button.grid(row=row, column=0, sticky="ew", pady=3)
+                self.bind_tour_list_scroll(button)
+
+        self.after_idle(self.update_tour_list_scrollregion)
 
         first_tour = next((tour_id for _, tour_id in CATEGORIES[category] if tour_id in TOURS), None)
-        if first_tour:
+        if first_tour and select_first:
             self.select_tour(first_tour)
+
+    def on_tour_list_canvas_resize(self, event):
+        self.tour_list_canvas.itemconfigure(self.tour_list_window, width=event.width)
+        self.update_tour_list_scrollregion()
+
+    def update_tour_list_scrollregion(self, _event=None):
+        self.tour_list_canvas.configure(scrollregion=self.tour_list_canvas.bbox("all"))
+
+    def bind_tour_list_scroll(self, widget):
+        widget.bind("<MouseWheel>", self.on_tour_list_mousewheel, add="+")
+        widget.bind("<Button-4>", lambda _event: self.tour_list_canvas.yview_scroll(-1, "units"), add="+")
+        widget.bind("<Button-5>", lambda _event: self.tour_list_canvas.yview_scroll(1, "units"), add="+")
+
+    def on_tour_list_mousewheel(self, event):
+        if event.delta:
+            self.tour_list_canvas.yview_scroll(-int(event.delta / 120), "units")
+        return "break"
 
     def select_tour(self, tour_id: str):
         self.selected_tour_id = tour_id
         tour = TOURS[tour_id]
+        self.substitution_panel.select_tour(tour_id)
+        if self.ui_ready:
+            self.save_ui_settings()
         self.tour_title.configure(text=tour["label"])
         self.rank_check_generation += 1
         self.clear_rank_assignment()
@@ -1059,7 +873,7 @@ if __name__ == "__main__":
         self.refresh_elos()
         self.refresh_update_info()
         self.set_status(f"Selected {tour['label']}.")
-        if self.ui_ready and self.tour_requires_startup_load(tour):
+        if self.ui_ready and not self.do_not_autoload and self.tour_requires_startup_load(tour):
             with self.tour_load_lock:
                 loaded = tour_id in self.loaded_tour_ids
                 loading = tour_id in self.loading_tour_ids
@@ -1068,7 +882,7 @@ if __name__ == "__main__":
                     self.set_status(f"{tour['label']} is loading during startup sync.")
                 else:
                     self.start_lazy_load_tour(tour, f"Loading {tour['label']} before use...")
-        if self.ui_ready:
+        if self.ui_ready and (not self.do_not_autoload or self.is_tour_loaded(tour_id)):
             self.after_idle(self.schedule_rank_assignment_check)
 
     def _show_tour_tabs(self):
@@ -1079,7 +893,7 @@ if __name__ == "__main__":
             self.main_notebook.add(self.setup_tab, text="Setup")
         self.main_notebook.add(self.solver_tab, text="Make Teams")
         self.main_notebook.add(self.update_tab, text="Eloscrape")
-        self.main_notebook.add(self.elos_tab, text="Elos")
+        self.main_notebook.add(self.elos_tab, text="Elos/Subs")
 
     def _set_update_tab_title(self, tour):
         update_title = "Results" if tour.get("supports_inhouse") else ("MVPs / Changelog" if tour.get("dry_elo") else "Eloscrape")
@@ -1228,10 +1042,141 @@ if __name__ == "__main__":
 
     def refresh_player_selects(self, show_status=True):
         players = [name for name, _rank in self.parse_player_entries(allow_placeholder=True)]
-        self.whitelist_a.configure(values=players)
-        self.whitelist_b.configure(values=players)
+        self.whitelist_players = players
+        self.filter_whitelist_players(self.whitelist_a)
+        self.filter_whitelist_players(self.whitelist_b)
         if show_status:
             self.set_status(f"Loaded {len(players)} players into whitelist selectors.")
+
+    def filter_whitelist_players(self, combobox):
+        query = self.normalize_alias_key(combobox.get())
+        players = [
+            player
+            for player in self.whitelist_players
+            if not query or query in self.normalize_alias_key(player)
+        ]
+        combobox.configure(values=players)
+        if self.whitelist_popup_target is combobox:
+            self.populate_whitelist_popup(players)
+        return players
+
+    def ensure_whitelist_popup(self):
+        if self.whitelist_popup is not None and self.whitelist_popup.winfo_exists():
+            return
+        self.whitelist_popup = tk.Toplevel(self)
+        self.whitelist_popup.withdraw()
+        self.whitelist_popup.overrideredirect(True)
+        self.whitelist_popup.configure(bg=self.colors["border"])
+        self.whitelist_popup.attributes("-topmost", True)
+
+        frame = ttk.Frame(self.whitelist_popup, padding=1)
+        frame.pack(fill="both", expand=True)
+        frame.columnconfigure(0, weight=1)
+        frame.rowconfigure(0, weight=1)
+        self.whitelist_popup_list = tk.Listbox(frame, height=8, activestyle="none", exportselection=False)
+        self.whitelist_popup_list.grid(row=0, column=0, sticky="nsew")
+        self.whitelist_popup_list.bind("<ButtonRelease-1>", self.choose_whitelist_popup_player)
+        self.whitelist_popup_list.bind("<Return>", self.choose_whitelist_popup_player)
+        self.tk_list_widgets.append(self.whitelist_popup_list)
+        scrollbar = ttk.Scrollbar(frame, orient="vertical", command=self.whitelist_popup_list.yview)
+        scrollbar.grid(row=0, column=1, sticky="ns")
+        self.whitelist_popup_list.configure(yscrollcommand=scrollbar.set)
+        self.apply_widget_theme()
+
+    def populate_whitelist_popup(self, players):
+        if self.whitelist_popup_list is None:
+            return
+        self.whitelist_popup_list.delete(0, "end")
+        for player in players:
+            self.whitelist_popup_list.insert("end", player)
+        if players:
+            self.whitelist_popup_list.selection_set(0)
+
+    def show_whitelist_dropdown(self, combobox):
+        players = self.filter_whitelist_players(combobox)
+        if not players:
+            self.hide_whitelist_dropdown()
+            return
+        self.ensure_whitelist_popup()
+        self.whitelist_popup_target = combobox
+        self.populate_whitelist_popup(players)
+        height = min(len(players), 8) * 22 + 4
+        x = combobox.winfo_rootx()
+        y = combobox.winfo_rooty() + combobox.winfo_height()
+        self.whitelist_popup.geometry(f"{combobox.winfo_width()}x{height}+{x}+{y}")
+        self.whitelist_popup.deiconify()
+        self.whitelist_popup.lift()
+        combobox.focus_set()
+
+    def hide_whitelist_dropdown(self):
+        if self.whitelist_popup is not None and self.whitelist_popup.winfo_exists():
+            self.whitelist_popup.withdraw()
+        self.whitelist_popup_target = None
+
+    def schedule_whitelist_dropdown_hide(self, combobox):
+        def hide_if_focus_left():
+            focus = self.focus_get()
+            if focus not in (combobox, self.whitelist_popup_list):
+                self.hide_whitelist_dropdown()
+
+        combobox.after(120, hide_if_focus_left)
+
+    def on_whitelist_click(self, event, combobox):
+        if event.x >= combobox.winfo_width() - 24:
+            self.show_whitelist_dropdown(combobox)
+            return "break"
+        combobox.after_idle(lambda: self.show_whitelist_dropdown(combobox))
+
+    def on_whitelist_key_release(self, event, combobox):
+        if event.keysym in {"Return", "KP_Enter", "Up", "Down"}:
+            return
+        if event.keysym == "Escape":
+            self.hide_whitelist_dropdown()
+            return
+        self.show_whitelist_dropdown(combobox)
+
+    def choose_whitelist_popup_player(self, _event=None):
+        if self.whitelist_popup_target is None or self.whitelist_popup_list is None:
+            return "break"
+        selected = self.whitelist_popup_list.curselection()
+        if not selected:
+            return "break"
+        player = self.whitelist_popup_list.get(selected[0])
+        target = self.whitelist_popup_target
+        target.set(player)
+        self.filter_whitelist_players(target)
+        target.focus_set()
+        self.hide_whitelist_dropdown()
+        return "break"
+
+    def lock_whitelist_player(self, combobox):
+        player = self.resolve_whitelist_player(combobox.get())
+        if player is None:
+            query = self.normalize_alias_key(combobox.get())
+            matches = [
+                name
+                for name in self.whitelist_players
+                if not query or query in self.normalize_alias_key(name)
+            ]
+            player = matches[0] if matches else None
+        if player is None:
+            self.set_status("No matching player in the current player list.")
+            return "break"
+        combobox.set(player)
+        self.filter_whitelist_players(combobox)
+        self.hide_whitelist_dropdown()
+        return "break"
+
+    def resolve_whitelist_player(self, value):
+        normalized_value = self.normalize_alias_key(value)
+        if not normalized_value:
+            return None
+        matches = [
+            player
+            for player in self.whitelist_players
+            if self.normalize_alias_key(player) == normalized_value
+        ]
+        return matches[0] if len(matches) == 1 else None
 
     def schedule_rank_assignment_check(self):
         self.rank_check_generation += 1
@@ -1244,6 +1189,9 @@ if __name__ == "__main__":
             self.clear_rank_assignment()
             return
         tour_id = self.selected_tour_id
+        if self.do_not_autoload and not self.is_tour_loaded(tour_id):
+            self.hide_rank_assignment()
+            return
         manual_ratings = self.manual_ratings()
         threading.Thread(
             target=self.rank_assignment_check_in_background,
@@ -1309,12 +1257,19 @@ if __name__ == "__main__":
         raise ValueError(message)
 
     def add_whitelist_pair(self):
-        player_a = self.whitelist_a.get().strip()
-        player_b = self.whitelist_b.get().strip()
+        player_a = self.resolve_whitelist_player(self.whitelist_a.get())
+        player_b = self.resolve_whitelist_player(self.whitelist_b.get())
         if not player_a or not player_b:
-            self.set_status("Pick two players first.")
+            self.set_status("Type or select two players from the current player list.")
+            return
+        if player_a == player_b:
+            self.set_status("Pick two different players for a whitelist pair.")
             return
         self.whitelist_list.insert("end", f"{player_a} + {player_b}")
+        self.whitelist_a.set("")
+        self.whitelist_b.set("")
+        self.filter_whitelist_players(self.whitelist_a)
+        self.filter_whitelist_players(self.whitelist_b)
 
     def remove_whitelist_pair(self):
         selected = list(self.whitelist_list.curselection())
@@ -1440,16 +1395,19 @@ if __name__ == "__main__":
             tour = TOURS[self.selected_tour_id]
             if tour.get("supports_inhouse"):
                 self.refresh_inhouse_results_ui(tour)
+            self.substitution_panel.reset_after_solver()
             self.set_status("Solver finished.")
 
     def solve_selected_tour(self, snapshot):
         tour = TOURS[snapshot["tour_id"]]
-        from modules.main.hostSolver import save_inhouse_snapshot, solve_selected_tour
+        from modules.main.hostSolver import save_latest_team_snapshot, solve_selected_tour
 
-        final_code, inhouse_snapshot = solve_selected_tour(tour, snapshot, DATA_ROOT / "aliases.txt")
-        if inhouse_snapshot:
-            self.latest_inhouse_teams[tour["id"]] = inhouse_snapshot
-            save_inhouse_snapshot(tour, inhouse_snapshot)
+        final_code, team_snapshot = solve_selected_tour(tour, snapshot, DATA_ROOT / "aliases.txt")
+        if team_snapshot:
+            self.substitution_panel.set_snapshot(tour, team_snapshot)
+            if tour.get("supports_inhouse"):
+                self.latest_inhouse_teams[tour["id"]] = team_snapshot
+            save_latest_team_snapshot(tour, team_snapshot)
         return final_code
 
     def normalize_alias_key(self, name):
@@ -2272,11 +2230,8 @@ if __name__ == "__main__":
         self.refresh_elos()
         if tour:
             self.refresh_challonge_list(tour)
-        changelog = self._read_text(tour, "changelog.txt", "").strip() if tour else ""
-        if not changelog:
-            changelog = "No rating changes >= 0.15."
-        self.write_update_text(f"Updated {updated_count} elo ratings.\n\n# Changelog\n{changelog}")
-        self.set_status("Elos updated. Changelog loaded.")
+        self.write_update_text("Elos have been updated. Select your tour from the list of previous tours and press Run MVPs")
+        self.set_status("Elos updated.")
 
     def run_view_changelog(self):
         if self.mvp_running:
@@ -2480,11 +2435,35 @@ if __name__ == "__main__":
             return
 
         alias_names = self.elo_alias_names(tour, elos)
+        self.substitution_panel.update_elo_context(elos, alias_names)
         query = self.normalize_alias_key(self.elos_search_var.get().strip())
-        for player, elo in sorted(elos.items(), key=lambda item: item[1], reverse=True):
-            if query and not self.elo_matches_search(player, alias_names.get(player, []), query):
-                continue
-            self.elos_table.insert("", "end", values=(player, elo))
+        sorted_elos = sorted(elos.items(), key=lambda item: item[1], reverse=True)
+        matched_index = next(
+            (
+                index
+                for index, (player, _elo) in enumerate(sorted_elos)
+                if self.elo_matches_search(player, alias_names.get(player, []), query)
+            ),
+            None,
+        ) if query else None
+        matched_item = None
+        for player, elo in sorted_elos:
+            item = self.elos_table.insert("", "end", values=(player, elo))
+            if matched_index is not None and player == sorted_elos[matched_index][0]:
+                matched_item = item
+        if matched_item:
+            self.elos_table.selection_set(matched_item)
+            self.elos_table.focus(matched_item)
+            self.after_idle(lambda item=matched_item, index=matched_index, total=len(sorted_elos): self.center_elo_match(item, index, total))
+
+    def center_elo_match(self, item, index, total):
+        if not self.elos_table.exists(item) or not total:
+            return
+        visible_rows = max(1, self.elos_table.winfo_height() // 22)
+        first_row = max(0, min(total - visible_rows, index - visible_rows // 2))
+        self.elos_table.yview_moveto(first_row / max(total, 1))
+        self.elos_table.selection_set(item)
+        self.elos_table.focus(item)
 
     def elo_alias_names(self, tour, elos):
         names = {player: {player} for player in elos}
