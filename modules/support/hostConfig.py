@@ -12,6 +12,7 @@ from modules.support.generateCodes import (
     generate_codes_watched_2009_gr,
     generate_codes_watched_28_gr,
     generate_codes_watched_5s_gr,
+    generate_codes_watched_0_100_gr,
     generate_codes_watched_ed_gr,
     generate_codes_watched_gr,
     generate_codes_watched_in_gr,
@@ -23,8 +24,9 @@ from modules.support.generateCodes import (
 
 LINKS = {
     "Stats Sheet": "https://docs.google.com/spreadsheets/d/1Fm6pMyXv7qhOQkLah4yX9HNow4WaDR4HJuAVMukQl34/edit?gid=2023469160#gid=2023469160",
-    "Add Aliases": "https://docs.google.com/spreadsheets/d/1xEUK1U6FtCGE80gOk0JCRC1eLJF9ALgz4T4KuK-9vYc/edit?gid=1861712941#gid=1861712941",
-    "Add Stall Minutes": "https://docs.google.com/spreadsheets/d/1xEUK1U6FtCGE80gOk0JCRC1eLJF9ALgz4T4KuK-9vYc/edit?gid=1279191862#gid=1279191862",
+    "Add Aliases": "https://docs.google.com/spreadsheets/d/1xsBfuz1v-gYgv5KEbEFlyQBoz_R5aJ84W6gscUF0-Hc/edit?gid=2012584445#gid=2012584445",
+    "Add Stall Minutes": "https://docs.google.com/spreadsheets/d/1xsBfuz1v-gYgv5KEbEFlyQBoz_R5aJ84W6gscUF0-Hc/edit?gid=1044351152#gid=1044351152",
+    "Draft Sheet": "https://docs.google.com/spreadsheets/d/1ZMAw30Ctvk_cYK7Dc68UqvyBSaj2NGOg80JLDs2YU34/edit?usp=sharing",
 }
 
 SETUP_TOURS = {"usual": "random", "watched": "watched"}
@@ -40,6 +42,7 @@ CATEGORIES = {
     ],
     "Watched": [
         ("Watched", "watched"),
+        ("0-100", "watched_0_100"),
         ("OP", "watched_op"),
         ("ED", "watched_ed"),
         ("IN", "watched_ins"),
@@ -67,6 +70,7 @@ CODE_GENERATORS = {
     "watched_in_gr": generate_codes_watched_in_gr,
     "watched_in_no_chanting_gr": generate_codes_watched_in_no_chanting_gr,
     "watched_5s_gr": generate_codes_watched_5s_gr,
+    "watched_0_100_gr": generate_codes_watched_0_100_gr,
     "watched_28_gr": generate_codes_watched_28_gr,
     "watched_2009_gr": generate_codes_watched_2009_gr,
     "watched_ed_gr": generate_codes_watched_ed_gr,

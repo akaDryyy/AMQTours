@@ -128,6 +128,10 @@ def refresh_mode_stats(tour: dict, stats_type: str) -> None:
         tabStats=stats_tab,
         tabIDs=tab_ids,
         type=stats_type,
+        sheetName=tour.get("sheet", {}).get("stats_sheet_name", tour.get("sheet", {}).get("name", "NGM Stats Export v2")),
+        sheetId=tour.get("sheet", {}).get("stats_sheet_id"),
+        idsSheetName=tour.get("sheet", {}).get("ids_sheet_name"),
+        idsSheetId=tour.get("sheet", {}).get("ids_sheet_id"),
     )
 
 

@@ -46,7 +46,7 @@ def guess_kwargs(tour, player_stats, idtable):
     return kwargs
 
 
-def make_latest_inhouse_snapshot(tour, solution, p_values, teams_number):
+def make_latest_team_snapshot(tour, solution, p_values, teams_number, get_guesses=None, guess_options=None):
     team_map = [[] for _ in range(teams_number)]
     for name, team_index in solution.items():
         team_map[team_index].append((name, p_values[name]))
@@ -56,13 +56,25 @@ def make_latest_inhouse_snapshot(tour, solution, p_values, teams_number):
         team_id = f"team{index}"
         sorted_members = sorted(members, key=lambda item: item[1], reverse=True)
         top_player = sorted_members[0][0] if sorted_members else f"Team {index}"
+        players = []
+        for name, rating in sorted_members:
+            guess = ""
+            if get_guesses is not None:
+                guess = get_guesses(name, **(guess_options or {}))
+            players.append({"name": name, "rating": round(float(rating), 3), "guess": str(guess)})
         teams[team_id] = {
             "label": top_player,
             "display_name": " ".join(f"{name} ({rating:.3f})" for name, rating in sorted_members),
-            "players": [{"name": name, "rating": round(float(rating), 3)} for name, rating in sorted_members],
+            "players": players,
         }
 
-    return {"tour_id": tour["id"], "inhouse_type": tour["inhouse"]["inhouse_type"], "teams": teams}
+    return {"tour_id": tour["id"], "teams": teams}
+
+
+def make_latest_inhouse_snapshot(tour, solution, p_values, teams_number, get_guesses=None, guess_options=None):
+    snapshot = make_latest_team_snapshot(tour, solution, p_values, teams_number, get_guesses, guess_options)
+    snapshot["inhouse_type"] = tour["inhouse"]["inhouse_type"]
+    return snapshot
 
 
 def solve_player_group(tour, players, team_size, snapshot):
@@ -84,13 +96,19 @@ def solve_player_group(tour, players, team_size, snapshot):
         tabStats=solver_cfg["stats_tab"],
         tabIDs=tour["sheet"]["tab_ids"],
         type=solver_cfg["stats_type"],
+        sheetName=tour["sheet"].get("stats_sheet_name", tour["sheet"]["name"]),
+        sheetId=tour["sheet"].get("stats_sheet_id"),
+        idsSheetName=tour["sheet"].get("ids_sheet_name"),
+        idsSheetId=tour["sheet"].get("ids_sheet_id"),
     )
+    guess_options = guess_kwargs(tour, player_stats, idtable)
+    get_guesses = GUESS_HANDLERS[solver_cfg["guess_mode"]]
     final_code = handleCodes(
         foundSolutions=teams,
         p_values=p_values,
         k=teams_number,
-        get_guesses=GUESS_HANDLERS[solver_cfg["guess_mode"]],
-        kwargs_guesses=guess_kwargs(tour, player_stats, idtable),
+        get_guesses=get_guesses,
+        kwargs_guesses=guess_options,
         get_codes=CODE_GENERATORS[solver_cfg["code_generator"]],
         gamemode=solver_cfg.get("gamemode"),
         gr_based=True,
@@ -98,10 +116,10 @@ def solve_player_group(tour, players, team_size, snapshot):
     final_code = apply_setup_code(final_code, snapshot.get("setup_code", ""))
     Path(tour["state_path"], "codes.txt").write_text(final_code, encoding="utf-8")
 
-    inhouse_snapshot = None
+    team_snapshot = make_latest_team_snapshot(tour, teams[0], p_values, teams_number, get_guesses, guess_options)
     if tour.get("supports_inhouse"):
-        inhouse_snapshot = make_latest_inhouse_snapshot(tour, teams[0], p_values, teams_number)
-    return final_code, inhouse_snapshot
+        team_snapshot["inhouse_type"] = tour["inhouse"]["inhouse_type"]
+    return final_code, team_snapshot
 
 
 def solve_selected_tour(tour, snapshot, aliases_path):
@@ -137,14 +155,26 @@ def solve_selected_tour(tour, snapshot, aliases_path):
             separator = max(0, len(players) // 2 - 4)
         higher_players = players[:separator]
         lower_players = players[separator:]
-        lower_code, _lower_snapshot = solve_player_group(tour, lower_players, team_size, snapshot)
-        higher_code, _higher_snapshot = solve_player_group(tour, higher_players, team_size, snapshot)
-        return "# First Tour\n" + lower_code + "\n\n# Second Tour\n" + higher_code, None
+        lower_code, lower_snapshot = solve_player_group(tour, lower_players, team_size, snapshot)
+        higher_code, higher_snapshot = solve_player_group(tour, higher_players, team_size, snapshot)
+        combined_teams = {}
+        for group, group_snapshot in (("first", lower_snapshot), ("second", higher_snapshot)):
+            for team_id, team in group_snapshot["teams"].items():
+                combined_teams[f"{group}_{team_id}"] = team
+        return "# First Tour\n" + lower_code + "\n\n# Second Tour\n" + higher_code, {"tour_id": tour["id"], "teams": combined_teams}
 
     return solve_player_group(tour, players, team_size, snapshot)
 
 
-def save_inhouse_snapshot(tour, snapshot):
+def save_latest_team_snapshot(tour, snapshot):
     if not snapshot:
         return
-    Path(tour["state_path"], "latest_inhouse_teams.json").write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
+    state_path = Path(tour["state_path"])
+    state_path.mkdir(parents=True, exist_ok=True)
+    (state_path / "latest_teams.json").write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
+    if tour.get("supports_inhouse"):
+        (state_path / "latest_inhouse_teams.json").write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
+
+
+def save_inhouse_snapshot(tour, snapshot):
+    save_latest_team_snapshot(tour, snapshot)

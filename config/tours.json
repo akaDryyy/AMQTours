@@ -335,6 +335,43 @@
       "max_rating": 25
     }
   },
+  "watched_0_100": {
+    "label": "Watched 0-100",
+    "group": "Watched",
+    "route": "watched_0_100",
+    "tour_type": "watched-0-100",
+    "state_dir": "data/tours/watched_0_100",
+    "dry_elo": true,
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "stats_sheet_id": "1ihfqssregh74curDyvRE0GAFihQfovUAHpYDrtOIrOA",
+      "ids_sheet_name": "NGM Stats Export v2",
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "C23"
+    },
+    "solver": {
+      "stats_tab": 1545884050,
+      "stats_type": "watched",
+      "guess_mode": "watched",
+      "code_generator": "watched_0_100_gr",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "tiermaker": {
+      "mode": "make_tiers",
+      "stats_tab": 1545884050,
+      "stats_type": "watched",
+      "alpha": 3.75,
+      "midpoint": 0.4,
+      "min_rating": 0,
+      "max_rating": 25
+    }
+  },
   "watched_5s": {
     "label": "Watched 5s",
     "group": "Watched",

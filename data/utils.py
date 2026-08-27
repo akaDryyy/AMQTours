@@ -45,11 +45,19 @@ def create_teams(path, players, team_size, whitelist, blacklist, separateT1):
     teams = [{players_ids[player_id]: solution[player_id] for player_id in solution}]
     return teams
 
-def get_player_stats(path, tabStats, tabIDs, type):
+def get_player_stats(
+    path,
+    tabStats,
+    tabIDs,
+    type,
+    sheetName="NGM Stats Export v2",
+    sheetId=None,
+    idsSheetName=None,
+    idsSheetId=None,
+):
     gc = readCredentials(path)
 
-    sheetName = "NGM Stats Export v2"
-    sheet = gc.open(sheetName)
+    sheet = gc.open_by_key(sheetId) if sheetId else gc.open(sheetName)
     if isinstance(tabStats, str):
         tab_names = [tabStats]
         if not tabStats.endswith("s"):
@@ -70,7 +78,12 @@ def get_player_stats(path, tabStats, tabIDs, type):
         wks = sheet.get_worksheet_by_id(tabStats)
     stats_source_title = getattr(wks, "title", str(tabStats))
     stats_source_id = getattr(wks, "id", tabStats)
-    wks_ids = sheet.get_worksheet_by_id(tabIDs)
+    ids_sheet = sheet
+    if idsSheetId:
+        ids_sheet = gc.open_by_key(idsSheetId)
+    elif idsSheetName and (sheetId or idsSheetName != sheetName):
+        ids_sheet = gc.open(idsSheetName)
+    wks_ids = ids_sheet.get_worksheet_by_id(tabIDs)
 
     idtable = os.path.join(path, "ids.csv")
     statstable = os.path.join(path, "stats.csv")

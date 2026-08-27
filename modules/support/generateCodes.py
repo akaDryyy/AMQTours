@@ -99,6 +99,19 @@ def generate_codes_watched_gr(gamemode, txtvar):
 """
     return txtvar
 
+
+def generate_codes_watched_0_100_gr(_, txtvar):
+    txtvar += "\n<YOURCHALLONGEURLHERE>\n"
+    txtvar += "```m020z1110110011130z000011110000000z11111111111100k051o000000f152143331110000k012r02i0a46533a11002s011111111111002s0111002s01a111111111102a111111111050017pr11hg1ka03-11111--```\n"
+    txtvar += """Distribution of guesses:
+>=28% = 5 guesses
+18% - 28% = 4 guesses
+12% - 18% = 3 guesses
+6% - 12% = 2 guesses
+<6% = 1 guess
+"""
+    return txtvar
+
 def generate_codes_watched_in(gamemode, txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     match gamemode:
