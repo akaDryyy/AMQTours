@@ -6,7 +6,9 @@ def handleCodes(
         kwargs_guesses=None,
         get_codes=None,
         gamemode=None,
-        gr_based=False
+        gr_based=False,
+        value_precision=3,
+        include_guesses=True,
         ):
     
     for idx, sol in enumerate(foundSolutions, 1):
@@ -16,9 +18,9 @@ def handleCodes(
             team_map[p].append((name, p_values[name]))
 
         for i, team in enumerate(team_map):
-            members = " ".join(f"{n} ({v:.3f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
+            members = " ".join(f"{n} ({v:.{value_precision}f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
             total = sum(v for _, v in team)
-            print(f"{members} | Total = {total:.3f}")
+            print(f"{members} | Total = {total:.{value_precision}f}")
 
     txtvar = ""
 
@@ -35,13 +37,16 @@ def handleCodes(
             team_map[p].append((name, p_values[name]))
         avg = 0
         for i, team in enumerate(team_map):
-            members = " ".join(f"{n} ({v:.3f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
-            if gr_based:
-                guess_str = "".join(get_guesses(name, **kwargs_guesses) for name, _ in sorted(team, key=lambda x: x[1], reverse=True))
-            else:
-                guess_str = "".join(get_guesses(val) for _, val in sorted(team, key=lambda x: x[1], reverse=True))
+            members = " ".join(f"{n} ({v:.{value_precision}f})" for n, v in sorted(team, key=lambda x: x[1], reverse=True))
             total = sum(v for _, v in team)
-            team_msg = f"{members} | Total = {total:.3f} | Guesses = [{guess_str}]\n"
+            team_msg = f"{members} | Total = {total:.{value_precision}f}"
+            if include_guesses:
+                if gr_based:
+                    guess_str = "".join(get_guesses(name, **kwargs_guesses) for name, _ in sorted(team, key=lambda x: x[1], reverse=True))
+                else:
+                    guess_str = "".join(get_guesses(val) for _, val in sorted(team, key=lambda x: x[1], reverse=True))
+                team_msg += f" | Guesses = [{guess_str}]"
+            team_msg += "\n"
             print(team_msg)
             txtvar += team_msg
             avg += round(total, 4)

@@ -6,8 +6,9 @@ from pathlib import Path
 
 from modules.support.handleCodes import handleCodes
 from modules.support.hostConfig import CODE_GENERATORS
-from modules.support.hostGuess import GUESS_HANDLERS
+from modules.support.hostGuess import GUESS_HANDLERS, player_guess_rates
 from modules.support.playerRatings import resolve_player_ratings
+from tour_config import TOURS
 
 
 def apply_setup_code(final_code: str, setup_code: str) -> str:
@@ -44,6 +45,20 @@ def guess_kwargs(tour, player_stats, idtable):
             "threeg": thresholds["three"],
         })
     return kwargs
+
+
+def load_solver_stats(tour, get_player_stats):
+    solver_cfg = tour["solver"]
+    return get_player_stats(
+        path=tour["state_path"],
+        tabStats=solver_cfg["stats_tab"],
+        tabIDs=tour["sheet"]["tab_ids"],
+        type=solver_cfg["stats_type"],
+        sheetName=tour["sheet"].get("stats_sheet_name", tour["sheet"]["name"]),
+        sheetId=tour["sheet"].get("stats_sheet_id"),
+        idsSheetName=tour["sheet"].get("ids_sheet_name"),
+        idsSheetId=tour["sheet"].get("ids_sheet_id"),
+    )
 
 
 def make_latest_team_snapshot(tour, solution, p_values, teams_number, get_guesses=None, guess_options=None):
@@ -83,35 +98,46 @@ def solve_player_group(tour, players, team_size, snapshot):
     solver_cfg = tour["solver"]
     teams_number = len(players) // team_size
     p_values = {name: rating for name, rating in players}
+    player_stats, idtable = load_solver_stats(tour, get_player_stats)
+    balance_players = players
+    display_values = p_values
+    if snapshot.get("eru_mode"):
+        fallback = None
+        fallback_tour_id = snapshot.get("eru_fallback_tour_id")
+        if fallback_tour_id:
+            fallback_stats, fallback_idtable = load_solver_stats(TOURS[fallback_tour_id], get_player_stats)
+            fallback = (fallback_stats, fallback_idtable, snapshot["eru_fallback_rate_source"])
+        guess_rates = player_guess_rates(
+            [name for name, _rating in players],
+            player_stats,
+            idtable,
+            rate_source=snapshot.get("eru_rate_source", "Average GR"),
+            fallback=fallback,
+            manual_rates=snapshot.get("manual_guess_rates"),
+        )
+        balance_players = [(name, guess_rates[name]) for name, _rating in players]
+        display_values = guess_rates
     teams = create_teams(
         tour["state_path"],
-        players,
+        balance_players,
         team_size,
         snapshot["whitelist_pairs"],
         get_blacklist(),
         snapshot["separate_t1"],
     )
-    player_stats, idtable = get_player_stats(
-        path=tour["state_path"],
-        tabStats=solver_cfg["stats_tab"],
-        tabIDs=tour["sheet"]["tab_ids"],
-        type=solver_cfg["stats_type"],
-        sheetName=tour["sheet"].get("stats_sheet_name", tour["sheet"]["name"]),
-        sheetId=tour["sheet"].get("stats_sheet_id"),
-        idsSheetName=tour["sheet"].get("ids_sheet_name"),
-        idsSheetId=tour["sheet"].get("ids_sheet_id"),
-    )
     guess_options = guess_kwargs(tour, player_stats, idtable)
     get_guesses = GUESS_HANDLERS[solver_cfg["guess_mode"]]
     final_code = handleCodes(
         foundSolutions=teams,
-        p_values=p_values,
+        p_values=display_values,
         k=teams_number,
         get_guesses=get_guesses,
         kwargs_guesses=guess_options,
         get_codes=CODE_GENERATORS[solver_cfg["code_generator"]],
         gamemode=solver_cfg.get("gamemode"),
         gr_based=True,
+        value_precision=2 if snapshot.get("eru_mode") else 3,
+        include_guesses=not snapshot.get("eru_mode"),
     )
     final_code = apply_setup_code(final_code, snapshot.get("setup_code", ""))
     Path(tour["state_path"], "codes.txt").write_text(final_code, encoding="utf-8")
