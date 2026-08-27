@@ -4,27 +4,27 @@
 46: bop
 36: fortnayt
 29: watashiii
-28: badatlife
+28: koroshiya
 27: stunar
-25: rissa
-21: hyonoobka
+25: renzou
+21: hyonoka
 20: yurimeguri, tsui, channina
 18: unborned, kaededayo, bamboo, poolnoodle
-17: mrwolf, howan
+17: mrwolf, bai
 16: legitted, baguett
-15: baikinman, i_am_stoney
+15: kishua, i_am_stoney
 14: moosepi
 13: comete, progenitor, math, hihi
 12: claydoll1091, sgtvp
-11: selaph, yosugala, kar72, haruurara, lakumix
+11: selaph, akatsuki, kar72, haruurara, lakumix
 10: edwardd, neoburnz, beokros, nephirea
-9: chemist, iryd, mintydude, mahirushiina, vuhrculls
+9: chemist, civiltwlight, mintydude, mahirushiina, vuhrculls
 8: fumiii, diukes, swapin, chata
-7: 753, cafezinho
-6: legrandort, xeyz, mkby, uomi, time2hack, yasashiikumo
+7: irinashidou, cafezinho
+6: legrandort, xeyz, mkby, joey, time2hack, yasashiikumo
 5: cipherkai
 4: mahzrunner, julialess64, remake
-3: saiki, two_squirds, miiarad
+3: saiki, arpia97, miiarad
 2: dry, homebad, konsumenci, doomchicken
 1: eljuanchi, mayottatoki, inta
 0: lordgrond, peeku
@@ -34,7 +34,7 @@
 -4: annayanami, muenstier
 -6: beautiful
 -7: chommy, rhummy
--9: 2g70
+-9: spanky
 -10: lelpop
 -11: md22
 -12: atsui

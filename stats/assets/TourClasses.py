@@ -3,7 +3,14 @@ from dataclasses import *
 from typing import List, Optional, Dict, Any
 from math import comb
 from collections import Counter
+import unicodedata
 from TourFunctions import *
+
+
+def normalize_lookup_name(name):
+    text = str(name).replace("\ufeff", "").strip()
+    text = "".join(char for char in text if unicodedata.category(char) != "Cf").strip()
+    return text.casefold()
 
 @dataclass
 class Player:
@@ -169,14 +176,14 @@ class PlayerDB:
     _players_by_id: Dict[int, Player] = field(init=False, repr=False)
 
     def build_lookups(self):
-        self._players_by_name = {p.name.lower(): p for p in self.players}
+        self._players_by_name = {normalize_lookup_name(p.name): p for p in self.players}
         self._players_by_id = {p.player_id: p for p in self.players}
 
     def add_player(self, player: Player):
         self.players.append(player)
     
     def lookup_player_name(self, name: str) -> Optional[Player]:
-        return self._players_by_name.get(name.lower())
+        return self._players_by_name.get(normalize_lookup_name(name))
 
     def lookup_player_id(self, player_id: int) -> Optional[Player]:
         return self._players_by_id.get(player_id)

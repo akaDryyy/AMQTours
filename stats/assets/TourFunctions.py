@@ -8,26 +8,39 @@ from html2image import Html2Image
 from PIL import Image
 import numpy as np
 import os
+import unicodedata
+
+
+def normalize_player_text_series(series):
+    return (
+        series.fillna("")
+        .astype(str)
+        .str.replace("\ufeff", "", regex=False)
+        .map(lambda value: "".join(char for char in value if unicodedata.category(char) != "Cf"))
+        .str.strip()
+        .str.lower()
+    )
 
 def internal_clean_data(idtable, statstable, isWatched):
     # Load alias table
     headers = idtable[0]
     data = idtable[1:]
     alias_df = pd.DataFrame(data, columns=headers)
-    alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
+    alias_df["Player Name"] = normalize_player_text_series(alias_df["Player Name"])
     alias_to_id = dict(zip(alias_df["Player Name"], alias_df["Player ID"]))
 
     headers = statstable[0]
     data = statstable[1:]
     df = pd.DataFrame(data, columns=headers)
     df = df.replace(r"^\s*$", pd.NA, regex=True).dropna(how="all")
-    df_names = set(df["Player name"].dropna().str.strip().str.lower())
+    normalized_names = normalize_player_text_series(df["Player name"])
+    df_names = set(name for name in normalized_names if name)
     known_names = set(alias_to_id.keys())
     missing_players = df_names - known_names
     if missing_players:
         print(f"[WARN] Unknown players: {missing_players}. Ping a host so that they can be added.")
 
-    df["Player ID"] = df["Player name"].dropna().str.strip().str.lower().map(alias_to_id)
+    df["Player ID"] = normalize_player_text_series(df["Player name"]).map(alias_to_id)
 
     df["Timestamp"] = pd.to_datetime(df["Timestamp"], errors="coerce")
     cols = ["Rank", "Guess rate", "Usefulness", "erigs", "7/8s", "avg/8", "Lives taken", "Lives saved", 

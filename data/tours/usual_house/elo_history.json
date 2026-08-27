@@ -3,16 +3,16 @@
 		"tour_id": "usual_house_20260608_041133",
 		"time": "2026-06-08 04:11:33.208739+00:00",
 		"teams": {
-			"selaph (14.00) hihi (12.00) julialess64 (7.00) two_squirds (5.00) = 38.00": "1W 2L 0D",
-			"legitted (17.00) iryd (10.00) mayottatoki (10.00) lelpop (2.00) = 39.00": "2W 1L 0D"
+			"selaph (14.00) hihi (12.00) julialess64 (7.00) arpia97 (5.00) = 38.00": "1W 2L 0D",
+			"legitted (17.00) civiltwlight (10.00) mayottatoki (10.00) lelpop (2.00) = 39.00": "2W 1L 0D"
 		},
 		"player": {
 			"selaph": "initial elo: 14.000, new elo: 14.830, rating change: 0.830",
 			"hihi": "initial elo: 12.000, new elo: 12.830, rating change: 0.830",
 			"julialess64": "initial elo: 7.000, new elo: 7.830, rating change: 0.830",
-			"two_squirds": "initial elo: 5.000, new elo: 5.830, rating change: 0.830",
+			"arpia97": "initial elo: 5.000, new elo: 5.830, rating change: 0.830",
 			"legitted": "initial elo: 17.000, new elo: 16.170, rating change: -0.830",
-			"iryd": "initial elo: 10.000, new elo: 9.170, rating change: -0.830",
+			"civiltwlight": "initial elo: 10.000, new elo: 9.170, rating change: -0.830",
 			"mayottatoki": "initial elo: 10.000, new elo: 9.170, rating change: -0.830",
 			"lelpop": "initial elo: 2.000, new elo: 1.170, rating change: -0.830"
 		}
@@ -75,13 +75,13 @@
 		"tour_id": "v0oeq8cq",
 		"time": "2025-09-27 01:00:00-01:00",
 		"teams": {
-			"gro (17.66) tsui (10.68) uomi (9.00) md22 (1.30) = 38.64": "1W 0L 0D",
+			"gro (17.66) tsui (10.68) joey (9.00) md22 (1.30) = 38.64": "1W 0L 0D",
 			"mrwolf (13.10) cafezinho (10.59) i_am_stoney (9.12) atsui (7.91) = 40.73": "0W 1L 0D"
 		},
 		"player": {
 			"gro": "initial elo: 17.661, new elo: 20.774, rating change: 3.114",
 			"tsui": "initial elo: 10.676, new elo: 14.607, rating change: 3.931",
-			"uomi": "initial elo: 9.000, new elo: 9.871, rating change: 0.871",
+			"joey": "initial elo: 9.000, new elo: 9.871, rating change: 0.871",
 			"md22": "initial elo: 1.305, new elo: 5.236, rating change: 3.931",
 			"mrwolf": "initial elo: 13.102, new elo: 11.226, rating change: -1.876",
 			"cafezinho": "initial elo: 10.595, new elo: 6.664, rating change: -3.931",
@@ -93,16 +93,16 @@
 		"tour_id": "qjwd8hto",
 		"time": "2025-09-27 19:00:00+02:00",
 		"teams": {
-			"tsui (14.61) baikinman (11.04) chommy (7.00) dry (4.00) = 36.65": "1W 2L 0D",
-			"bamboo (11.82) hyonoobka (10.39) beautiful (9.47) md22 (5.24) = 36.92": "2W 1L 0D"
+			"tsui (14.61) kishua (11.04) chommy (7.00) dry (4.00) = 36.65": "1W 2L 0D",
+			"bamboo (11.82) hyonoka (10.39) beautiful (9.47) md22 (5.24) = 36.92": "2W 1L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 14.607, new elo: 14.589, rating change: -0.018",
-			"baikinman": "initial elo: 11.041, new elo: 12.369, rating change: 1.328",
+			"kishua": "initial elo: 11.041, new elo: 12.369, rating change: 1.328",
 			"chommy": "initial elo: 7.000, new elo: 8.328, rating change: 1.328",
 			"dry": "initial elo: 4.000, new elo: 4.876, rating change: 0.876",
 			"bamboo": "initial elo: 11.822, new elo: 10.494, rating change: -1.328",
-			"hyonoobka": "initial elo: 10.395, new elo: 9.067, rating change: -1.328",
+			"hyonoka": "initial elo: 10.395, new elo: 9.067, rating change: -1.328",
 			"beautiful": "initial elo: 9.472, new elo: 8.144, rating change: -1.328",
 			"md22": "initial elo: 5.236, new elo: 5.253, rating change: 0.018"
 		}
@@ -111,14 +111,14 @@
 		"tour_id": "asha4veu",
 		"time": "2025-09-27 13:30:00-04:00",
 		"teams": {
-			"baikinman (12.37) md22 (5.25) bamboo (10.49) hyonoobka (9.07) rhummy (0.00) = 37.18": "3W 0L 0D",
+			"kishua (12.37) md22 (5.25) bamboo (10.49) hyonoka (9.07) rhummy (0.00) = 37.18": "3W 0L 0D",
 			"tsui (14.59) chommy (8.33) beautiful (8.14) okitanobu (1.72) = 32.78": "0W 3L 0D"
 		},
 		"player": {
-			"baikinman": "initial elo: 12.369, new elo: 14.955, rating change: 2.586",
+			"kishua": "initial elo: 12.369, new elo: 14.955, rating change: 2.586",
 			"md22": "initial elo: 5.253, new elo: 11.184, rating change: 5.930",
 			"bamboo": "initial elo: 10.494, new elo: 16.866, rating change: 6.372",
-			"hyonoobka": "initial elo: 9.067, new elo: 15.439, rating change: 6.372",
+			"hyonoka": "initial elo: 9.067, new elo: 15.439, rating change: 6.372",
 			"rhummy": "initial elo: 0.000, new elo: 3.054, rating change: 3.054",
 			"tsui": "initial elo: 14.589, new elo: 3.663, rating change: -10.927",
 			"chommy": "initial elo: 8.328, new elo: 1.956, rating change: -6.372",
@@ -400,17 +400,17 @@
 		"tour_id": "6tap0z70",
 		"time": "2025-10-02 16:30:00-04:00",
 		"teams": {
-			"md22 (7.58) 753 (10.00) mintydude (9.99) kyuuuu (2.00) = 29.56": "0W 2L 0D",
-			"bop (23.37) tsui (14.17) uomi (9.87) chommy (-2.90) = 44.52": "2W 0L 0D"
+			"md22 (7.58) irinashidou (10.00) mintydude (9.99) kyuuuu (2.00) = 29.56": "0W 2L 0D",
+			"bop (23.37) tsui (14.17) joey (9.87) chommy (-2.90) = 44.52": "2W 0L 0D"
 		},
 		"player": {
 			"md22": "initial elo: 7.575, new elo: 1.058, rating change: -6.517",
-			"753": "initial elo: 10.000, new elo: 8.858, rating change: -1.142",
+			"irinashidou": "initial elo: 10.000, new elo: 8.858, rating change: -1.142",
 			"mintydude": "initial elo: 9.987, new elo: 5.966, rating change: -4.021",
 			"kyuuuu": "initial elo: 2.000, new elo: 0.858, rating change: -1.142",
 			"bop": "initial elo: 23.371, new elo: 29.529, rating change: 6.158",
 			"tsui": "initial elo: 14.171, new elo: 20.411, rating change: 6.239",
-			"uomi": "initial elo: 9.871, new elo: 11.557, rating change: 1.687",
+			"joey": "initial elo: 9.871, new elo: 11.557, rating change: 1.687",
 			"chommy": "initial elo: -2.896, new elo: 3.452, rating change: 6.348"
 		}
 	},
@@ -418,16 +418,16 @@
 		"tour_id": "7r1owgi6",
 		"time": "2025-10-02 17:00:00-04:00",
 		"teams": {
-			"tsui (20.41) uomi (11.56) mintydude (5.97) kyuuuu (0.86) = 38.79": "1W 1L 0D",
-			"bop (29.53) 753 (8.86) md22 (1.06) chommy (3.45) = 42.90": "1W 1L 0D"
+			"tsui (20.41) joey (11.56) mintydude (5.97) kyuuuu (0.86) = 38.79": "1W 1L 0D",
+			"bop (29.53) irinashidou (8.86) md22 (1.06) chommy (3.45) = 42.90": "1W 1L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 20.411, new elo: 23.683, rating change: 3.272",
-			"uomi": "initial elo: 11.557, new elo: 13.444, rating change: 1.887",
+			"joey": "initial elo: 11.557, new elo: 13.444, rating change: 1.887",
 			"mintydude": "initial elo: 5.966, new elo: 8.659, rating change: 2.692",
 			"kyuuuu": "initial elo: 0.858, new elo: 2.524, rating change: 1.666",
 			"bop": "initial elo: 29.529, new elo: 26.275, rating change: -3.254",
-			"753": "initial elo: 8.858, new elo: 7.193, rating change: -1.666",
+			"irinashidou": "initial elo: 8.858, new elo: 7.193, rating change: -1.666",
 			"md22": "initial elo: 1.058, new elo: -2.276, rating change: -3.334",
 			"chommy": "initial elo: 3.452, new elo: 0.155, rating change: -3.297"
 		}
@@ -436,16 +436,16 @@
 		"tour_id": "59wxgi1v",
 		"time": "2025-10-02 17:45:00-04:00",
 		"teams": {
-			"bop (26.28) badatlife (14.50) kyuuuu (2.52) annayanami (-3.11) = 40.19": "1W 0L 1D",
-			"tsui (23.68) uomi (13.44) md22 (-2.28) lordgrond (-6.34) = 28.51": "0W 1L 1D"
+			"bop (26.28) koroshiya (14.50) kyuuuu (2.52) annayanami (-3.11) = 40.19": "1W 0L 1D",
+			"tsui (23.68) joey (13.44) md22 (-2.28) lordgrond (-6.34) = 28.51": "0W 1L 1D"
 		},
 		"player": {
 			"bop": "initial elo: 26.275, new elo: 25.636, rating change: -0.639",
-			"badatlife": "initial elo: 14.500, new elo: 13.984, rating change: -0.516",
+			"koroshiya": "initial elo: 14.500, new elo: 13.984, rating change: -0.516",
 			"kyuuuu": "initial elo: 2.524, new elo: 1.888, rating change: -0.636",
 			"annayanami": "initial elo: -3.111, new elo: -3.627, rating change: -0.516",
 			"tsui": "initial elo: 23.683, new elo: 24.320, rating change: 0.638",
-			"uomi": "initial elo: 13.444, new elo: 14.094, rating change: 0.650",
+			"joey": "initial elo: 13.444, new elo: 14.094, rating change: 0.650",
 			"md22": "initial elo: -2.276, new elo: -1.644, rating change: 0.633",
 			"lordgrond": "initial elo: -6.339, new elo: -5.679, rating change: 0.660"
 		}
@@ -454,17 +454,17 @@
 		"tour_id": "ljdc842w",
 		"time": "2025-10-02 18:00:00-04:00",
 		"teams": {
-			"bop (25.64) badatlife (13.98) math (14.00) md22 (-1.64) = 51.98": "1W 1L 0D",
-			"tsui (24.32) gro (23.47) uomi (14.09) lordgrond (-5.68) = 56.21": "1W 1L 0D"
+			"bop (25.64) koroshiya (13.98) math (14.00) md22 (-1.64) = 51.98": "1W 1L 0D",
+			"tsui (24.32) gro (23.47) joey (14.09) lordgrond (-5.68) = 56.21": "1W 1L 0D"
 		},
 		"player": {
 			"bop": "initial elo: 25.636, new elo: 28.786, rating change: 3.150",
-			"badatlife": "initial elo: 13.984, new elo: 15.652, rating change: 1.668",
+			"koroshiya": "initial elo: 13.984, new elo: 15.652, rating change: 1.668",
 			"math": "initial elo: 14.000, new elo: 15.174, rating change: 1.174",
 			"md22": "initial elo: -1.644, new elo: 1.538, rating change: 3.182",
 			"tsui": "initial elo: 24.320, new elo: 21.163, rating change: -3.157",
 			"gro": "initial elo: 23.475, new elo: 20.548, rating change: -2.927",
-			"uomi": "initial elo: 14.094, new elo: 11.583, rating change: -2.510",
+			"joey": "initial elo: 14.094, new elo: 11.583, rating change: -2.510",
 			"lordgrond": "initial elo: -5.679, new elo: -8.674, rating change: -2.995"
 		}
 	},
@@ -472,16 +472,16 @@
 		"tour_id": "sv7nrio2",
 		"time": "2025-10-03 15:30:00-04:00",
 		"teams": {
-			"hyonoobka (15.44) dry (6.27) md22 (1.54) yashadox (4.00) = 27.25": "1W 1L 0D",
-			"bop (28.79) uomi (11.58) cipherkai (3.54) jakemonkey (0.10) = 44.01": "1W 1L 0D"
+			"hyonoka (15.44) dry (6.27) md22 (1.54) yashadox (4.00) = 27.25": "1W 1L 0D",
+			"bop (28.79) joey (11.58) cipherkai (3.54) jakemonkey (0.10) = 44.01": "1W 1L 0D"
 		},
 		"player": {
-			"hyonoobka": "initial elo: 15.439, new elo: 15.177, rating change: -0.262",
+			"hyonoka": "initial elo: 15.439, new elo: 15.177, rating change: -0.262",
 			"dry": "initial elo: 6.273, new elo: 6.117, rating change: -0.156",
 			"md22": "initial elo: 1.538, new elo: 1.834, rating change: 0.296",
 			"yashadox": "initial elo: 4.000, new elo: 3.387, rating change: -0.613",
 			"bop": "initial elo: 28.786, new elo: 28.510, rating change: -0.276",
-			"uomi": "initial elo: 11.583, new elo: 11.655, rating change: 0.071",
+			"joey": "initial elo: 11.583, new elo: 11.655, rating change: 0.071",
 			"cipherkai": "initial elo: 3.537, new elo: 4.108, rating change: 0.571",
 			"jakemonkey": "initial elo: 0.101, new elo: 0.619, rating change: 0.518"
 		}
@@ -490,16 +490,16 @@
 		"tour_id": "xte5vuxt",
 		"time": "2025-10-03 16:00:00-04:00",
 		"teams": {
-			"tsui (21.16) uomi (11.65) dry (6.12) yashadox (3.39) = 42.32": "2W 0L 0D",
-			"bop (28.51) hyonoobka (15.18) cipherkai (4.11) jakemonkey (0.62) = 48.41": "0W 2L 0D"
+			"tsui (21.16) joey (11.65) dry (6.12) yashadox (3.39) = 42.32": "2W 0L 0D",
+			"bop (28.51) hyonoka (15.18) cipherkai (4.11) jakemonkey (0.62) = 48.41": "0W 2L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 21.163, new elo: 29.694, rating change: 8.531",
-			"uomi": "initial elo: 11.655, new elo: 18.766, rating change: 7.111",
+			"joey": "initial elo: 11.655, new elo: 18.766, rating change: 7.111",
 			"dry": "initial elo: 6.117, new elo: 12.870, rating change: 6.752",
 			"yashadox": "initial elo: 3.387, new elo: 6.473, rating change: 3.086",
 			"bop": "initial elo: 28.510, new elo: 20.237, rating change: -8.274",
-			"hyonoobka": "initial elo: 15.177, new elo: 8.944, rating change: -6.232",
+			"hyonoka": "initial elo: 15.177, new elo: 8.944, rating change: -6.232",
 			"cipherkai": "initial elo: 4.108, new elo: 0.347, rating change: -3.761",
 			"jakemonkey": "initial elo: 0.619, new elo: -3.776, rating change: -4.395"
 		}
@@ -508,16 +508,16 @@
 		"tour_id": "pq21gt9h",
 		"time": "2025-10-03 16:20:00-04:00",
 		"teams": {
-			"gro (20.55) bop (20.24) hyonoobka (8.94) cipherkai (0.35) = 50.08": "2W 0L 0D",
-			"tsui (29.69) uomi (18.77) yashadox (6.47) jakemonkey (-3.78) = 51.16": "0W 2L 0D"
+			"gro (20.55) bop (20.24) hyonoka (8.94) cipherkai (0.35) = 50.08": "2W 0L 0D",
+			"tsui (29.69) joey (18.77) yashadox (6.47) jakemonkey (-3.78) = 51.16": "0W 2L 0D"
 		},
 		"player": {
 			"gro": "initial elo: 20.548, new elo: 27.407, rating change: 6.859",
 			"bop": "initial elo: 20.237, new elo: 27.684, rating change: 7.447",
-			"hyonoobka": "initial elo: 8.944, new elo: 15.077, rating change: 6.133",
+			"hyonoka": "initial elo: 8.944, new elo: 15.077, rating change: 6.133",
 			"cipherkai": "initial elo: 0.347, new elo: 4.735, rating change: 4.388",
 			"tsui": "initial elo: 29.694, new elo: 22.089, rating change: -7.605",
-			"uomi": "initial elo: 18.766, new elo: 12.053, rating change: -6.712",
+			"joey": "initial elo: 18.766, new elo: 12.053, rating change: -6.712",
 			"yashadox": "initial elo: 6.473, new elo: 2.592, rating change: -3.881",
 			"jakemonkey": "initial elo: -3.776, new elo: -8.628, rating change: -4.853"
 		}
@@ -526,17 +526,17 @@
 		"tour_id": "5ixqixkw",
 		"time": "2025-10-03 16:45:00-04:00",
 		"teams": {
-			"tsui (22.09) fortnayt (20.00) uomi (12.05) peeku (6.11) = 60.25": "1W 1L 0D",
-			"gro (27.41) bop (27.68) hyonoobka (15.08) jakemonkey (-8.63) = 61.54": "1W 1L 0D"
+			"tsui (22.09) fortnayt (20.00) joey (12.05) peeku (6.11) = 60.25": "1W 1L 0D",
+			"gro (27.41) bop (27.68) hyonoka (15.08) jakemonkey (-8.63) = 61.54": "1W 1L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 22.089, new elo: 19.567, rating change: -2.521",
 			"fortnayt": "initial elo: 20.000, new elo: 18.976, rating change: -1.024",
-			"uomi": "initial elo: 12.053, new elo: 9.643, rating change: -2.410",
+			"joey": "initial elo: 12.053, new elo: 9.643, rating change: -2.410",
 			"peeku": "initial elo: 6.111, new elo: 4.298, rating change: -1.813",
 			"gro": "initial elo: 27.407, new elo: 29.836, rating change: 2.429",
 			"bop": "initial elo: 27.684, new elo: 30.187, rating change: 2.503",
-			"hyonoobka": "initial elo: 15.077, new elo: 17.408, rating change: 2.330",
+			"hyonoka": "initial elo: 15.077, new elo: 17.408, rating change: 2.330",
 			"jakemonkey": "initial elo: -8.628, new elo: -6.498, rating change: 2.131"
 		}
 	},
@@ -544,17 +544,17 @@
 		"tour_id": "8s8yc4hg",
 		"time": "2025-10-03 17:00:00-04:00",
 		"teams": {
-			"bop (30.19) fortnayt (18.98) uomi (9.64) md22 (1.83) = 60.64": "1W 1L 0D",
-			"gro (29.84) tsui (19.57) badatlife (15.65) jakemonkey (-6.50) = 58.56": "1W 1L 0D"
+			"bop (30.19) fortnayt (18.98) joey (9.64) md22 (1.83) = 60.64": "1W 1L 0D",
+			"gro (29.84) tsui (19.57) koroshiya (15.65) jakemonkey (-6.50) = 58.56": "1W 1L 0D"
 		},
 		"player": {
 			"bop": "initial elo: 30.187, new elo: 32.599, rating change: 2.412",
 			"fortnayt": "initial elo: 18.976, new elo: 20.332, rating change: 1.356",
-			"uomi": "initial elo: 9.643, new elo: 11.995, rating change: 2.352",
+			"joey": "initial elo: 9.643, new elo: 11.995, rating change: 2.352",
 			"md22": "initial elo: 1.834, new elo: 4.170, rating change: 2.336",
 			"gro": "initial elo: 29.836, new elo: 27.472, rating change: -2.364",
 			"tsui": "initial elo: 19.567, new elo: 17.144, rating change: -2.424",
-			"badatlife": "initial elo: 15.652, new elo: 14.010, rating change: -1.642",
+			"koroshiya": "initial elo: 15.652, new elo: 14.010, rating change: -1.642",
 			"jakemonkey": "initial elo: -6.498, new elo: -8.666, rating change: -2.168"
 		}
 	},
@@ -562,17 +562,17 @@
 		"tour_id": "g02j2vor",
 		"time": "2025-10-03 17:30:00-04:00",
 		"teams": {
-			"bop (32.60) tsui (17.14) uomi (12.00) md22 (4.17) = 65.91": "0W 2L 0D",
-			"gro (27.47) fortnayt (20.33) badatlife (14.01) mkby (10.64) = 72.45": "2W 0L 0D"
+			"bop (32.60) tsui (17.14) joey (12.00) md22 (4.17) = 65.91": "0W 2L 0D",
+			"gro (27.47) fortnayt (20.33) koroshiya (14.01) mkby (10.64) = 72.45": "2W 0L 0D"
 		},
 		"player": {
 			"bop": "initial elo: 32.599, new elo: 26.052, rating change: -6.547",
 			"tsui": "initial elo: 17.144, new elo: 10.553, rating change: -6.591",
-			"uomi": "initial elo: 11.995, new elo: 5.663, rating change: -6.332",
+			"joey": "initial elo: 11.995, new elo: 5.663, rating change: -6.332",
 			"md22": "initial elo: 4.170, new elo: -2.105, rating change: -6.275",
 			"gro": "initial elo: 27.472, new elo: 33.848, rating change: 6.376",
 			"fortnayt": "initial elo: 20.332, new elo: 23.601, rating change: 3.269",
-			"badatlife": "initial elo: 14.010, new elo: 18.098, rating change: 4.087",
+			"koroshiya": "initial elo: 14.010, new elo: 18.098, rating change: 4.087",
 			"mkby": "initial elo: 10.639, new elo: 16.988, rating change: 6.350"
 		}
 	},
@@ -580,15 +580,15 @@
 		"tour_id": "uiv0w9d3",
 		"time": "2025-10-04 15:00:00-04:00",
 		"teams": {
-			"2g70 (7.00) progenitor (7.00) yashadox (2.59) eljuanchi (2.00) = 18.59": "0W 2L 0D",
-			"hyonoobka (17.41) lelpop (1.17) md22 (-2.10) lordgrond (-8.67) = 7.80": "2W 0L 0D"
+			"spanky (7.00) progenitor (7.00) yashadox (2.59) eljuanchi (2.00) = 18.59": "0W 2L 0D",
+			"hyonoka (17.41) lelpop (1.17) md22 (-2.10) lordgrond (-8.67) = 7.80": "2W 0L 0D"
 		},
 		"player": {
-			"2g70": "initial elo: 7.000, new elo: 5.109, rating change: -1.891",
+			"spanky": "initial elo: 7.000, new elo: 5.109, rating change: -1.891",
 			"progenitor": "initial elo: 7.000, new elo: 5.109, rating change: -1.891",
 			"yashadox": "initial elo: 2.592, new elo: -4.152, rating change: -6.744",
 			"eljuanchi": "initial elo: 2.000, new elo: 0.109, rating change: -1.891",
-			"hyonoobka": "initial elo: 17.408, new elo: 27.000, rating change: 9.592",
+			"hyonoka": "initial elo: 17.408, new elo: 27.000, rating change: 9.592",
 			"lelpop": "initial elo: 1.170, new elo: 5.520, rating change: 4.350",
 			"md22": "initial elo: -2.105, new elo: 8.606, rating change: 10.711",
 			"lordgrond": "initial elo: -8.674, new elo: 0.884, rating change: 9.558"
@@ -598,13 +598,13 @@
 		"tour_id": "ilcitxit",
 		"time": "2025-10-04 15:30:00-04:00",
 		"teams": {
-			"md22 (8.61) hyonoobka (27.00) 2g70 (5.11) yashadox (-4.15) = 36.56": "1W 1L 0D",
+			"md22 (8.61) hyonoka (27.00) spanky (5.11) yashadox (-4.15) = 36.56": "1W 1L 0D",
 			"lelpop (5.52) progenitor (5.11) eljuanchi (0.11) lordgrond (0.88) = 11.62": "1W 1L 0D"
 		},
 		"player": {
 			"md22": "initial elo: 8.606, new elo: 2.203, rating change: -6.403",
-			"hyonoobka": "initial elo: 27.000, new elo: 20.959, rating change: -6.041",
-			"2g70": "initial elo: 5.109, new elo: 2.301, rating change: -2.808",
+			"hyonoka": "initial elo: 27.000, new elo: 20.959, rating change: -6.041",
+			"spanky": "initial elo: 5.109, new elo: 2.301, rating change: -2.808",
 			"yashadox": "initial elo: -4.152, new elo: -9.158, rating change: -5.006",
 			"lelpop": "initial elo: 5.520, new elo: 9.517, rating change: 3.996",
 			"progenitor": "initial elo: 5.109, new elo: 7.916, rating change: 2.808",
@@ -616,16 +616,16 @@
 		"tour_id": "tgatpwgw",
 		"time": "2025-10-04 15:45:00-04:00",
 		"teams": {
-			"progenitor (7.92) uomi (5.66) 2g70 (2.30) md22 (2.20) = 18.08": "2W 0L 0D",
-			"lelpop (9.52) hyonoobka (20.96) lordgrond (6.91) yashadox (-9.16) = 28.23": "0W 2L 0D"
+			"progenitor (7.92) joey (5.66) spanky (2.30) md22 (2.20) = 18.08": "2W 0L 0D",
+			"lelpop (9.52) hyonoka (20.96) lordgrond (6.91) yashadox (-9.16) = 28.23": "0W 2L 0D"
 		},
 		"player": {
 			"progenitor": "initial elo: 7.916, new elo: 12.240, rating change: 4.324",
-			"uomi": "initial elo: 5.663, new elo: 14.584, rating change: 8.921",
-			"2g70": "initial elo: 2.301, new elo: 6.624, rating change: 4.324",
+			"joey": "initial elo: 5.663, new elo: 14.584, rating change: 8.921",
+			"spanky": "initial elo: 2.301, new elo: 6.624, rating change: 4.324",
 			"md22": "initial elo: 2.203, new elo: 10.705, rating change: 8.502",
 			"lelpop": "initial elo: 9.517, new elo: 3.751, rating change: -5.766",
-			"hyonoobka": "initial elo: 20.959, new elo: 12.853, rating change: -8.106",
+			"hyonoka": "initial elo: 20.959, new elo: 12.853, rating change: -8.106",
 			"lordgrond": "initial elo: 6.914, new elo: -1.179, rating change: -8.093",
 			"yashadox": "initial elo: -9.158, new elo: -16.102, rating change: -6.944"
 		}
@@ -634,13 +634,13 @@
 		"tour_id": "xe6qwtim",
 		"time": "2025-10-04 16:00:00-04:00",
 		"teams": {
-			"gro (33.85) uomi (14.58) 2g70 (6.62) yashadox (-16.10) = 38.95": "0W 2L 0D",
+			"gro (33.85) joey (14.58) spanky (6.62) yashadox (-16.10) = 38.95": "0W 2L 0D",
 			"progenitor (12.24) md22 (10.71) tsui (10.55) cafezinho (6.66) = 40.16": "2W 0L 0D"
 		},
 		"player": {
 			"gro": "initial elo: 33.848, new elo: 26.558, rating change: -7.290",
-			"uomi": "initial elo: 14.584, new elo: 7.207, rating change: -7.377",
-			"2g70": "initial elo: 6.624, new elo: 2.148, rating change: -4.476",
+			"joey": "initial elo: 14.584, new elo: 7.207, rating change: -7.377",
+			"spanky": "initial elo: 6.624, new elo: 2.148, rating change: -4.476",
 			"yashadox": "initial elo: -16.102, new elo: -22.292, rating change: -6.190",
 			"progenitor": "initial elo: 12.240, new elo: 16.717, rating change: 4.476",
 			"md22": "initial elo: 10.705, new elo: 17.838, rating change: 7.133",
@@ -653,7 +653,7 @@
 		"time": "2025-10-04 16:30:00-04:00",
 		"teams": {
 			"gro (26.56) stunar (20.00) progenitor (16.72) yashadox (-22.29) = 40.98": "2W 0L 0D",
-			"md22 (17.84) tsui (18.02) 2g70 (2.15) eljuanchi (2.92) = 40.92": "0W 2L 0D"
+			"md22 (17.84) tsui (18.02) spanky (2.15) eljuanchi (2.92) = 40.92": "0W 2L 0D"
 		},
 		"player": {
 			"gro": "initial elo: 26.558, new elo: 34.588, rating change: 8.030",
@@ -662,7 +662,7 @@
 			"yashadox": "initial elo: -22.292, new elo: -15.151, rating change: 7.141",
 			"md22": "initial elo: 17.838, new elo: 9.933, rating change: -7.905",
 			"tsui": "initial elo: 18.020, new elo: 9.851, rating change: -8.169",
-			"2g70": "initial elo: 2.148, new elo: -3.528, rating change: -5.676",
+			"spanky": "initial elo: 2.148, new elo: -3.528, rating change: -5.676",
 			"eljuanchi": "initial elo: 2.916, new elo: -0.824, rating change: -3.741"
 		}
 	},
@@ -670,13 +670,13 @@
 		"tour_id": "42mqdhv5",
 		"time": "2025-10-04 17:00:00-04:00",
 		"teams": {
-			"gro (34.59) progenitor (22.39) 2g70 (-3.53) yashadox (-15.15) = 38.30": "0W 2L 0D",
+			"gro (34.59) progenitor (22.39) spanky (-3.53) yashadox (-15.15) = 38.30": "0W 2L 0D",
 			"stunar (21.34) md22 (9.93) tsui (9.85) eljuanchi (-0.82) = 40.30": "2W 0L 0D"
 		},
 		"player": {
 			"gro": "initial elo: 34.588, new elo: 26.982, rating change: -7.606",
 			"progenitor": "initial elo: 22.392, new elo: 16.443, rating change: -5.949",
-			"2g70": "initial elo: -3.528, new elo: -9.477, rating change: -5.949",
+			"spanky": "initial elo: -3.528, new elo: -9.477, rating change: -5.949",
 			"yashadox": "initial elo: -15.151, new elo: -22.150, rating change: -6.999",
 			"stunar": "initial elo: 21.340, new elo: 23.796, rating change: 2.456",
 			"md22": "initial elo: 9.933, new elo: 17.455, rating change: 7.522",
@@ -688,14 +688,14 @@
 		"tour_id": "m44hlnw2",
 		"time": "2025-10-04 17:20:00-04:00",
 		"teams": {
-			"md22 (17.45) mrwolf (11.23) comete (10.50) 2g70 (-9.48) = 29.70": "1W 1L 0D",
+			"md22 (17.45) mrwolf (11.23) comete (10.50) spanky (-9.48) = 29.70": "1W 1L 0D",
 			"gro (26.98) tsui (17.55) nephirea (7.00) yashadox (-22.15) = 29.38": "1W 1L 0D"
 		},
 		"player": {
 			"md22": "initial elo: 17.455, new elo: 20.244, rating change: 2.790",
 			"mrwolf": "initial elo: 11.226, new elo: 12.855, rating change: 1.629",
 			"comete": "initial elo: 10.500, new elo: 11.562, rating change: 1.062",
-			"2g70": "initial elo: -9.477, new elo: -6.921, rating change: 2.556",
+			"spanky": "initial elo: -9.477, new elo: -6.921, rating change: 2.556",
 			"gro": "initial elo: 26.982, new elo: 24.181, rating change: -2.801",
 			"tsui": "initial elo: 17.549, new elo: 14.737, rating change: -2.813",
 			"nephirea": "initial elo: 7.000, new elo: 5.938, rating change: -1.062",
@@ -707,7 +707,7 @@
 		"time": "2025-10-04 17:40:00-04:00",
 		"teams": {
 			"gro (24.18) tsui (14.74) comete (11.56) rhummy (0.28) = 50.76": "0W 1L 1D",
-			"bop (26.05) mrwolf (12.86) uomi (7.21) nephirea (5.94) = 52.05": "1W 0L 1D"
+			"bop (26.05) mrwolf (12.86) joey (7.21) nephirea (5.94) = 52.05": "1W 0L 1D"
 		},
 		"player": {
 			"gro": "initial elo: 24.181, new elo: 23.270, rating change: -0.911",
@@ -716,7 +716,7 @@
 			"rhummy": "initial elo: 0.279, new elo: -0.244, rating change: -0.523",
 			"bop": "initial elo: 26.052, new elo: 26.944, rating change: 0.892",
 			"mrwolf": "initial elo: 12.855, new elo: 13.050, rating change: 0.195",
-			"uomi": "initial elo: 7.207, new elo: 8.142, rating change: 0.935",
+			"joey": "initial elo: 7.207, new elo: 8.142, rating change: 0.935",
 			"nephirea": "initial elo: 5.938, new elo: 5.885, rating change: -0.052"
 		}
 	},
@@ -725,7 +725,7 @@
 		"time": "2025-10-04 18:00:00-04:00",
 		"teams": {
 			"md22 (20.24) tsui (13.82) mrwolf (13.05) nephirea (5.89) = 53.00": "2W 0L 0D",
-			"bop (26.94) gro (23.27) uomi (8.14) rhummy (-0.24) = 58.11": "0W 2L 0D"
+			"bop (26.94) gro (23.27) joey (8.14) rhummy (-0.24) = 58.11": "0W 2L 0D"
 		},
 		"player": {
 			"md22": "initial elo: 20.244, new elo: 28.342, rating change: 8.097",
@@ -734,7 +734,7 @@
 			"nephirea": "initial elo: 5.885, new elo: 9.673, rating change: 3.787",
 			"bop": "initial elo: 26.944, new elo: 19.265, rating change: -7.678",
 			"gro": "initial elo: 23.270, new elo: 15.539, rating change: -7.732",
-			"uomi": "initial elo: 8.142, new elo: 0.342, rating change: -7.801",
+			"joey": "initial elo: 8.142, new elo: 0.342, rating change: -7.801",
 			"rhummy": "initial elo: -0.244, new elo: -6.725, rating change: -6.481"
 		}
 	},
@@ -742,14 +742,14 @@
 		"tour_id": "ycs12bj3",
 		"time": "2025-10-04 18:30:00-04:00",
 		"teams": {
-			"tsui (21.58) bop (19.27) dry (12.87) uomi (0.34) = 54.05": "1W 0L 1D",
+			"tsui (21.58) bop (19.27) dry (12.87) joey (0.34) = 54.05": "1W 0L 1D",
 			"md22 (28.34) mrwolf (18.16) gro (15.54) rhummy (-6.73) = 55.32": "0W 1L 1D"
 		},
 		"player": {
 			"tsui": "initial elo: 21.576, new elo: 22.482, rating change: 0.906",
 			"bop": "initial elo: 19.265, new elo: 20.159, rating change: 0.894",
 			"dry": "initial elo: 12.870, new elo: 13.462, rating change: 0.592",
-			"uomi": "initial elo: 0.342, new elo: 1.254, rating change: 0.912",
+			"joey": "initial elo: 0.342, new elo: 1.254, rating change: 0.912",
 			"md22": "initial elo: 28.342, new elo: 27.386, rating change: -0.956",
 			"mrwolf": "initial elo: 18.160, new elo: 17.644, rating change: -0.516",
 			"gro": "initial elo: 15.539, new elo: 14.637, rating change: -0.902",
@@ -832,13 +832,13 @@
 		"tour_id": "l4ef7ssy",
 		"time": "2025-10-05 12:00:00-04:00",
 		"teams": {
-			"tsui (24.52) chemist (6.79) uomi (1.25) beautiful (-0.47) = 32.09": "2W 0L 0D",
+			"tsui (24.52) chemist (6.79) joey (1.25) beautiful (-0.47) = 32.09": "2W 0L 0D",
 			"bop (41.16) time2hack (10.50) dry (8.26) yashadox (-28.64) = 31.27": "0W 2L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 24.521, new elo: 32.078, rating change: 7.557",
 			"chemist": "initial elo: 6.791, new elo: 9.302, rating change: 2.511",
-			"uomi": "initial elo: 1.254, new elo: 8.692, rating change: 7.438",
+			"joey": "initial elo: 1.254, new elo: 8.692, rating change: 7.438",
 			"beautiful": "initial elo: -0.470, new elo: 4.692, rating change: 5.162",
 			"bop": "initial elo: 41.155, new elo: 33.606, rating change: -7.549",
 			"time2hack": "initial elo: 10.501, new elo: 5.906, rating change: -4.594",
@@ -850,11 +850,11 @@
 		"tour_id": "lpk6a4in",
 		"time": "2025-10-05 12:20:00-04:00",
 		"teams": {
-			"uomi (8.69) beautiful (4.69) chommy (5.35) dry (1.41) = 20.15": "0W 2L 0D",
+			"joey (8.69) beautiful (4.69) chommy (5.35) dry (1.41) = 20.15": "0W 2L 0D",
 			"tsui (32.08) md22 (14.59) gro (12.03) yashadox (-36.18) = 22.51": "2W 0L 0D"
 		},
 		"player": {
-			"uomi": "initial elo: 8.692, new elo: 1.754, rating change: -6.937",
+			"joey": "initial elo: 8.692, new elo: 1.754, rating change: -6.937",
 			"beautiful": "initial elo: 4.692, new elo: -0.646, rating change: -5.338",
 			"chommy": "initial elo: 5.355, new elo: -1.201, rating change: -6.556",
 			"dry": "initial elo: 1.409, new elo: -5.128, rating change: -6.538",
@@ -868,13 +868,13 @@
 		"tour_id": "evjk8ger",
 		"time": "2025-10-05 12:40:00-04:00",
 		"teams": {
-			"tsui (39.10) comfv (23.31) uomi (1.75) yashadox (-29.18) = 34.98": "2W 0L 0D",
+			"tsui (39.10) comfv (23.31) joey (1.75) yashadox (-29.18) = 34.98": "2W 0L 0D",
 			"md22 (21.50) gro (18.73) beautiful (-0.65) dry (-5.13) = 34.45": "0W 2L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 39.096, new elo: 46.471, rating change: 7.375",
 			"comfv": "initial elo: 23.310, new elo: 28.951, rating change: 5.641",
-			"uomi": "initial elo: 1.754, new elo: 9.067, rating change: 7.313",
+			"joey": "initial elo: 1.754, new elo: 9.067, rating change: 7.313",
 			"yashadox": "initial elo: -29.177, new elo: -21.809, rating change: 7.368",
 			"md22": "initial elo: 21.498, new elo: 14.209, rating change: -7.289",
 			"gro": "initial elo: 18.729, new elo: 11.599, rating change: -7.130",
@@ -886,17 +886,17 @@
 		"tour_id": "fvffu4qc",
 		"time": "2025-10-05 13:10:00-04:00",
 		"teams": {
-			"progenitor (16.44) gro (11.60) cafezinho (11.76) uomi (9.07) = 48.87": "2W 0L 0D",
-			"tsui (46.47) comfv (28.95) hyonoobka (12.85) yashadox (-21.81) = 66.47": "0W 2L 0D"
+			"progenitor (16.44) gro (11.60) cafezinho (11.76) joey (9.07) = 48.87": "2W 0L 0D",
+			"tsui (46.47) comfv (28.95) hyonoka (12.85) yashadox (-21.81) = 66.47": "0W 2L 0D"
 		},
 		"player": {
 			"progenitor": "initial elo: 16.443, new elo: 24.075, rating change: 7.631",
 			"gro": "initial elo: 11.599, new elo: 20.912, rating change: 9.313",
 			"cafezinho": "initial elo: 11.762, new elo: 18.562, rating change: 6.800",
-			"uomi": "initial elo: 9.067, new elo: 18.556, rating change: 9.489",
+			"joey": "initial elo: 9.067, new elo: 18.556, rating change: 9.489",
 			"tsui": "initial elo: 46.471, new elo: 36.922, rating change: -9.549",
 			"comfv": "initial elo: 28.951, new elo: 21.115, rating change: -7.836",
-			"hyonoobka": "initial elo: 12.853, new elo: 4.819, rating change: -8.033",
+			"hyonoka": "initial elo: 12.853, new elo: 4.819, rating change: -8.033",
 			"yashadox": "initial elo: -21.809, new elo: -31.351, rating change: -9.542"
 		}
 	},
@@ -905,14 +905,14 @@
 		"time": "2025-10-05 13:30:00-04:00",
 		"teams": {
 			"progenitor (24.07) comfv (21.12) gro (20.91) yashadox (-31.35) = 34.75": "2W 0L 0D",
-			"uomi (18.56) cafezinho (18.56) lelpop (3.75) beautiful (-6.68) = 34.19": "0W 2L 0D"
+			"joey (18.56) cafezinho (18.56) lelpop (3.75) beautiful (-6.68) = 34.19": "0W 2L 0D"
 		},
 		"player": {
 			"progenitor": "initial elo: 24.075, new elo: 30.679, rating change: 6.605",
 			"comfv": "initial elo: 21.115, new elo: 27.847, rating change: 6.732",
 			"gro": "initial elo: 20.912, new elo: 28.542, rating change: 7.629",
 			"yashadox": "initial elo: -31.351, new elo: -23.586, rating change: 7.765",
-			"uomi": "initial elo: 18.556, new elo: 10.823, rating change: -7.734",
+			"joey": "initial elo: 18.556, new elo: 10.823, rating change: -7.734",
 			"cafezinho": "initial elo: 18.562, new elo: 12.485, rating change: -6.077",
 			"lelpop": "initial elo: 3.751, new elo: -1.354, rating change: -5.105",
 			"beautiful": "initial elo: -6.676, new elo: -13.313, rating change: -6.637"
@@ -922,13 +922,13 @@
 		"tour_id": "itfo7i2w",
 		"time": "2025-10-05 13:50:00-04:00",
 		"teams": {
-			"gro (28.54) md22 (14.21) uomi (10.82) beautiful (-13.31) = 40.26": "1W 0L 1D",
+			"gro (28.54) md22 (14.21) joey (10.82) beautiful (-13.31) = 40.26": "1W 0L 1D",
 			"comfv (27.85) cafezinho (12.48) lelpop (-1.35) jakemonkey (-8.67) = 30.31": "0W 1L 1D"
 		},
 		"player": {
 			"gro": "initial elo: 28.542, new elo: 28.037, rating change: -0.505",
 			"md22": "initial elo: 14.209, new elo: 13.699, rating change: -0.510",
-			"uomi": "initial elo: 10.823, new elo: 10.320, rating change: -0.503",
+			"joey": "initial elo: 10.823, new elo: 10.320, rating change: -0.503",
 			"beautiful": "initial elo: -13.313, new elo: -13.837, rating change: -0.523",
 			"comfv": "initial elo: 27.847, new elo: 28.369, rating change: 0.522",
 			"cafezinho": "initial elo: 12.485, new elo: 13.015, rating change: 0.530",
@@ -958,13 +958,13 @@
 		"tour_id": "72cdy25s",
 		"time": "2025-10-06 23:00:00+09:00",
 		"teams": {
-			"two_squirds (5.83) remake (5.00) yosugala (3.00) kyuuuu (1.89) = 15.72": "0W 2L 0D",
+			"arpia97 (5.83) remake (5.00) akatsuki (3.00) kyuuuu (1.89) = 15.72": "0W 2L 0D",
 			"bop (33.61) sgtvp (8.00) beautiful (-7.07) dry (-12.13) = 22.41": "2W 0L 0D"
 		},
 		"player": {
-			"two_squirds": "initial elo: 5.830, new elo: 2.707, rating change: -3.123",
+			"arpia97": "initial elo: 5.830, new elo: 2.707, rating change: -3.123",
 			"remake": "initial elo: 5.000, new elo: 3.635, rating change: -1.365",
-			"yosugala": "initial elo: 3.000, new elo: 1.635, rating change: -1.365",
+			"akatsuki": "initial elo: 3.000, new elo: 1.635, rating change: -1.365",
 			"kyuuuu": "initial elo: 1.888, new elo: -2.772, rating change: -4.660",
 			"bop": "initial elo: 33.606, new elo: 41.765, rating change: 8.159",
 			"sgtvp": "initial elo: 8.000, new elo: 9.365, rating change: 1.365",
@@ -977,7 +977,7 @@
 		"time": "2025-10-06 00:00:00+09:00",
 		"teams": {
 			"bop (41.76) mkby (16.99) mahzrunner (6.50) saiki (5.00) = 70.25": "0W 2L 0D",
-			"gro (35.29) tsui (36.92) beautiful (1.23) yosugala (1.64) = 75.08": "2W 0L 0D"
+			"gro (35.29) tsui (36.92) beautiful (1.23) akatsuki (1.64) = 75.08": "2W 0L 0D"
 		},
 		"player": {
 			"bop": "initial elo: 41.765, new elo: 34.254, rating change: -7.511",
@@ -987,7 +987,7 @@
 			"gro": "initial elo: 35.292, new elo: 43.455, rating change: 8.163",
 			"tsui": "initial elo: 36.922, new elo: 45.163, rating change: 8.241",
 			"beautiful": "initial elo: 1.228, new elo: 8.827, rating change: 7.599",
-			"yosugala": "initial elo: 1.635, new elo: 4.103, rating change: 2.468"
+			"akatsuki": "initial elo: 1.635, new elo: 4.103, rating change: 2.468"
 		}
 	},
 	{
@@ -1157,7 +1157,7 @@
 		"time": "2025-10-07 13:38:00-04:00",
 		"teams": {
 			"tsui (29.58) vuhrculls (15.05) diukes (9.00) okitanobu (-9.90) = 43.73": "1W 1L 0D",
-			"fortnayt (32.59) fumiii (6.43) hyonoobka (4.82) mayottatoki (-1.46) = 42.39": "1W 1L 0D"
+			"fortnayt (32.59) fumiii (6.43) hyonoka (4.82) mayottatoki (-1.46) = 42.39": "1W 1L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 29.579, new elo: 26.644, rating change: -2.935",
@@ -1166,7 +1166,7 @@
 			"okitanobu": "initial elo: -9.900, new elo: -12.631, rating change: -2.731",
 			"fortnayt": "initial elo: 32.591, new elo: 35.072, rating change: 2.481",
 			"fumiii": "initial elo: 6.434, new elo: 8.478, rating change: 2.044",
-			"hyonoobka": "initial elo: 4.819, new elo: 7.706, rating change: 2.886",
+			"hyonoka": "initial elo: 4.819, new elo: 7.706, rating change: 2.886",
 			"mayottatoki": "initial elo: -1.459, new elo: 0.911, rating change: 2.370"
 		}
 	},
@@ -1336,13 +1336,13 @@
 		"tour_id": "81af4pfa",
 		"time": "2025-10-19 16:00:00-04:00",
 		"teams": {
-			"tsui (25.90) unborned (20.00) hyonoobka (7.71) eljuanchi (3.64) = 57.25": "1W 1L 0D",
+			"tsui (25.90) unborned (20.00) hyonoka (7.71) eljuanchi (3.64) = 57.25": "1W 1L 0D",
 			"fortnayt (35.07) mrwolf (18.97) skychael (5.80) md22 (0.24) = 60.09": "1W 1L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 25.900, new elo: 23.551, rating change: -2.350",
 			"unborned": "initial elo: 20.000, new elo: 19.008, rating change: -0.992",
-			"hyonoobka": "initial elo: 7.706, new elo: 5.383, rating change: -2.322",
+			"hyonoka": "initial elo: 7.706, new elo: 5.383, rating change: -2.322",
 			"eljuanchi": "initial elo: 3.639, new elo: 1.630, rating change: -2.009",
 			"fortnayt": "initial elo: 35.072, new elo: 37.204, rating change: 2.132",
 			"mrwolf": "initial elo: 18.972, new elo: 21.311, rating change: 2.339",
@@ -1355,7 +1355,7 @@
 		"time": "2025-10-19 16:20:00-04:00",
 		"teams": {
 			"tsui (23.55) unborned (19.01) skychael (7.14) md22 (2.60) = 52.29": "1W 0L 1D",
-			"fortnayt (37.20) mrwolf (21.31) hyonoobka (5.38) eljuanchi (1.63) = 65.53": "0W 1L 1D"
+			"fortnayt (37.20) mrwolf (21.31) hyonoka (5.38) eljuanchi (1.63) = 65.53": "0W 1L 1D"
 		},
 		"player": {
 			"tsui": "initial elo: 23.551, new elo: 26.404, rating change: 2.853",
@@ -1364,7 +1364,7 @@
 			"md22": "initial elo: 2.596, new elo: 5.452, rating change: 2.856",
 			"fortnayt": "initial elo: 37.204, new elo: 34.809, rating change: -2.395",
 			"mrwolf": "initial elo: 21.311, new elo: 18.483, rating change: -2.828",
-			"hyonoobka": "initial elo: 5.383, new elo: 2.594, rating change: -2.790",
+			"hyonoka": "initial elo: 5.383, new elo: 2.594, rating change: -2.790",
 			"eljuanchi": "initial elo: 1.630, new elo: -0.538, rating change: -2.168"
 		}
 	},
@@ -1372,14 +1372,14 @@
 		"tour_id": "70ds6zh5",
 		"time": "2025-10-19 16:30:00-04:00",
 		"teams": {
-			"tsui (26.40) unborned (19.65) kar72 (9.79) hyonoobka (2.59) = 58.44": "1W 1L 0D",
+			"tsui (26.40) unborned (19.65) kar72 (9.79) hyonoka (2.59) = 58.44": "1W 1L 0D",
 			"fortnayt (34.81) mrwolf (18.48) md22 (5.45) eljuanchi (-0.54) = 58.21": "1W 1L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 26.404, new elo: 23.707, rating change: -2.697",
 			"unborned": "initial elo: 19.646, new elo: 17.881, rating change: -1.766",
 			"kar72": "initial elo: 9.793, new elo: 7.279, rating change: -2.514",
-			"hyonoobka": "initial elo: 2.594, new elo: -0.086, rating change: -2.679",
+			"hyonoka": "initial elo: 2.594, new elo: -0.086, rating change: -2.679",
 			"fortnayt": "initial elo: 34.809, new elo: 37.366, rating change: 2.558",
 			"mrwolf": "initial elo: 18.483, new elo: 21.173, rating change: 2.690",
 			"md22": "initial elo: 5.452, new elo: 8.150, rating change: 2.698",
@@ -1391,7 +1391,7 @@
 		"time": "2025-10-19 16:50:00-04:00",
 		"teams": {
 			"fortnayt (37.37) mrwolf (21.17) kar72 (7.28) eljuanchi (1.94) = 67.76": "0W 1L 1D",
-			"tsui (23.71) howan (18.00) unborned (17.88) md22 (8.15) = 67.74": "1W 0L 1D"
+			"tsui (23.71) bai (18.00) unborned (17.88) md22 (8.15) = 67.74": "1W 0L 1D"
 		},
 		"player": {
 			"fortnayt": "initial elo: 37.366, new elo: 36.524, rating change: -0.843",
@@ -1399,7 +1399,7 @@
 			"kar72": "initial elo: 7.279, new elo: 6.467, rating change: -0.813",
 			"eljuanchi": "initial elo: 1.943, new elo: 1.153, rating change: -0.790",
 			"tsui": "initial elo: 23.707, new elo: 24.648, rating change: 0.941",
-			"howan": "initial elo: 18.000, new elo: 17.806, rating change: -0.194",
+			"bai": "initial elo: 18.000, new elo: 17.806, rating change: -0.194",
 			"unborned": "initial elo: 17.881, new elo: 18.242, rating change: 0.361",
 			"md22": "initial elo: 8.150, new elo: 9.092, rating change: 0.942"
 		}
@@ -1409,7 +1409,7 @@
 		"time": "2025-10-19 17:10:00-04:00",
 		"teams": {
 			"tsui (24.65) yurimeguri (19.00) mrwolf (20.24) kar72 (6.47) = 70.35": "1W 1L 0D",
-			"fortnayt (36.52) howan (17.81) md22 (9.09) mkby (11.05) = 74.47": "1W 1L 0D"
+			"fortnayt (36.52) bai (17.81) md22 (9.09) mkby (11.05) = 74.47": "1W 1L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 24.648, new elo: 27.836, rating change: 3.188",
@@ -1417,7 +1417,7 @@
 			"mrwolf": "initial elo: 20.237, new elo: 23.421, rating change: 3.184",
 			"kar72": "initial elo: 6.467, new elo: 9.550, rating change: 3.083",
 			"fortnayt": "initial elo: 36.524, new elo: 33.415, rating change: -3.109",
-			"howan": "initial elo: 17.806, new elo: 16.168, rating change: -1.637",
+			"bai": "initial elo: 17.806, new elo: 16.168, rating change: -1.637",
 			"md22": "initial elo: 9.092, new elo: 5.904, rating change: -3.189",
 			"mkby": "initial elo: 11.053, new elo: 7.717, rating change: -3.336"
 		}
@@ -1426,13 +1426,13 @@
 		"tour_id": "zfe6h9c4",
 		"time": "2025-10-19 17:30:00-04:00",
 		"teams": {
-			"mrwolf (23.42) yurimeguri (20.15) howan (16.17) kar72 (9.55) = 69.28": "1W 0L 1D",
+			"mrwolf (23.42) yurimeguri (20.15) bai (16.17) kar72 (9.55) = 69.28": "1W 0L 1D",
 			"fortnayt (33.42) tsui (27.84) md22 (5.90) mkby (7.72) = 74.87": "0W 1L 1D"
 		},
 		"player": {
 			"mrwolf": "initial elo: 23.421, new elo: 25.046, rating change: 1.625",
 			"yurimeguri": "initial elo: 20.145, new elo: 20.399, rating change: 0.254",
-			"howan": "initial elo: 16.168, new elo: 16.720, rating change: 0.551",
+			"bai": "initial elo: 16.168, new elo: 16.720, rating change: 0.551",
 			"kar72": "initial elo: 9.550, new elo: 11.096, rating change: 1.546",
 			"fortnayt": "initial elo: 33.415, new elo: 31.849, rating change: -1.566",
 			"tsui": "initial elo: 27.836, new elo: 26.208, rating change: -1.628",
@@ -1445,7 +1445,7 @@
 		"time": "2025-10-22 22:00:00+02:00",
 		"teams": {
 			"julialess64 (7.83) animerod (11.36) md22 (4.28) konsumenci (1.00) = 24.47": "0W 2L 0D",
-			"bop (19.33) dry (6.17) selaph (14.83) hyonoobka (-0.09) = 40.24": "2W 0L 0D"
+			"bop (19.33) dry (6.17) selaph (14.83) hyonoka (-0.09) = 40.24": "2W 0L 0D"
 		},
 		"player": {
 			"julialess64": "initial elo: 7.830, new elo: 5.394, rating change: -2.436",
@@ -1455,19 +1455,19 @@
 			"bop": "initial elo: 19.332, new elo: 26.062, rating change: 6.730",
 			"dry": "initial elo: 6.166, new elo: 12.410, rating change: 6.243",
 			"selaph": "initial elo: 14.830, new elo: 17.266, rating change: 2.436",
-			"hyonoobka": "initial elo: -0.086, new elo: 5.810, rating change: 5.895"
+			"hyonoka": "initial elo: -0.086, new elo: 5.810, rating change: 5.895"
 		}
 	},
 	{
 		"tour_id": "mb814bw7",
 		"time": "2025-10-22 22:30:00+02:00",
 		"teams": {
-			"bop (26.06) hyonoobka (5.81) selaph (17.27) konsumenci (-0.06) = 49.07": "2W 0L 0D",
+			"bop (26.06) hyonoka (5.81) selaph (17.27) konsumenci (-0.06) = 49.07": "2W 0L 0D",
 			"dry (12.41) julialess64 (5.39) vuhrculls (12.87) md22 (-1.47) = 29.21": "0W 2L 0D"
 		},
 		"player": {
 			"bop": "initial elo: 26.062, new elo: 32.251, rating change: 6.189",
-			"hyonoobka": "initial elo: 5.810, new elo: 11.436, rating change: 5.626",
+			"hyonoka": "initial elo: 5.810, new elo: 11.436, rating change: 5.626",
 			"selaph": "initial elo: 17.266, new elo: 20.308, rating change: 3.042",
 			"konsumenci": "initial elo: -0.064, new elo: 1.834, rating change: 1.899",
 			"dry": "initial elo: 12.410, new elo: 6.546, rating change: -5.863",
@@ -1481,7 +1481,7 @@
 		"time": "2025-10-22 23:00:00+02:00",
 		"teams": {
 			"mrwolf (25.05) julialess64 (2.35) dry (6.55) selaph (20.31) = 54.25": "1W 1L 0D",
-			"bop (32.25) hyonoobka (11.44) vuhrculls (8.91) md22 (-6.98) = 45.61": "1W 1L 0D"
+			"bop (32.25) hyonoka (11.44) vuhrculls (8.91) md22 (-6.98) = 45.61": "1W 1L 0D"
 		},
 		"player": {
 			"mrwolf": "initial elo: 25.046, new elo: 26.773, rating change: 1.727",
@@ -1489,7 +1489,7 @@
 			"dry": "initial elo: 6.546, new elo: 8.368, rating change: 1.822",
 			"selaph": "initial elo: 20.308, new elo: 21.804, rating change: 1.496",
 			"bop": "initial elo: 32.251, new elo: 30.406, rating change: -1.845",
-			"hyonoobka": "initial elo: 11.436, new elo: 9.632, rating change: -1.803",
+			"hyonoka": "initial elo: 11.436, new elo: 9.632, rating change: -1.803",
 			"vuhrculls": "initial elo: 8.911, new elo: 7.281, rating change: -1.629",
 			"md22": "initial elo: -6.984, new elo: -8.778, rating change: -1.794"
 		}
@@ -1498,13 +1498,13 @@
 		"tour_id": "tjzkf6jy",
 		"time": "2025-10-22 17:20:00-04:00",
 		"teams": {
-			"tsui (26.21) mrwolf (26.77) uomi (10.32) vuhrculls (7.28) = 70.58": "0W 2L 0D",
+			"tsui (26.21) mrwolf (26.77) joey (10.32) vuhrculls (7.28) = 70.58": "0W 2L 0D",
 			"bop (30.41) fortnayt (31.85) selaph (21.80) md22 (-8.78) = 75.28": "2W 0L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 26.208, new elo: 20.048, rating change: -6.160",
 			"mrwolf": "initial elo: 26.773, new elo: 20.433, rating change: -6.340",
-			"uomi": "initial elo: 10.320, new elo: 3.092, rating change: -7.228",
+			"joey": "initial elo: 10.320, new elo: 3.092, rating change: -7.228",
 			"vuhrculls": "initial elo: 7.281, new elo: 1.532, rating change: -5.750",
 			"bop": "initial elo: 30.406, new elo: 37.616, rating change: 7.211",
 			"fortnayt": "initial elo: 31.849, new elo: 37.902, rating change: 6.053",
@@ -1517,7 +1517,7 @@
 		"time": "2025-10-22 17:40:00-04:00",
 		"teams": {
 			"fortnayt (37.90) tsui (20.05) selaph (26.85) md22 (-1.97) = 82.83": "0W 1L 1D",
-			"bop (37.62) mrwolf (20.43) animerod (5.70) uomi (3.09) = 66.84": "1W 0L 1D"
+			"bop (37.62) mrwolf (20.43) animerod (5.70) joey (3.09) = 66.84": "1W 0L 1D"
 		},
 		"player": {
 			"fortnayt": "initial elo: 37.902, new elo: 35.489, rating change: -2.413",
@@ -1527,7 +1527,7 @@
 			"bop": "initial elo: 37.616, new elo: 40.457, rating change: 2.841",
 			"mrwolf": "initial elo: 20.433, new elo: 22.953, rating change: 2.520",
 			"animerod": "initial elo: 5.697, new elo: 8.079, rating change: 2.382",
-			"uomi": "initial elo: 3.092, new elo: 5.939, rating change: 2.847"
+			"joey": "initial elo: 3.092, new elo: 5.939, rating change: 2.847"
 		}
 	},
 	{
@@ -1535,7 +1535,7 @@
 		"time": "2025-10-22 18:00:00-04:00",
 		"teams": {
 			"fortnayt (35.49) selaph (24.81) animerod (8.08) peeku (-4.02) = 64.36": "1W 1L 0D",
-			"bop (40.46) tsui (17.59) 2g70 (-6.92) md22 (-4.67) = 46.47": "1W 1L 0D"
+			"bop (40.46) tsui (17.59) spanky (-6.92) md22 (-4.67) = 46.47": "1W 1L 0D"
 		},
 		"player": {
 			"fortnayt": "initial elo: 35.489, new elo: 30.838, rating change: -4.652",
@@ -1544,7 +1544,7 @@
 			"peeku": "initial elo: -4.023, new elo: -8.392, rating change: -4.369",
 			"bop": "initial elo: 40.457, new elo: 45.442, rating change: 4.984",
 			"tsui": "initial elo: 17.595, new elo: 22.279, rating change: 4.684",
-			"2g70": "initial elo: -6.921, new elo: -2.548, rating change: 4.373",
+			"spanky": "initial elo: -6.921, new elo: -2.548, rating change: 4.373",
 			"md22": "initial elo: -4.666, new elo: 0.206, rating change: 4.872"
 		}
 	},
@@ -1552,14 +1552,14 @@
 		"tour_id": "jece6y5q",
 		"time": "2025-10-22 18:20:00-04:00",
 		"teams": {
-			"tsui (22.28) edwardd (14.80) animerod (3.45) 2g70 (-2.55) = 37.99": "0W 2L 0D",
+			"tsui (22.28) edwardd (14.80) animerod (3.45) spanky (-2.55) = 37.99": "0W 2L 0D",
 			"fortnayt (30.84) selaph (20.49) md22 (0.21) peeku (-8.39) = 43.14": "2W 0L 0D"
 		},
 		"player": {
 			"tsui": "initial elo: 22.279, new elo: 15.591, rating change: -6.688",
 			"edwardd": "initial elo: 14.803, new elo: 10.442, rating change: -4.361",
 			"animerod": "initial elo: 3.453, new elo: -3.161, rating change: -6.614",
-			"2g70": "initial elo: -2.548, new elo: -8.838, rating change: -6.290",
+			"spanky": "initial elo: -2.548, new elo: -8.838, rating change: -6.290",
 			"fortnayt": "initial elo: 30.838, new elo: 37.484, rating change: 6.646",
 			"selaph": "initial elo: 20.487, new elo: 26.719, rating change: 6.231",
 			"md22": "initial elo: 0.206, new elo: 7.132, rating change: 6.926",
@@ -1570,11 +1570,11 @@
 		"tour_id": "misz3a9g",
 		"time": "2025-10-24 23:30:00+09:00",
 		"teams": {
-			"yosugala (4.10) dry (8.37) skychael (8.25) md22 (7.13) = 27.85": "0W 2L 0D",
+			"akatsuki (4.10) dry (8.37) skychael (8.25) md22 (7.13) = 27.85": "0W 2L 0D",
 			"tsui (15.59) moosepi (14.00) channina (11.00) beautiful (4.45) = 45.05": "2W 0L 0D"
 		},
 		"player": {
-			"yosugala": "initial elo: 4.103, new elo: 1.129, rating change: -2.974",
+			"akatsuki": "initial elo: 4.103, new elo: 1.129, rating change: -2.974",
 			"dry": "initial elo: 8.368, new elo: 1.914, rating change: -6.454",
 			"skychael": "initial elo: 8.248, new elo: 4.607, rating change: -3.641",
 			"md22": "initial elo: 7.132, new elo: 0.520, rating change: -6.612",
@@ -1588,14 +1588,14 @@
 		"tour_id": "nns9xmmi",
 		"time": "2025-10-24 00:00:00+09:00",
 		"teams": {
-			"moosepi (15.05) channina (12.05) skychael (4.61) yosugala (1.13) = 32.84": "2W 0L 0D",
+			"moosepi (15.05) channina (12.05) skychael (4.61) akatsuki (1.13) = 32.84": "2W 0L 0D",
 			"tsui (22.04) beautiful (10.50) dry (1.91) md22 (0.52) = 34.97": "0W 2L 0D"
 		},
 		"player": {
 			"moosepi": "initial elo: 15.054, new elo: 17.735, rating change: 2.680",
 			"channina": "initial elo: 12.054, new elo: 14.735, rating change: 2.680",
 			"skychael": "initial elo: 4.607, new elo: 10.295, rating change: 5.688",
-			"yosugala": "initial elo: 1.129, new elo: 6.077, rating change: 4.947",
+			"akatsuki": "initial elo: 1.129, new elo: 6.077, rating change: 4.947",
 			"tsui": "initial elo: 22.037, new elo: 13.485, rating change: -8.552",
 			"beautiful": "initial elo: 10.498, new elo: 2.332, rating change: -8.166",
 			"dry": "initial elo: 1.914, new elo: -6.646, rating change: -8.560",
@@ -1606,14 +1606,14 @@
 		"tour_id": "obe170g4",
 		"time": "2025-10-25 00:30:00+09:00",
 		"teams": {
-			"channina (14.73) tsui (13.48) beautiful (2.33) yosugala (6.08) = 36.63": "2W 0L 0D",
+			"channina (14.73) tsui (13.48) beautiful (2.33) akatsuki (6.08) = 36.63": "2W 0L 0D",
 			"neoburnz (19.01) moosepi (17.73) skychael (10.29) md22 (-8.19) = 38.85": "0W 2L 0D"
 		},
 		"player": {
 			"channina": "initial elo: 14.735, new elo: 18.614, rating change: 3.879",
 			"tsui": "initial elo: 13.485, new elo: 22.036, rating change: 8.552",
 			"beautiful": "initial elo: 2.332, new elo: 10.609, rating change: 8.277",
-			"yosugala": "initial elo: 6.077, new elo: 11.889, rating change: 5.813",
+			"akatsuki": "initial elo: 6.077, new elo: 11.889, rating change: 5.813",
 			"neoburnz": "initial elo: 19.007, new elo: 14.194, rating change: -4.814",
 			"moosepi": "initial elo: 17.735, new elo: 13.856, rating change: -3.879",
 			"skychael": "initial elo: 10.295, new elo: 3.887, rating change: -6.408",
@@ -1624,13 +1624,13 @@
 		"tour_id": "7pqe4ct7",
 		"time": "2025-10-25 01:00:00+09:00",
 		"teams": {
-			"neoburnz (14.19) watashiii (13.00) yosugala (11.89) skychael (3.89) = 42.97": "2W 0L 0D",
+			"neoburnz (14.19) watashiii (13.00) akatsuki (11.89) skychael (3.89) = 42.97": "2W 0L 0D",
 			"tsui (22.04) channina (18.61) beautiful (10.61) okitanobu (-12.63) = 38.63": "0W 2L 0D"
 		},
 		"player": {
 			"neoburnz": "initial elo: 14.194, new elo: 19.410, rating change: 5.216",
 			"watashiii": "initial elo: 13.000, new elo: 14.244, rating change: 1.244",
-			"yosugala": "initial elo: 11.889, new elo: 17.840, rating change: 5.951",
+			"akatsuki": "initial elo: 11.889, new elo: 17.840, rating change: 5.951",
 			"skychael": "initial elo: 3.887, new elo: 10.262, rating change: 6.376",
 			"tsui": "initial elo: 22.036, new elo: 14.215, rating change: -7.822",
 			"channina": "initial elo: 18.614, new elo: 14.111, rating change: -4.502",
@@ -1642,12 +1642,12 @@
 		"tour_id": "aqna30iw",
 		"time": "2025-10-25 01:30:00+09:00",
 		"teams": {
-			"neoburnz (19.41) yosugala (17.84) apurplenose (10.00) okitanobu (-19.24) = 28.01": "0W 2L 0D",
+			"neoburnz (19.41) akatsuki (17.84) apurplenose (10.00) okitanobu (-19.24) = 28.01": "0W 2L 0D",
 			"watashiii (14.24) channina (14.11) beautiful (2.97) vuhrculls (1.53) = 32.85": "2W 0L 0D"
 		},
 		"player": {
 			"neoburnz": "initial elo: 19.410, new elo: 13.421, rating change: -5.989",
-			"yosugala": "initial elo: 17.840, new elo: 11.264, rating change: -6.576",
+			"akatsuki": "initial elo: 17.840, new elo: 11.264, rating change: -6.576",
 			"apurplenose": "initial elo: 10.000, new elo: 8.734, rating change: -1.266",
 			"okitanobu": "initial elo: -19.241, new elo: -26.327, rating change: -7.087",
 			"watashiii": "initial elo: 14.244, new elo: 16.729, rating change: 2.485",
@@ -1661,14 +1661,14 @@
 		"time": "2025-10-25 12:20:00-04:00",
 		"teams": {
 			"bop (45.44) tsui (14.21) rhummy (-9.93) md22 (-16.85) = 32.87": "1W 0L 1D",
-			"rissa (14.00) baguett (12.00) diukes (7.90) dry (-6.65) = 27.26": "0W 1L 1D"
+			"renzou (14.00) baguett (12.00) diukes (7.90) dry (-6.65) = 27.26": "0W 1L 1D"
 		},
 		"player": {
 			"bop": "initial elo: 45.442, new elo: 45.733, rating change: 0.291",
 			"tsui": "initial elo: 14.215, new elo: 14.521, rating change: 0.307",
 			"rhummy": "initial elo: -9.931, new elo: -9.779, rating change: 0.152",
 			"md22": "initial elo: -16.853, new elo: -16.543, rating change: 0.310",
-			"rissa": "initial elo: 14.000, new elo: 14.344, rating change: 0.344",
+			"renzou": "initial elo: 14.000, new elo: 14.344, rating change: 0.344",
 			"baguett": "initial elo: 12.000, new elo: 12.344, rating change: 0.344",
 			"diukes": "initial elo: 7.903, new elo: 8.183, rating change: 0.279",
 			"dry": "initial elo: -6.646, new elo: -6.943, rating change: -0.297"
@@ -1679,14 +1679,14 @@
 		"time": "2025-10-25 12:50:00-04:00",
 		"teams": {
 			"selaph (26.72) tsui (14.52) dry (-6.94) rhummy (-9.78) = 24.52": "0W 2L 0D",
-			"rissa (14.34) neoburnz (13.42) baguett (12.34) md22 (-16.54) = 23.57": "2W 0L 0D"
+			"renzou (14.34) neoburnz (13.42) baguett (12.34) md22 (-16.54) = 23.57": "2W 0L 0D"
 		},
 		"player": {
 			"selaph": "initial elo: 26.719, new elo: 18.961, rating change: -7.758",
 			"tsui": "initial elo: 14.521, new elo: 6.762, rating change: -7.759",
 			"dry": "initial elo: -6.943, new elo: -14.665, rating change: -7.722",
 			"rhummy": "initial elo: -9.779, new elo: -16.848, rating change: -7.069",
-			"rissa": "initial elo: 14.344, new elo: 16.909, rating change: 2.565",
+			"renzou": "initial elo: 14.344, new elo: 16.909, rating change: 2.565",
 			"neoburnz": "initial elo: 13.421, new elo: 20.232, rating change: 6.811",
 			"baguett": "initial elo: 12.344, new elo: 14.909, rating change: 2.565",
 			"md22": "initial elo: -16.543, new elo: -8.770, rating change: 7.773"
@@ -1697,14 +1697,14 @@
 		"time": "2025-10-25 13:20:00-04:00",
 		"teams": {
 			"neoburnz (20.23) baguett (14.91) md22 (-8.77) rhummy (-16.85) = 9.52": "0W 1L 1D",
-			"rissa (16.91) selaph (18.96) tsui (6.76) okitanobu (-26.33) = 16.30": "1W 0L 1D"
+			"renzou (16.91) selaph (18.96) tsui (6.76) okitanobu (-26.33) = 16.30": "1W 0L 1D"
 		},
 		"player": {
 			"neoburnz": "initial elo: 20.232, new elo: 20.331, rating change: 0.098",
 			"baguett": "initial elo: 14.909, new elo: 15.215, rating change: 0.306",
 			"md22": "initial elo: -8.770, new elo: -8.733, rating change: 0.038",
 			"rhummy": "initial elo: -16.848, new elo: -16.766, rating change: 0.083",
-			"rissa": "initial elo: 16.909, new elo: 16.603, rating change: -0.306",
+			"renzou": "initial elo: 16.909, new elo: 16.603, rating change: -0.306",
 			"selaph": "initial elo: 18.961, new elo: 18.922, rating change: -0.039",
 			"tsui": "initial elo: 6.762, new elo: 6.724, rating change: -0.038",
 			"okitanobu": "initial elo: -26.327, new elo: -26.391, rating change: -0.063"
@@ -1715,14 +1715,14 @@
 		"time": "2025-10-25 13:40:00-04:00",
 		"teams": {
 			"neoburnz (20.33) baguett (15.21) tsui (6.72) okitanobu (-26.39) = 15.88": "1W 0L 1D",
-			"rissa (16.60) selaph (18.92) lelpop (-6.74) md22 (-8.73) = 20.05": "0W 1L 1D"
+			"renzou (16.60) selaph (18.92) lelpop (-6.74) md22 (-8.73) = 20.05": "0W 1L 1D"
 		},
 		"player": {
 			"neoburnz": "initial elo: 20.331, new elo: 21.576, rating change: 1.246",
 			"baguett": "initial elo: 15.215, new elo: 15.814, rating change: 0.600",
 			"tsui": "initial elo: 6.724, new elo: 8.094, rating change: 1.370",
 			"okitanobu": "initial elo: -26.391, new elo: -25.070, rating change: 1.320",
-			"rissa": "initial elo: 16.603, new elo: 16.004, rating change: -0.600",
+			"renzou": "initial elo: 16.603, new elo: 16.004, rating change: -0.600",
 			"selaph": "initial elo: 18.922, new elo: 17.552, rating change: -1.370",
 			"lelpop": "initial elo: -6.745, new elo: -8.031, rating change: -1.286",
 			"md22": "initial elo: -8.733, new elo: -10.105, rating change: -1.372"
@@ -1733,14 +1733,14 @@
 		"time": "2025-10-25 14:00:00-04:00",
 		"teams": {
 			"neoburnz (21.58) selaph (17.55) lelpop (-8.03) okitanobu (-25.07) = 6.03": "0W 2L 0D",
-			"rissa (16.00) tsui (8.09) lordgrond (-0.76) md22 (-10.10) = 13.23": "2W 0L 0D"
+			"renzou (16.00) tsui (8.09) lordgrond (-0.76) md22 (-10.10) = 13.23": "2W 0L 0D"
 		},
 		"player": {
 			"neoburnz": "initial elo: 21.576, new elo: 15.564, rating change: -6.013",
 			"selaph": "initial elo: 17.552, new elo: 11.287, rating change: -6.265",
 			"lelpop": "initial elo: -8.031, new elo: -14.126, rating change: -6.095",
 			"okitanobu": "initial elo: -25.070, new elo: -31.236, rating change: -6.166",
-			"rissa": "initial elo: 16.004, new elo: 20.475, rating change: 4.472",
+			"renzou": "initial elo: 16.004, new elo: 20.475, rating change: 4.472",
 			"tsui": "initial elo: 8.094, new elo: 14.359, rating change: 6.265",
 			"lordgrond": "initial elo: -0.764, new elo: 6.262, rating change: 7.026",
 			"md22": "initial elo: -10.105, new elo: -3.836, rating change: 6.269"
@@ -1750,16 +1750,16 @@
 		"tour_id": "fv91s1qi",
 		"time": "2025-10-25 14:20:00-04:00",
 		"teams": {
-			"rissa (20.48) tsui (14.36) peeku (-2.11) lelpop (-14.13) = 18.60": "1W 0L 1D",
-			"mrwolf (22.95) badatlife (18.10) lordgrond (6.26) md22 (-3.84) = 43.48": "0W 1L 1D"
+			"renzou (20.48) tsui (14.36) peeku (-2.11) lelpop (-14.13) = 18.60": "1W 0L 1D",
+			"mrwolf (22.95) koroshiya (18.10) lordgrond (6.26) md22 (-3.84) = 43.48": "0W 1L 1D"
 		},
 		"player": {
-			"rissa": "initial elo: 20.475, new elo: 23.346, rating change: 2.870",
+			"renzou": "initial elo: 20.475, new elo: 23.346, rating change: 2.870",
 			"tsui": "initial elo: 14.359, new elo: 18.210, rating change: 3.851",
 			"peeku": "initial elo: -2.107, new elo: 1.655, rating change: 3.762",
 			"lelpop": "initial elo: -14.126, new elo: -10.366, rating change: 3.760",
 			"mrwolf": "initial elo: 22.953, new elo: 19.228, rating change: -3.725",
-			"badatlife": "initial elo: 18.098, new elo: 15.595, rating change: -2.503",
+			"koroshiya": "initial elo: 18.098, new elo: 15.595, rating change: -2.503",
 			"lordgrond": "initial elo: 6.262, new elo: 2.004, rating change: -4.258",
 			"md22": "initial elo: -3.836, new elo: -7.689, rating change: -3.853"
 		}
@@ -1768,15 +1768,15 @@
 		"tour_id": "vs1w3tk9",
 		"time": "2025-10-25 14:40:00-04:00",
 		"teams": {
-			"badatlife (15.60) mrwolf (19.23) lordgrond (2.00) peeku (1.66) = 38.48": "1W 1L 0D",
-			"rissa (23.35) tsui (18.21) comete (11.61) md22 (-7.69) = 45.48": "1W 1L 0D"
+			"koroshiya (15.60) mrwolf (19.23) lordgrond (2.00) peeku (1.66) = 38.48": "1W 1L 0D",
+			"renzou (23.35) tsui (18.21) comete (11.61) md22 (-7.69) = 45.48": "1W 1L 0D"
 		},
 		"player": {
-			"badatlife": "initial elo: 15.595, new elo: 13.850, rating change: -1.745",
+			"koroshiya": "initial elo: 15.595, new elo: 13.850, rating change: -1.745",
 			"mrwolf": "initial elo: 19.228, new elo: 17.298, rating change: -1.930",
 			"lordgrond": "initial elo: 2.004, new elo: 0.016, rating change: -1.989",
 			"peeku": "initial elo: 1.655, new elo: -0.279, rating change: -1.934",
-			"rissa": "initial elo: 23.346, new elo: 25.155, rating change: 1.809",
+			"renzou": "initial elo: 23.346, new elo: 25.155, rating change: 1.809",
 			"tsui": "initial elo: 18.210, new elo: 20.155, rating change: 1.945",
 			"comete": "initial elo: 11.615, new elo: 12.972, rating change: 1.358",
 			"md22": "initial elo: -7.689, new elo: -5.744, rating change: 1.945"
@@ -1786,12 +1786,12 @@
 		"tour_id": "cyy8e3zl",
 		"time": "2025-10-25 15:00:00-04:00",
 		"teams": {
-			"rissa (25.15) badatlife (13.85) comete (12.97) yashadox (-26.47) = 25.51": "0W 1L 1D",
+			"renzou (25.15) koroshiya (13.85) comete (12.97) yashadox (-26.47) = 25.51": "0W 1L 1D",
 			"tsui (20.16) mrwolf (17.30) peeku (-0.28) md22 (-5.74) = 31.43": "1W 0L 1D"
 		},
 		"player": {
-			"rissa": "initial elo: 25.155, new elo: 25.218, rating change: 0.063",
-			"badatlife": "initial elo: 13.850, new elo: 13.942, rating change: 0.092",
+			"renzou": "initial elo: 25.155, new elo: 25.218, rating change: 0.063",
+			"koroshiya": "initial elo: 13.850, new elo: 13.942, rating change: 0.092",
 			"comete": "initial elo: 12.972, new elo: 13.190, rating change: 0.218",
 			"yashadox": "initial elo: -26.466, new elo: -26.536, rating change: -0.070",
 			"tsui": "initial elo: 20.155, new elo: 20.164, rating change: 0.009",
@@ -1804,15 +1804,15 @@
 		"tour_id": "35kgs5m7",
 		"time": "2025-11-09 02:00:00+09:00",
 		"teams": {
-			"badatlife (13.94) neoburnz (15.56) beautiful (10.82) rhummy (-16.77) = 23.56": "1W 1L 0D",
-			"hyonoobka (9.63) apurplenose (8.73) haruurara (7.00) md22 (-5.74) = 19.63": "1W 1L 0D"
+			"koroshiya (13.94) neoburnz (15.56) beautiful (10.82) rhummy (-16.77) = 23.56": "1W 1L 0D",
+			"hyonoka (9.63) apurplenose (8.73) haruurara (7.00) md22 (-5.74) = 19.63": "1W 1L 0D"
 		},
 		"player": {
-			"badatlife": "initial elo: 13.942, new elo: 10.898, rating change: -3.044",
+			"koroshiya": "initial elo: 13.942, new elo: 10.898, rating change: -3.044",
 			"neoburnz": "initial elo: 15.564, new elo: 12.271, rating change: -3.293",
 			"beautiful": "initial elo: 10.825, new elo: 7.389, rating change: -3.436",
 			"rhummy": "initial elo: -16.766, new elo: -19.964, rating change: -3.198",
-			"hyonoobka": "initial elo: 9.632, new elo: 13.002, rating change: 3.370",
+			"hyonoka": "initial elo: 9.632, new elo: 13.002, rating change: 3.370",
 			"apurplenose": "initial elo: 8.734, new elo: 10.357, rating change: 1.623",
 			"haruurara": "initial elo: 7.000, new elo: 8.127, rating change: 1.127",
 			"md22": "initial elo: -5.735, new elo: -2.459, rating change: 3.276"
@@ -1822,12 +1822,12 @@
 		"tour_id": "z7coibiw",
 		"time": "2025-11-09 04:00:00+09:00",
 		"teams": {
-			"hyonoobka (13.00) badatlife (10.90) neoburnz (12.27) rhummy (-19.96) = 16.21": "2W 0L 0D",
+			"hyonoka (13.00) koroshiya (10.90) neoburnz (12.27) rhummy (-19.96) = 16.21": "2W 0L 0D",
 			"apurplenose (10.36) beautiful (7.39) haruurara (8.13) md22 (-2.46) = 23.41": "0W 2L 0D"
 		},
 		"player": {
-			"hyonoobka": "initial elo: 13.002, new elo: 21.419, rating change: 8.417",
-			"badatlife": "initial elo: 10.898, new elo: 18.454, rating change: 7.556",
+			"hyonoka": "initial elo: 13.002, new elo: 21.419, rating change: 8.417",
+			"koroshiya": "initial elo: 10.898, new elo: 18.454, rating change: 7.556",
 			"neoburnz": "initial elo: 12.271, new elo: 20.482, rating change: 8.211",
 			"rhummy": "initial elo: -19.964, new elo: -12.004, rating change: 7.960",
 			"apurplenose": "initial elo: 10.357, new elo: 6.380, rating change: -3.977",
@@ -1840,11 +1840,11 @@
 		"tour_id": "ttprw2x",
 		"time": "2025-11-09 04:30:00+09:00",
 		"teams": {
-			"badatlife (18.45) apurplenose (6.38) haruurara (5.38) rhummy (-12.00) = 18.21": "2W 0L 0D",
+			"koroshiya (18.45) apurplenose (6.38) haruurara (5.38) rhummy (-12.00) = 18.21": "2W 0L 0D",
 			"neoburnz (20.48) chommy (3.91) beautiful (-1.20) jakemonkey (-2.21) = 20.98": "0W 2L 0D"
 		},
 		"player": {
-			"badatlife": "initial elo: 18.454, new elo: 25.752, rating change: 7.298",
+			"koroshiya": "initial elo: 18.454, new elo: 25.752, rating change: 7.298",
 			"apurplenose": "initial elo: 6.380, new elo: 11.038, rating change: 4.657",
 			"haruurara": "initial elo: 5.375, new elo: 9.047, rating change: 3.672",
 			"rhummy": "initial elo: -12.004, new elo: -4.430, rating change: 7.574",
@@ -1859,14 +1859,14 @@
 		"time": "2025-11-09 04:30:00+09:00",
 		"teams": {
 			"neoburnz (12.74) apurplenose (11.04) chommy (-3.89) rhummy (-4.43) = 15.45": "1W 1L 0D",
-			"badatlife (25.75) haruurara (9.05) beautiful (-9.20) jakemonkey (-9.45) = 16.14": "1W 1L 0D"
+			"koroshiya (25.75) haruurara (9.05) beautiful (-9.20) jakemonkey (-9.45) = 16.14": "1W 1L 0D"
 		},
 		"player": {
 			"neoburnz": "initial elo: 12.738, new elo: 9.946, rating change: -2.792",
 			"apurplenose": "initial elo: 11.038, new elo: 8.812, rating change: -2.225",
 			"chommy": "initial elo: -3.892, new elo: -6.693, rating change: -2.802",
 			"rhummy": "initial elo: -4.430, new elo: -7.195, rating change: -2.765",
-			"badatlife": "initial elo: 25.752, new elo: 28.472, rating change: 2.721",
+			"koroshiya": "initial elo: 25.752, new elo: 28.472, rating change: 2.721",
 			"haruurara": "initial elo: 9.047, new elo: 11.052, rating change: 2.005",
 			"beautiful": "initial elo: -9.205, new elo: -6.373, rating change: 2.831",
 			"jakemonkey": "initial elo: -9.453, new elo: -6.741, rating change: 2.712"

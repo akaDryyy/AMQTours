@@ -109,14 +109,14 @@
 			"tour_id": "watched_house_20260609_144318",
 			"time": "2026-06-09 14:43:18.438816+00:00",
 			"teams": {
-				"xeyz (15.00) catge (14.00) cm02 (11.00) uebok (9.00) = 49.00": "1W 0L 0D",
+				"xeyz (15.00) catge (14.00) cm02 (11.00) _nadeshiko (9.00) = 49.00": "1W 0L 0D",
 				"patoche49 (18.00) furlain (17.00) justaweirdo (12.00) aryssiel (1.00) = 48.00": "0W 1L 0D"
 			},
 			"player": {
 				"xeyz": "initial elo: 15.000, new elo: 16.219, rating change: 1.219",
 				"catge": "initial elo: 14.000, new elo: 15.219, rating change: 1.219",
 				"cm02": "initial elo: 11.000, new elo: 12.219, rating change: 1.219",
-				"uebok": "initial elo: 9.000, new elo: 10.219, rating change: 1.219",
+				"_nadeshiko": "initial elo: 9.000, new elo: 10.219, rating change: 1.219",
 				"patoche49": "initial elo: 18.000, new elo: 16.781, rating change: -1.219",
 				"furlain": "initial elo: 17.000, new elo: 15.781, rating change: -1.219",
 				"justaweirdo": "initial elo: 12.000, new elo: 10.781, rating change: -1.219",
@@ -127,16 +127,16 @@
 			"tour_id": "watched_house_20260609_150226",
 			"time": "2026-06-09 15:02:26.267371+00:00",
 			"teams": {
-				"patoche49 (16.78) justaweirdo (10.78) uebok (10.22) potassiumf (4.00) = 41.78": "1W 0L 0D",
-				"xeyz (16.22) beta_peak (14.00) cm02 (12.22) aryssiel (-0.22) = 42.22": "0W 1L 0D"
+				"patoche49 (16.78) justaweirdo (10.78) _nadeshiko (10.22) potassiumf (4.00) = 41.78": "1W 0L 0D",
+				"xeyz (16.22) raphtelia (14.00) cm02 (12.22) aryssiel (-0.22) = 42.22": "0W 1L 0D"
 			},
 			"player": {
 				"patoche49": "initial elo: 16.781, new elo: 18.604, rating change: 1.823",
 				"justaweirdo": "initial elo: 10.781, new elo: 12.604, rating change: 1.823",
-				"uebok": "initial elo: 10.219, new elo: 12.042, rating change: 1.823",
+				"_nadeshiko": "initial elo: 10.219, new elo: 12.042, rating change: 1.823",
 				"potassiumf": "initial elo: 4.000, new elo: 5.159, rating change: 1.159",
 				"xeyz": "initial elo: 16.219, new elo: 14.396, rating change: -1.823",
-				"beta_peak": "initial elo: 14.000, new elo: 12.841, rating change: -1.159",
+				"raphtelia": "initial elo: 14.000, new elo: 12.841, rating change: -1.159",
 				"cm02": "initial elo: 12.219, new elo: 10.396, rating change: -1.823",
 				"aryssiel": "initial elo: -0.219, new elo: -2.042, rating change: -1.823"
 			}
@@ -145,16 +145,16 @@
 			"tour_id": "watched_house_20260609_151812",
 			"time": "2026-06-09 15:18:12.096196+00:00",
 			"teams": {
-				"xeyz (14.40) uebok (12.04) cm02 (10.40) potassiumf (5.16) = 41.99": "1W 0L 0D",
-				"patoche49 (18.60) beta_peak (12.84) justaweirdo (12.60) aryssiel (-2.04) = 42.01": "0W 1L 0D"
+				"xeyz (14.40) _nadeshiko (12.04) cm02 (10.40) potassiumf (5.16) = 41.99": "1W 0L 0D",
+				"patoche49 (18.60) raphtelia (12.84) justaweirdo (12.60) aryssiel (-2.04) = 42.01": "0W 1L 0D"
 			},
 			"player": {
 				"xeyz": "initial elo: 14.396, new elo: 16.587, rating change: 2.191",
-				"uebok": "initial elo: 12.042, new elo: 14.233, rating change: 2.191",
+				"_nadeshiko": "initial elo: 12.042, new elo: 14.233, rating change: 2.191",
 				"cm02": "initial elo: 10.396, new elo: 12.587, rating change: 2.191",
 				"potassiumf": "initial elo: 5.159, new elo: 6.801, rating change: 1.642",
 				"patoche49": "initial elo: 18.604, new elo: 16.413, rating change: -2.191",
-				"beta_peak": "initial elo: 12.841, new elo: 11.199, rating change: -1.642",
+				"raphtelia": "initial elo: 12.841, new elo: 11.199, rating change: -1.642",
 				"justaweirdo": "initial elo: 12.604, new elo: 10.413, rating change: -2.191",
 				"aryssiel": "initial elo: -2.042, new elo: -4.233, rating change: -2.191"
 			}
@@ -164,15 +164,15 @@
 			"time": "2026-06-09 15:39:29.029639+00:00",
 			"teams": {
 				"xeyz (16.59) furlain (15.78) kyuuuu (6.00) aryssiel (-4.23) = 34.14": "0W 1L 0D",
-				"uebok (14.23) beta_peak (11.20) potassiumf (6.80) beokros (2.00) = 34.23": "1W 0L 0D"
+				"_nadeshiko (14.23) raphtelia (11.20) potassiumf (6.80) beokros (2.00) = 34.23": "1W 0L 0D"
 			},
 			"player": {
 				"xeyz": "initial elo: 16.587, new elo: 13.878, rating change: -2.710",
 				"furlain": "initial elo: 15.781, new elo: 14.144, rating change: -1.637",
 				"kyuuuu": "initial elo: 6.000, new elo: 4.960, rating change: -1.040",
 				"aryssiel": "initial elo: -4.233, new elo: -6.943, rating change: -2.710",
-				"uebok": "initial elo: 14.233, new elo: 16.943, rating change: 2.710",
-				"beta_peak": "initial elo: 11.199, new elo: 13.411, rating change: 2.212",
+				"_nadeshiko": "initial elo: 14.233, new elo: 16.943, rating change: 2.710",
+				"raphtelia": "initial elo: 11.199, new elo: 13.411, rating change: 2.212",
 				"potassiumf": "initial elo: 6.801, new elo: 9.012, rating change: 2.212",
 				"beokros": "initial elo: 2.000, new elo: 3.040, rating change: 1.040"
 			}
@@ -181,17 +181,17 @@
 			"tour_id": "watched_house_20260609_155637",
 			"time": "2026-06-09 15:56:37.664022+00:00",
 			"teams": {
-				"uebok (16.94) potassiumf (9.01) kyuuuu (4.96) beokros (3.04) = 33.95": "0W 1L 0D",
-				"furlain (14.14) xeyz (13.88) beta_peak (13.41) aryssiel (-6.94) = 34.49": "1W 0L 0D"
+				"_nadeshiko (16.94) potassiumf (9.01) kyuuuu (4.96) beokros (3.04) = 33.95": "0W 1L 0D",
+				"furlain (14.14) xeyz (13.88) raphtelia (13.41) aryssiel (-6.94) = 34.49": "1W 0L 0D"
 			},
 			"player": {
-				"uebok": "initial elo: 16.943, new elo: 14.038, rating change: -2.905",
+				"_nadeshiko": "initial elo: 16.943, new elo: 14.038, rating change: -2.905",
 				"potassiumf": "initial elo: 9.012, new elo: 6.509, rating change: -2.503",
 				"kyuuuu": "initial elo: 4.960, new elo: 3.446, rating change: -1.513",
 				"beokros": "initial elo: 3.040, new elo: 1.527, rating change: -1.513",
 				"furlain": "initial elo: 14.144, new elo: 16.169, rating change: 2.025",
 				"xeyz": "initial elo: 13.878, new elo: 16.782, rating change: 2.905",
-				"beta_peak": "initial elo: 13.411, new elo: 15.914, rating change: 2.503",
+				"raphtelia": "initial elo: 13.411, new elo: 15.914, rating change: 2.503",
 				"aryssiel": "initial elo: -6.943, new elo: -4.038, rating change: 2.905"
 			}
 		},
