@@ -76,6 +76,7 @@ def generate_mvps_for_tour(tour: dict, selected_tour_id: str | None = None) -> s
         min_rating,
         max_rating,
         selected_stats_timestamp,
+        min_games,
     )
     if old_elos:
         save_elos(old_elos, state_path / "mvp_current_elos.json", key_format="composite")
@@ -109,6 +110,7 @@ def generate_mvps_for_tour(tour: dict, selected_tour_id: str | None = None) -> s
         min_rating,
         max_rating,
         selected_stats_timestamp,
+        min_games,
     )
     makeChangelog(selected_rank_dict, old_elos, state_path / "changelog.txt")
     return output
@@ -431,6 +433,7 @@ def old_ranks_for_mvp(
     min_rating: float,
     max_rating: float,
     selected_stats_timestamp,
+    min_games: int,
 ) -> dict[str, float]:
     elos_path = state_path / "elos.json"
     saved_elos = {}
@@ -439,7 +442,7 @@ def old_ranks_for_mvp(
             saved_elos = load_elos(elos_path, idtable, key_format="composite")
         except (OSError, ValueError, json.JSONDecodeError):
             saved_elos = {}
-    current_stats = mini_clean(str(idtable), str(statstable), stats_type)
+    current_stats = mini_clean(str(idtable), str(statstable), stats_type, min_games=min_games)
     if selected_stats_timestamp is None:
         selected_stats_timestamp = current_stats["Timestamp"].max()
     baseline_stats = current_stats[current_stats["Timestamp"] < selected_stats_timestamp]
@@ -483,8 +486,9 @@ def ranks_through_timestamp(
     min_rating: float,
     max_rating: float,
     selected_stats_timestamp,
+    min_games: int,
 ) -> dict[str, float]:
-    current_stats = mini_clean(str(idtable), str(statstable), stats_type)
+    current_stats = mini_clean(str(idtable), str(statstable), stats_type, min_games=min_games)
     if selected_stats_timestamp is None:
         selected_stats_timestamp = current_stats["Timestamp"].max()
     selected_stats = current_stats[current_stats["Timestamp"] <= selected_stats_timestamp]

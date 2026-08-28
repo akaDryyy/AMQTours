@@ -32,7 +32,8 @@ class EloScrape:
             tau, 
             draw_probability,
             cache_mode=None,
-            inhouse_type=None):
+            inhouse_type=None,
+            min_games=3):
         """
         directory = Directory where the file you are calling from resides
         tabEloStorage = GID of the Elo Storage tab
@@ -56,6 +57,7 @@ class EloScrape:
         self.draw_probability = draw_probability
         self.cache_mode = cache_mode
         self.inhouse_type = inhouse_type
+        self.min_games = max(1, int(min_games))
 
         self.ALIASES_PATH = os.path.abspath(os.path.join(self.directory, os.pardir, os.pardir, "aliases.txt"))
         self.TOURLIST_PATH = os.path.join(self.directory, "tourlist.txt")
@@ -865,6 +867,18 @@ class EloScrape:
             report_progress(100, "No new Challonges")
             return
         for tour_index, tour in enumerate(challonges_to_process, start=1):
+            played_rounds = {
+                match.get("round")
+                for matches in tour["matches_by_round"].values()
+                for match in matches
+            }
+            if len(played_rounds) < self.min_games:
+                report_progress(
+                    42 + (50 * tour_index / total_challonges),
+                    f"Skipped a {len(played_rounds)}-round event (minimum: {self.min_games})",
+                )
+                continue
+
             teams = {}
             rounds_played = {}
             elo_history = {
