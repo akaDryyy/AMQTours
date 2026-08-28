@@ -32,7 +32,7 @@ from modules.support.hostConfig import (
     load_setup_codes,
 )
 from modules.support import hostHistory
-from modules.support.hostGuess import ERU_RATE_OPTIONS, MissingGuessRatesError, eru_fallback_config
+from modules.support.hostGuess import ERU_RATE_OPTIONS, MissingGuessRatesError, eru_fallback_config, player_guess_rates
 from modules.support.playerRatings import MissingRatingsError, normalize_alias_key, resolve_player_ratings
 from modules.main.substitutionPanel import SubstitutionPanel
 from modules.main.hostUpdater import HostScriptUpdater
@@ -62,7 +62,9 @@ class AMQTourUI(tk.Tk):
         self.players_placeholder_active = False
         self.solver_running = False
         self.rank_vars: dict[str, tk.StringVar] = {}
+        self.pending_manual_ratings: dict[str, float] = {}
         self.guess_rate_vars: dict[str, tk.StringVar] = {}
+        self.pending_manual_guess_rates: dict[str, float] = {}
         self.rank_check_generation = 0
         self.startup_eloscrape_done = threading.Event()
         self.startup_eloscrape_running = False
@@ -94,8 +96,8 @@ class AMQTourUI(tk.Tk):
         self.setup_guess_time = tk.StringVar()
         self.setup_difficulty = tk.StringVar()
         self.setup_quagsual = tk.BooleanVar(value=False)
-        self.setup_fey_watched = tk.BooleanVar(value=False)
         self.eru_mode = tk.BooleanVar(value=False)
+        self.balance_mode = "elo"
         self.eru_rate_source = tk.StringVar(value="Average GR")
         self.eru_use_fallback = tk.BooleanVar(value=False)
         self.setup_active_key = None
@@ -622,8 +624,6 @@ class AMQTourUI(tk.Tk):
 
         self.setup_quagsual_check = ttk.Checkbutton(self.setup_tab, text="Quagsual", variable=self.setup_quagsual, command=self.on_setup_changed)
         self.setup_quagsual_check.grid(row=2, column=0, columnspan=2, sticky="w", pady=(0, 10))
-        self.setup_fey_watched_check = ttk.Checkbutton(self.setup_tab, text="Fey Watched", variable=self.setup_fey_watched, command=self.on_setup_changed)
-        self.setup_fey_watched_check.grid(row=2, column=0, columnspan=2, sticky="w", pady=(0, 10))
 
         self.setup_note = ttk.Label(self.setup_tab, text="", style="Subtle.TLabel")
         self.setup_note.grid(row=5, column=0, columnspan=2, sticky="nw", pady=(2, 0))
@@ -870,6 +870,7 @@ class AMQTourUI(tk.Tk):
         self.selected_tour_id = tour_id
         tour = TOURS[tour_id]
         self.eru_mode.set(False)
+        self.balance_mode = "elo"
         self.eru_rate_source.set("Average GR")
         self.eru_use_fallback.set(False)
         self.substitution_panel.select_tour(tour_id)
@@ -926,7 +927,6 @@ class AMQTourUI(tk.Tk):
                 self.setup_difficulty_label,
                 self.setup_difficulty_combo,
                 self.setup_quagsual_check,
-                self.setup_fey_watched_check,
                 self.setup_note,
             ):
                 widget.grid_remove()
@@ -947,22 +947,28 @@ class AMQTourUI(tk.Tk):
         self.setup_guess_time.set(config.get("default_guess_time", ""))
         self.setup_difficulty.set(config.get("default_difficulty", ""))
         self.setup_quagsual.set(False)
-        self.setup_fey_watched.set(False)
 
         if setup_key == "random":
             self.setup_quagsual_check.grid()
         else:
             self.setup_quagsual_check.grid_remove()
-        if setup_key == "watched":
-            self.setup_fey_watched_check.grid()
-        else:
-            self.setup_fey_watched_check.grid_remove()
         self.refresh_setup_code()
 
     def on_setup_changed(self, _event=None):
         self.refresh_setup_code()
 
     def on_eru_mode_changed(self):
+        self.balance_mode = "eru" if self.eru_mode.get() else "elo"
+        if self.ui_ready:
+            self.after_idle(self.schedule_rank_assignment_check)
+        if self.current_setup_key():
+            self.refresh_setup_code()
+            return
+        if self.eru_mode.get():
+            self.setup_note.configure(text="Does not count for elo.")
+            self.setup_note.grid()
+        else:
+            self.setup_note.grid_remove()
         self.update_eru_control_states()
 
     def refresh_eru_controls(self):
@@ -991,9 +997,9 @@ class AMQTourUI(tk.Tk):
         config = SETUP_CODES.get(setup_key or "", {})
         difficulty = self.setup_difficulty.get()
         elo_difficulties = set(config.get("elo_difficulties", []))
-        if setup_key == "random" and self.setup_quagsual.get():
-            self.setup_note.configure(text="Counts for elo.")
-        elif setup_key == "watched" and self.setup_fey_watched.get():
+        if self.eru_mode.get():
+            self.setup_note.configure(text="Does not count for elo.")
+        elif setup_key == "random" and self.setup_quagsual.get():
             self.setup_note.configure(text="Counts for elo.")
         elif difficulty in elo_difficulties:
             self.setup_note.configure(text="Counts for elo.")
@@ -1010,14 +1016,11 @@ class AMQTourUI(tk.Tk):
         config = SETUP_CODES.get(setup_key or "", {})
         if setup_key == "random" and self.setup_quagsual.get():
             return config.get("quagsual", "")
-        if setup_key == "watched" and self.setup_fey_watched.get():
-            return config.get("fey_watched", "")
         return config.get("codes", {}).get(self.setup_guess_time.get(), {}).get(self.setup_difficulty.get(), "")
 
     def update_setup_control_states(self):
         if (
             (self.setup_active_key == "random" and self.setup_quagsual.get())
-            or (self.setup_active_key == "watched" and self.setup_fey_watched.get())
         ):
             self.setup_guess_combo.configure(state="disabled")
             self.setup_difficulty_combo.configure(state="disabled")
@@ -1248,35 +1251,96 @@ class AMQTourUI(tk.Tk):
             self.hide_rank_assignment()
             return
         manual_ratings = self.manual_ratings()
+        eru_enabled = self.balance_mode == "eru"
+        fallback = eru_fallback_config(TOURS[tour_id]) if eru_enabled and self.eru_use_fallback.get() else None
+        manual_guess_rates = self.manual_guess_rates() if eru_enabled else {}
         threading.Thread(
             target=self.rank_assignment_check_in_background,
-            args=(generation, tour_id, player_entries, manual_ratings),
+            args=(
+                generation,
+                tour_id,
+                player_entries,
+                manual_ratings,
+                eru_enabled,
+                self.eru_rate_source.get(),
+                fallback,
+                manual_guess_rates,
+            ),
             daemon=True,
         ).start()
 
-    def rank_assignment_check_in_background(self, generation, tour_id, player_entries, manual_ratings):
+    def rank_assignment_check_in_background(
+        self,
+        generation,
+        tour_id,
+        player_entries,
+        manual_ratings,
+        eru_enabled,
+        rate_source,
+        fallback_config,
+        manual_guess_rates,
+    ):
         try:
             self.wait_for_tour_loaded(tour_id)
-            resolve_player_ratings(TOURS[tour_id], player_entries, manual_ratings, DATA_ROOT / "aliases.txt")
+            tour = TOURS[tour_id]
+            players = resolve_player_ratings(
+                tour,
+                player_entries,
+                manual_ratings,
+                DATA_ROOT / "aliases.txt",
+                allow_missing=eru_enabled,
+            )
+            if eru_enabled:
+                from modules.main.hostSolver import load_solver_stats
+                from utils import get_player_stats
+
+                player_stats, idtable = load_solver_stats(tour, get_player_stats)
+                fallback = None
+                if fallback_config:
+                    fallback_stats, fallback_idtable = load_solver_stats(TOURS[fallback_config["tour_id"]], get_player_stats)
+                    fallback = (fallback_stats, fallback_idtable, fallback_config["rate_source"])
+                player_guess_rates(
+                    [name for name, _rating in players],
+                    player_stats,
+                    idtable,
+                    rate_source=rate_source,
+                    fallback=fallback,
+                    manual_rates=manual_guess_rates,
+                )
             missing = []
+            assignment_type = None
             error = None
         except MissingRatingsError as exc:
             missing = exc.names
+            assignment_type = "ratings"
+            error = None
+        except MissingGuessRatesError as exc:
+            missing = exc.names
+            assignment_type = "guess_rates"
             error = None
         except Exception as exc:
             missing = []
+            assignment_type = None
             error = f"{type(exc).__name__}: {exc}"
-        self.after(0, lambda g=generation, m=missing, e=error: self.finish_rank_assignment_check(g, m, e))
+        self.after(
+            0,
+            lambda g=generation, m=missing, kind=assignment_type, e=error:
+            self.finish_rank_assignment_check(g, m, kind, e),
+        )
 
-    def finish_rank_assignment_check(self, generation, missing, error=None):
+    def finish_rank_assignment_check(self, generation, missing, assignment_type=None, error=None):
         if generation != self.rank_check_generation:
             return
         if error:
             self.set_status(f"Could not check player ratings: {error}")
             return
         if missing:
-            self.show_rank_assignment(missing)
-            self.set_status("Assign missing ratings.")
+            if assignment_type == "guess_rates":
+                self.show_guess_rate_assignment(missing)
+                self.set_status("Assign missing guess rates.")
+            else:
+                self.show_rank_assignment(missing)
+                self.set_status("Assign missing ratings.")
         else:
             self.hide_rank_assignment()
 
@@ -1342,24 +1406,31 @@ class AMQTourUI(tk.Tk):
 
     def manual_ratings(self):
         current_players = {name for name, _rank in self.parse_player_entries(allow_placeholder=True)}
-        ratings = {}
+        ratings = {
+            name: rating
+            for name, rating in self.pending_manual_ratings.items()
+            if name in current_players
+        }
         for name, var in self.rank_vars.items():
             if name not in current_players:
                 continue
             value = var.get().strip()
             if not value:
+                ratings.pop(name, None)
                 continue
             try:
                 ratings[name] = float(value)
             except ValueError as exc:
                 raise ValueError(f"Rating for {name} must be numeric.") from exc
+        self.pending_manual_ratings = ratings.copy()
         return ratings
 
     def manual_guess_rates(self):
-        rates = {}
+        rates = self.pending_manual_guess_rates.copy()
         for name, var in self.guess_rate_vars.items():
             value = var.get().strip()
             if not value:
+                rates.pop(name, None)
                 continue
             try:
                 rate = float(value)
@@ -1368,15 +1439,46 @@ class AMQTourUI(tk.Tk):
             if not 0 <= rate <= 100:
                 raise ValueError(f"Guess rate for {name} must be between 0 and 100.")
             rates[name] = rate
+        self.pending_manual_guess_rates = rates.copy()
         return rates
 
+    def cache_manual_guess_rate(self, name, var):
+        value = var.get().strip()
+        if not value:
+            self.pending_manual_guess_rates.pop(name, None)
+            return
+        try:
+            rate = float(value)
+        except ValueError:
+            return
+        if 0 <= rate <= 100:
+            self.pending_manual_guess_rates[name] = rate
+
+    def capture_assignment_inputs(self):
+        for name, var in self.rank_vars.items():
+            value = var.get().strip()
+            if value:
+                try:
+                    self.pending_manual_ratings[name] = float(value)
+                except ValueError:
+                    pass
+        for name, var in self.guess_rate_vars.items():
+            self.cache_manual_guess_rate(name, var)
+
     def show_rank_assignment(self, missing):
+        current_values = {
+            name: str(rating)
+            for name, rating in self.pending_manual_ratings.items()
+        }
+        current_values.update({
+            name: var.get()
+            for name, var in self.rank_vars.items()
+        })
         for child in self.rank_fields.winfo_children():
             child.destroy()
 
         self.rank_assignment_header.configure(text="Assign Missing Ratings")
         self.rank_assignment_note.configure(text="Enter numeric ratings for these players, then press Make Teams again.")
-        current_values = {name: var.get() for name, var in self.rank_vars.items()}
         self.rank_vars = {}
         self.guess_rate_vars = {}
 
@@ -1391,12 +1493,19 @@ class AMQTourUI(tk.Tk):
         self.rank_assignment_frame.grid()
 
     def show_guess_rate_assignment(self, missing):
+        current_values = {
+            name: str(rate)
+            for name, rate in self.pending_manual_guess_rates.items()
+        }
+        current_values.update({
+            name: var.get()
+            for name, var in self.guess_rate_vars.items()
+        })
         for child in self.rank_fields.winfo_children():
             child.destroy()
 
         self.rank_assignment_header.configure(text="Assign Missing Guess Rates")
         self.rank_assignment_note.configure(text="Enter guess-rate percentages for these players, then press Make Teams again.")
-        current_values = {name: var.get() for name, var in self.guess_rate_vars.items()}
         self.rank_vars = {}
         self.guess_rate_vars = {}
 
@@ -1405,6 +1514,7 @@ class AMQTourUI(tk.Tk):
             col = (index % 3) * 2
             ttk.Label(self.rank_fields, text=name).grid(row=row, column=col, sticky="w", padx=(0, 6), pady=3)
             var = tk.StringVar(value=current_values.get(name, ""))
+            var.trace_add("write", lambda *_args, player=name, value=var: self.cache_manual_guess_rate(player, value))
             ttk.Entry(self.rank_fields, textvariable=var, width=10).grid(row=row, column=col + 1, sticky="w", padx=(0, 18), pady=3)
             self.guess_rate_vars[name] = var
 
@@ -1417,13 +1527,16 @@ class AMQTourUI(tk.Tk):
         for child in self.rank_fields.winfo_children():
             child.destroy()
         self.rank_vars = {}
+        self.pending_manual_ratings = {}
         self.guess_rate_vars = {}
+        self.pending_manual_guess_rates = {}
         self.rank_assignment_frame.grid_remove()
 
     def run_solver(self):
         if self.solver_running:
             return
         try:
+            self.capture_assignment_inputs()
             snapshot = self.solver_snapshot()
         except Exception as exc:
             self.finish_solver(error=f"{type(exc).__name__}: {exc}")
@@ -1437,7 +1550,8 @@ class AMQTourUI(tk.Tk):
 
     def solver_snapshot(self):
         player_entries = self.parse_player_entries()
-        fallback = eru_fallback_config(TOURS[self.selected_tour_id]) if self.eru_mode.get() and self.eru_use_fallback.get() else None
+        eru_enabled = self.balance_mode == "eru"
+        fallback = eru_fallback_config(TOURS[self.selected_tour_id]) if eru_enabled and self.eru_use_fallback.get() else None
         return {
             "tour_id": self.selected_tour_id,
             "team_size": int(self.team_size.get()),
@@ -1446,9 +1560,10 @@ class AMQTourUI(tk.Tk):
             "player_entries": player_entries,
             "whitelist_pairs": self.whitelist_pairs(),
             "manual_ratings": self.manual_ratings(),
-            "manual_guess_rates": self.manual_guess_rates() if self.eru_mode.get() else {},
+            "manual_guess_rates": self.manual_guess_rates() if eru_enabled else {},
             "setup_code": self.current_setup_code,
-            "eru_mode": self.eru_mode.get(),
+            "balance_mode": self.balance_mode,
+            "eru_mode": eru_enabled,
             "eru_rate_source": self.eru_rate_source.get(),
             "eru_fallback_tour_id": fallback["tour_id"] if fallback else None,
             "eru_fallback_rate_source": fallback["rate_source"] if fallback else None,
