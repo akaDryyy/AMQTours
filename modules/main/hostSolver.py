@@ -101,7 +101,8 @@ def solve_player_group(tour, players, team_size, snapshot):
     player_stats, idtable = load_solver_stats(tour, get_player_stats)
     balance_players = players
     display_values = p_values
-    if snapshot.get("eru_mode"):
+    eru_enabled = snapshot.get("balance_mode") == "eru" or snapshot.get("eru_mode")
+    if eru_enabled:
         fallback = None
         fallback_tour_id = snapshot.get("eru_fallback_tour_id")
         if fallback_tour_id:
@@ -136,13 +137,13 @@ def solve_player_group(tour, players, team_size, snapshot):
         get_codes=CODE_GENERATORS[solver_cfg["code_generator"]],
         gamemode=solver_cfg.get("gamemode"),
         gr_based=True,
-        value_precision=2 if snapshot.get("eru_mode") else 3,
-        include_guesses=not snapshot.get("eru_mode"),
+        value_precision=2 if eru_enabled else 3,
+        include_guesses=not eru_enabled,
     )
     final_code = apply_setup_code(final_code, snapshot.get("setup_code", ""))
     Path(tour["state_path"], "codes.txt").write_text(final_code, encoding="utf-8")
 
-    team_snapshot = make_latest_team_snapshot(tour, teams[0], p_values, teams_number, get_guesses, guess_options)
+    team_snapshot = make_latest_team_snapshot(tour, teams[0], display_values, teams_number, get_guesses, guess_options)
     if tour.get("supports_inhouse"):
         team_snapshot["inhouse_type"] = tour["inhouse"]["inhouse_type"]
     return final_code, team_snapshot
@@ -159,7 +160,14 @@ def solve_selected_tour(tour, snapshot, aliases_path):
 
         update_dry_elos_for_tour(tour)
 
-    players = resolve_player_ratings(tour, snapshot["player_entries"], snapshot["manual_ratings"], aliases_path)
+    eru_enabled = snapshot.get("balance_mode") == "eru" or snapshot.get("eru_mode")
+    players = resolve_player_ratings(
+        tour,
+        snapshot["player_entries"],
+        snapshot["manual_ratings"],
+        aliases_path,
+        allow_missing=eru_enabled,
+    )
     if not players:
         raise ValueError("Add players first.")
     if len(players) % team_size != 0:

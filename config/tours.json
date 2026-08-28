@@ -281,8 +281,8 @@
       "stats_tab": "Random Chanting",
       "stats_type": "chanting",
       "guess_mode": "random",
-      "code_generator": "usual_gr",
-      "gamemode": "usual",
+      "code_generator": "chanting_gr",
+      "gamemode": "chanting",
       "thresholds": {
         "one": 8,
         "two": 19,
@@ -355,6 +355,7 @@
       "stats_type": "watched",
       "guess_mode": "watched",
       "code_generator": "watched_0_100_gr",
+      "gamemode": "0-100",
       "thresholds": {
         "one": 6,
         "two": 12,

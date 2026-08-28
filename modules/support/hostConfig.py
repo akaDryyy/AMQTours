@@ -5,6 +5,7 @@ from pathlib import Path
 
 from modules.support.generateCodes import (
     generate_codes_cl_gr,
+    generate_codes_chanting_gr,
     generate_codes_ed_gr,
     generate_codes_in_gr,
     generate_codes_op_gr,
@@ -62,6 +63,7 @@ CATEGORIES = {
 
 CODE_GENERATORS = {
     "usual_gr": generate_codes_usual_gr,
+    "chanting_gr": generate_codes_chanting_gr,
     "op_gr": generate_codes_op_gr,
     "ed_gr": generate_codes_ed_gr,
     "in_gr": generate_codes_in_gr,

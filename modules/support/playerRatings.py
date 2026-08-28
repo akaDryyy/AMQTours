@@ -52,7 +52,13 @@ def resolve_rating_name(name: str, ratings: dict[str, float], alias_ratings: dic
     return None
 
 
-def resolve_player_ratings(tour, player_entries, manual_ratings, aliases_path: str | Path):
+def resolve_player_ratings(
+    tour,
+    player_entries,
+    manual_ratings,
+    aliases_path: str | Path,
+    allow_missing=False,
+):
     from utils import get_elos
 
     ratings = {name.lower(): float(rating) for name, rating in get_elos(tour["state_path"]).items()}
@@ -60,18 +66,22 @@ def resolve_player_ratings(tour, player_entries, manual_ratings, aliases_path: s
     players = []
     missing = []
     for name, pasted_rank in player_entries:
-        resolved = resolve_rating_name(name, ratings, alias_ratings)
-        if resolved:
-            rating_name, rating = resolved
+        if name in manual_ratings:
+            rating_name = name
+            rating = manual_ratings[name]
         elif pasted_rank is not None:
             rating_name = name
             rating = pasted_rank
-        elif name in manual_ratings:
-            rating_name = name
-            rating = manual_ratings[name]
         else:
-            missing.append(name)
-            continue
+            resolved = resolve_rating_name(name, ratings, alias_ratings)
+            if resolved:
+                rating_name, rating = resolved
+            else:
+                if allow_missing:
+                    players.append((name, 0.0))
+                    continue
+                missing.append(name)
+                continue
         players.append((rating_name, float(rating)))
 
     if missing:
