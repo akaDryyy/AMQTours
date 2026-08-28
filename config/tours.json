@@ -27,11 +27,13 @@
     },
     "tiermaker": {
       "mode": "update_elos",
-      "tourlist_cell": "C1"
+      "tourlist_cell": "C1",
+      "min_games": 3
     },
     "eloscrape": {
       "cache_mode": "usual",
       "tourlist_cell": "C1",
+      "min_games": 3,
       "trueskill": {
         "mu": 12,
         "sigma": 2.5,
@@ -70,11 +72,13 @@
       }
     },
     "tiermaker": {
-      "mode": "update_elos"
+      "mode": "update_elos",
+      "min_games": 3
     },
     "inhouse": {
       "cache_mode": "usual_house",
       "inhouse_type": "random",
+      "min_games": 3,
       "trueskill": {
         "mu": 12,
         "sigma": 4,
@@ -113,11 +117,13 @@
       }
     },
     "tiermaker": {
-      "mode": "update_elos"
+      "mode": "update_elos",
+      "min_games": 3
     },
     "inhouse": {
       "cache_mode": "watched_house",
       "inhouse_type": "watched",
+      "min_games": 3,
       "trueskill": {
         "mu": 12,
         "sigma": 4,
@@ -158,7 +164,8 @@
       "alpha": 3.75,
       "midpoint": 0.33,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "random_ed": {
@@ -227,7 +234,8 @@
       "alpha": 3.75,
       "midpoint": 0.33,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "random_oped": {
@@ -261,7 +269,8 @@
       "alpha": 3.75,
       "midpoint": 0.33,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "random_chanting": {
@@ -296,7 +305,8 @@
       "alpha": 3.75,
       "midpoint": 0.33,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "watched": {
@@ -332,7 +342,8 @@
       "alpha": 3.75,
       "midpoint": 0.4,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "watched_0_100": {
@@ -370,7 +381,8 @@
       "alpha": 3.75,
       "midpoint": 0.4,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "watched_5s": {
@@ -401,11 +413,13 @@
     },
     "tiermaker": {
       "mode": "update_elos",
-      "tourlist_cell": "C3"
+      "tourlist_cell": "C3",
+      "min_games": 3
     },
     "eloscrape": {
       "cache_mode": "5s",
       "tourlist_cell": "C3",
+      "min_games": 3,
       "trueskill": {
         "mu": 12,
         "sigma": 4,
@@ -444,11 +458,13 @@
     },
     "tiermaker": {
       "mode": "update_elos",
-      "tourlist_cell": "C2"
+      "tourlist_cell": "C2",
+      "min_games": 3
     },
     "eloscrape": {
       "cache_mode": "2+8",
       "tourlist_cell": "C2",
+      "min_games": 3,
       "trueskill": {
         "mu": 10,
         "sigma": 3,
@@ -491,7 +507,8 @@
       "alpha": 3.75,
       "midpoint": 0.4,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "watched_ed": {
@@ -564,7 +581,8 @@
       "alpha": 3.75,
       "midpoint": 0.4,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "watched_ins_no_chanting": {
@@ -600,7 +618,8 @@
       "alpha": 3.75,
       "midpoint": 0.4,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "watched_oped": {
@@ -636,7 +655,8 @@
       "alpha": 3.75,
       "midpoint": 0.4,
       "min_rating": 0,
-      "max_rating": 25
+      "max_rating": 25,
+      "min_games": 3
     }
   },
   "watched_x_2009": {
@@ -667,11 +687,13 @@
     },
     "tiermaker": {
       "mode": "update_elos",
-      "tourlist_cell": "C15"
+      "tourlist_cell": "C15",
+      "min_games": 3
     },
     "eloscrape": {
       "cache_mode": "x-2009",
       "tourlist_cell": "C15",
+      "min_games": 3,
       "trueskill": {
         "mu": 12,
         "sigma": 1.75,

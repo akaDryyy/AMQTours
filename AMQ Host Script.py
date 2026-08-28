@@ -1958,6 +1958,7 @@ class AMQTourUI(tk.Tk):
                 tabEloStorageCell=scrape_cfg.get("elo_storage_cell", tour["sheet"]["elo_storage_cell"]),
                 sheetName=scrape_cfg.get("sheet_name", tour["sheet"]["name"]),
                 cache_mode=scrape_cfg.get("cache_mode"),
+                min_games=scrape_cfg.get("min_games", tour.get("tiermaker", {}).get("min_games", 3)),
                 **scrape_cfg["trueskill"],
             )
             asyncio.run(eloscraper.eloscrape(
@@ -1979,6 +1980,7 @@ class AMQTourUI(tk.Tk):
                 sheetName=tour["sheet"]["name"],
                 cache_mode=inhouse_cfg.get("cache_mode"),
                 inhouse_type=inhouse_cfg.get("inhouse_type"),
+                min_games=inhouse_cfg.get("min_games", tour.get("tiermaker", {}).get("min_games", 3)),
                 **inhouse_cfg["trueskill"],
             )
             asyncio.run(eloscraper.eloscrape(
@@ -1995,6 +1997,11 @@ class AMQTourUI(tk.Tk):
             "tour_id": tour["id"],
             "cache_mode": tour.get("eloscrape", {}).get("cache_mode") or tour.get("inhouse", {}).get("cache_mode"),
             "trueskill": tour.get("eloscrape", {}).get("trueskill") or tour.get("inhouse", {}).get("trueskill"),
+            "min_games": (
+                tour.get("eloscrape", {}).get("min_games")
+                or tour.get("inhouse", {}).get("min_games")
+                or tour.get("tiermaker", {}).get("min_games", 3)
+            ),
         }
 
         if tour.get("eloscrape"):
