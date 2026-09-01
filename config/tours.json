@@ -347,7 +347,7 @@
     }
   },
   "watched_0_100": {
-    "label": "Watched 0-100",
+    "label": "Watched 0-100 FL",
     "group": "Watched",
     "route": "watched_0_100",
     "tour_type": "watched-0-100",
@@ -383,6 +383,90 @@
       "min_rating": 0,
       "max_rating": 25,
       "min_games": 3
+    }
+  },
+  "watched_0_100_op": {
+    "label": "Watched 0-100 OP",
+    "group": "Watched",
+    "route": "watched_0_100_op",
+    "tour_type": "watched-0-100-op",
+    "state_dir": "data/tours/watched_0_100_op",
+    "dry_elo": false,
+    "eru_only": true,
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "stats_sheet_id": "1ihfqssregh74curDyvRE0GAFihQfovUAHpYDrtOIrOA",
+      "ids_sheet_name": "NGM Stats Export v2"
+    },
+    "solver": {
+      "stats_tab": 1177310427,
+      "stats_type": "watched-op",
+      "guess_mode": "watched",
+      "code_generator": "watched_0_100_op_gr",
+      "gamemode": "op",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    },
+    "eru_fallbacks": [
+      {
+        "tour_id": "watched_0_100",
+        "rate_source": "Average GR",
+        "label": "Attempt to use Watched 0-100 FL stats for players without data"
+      },
+      {
+        "tour_id": "watched_op",
+        "rate_source": "OP",
+        "label": "Attempt to use Watched OP stats for players without data"
+      },
+      {
+        "tour_id": "watched",
+        "rate_source": "Average GR",
+        "label": "Attempt to use Watched stats for players without data"
+      }
+    ]
+  },
+  "watched_draft": {
+    "label": "Watched Draft",
+    "group": "Watched",
+    "route": "watched_draft",
+    "tour_type": "watched-draft",
+    "state_dir": "data/tours/watched_draft",
+    "dry_elo": false,
+    "draft_player_setup": true,
+    "disable_eru": true,
+    "sheet": {
+      "name": "NGM Stats Export v2",
+      "tab_ids": 1903970832,
+      "elo_storage_gid": 82254993
+    },
+    "tiermaker": {
+      "mode": "update_elos",
+      "min_games": 3
+    },
+    "eloscrape": {
+      "cache_mode": "watched-draft",
+      "tourlist_cell": "C24",
+      "min_games": 3,
+      "trueskill": {
+        "mu": 120,
+        "sigma": 25,
+        "beta": 70,
+        "tau": 1.0,
+        "draw_probability": 0.04
+      }
+    },
+    "draft_elo_store": {
+      "spreadsheet_id": "1ihfqssregh74curDyvRE0GAFihQfovUAHpYDrtOIrOA",
+      "worksheet_id": 572044453,
+      "name_column": 4,
+      "id_column": 5,
+      "elo_column": 6,
+      "first_row": 2
     }
   },
   "watched_5s": {

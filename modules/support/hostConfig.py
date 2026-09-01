@@ -14,6 +14,7 @@ from modules.support.generateCodes import (
     generate_codes_watched_28_gr,
     generate_codes_watched_5s_gr,
     generate_codes_watched_0_100_gr,
+    generate_codes_watched_0_100_op_gr,
     generate_codes_watched_ed_gr,
     generate_codes_watched_gr,
     generate_codes_watched_in_gr,
@@ -30,7 +31,7 @@ LINKS = {
     "Draft Sheet": "https://docs.google.com/spreadsheets/d/1ZMAw30Ctvk_cYK7Dc68UqvyBSaj2NGOg80JLDs2YU34/edit?usp=sharing",
 }
 
-SETUP_TOURS = {"usual": "random", "watched": "watched"}
+SETUP_TOURS = {"usual": "random", "watched": "watched", "watched_draft": "watched"}
 
 CATEGORIES = {
     "Random": [
@@ -43,7 +44,9 @@ CATEGORIES = {
     ],
     "Watched": [
         ("Watched", "watched"),
-        ("0-100", "watched_0_100"),
+        ("0-100 FL", "watched_0_100"),
+        ("0-100 OP", "watched_0_100_op"),
+        ("Watched Draft", "watched_draft"),
         ("OP", "watched_op"),
         ("ED", "watched_ed"),
         ("IN", "watched_ins"),
@@ -73,6 +76,7 @@ CODE_GENERATORS = {
     "watched_in_no_chanting_gr": generate_codes_watched_in_no_chanting_gr,
     "watched_5s_gr": generate_codes_watched_5s_gr,
     "watched_0_100_gr": generate_codes_watched_0_100_gr,
+    "watched_0_100_op_gr": generate_codes_watched_0_100_op_gr,
     "watched_28_gr": generate_codes_watched_28_gr,
     "watched_2009_gr": generate_codes_watched_2009_gr,
     "watched_ed_gr": generate_codes_watched_ed_gr,

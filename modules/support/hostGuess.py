@@ -74,13 +74,16 @@ def _player_rate_averages(player_stats, idtable, rate_source):
     return player_ids, averages
 
 
-def player_guess_rates(names, player_stats, idtable, rate_source="Average GR", fallback=None, manual_rates=None):
-    """Resolve rates from the primary source, an allowed fallback, then manual values."""
+def player_guess_rates(names, player_stats, idtable, rate_source="Average GR", fallback=None, fallbacks=None, manual_rates=None):
+    """Resolve rates from the primary source, ordered fallbacks, then manual values."""
     player_ids, averages = _player_rate_averages(player_stats, idtable, rate_source)
-    fallback_ids, fallback_averages = ({}, {})
+    fallback_sources = list(fallbacks or [])
     if fallback is not None:
-        fallback_stats, fallback_idtable, fallback_source = fallback
-        fallback_ids, fallback_averages = _player_rate_averages(fallback_stats, fallback_idtable, fallback_source)
+        fallback_sources.insert(0, fallback)
+    resolved_fallbacks = [
+        _player_rate_averages(fallback_stats, fallback_idtable, fallback_source)
+        for fallback_stats, fallback_idtable, fallback_source in fallback_sources
+    ]
     manual_rates = {name.strip().lower(): float(value) for name, value in (manual_rates or {}).items()}
 
     rates, missing = {}, []
@@ -88,7 +91,9 @@ def player_guess_rates(names, player_stats, idtable, rate_source="Average GR", f
         normalized_name = name.strip().lower()
         player_id = player_ids.get(normalized_name)
         guess_rate = averages.get(player_id)
-        if guess_rate is None:
+        for fallback_ids, fallback_averages in resolved_fallbacks:
+            if guess_rate is not None:
+                break
             guess_rate = fallback_averages.get(fallback_ids.get(normalized_name))
         if guess_rate is None:
             guess_rate = manual_rates.get(normalized_name)
