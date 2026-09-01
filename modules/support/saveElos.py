@@ -17,7 +17,8 @@ def saveElos(directory, sheetID, sheetName, cell, elos_path, tourlist_path=None,
     except Exception:
         with open(elos_path, encoding="utf-8") as f:
             data = f.read()
-    wks.update_acell(cell, data)
+    if cell:
+        wks.update_acell(cell, data)
 
     if backlog_path and backlog_cell:
         with open(backlog_path) as f:

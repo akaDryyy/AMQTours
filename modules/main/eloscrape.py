@@ -33,7 +33,8 @@ class EloScrape:
             draw_probability,
             cache_mode=None,
             inhouse_type=None,
-            min_games=3):
+            min_games=3,
+            external_elo_store=None):
         """
         directory = Directory where the file you are calling from resides
         tabEloStorage = GID of the Elo Storage tab
@@ -58,6 +59,7 @@ class EloScrape:
         self.cache_mode = cache_mode
         self.inhouse_type = inhouse_type
         self.min_games = max(1, int(min_games))
+        self.external_elo_store = external_elo_store
 
         self.ALIASES_PATH = os.path.abspath(os.path.join(self.directory, os.pardir, os.pardir, "aliases.txt"))
         self.TOURLIST_PATH = os.path.join(self.directory, "tourlist.txt")
@@ -1012,4 +1014,8 @@ class EloScrape:
         if saveToSheet:
             report_progress(97, "Saving elos to sheet")
             saveElos(self.directory, self.tabEloStorage, self.sheetName, self.tabEloStorageCell, self.ELOS, tourlist_path=self.TOURLIST_PATH, tourlist_cell=tourlist_cell, backlog_path=self.MATCH_BACKLOG, backlog_cell=backlog_cell)
+            if self.external_elo_store:
+                from modules.main.draftElo import write_draft_elo_values
+
+                write_draft_elo_values(self.directory, self.external_elo_store, self.ELOS)
         report_progress(100, "Done")

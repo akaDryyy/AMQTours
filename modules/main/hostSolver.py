@@ -103,17 +103,22 @@ def solve_player_group(tour, players, team_size, snapshot):
     display_values = p_values
     eru_enabled = snapshot.get("balance_mode") == "eru" or snapshot.get("eru_mode")
     if eru_enabled:
-        fallback = None
-        fallback_tour_id = snapshot.get("eru_fallback_tour_id")
-        if fallback_tour_id:
-            fallback_stats, fallback_idtable = load_solver_stats(TOURS[fallback_tour_id], get_player_stats)
-            fallback = (fallback_stats, fallback_idtable, snapshot["eru_fallback_rate_source"])
+        fallback_configs = list(snapshot.get("eru_fallbacks", []))
+        if not fallback_configs and snapshot.get("eru_fallback_tour_id"):
+            fallback_configs.append({
+                "tour_id": snapshot["eru_fallback_tour_id"],
+                "rate_source": snapshot.get("eru_fallback_rate_source", "Average GR"),
+            })
+        fallbacks = []
+        for fallback_config in fallback_configs:
+            fallback_stats, fallback_idtable = load_solver_stats(TOURS[fallback_config["tour_id"]], get_player_stats)
+            fallbacks.append((fallback_stats, fallback_idtable, fallback_config["rate_source"]))
         guess_rates = player_guess_rates(
             [name for name, _rating in players],
             player_stats,
             idtable,
             rate_source=snapshot.get("eru_rate_source", "Average GR"),
-            fallback=fallback,
+            fallbacks=fallbacks,
             manual_rates=snapshot.get("manual_guess_rates"),
         )
         balance_players = [(name, guess_rates[name]) for name, _rating in players]

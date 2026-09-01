@@ -61,6 +61,7 @@ class AMQTourUI(tk.Tk):
         self.players_placeholder = "name (Rank), name (Rank), ..."
         self.players_placeholder_active = False
         self.solver_running = False
+        self.draft_assign_running = False
         self.rank_vars: dict[str, tk.StringVar] = {}
         self.pending_manual_ratings: dict[str, float] = {}
         self.guess_rate_vars: dict[str, tk.StringVar] = {}
@@ -100,6 +101,8 @@ class AMQTourUI(tk.Tk):
         self.balance_mode = "elo"
         self.eru_rate_source = tk.StringVar(value="Average GR")
         self.eru_use_fallback = tk.BooleanVar(value=False)
+        self.eru_fallback_vars: dict[str, tk.BooleanVar] = {}
+        self.eru_fallback_checks: list[ttk.Checkbutton] = []
         self.setup_active_key = None
         self.current_setup_code = ""
         self.challonge_items = []
@@ -275,14 +278,14 @@ class AMQTourUI(tk.Tk):
         return [
             tour_id
             for tour_id, tour in TOURS.items()
-            if tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo")
+            if tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo") or tour.get("draft_elo_store")
         ]
 
     def default_boot_tour_ids(self):
         return self.loadable_tour_ids()
 
     def tour_requires_startup_load(self, tour):
-        return bool(tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo"))
+        return bool(tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo") or tour.get("draft_elo_store"))
 
     def selected_boot_tour_ids(self):
         selected = set(self.boot_tour_ids)
@@ -608,7 +611,7 @@ class AMQTourUI(tk.Tk):
 
     def _build_setup_tab(self):
         self.setup_tab.columnconfigure(1, weight=1)
-        self.setup_tab.rowconfigure(5, weight=1)
+        self.setup_tab.rowconfigure(7, weight=1)
 
         self.setup_guess_label = ttk.Label(self.setup_tab, text="Guess Time")
         self.setup_guess_label.grid(row=0, column=0, sticky="w", pady=(0, 8))
@@ -626,35 +629,53 @@ class AMQTourUI(tk.Tk):
         self.setup_quagsual_check.grid(row=2, column=0, columnspan=2, sticky="w", pady=(0, 10))
 
         self.setup_note = ttk.Label(self.setup_tab, text="", style="Subtle.TLabel")
-        self.setup_note.grid(row=5, column=0, columnspan=2, sticky="nw", pady=(2, 0))
+        self.setup_note.grid(row=7, column=0, columnspan=2, sticky="nw", pady=(2, 0))
         self.eru_mode_check = ttk.Checkbutton(self.setup_tab, text="Eru Mode", variable=self.eru_mode, command=self.on_eru_mode_changed)
         self.eru_mode_check.grid(row=3, column=0, sticky="w", pady=(0, 8))
         self.eru_rate_combo = ttk.Combobox(self.setup_tab, textvariable=self.eru_rate_source, values=ERU_RATE_OPTIONS, state="readonly", width=16)
         self.eru_rate_combo.grid(row=3, column=1, sticky="w", pady=(0, 8))
         self.eru_fallback_check = ttk.Checkbutton(self.setup_tab, variable=self.eru_use_fallback)
         self.eru_fallback_check.grid(row=4, column=0, columnspan=2, sticky="w", padx=(20, 0), pady=(0, 8))
+        self.eru_fallbacks_frame = ttk.Frame(self.setup_tab)
+        self.eru_fallbacks_frame.grid(row=5, column=0, columnspan=2, sticky="ew", padx=(20, 0), pady=(0, 8))
+        self.setup_code_frame = ttk.Frame(self.setup_tab)
+        self.setup_code_frame.grid(row=6, column=0, columnspan=2, sticky="ew", pady=(4, 0))
+        self.setup_code_frame.columnconfigure(0, weight=1)
+        ttk.Label(self.setup_code_frame, text="Game Code").grid(row=0, column=0, sticky="w")
+        self.setup_code_text = tk.Text(self.setup_code_frame, height=3, wrap="word", borderwidth=1, relief="solid", font=("Consolas", 9))
+        self.setup_code_text.grid(row=1, column=0, sticky="ew", pady=(4, 0))
+        self.setup_code_text.configure(state="disabled")
+        self.tk_text_widgets.append(self.setup_code_text)
+        ttk.Button(self.setup_code_frame, text="Copy Code", command=lambda: self.clipboard_from_text(self.setup_code_text)).grid(row=2, column=0, sticky="w", pady=(6, 0))
+        self.setup_code_frame.grid_remove()
 
     def _build_solver_tab(self):
         self.solver_tab.columnconfigure(1, weight=1)
         self.solver_tab.rowconfigure(2, weight=1)
         self.solver_tab.rowconfigure(6, weight=1)
 
-        controls = ttk.Frame(self.solver_tab)
-        controls.grid(row=0, column=0, columnspan=2, sticky="ew", pady=(0, 12))
-        controls.columnconfigure(3, weight=1)
+        self.solver_controls = ttk.Frame(self.solver_tab)
+        self.solver_controls.grid(row=0, column=0, columnspan=2, sticky="ew", pady=(0, 12))
+        self.solver_controls.columnconfigure(3, weight=1)
 
-        ttk.Label(controls, text="Team Size").grid(row=0, column=0, sticky="w")
+        self.team_size_label = ttk.Label(self.solver_controls, text="Team Size")
+        self.team_size_label.grid(row=0, column=0, sticky="w")
         self.team_size = tk.StringVar(value="4")
-        ttk.Spinbox(controls, from_=1, to=12, width=6, textvariable=self.team_size).grid(row=0, column=1, padx=(8, 24), sticky="w")
+        self.team_size_input = ttk.Spinbox(self.solver_controls, from_=1, to=12, width=6, textvariable=self.team_size)
+        self.team_size_input.grid(row=0, column=1, padx=(8, 24), sticky="w")
 
         self.separate_t1 = tk.BooleanVar(value=False)
-        ttk.Checkbutton(controls, text="Separate T1s", variable=self.separate_t1).grid(row=0, column=2, padx=(0, 24), sticky="w")
+        self.separate_t1_check = ttk.Checkbutton(self.solver_controls, text="Separate T1s", variable=self.separate_t1)
+        self.separate_t1_check.grid(row=0, column=2, padx=(0, 24), sticky="w")
 
         self.split_tour = tk.BooleanVar(value=False)
-        ttk.Checkbutton(controls, text="Split Tour", variable=self.split_tour).grid(row=0, column=3, sticky="w")
+        self.split_tour_check = ttk.Checkbutton(self.solver_controls, text="Split Tour", variable=self.split_tour)
+        self.split_tour_check.grid(row=0, column=3, sticky="w")
 
-        ttk.Label(self.solver_tab, text="Players", font=("Segoe UI", 11, "bold")).grid(row=1, column=0, sticky="w")
-        ttk.Label(self.solver_tab, text="Whitelist", font=("Segoe UI", 11, "bold")).grid(row=1, column=1, sticky="w", padx=(14, 0))
+        self.players_label = ttk.Label(self.solver_tab, text="Players", font=("Segoe UI", 11, "bold"))
+        self.players_label.grid(row=1, column=0, sticky="w")
+        self.whitelist_label = ttk.Label(self.solver_tab, text="Whitelist", font=("Segoe UI", 11, "bold"))
+        self.whitelist_label.grid(row=1, column=1, sticky="w", padx=(14, 0))
 
         self.players_text = tk.Text(self.solver_tab, height=12, wrap="word", borderwidth=1, relief="solid", font=("Segoe UI", 10))
         self.players_text.grid(row=2, column=0, sticky="nsew", pady=(6, 12), padx=(0, 14))
@@ -665,13 +686,13 @@ class AMQTourUI(tk.Tk):
         self.players_text.bind("<FocusOut>", self.on_players_focus_out)
         self.players_text.bind("<<Modified>>", self.on_players_modified)
 
-        whitelist_panel = ttk.Frame(self.solver_tab)
-        whitelist_panel.grid(row=2, column=1, sticky="nsew", pady=(6, 12))
-        whitelist_panel.columnconfigure(0, weight=1)
-        whitelist_panel.columnconfigure(1, weight=1)
-        whitelist_panel.rowconfigure(2, weight=1)
-        self.whitelist_a = ttk.Combobox(whitelist_panel, values=[], state="normal")
-        self.whitelist_b = ttk.Combobox(whitelist_panel, values=[], state="normal")
+        self.whitelist_panel = ttk.Frame(self.solver_tab)
+        self.whitelist_panel.grid(row=2, column=1, sticky="nsew", pady=(6, 12))
+        self.whitelist_panel.columnconfigure(0, weight=1)
+        self.whitelist_panel.columnconfigure(1, weight=1)
+        self.whitelist_panel.rowconfigure(2, weight=1)
+        self.whitelist_a = ttk.Combobox(self.whitelist_panel, values=[], state="normal")
+        self.whitelist_b = ttk.Combobox(self.whitelist_panel, values=[], state="normal")
         self.whitelist_a.grid(row=0, column=0, sticky="ew", padx=(0, 6))
         self.whitelist_b.grid(row=0, column=1, sticky="ew", padx=(6, 0))
         for combobox in (self.whitelist_a, self.whitelist_b):
@@ -680,8 +701,8 @@ class AMQTourUI(tk.Tk):
             combobox.bind("<Button-1>", lambda event, box=combobox: self.on_whitelist_click(event, box))
             combobox.bind("<KeyRelease>", lambda event, box=combobox: self.on_whitelist_key_release(event, box))
             combobox.bind("<Return>", lambda _event, box=combobox: self.lock_whitelist_player(box))
-        ttk.Button(whitelist_panel, text="Add Pair", command=self.add_whitelist_pair).grid(row=1, column=0, columnspan=2, sticky="ew", pady=8)
-        list_frame = ttk.Frame(whitelist_panel)
+        ttk.Button(self.whitelist_panel, text="Add Pair", command=self.add_whitelist_pair).grid(row=1, column=0, columnspan=2, sticky="ew", pady=8)
+        list_frame = ttk.Frame(self.whitelist_panel)
         list_frame.grid(row=2, column=0, columnspan=2, sticky="nsew")
         list_frame.columnconfigure(0, weight=1)
         list_frame.rowconfigure(0, weight=1)
@@ -691,14 +712,16 @@ class AMQTourUI(tk.Tk):
         scrollbar = ttk.Scrollbar(list_frame, orient="vertical", command=self.whitelist_list.yview)
         scrollbar.grid(row=0, column=1, sticky="ns")
         self.whitelist_list.configure(yscrollcommand=scrollbar.set)
-        self.remove_pair_button = ttk.Button(whitelist_panel, text="Remove Selected Pair", command=self.remove_whitelist_pair)
+        self.remove_pair_button = ttk.Button(self.whitelist_panel, text="Remove Selected Pair", command=self.remove_whitelist_pair)
         self.remove_pair_button.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(8, 0))
 
-        actions = ttk.Frame(self.solver_tab)
-        actions.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(0, 12))
-        self.solver_button = ttk.Button(actions, text="Make Teams", style="Tool.TButton", command=self.run_solver)
+        self.solver_actions = ttk.Frame(self.solver_tab)
+        self.solver_actions.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(0, 12))
+        self.solver_button = ttk.Button(self.solver_actions, text="Make Teams", style="Tool.TButton", command=self.run_solver)
         self.solver_button.pack(side="left")
-        ttk.Button(actions, text="Copy Codes", command=lambda: self.clipboard_from_text(self.codes_text)).pack(side="left")
+        self.copy_codes_button = ttk.Button(self.solver_actions, text="Copy Codes", command=lambda: self.clipboard_from_text(self.codes_text))
+        self.copy_codes_button.pack(side="left")
+        self.draft_assign_button = ttk.Button(self.solver_actions, text="Assign Elos", style="Tool.TButton", command=self.run_draft_elo_assignment)
 
         self.rank_assignment_frame = ttk.Frame(self.solver_tab)
         self.rank_assignment_frame.grid(row=4, column=0, columnspan=2, sticky="ew", pady=(0, 12))
@@ -711,7 +734,8 @@ class AMQTourUI(tk.Tk):
         self.rank_assignment_note.grid(row=2, column=0, sticky="w", pady=(6, 0))
         self.rank_assignment_frame.grid_remove()
 
-        ttk.Label(self.solver_tab, text="Codes", font=("Segoe UI", 11, "bold")).grid(row=5, column=0, columnspan=2, sticky="w")
+        self.codes_label = ttk.Label(self.solver_tab, text="Codes", font=("Segoe UI", 11, "bold"))
+        self.codes_label.grid(row=5, column=0, columnspan=2, sticky="w")
         self.codes_text = tk.Text(self.solver_tab, height=10, wrap="word", borderwidth=1, relief="solid", font=("Consolas", 10))
         self.codes_text.grid(row=6, column=0, columnspan=2, sticky="nsew", pady=(6, 0))
         self.tk_text_widgets.append(self.codes_text)
@@ -869,8 +893,8 @@ class AMQTourUI(tk.Tk):
     def select_tour(self, tour_id: str):
         self.selected_tour_id = tour_id
         tour = TOURS[tour_id]
-        self.eru_mode.set(False)
-        self.balance_mode = "elo"
+        self.eru_mode.set(bool(tour.get("eru_only")))
+        self.balance_mode = "eru" if self.eru_mode.get() else "elo"
         self.eru_rate_source.set("Average GR")
         self.eru_use_fallback.set(False)
         self.substitution_panel.select_tour(tour_id)
@@ -885,6 +909,7 @@ class AMQTourUI(tk.Tk):
         self._show_tour_tabs()
         self._set_update_tab_title(tour)
         self.refresh_setup_tab()
+        self.refresh_solver_tab(tour)
         self.update_challonge_input_visibility(tour)
         self.update_elos_button_visibility()
         self.refresh_elos()
@@ -907,8 +932,10 @@ class AMQTourUI(tk.Tk):
         for tab in tabs:
             self.main_notebook.forget(tab)
         self.main_notebook.add(self.setup_tab, text="Setup")
-        self.main_notebook.add(self.solver_tab, text="Make Teams")
-        self.main_notebook.add(self.update_tab, text="Eloscrape")
+        solver_title = "Player Setup" if TOURS[self.selected_tour_id].get("draft_player_setup") else "Make Teams"
+        self.main_notebook.add(self.solver_tab, text=solver_title)
+        if not TOURS[self.selected_tour_id].get("eru_only"):
+            self.main_notebook.add(self.update_tab, text="Eloscrape")
         self.main_notebook.add(self.elos_tab, text="Elos / Subs")
 
     def _set_update_tab_title(self, tour):
@@ -932,6 +959,7 @@ class AMQTourUI(tk.Tk):
                 widget.grid_remove()
             self.refresh_eru_controls()
             self.setup_note.configure(text="")
+            self.setup_code_frame.grid_remove()
             return
 
         self.setup_guess_label.grid()
@@ -954,10 +982,40 @@ class AMQTourUI(tk.Tk):
             self.setup_quagsual_check.grid_remove()
         self.refresh_setup_code()
 
+    def refresh_solver_tab(self, tour):
+        draft_setup = tour.get("draft_player_setup")
+        if draft_setup:
+            self.solver_controls.grid_remove()
+            self.whitelist_label.grid_remove()
+            self.whitelist_panel.grid_remove()
+            self.players_label.grid_configure(columnspan=2)
+            self.players_text.grid_configure(columnspan=2, padx=(0, 0))
+            self.solver_button.pack_forget()
+            self.copy_codes_button.pack_forget()
+            self.draft_assign_button.pack(side="left")
+            self.codes_label.grid_remove()
+            self.codes_text.grid_remove()
+            return
+
+        self.solver_controls.grid()
+        self.whitelist_label.grid()
+        self.whitelist_panel.grid()
+        self.players_label.grid_configure(columnspan=1)
+        self.players_text.grid_configure(columnspan=1, padx=(0, 14))
+        self.draft_assign_button.pack_forget()
+        self.solver_button.pack(side="left")
+        self.copy_codes_button.pack(side="left")
+        self.codes_label.grid()
+        self.codes_text.grid()
+
     def on_setup_changed(self, _event=None):
         self.refresh_setup_code()
 
     def on_eru_mode_changed(self):
+        if TOURS[self.selected_tour_id].get("disable_eru"):
+            self.eru_mode.set(False)
+            self.balance_mode = "elo"
+            return
         self.balance_mode = "eru" if self.eru_mode.get() else "elo"
         if self.ui_ready:
             self.after_idle(self.schedule_rank_assignment_check)
@@ -971,24 +1029,72 @@ class AMQTourUI(tk.Tk):
             self.setup_note.grid_remove()
         self.update_eru_control_states()
 
+    def selected_eru_fallbacks(self, tour):
+        configured = tour.get("eru_fallbacks", [])
+        if configured:
+            return [
+                fallback
+                for fallback in configured
+                if self.eru_fallback_vars.get(fallback["tour_id"]) and self.eru_fallback_vars[fallback["tour_id"]].get()
+            ]
+        fallback = eru_fallback_config(tour)
+        return [fallback] if fallback and self.eru_use_fallback.get() else []
+
+    def on_eru_fallback_changed(self):
+        if self.ui_ready:
+            self.after_idle(self.schedule_rank_assignment_check)
+
     def refresh_eru_controls(self):
         tour = TOURS[self.selected_tour_id]
-        if tour["id"] in {"usual", "watched"}:
+        if tour.get("disable_eru"):
+            self.eru_mode_check.grid_remove()
+            self.eru_rate_combo.grid_remove()
+            self.eru_fallback_check.grid_remove()
+        elif tour.get("eru_only"):
+            self.eru_mode_check.grid_remove()
+        else:
+            self.eru_mode_check.grid()
+        if not tour.get("disable_eru") and tour["id"] in {"usual", "watched"}:
             self.eru_rate_combo.grid()
         else:
             self.eru_rate_combo.grid_remove()
-        fallback = eru_fallback_config(tour)
-        if fallback:
-            self.eru_fallback_check.configure(text=fallback["label"])
-            self.eru_fallback_check.grid()
-        else:
+        for check in self.eru_fallback_checks:
+            check.destroy()
+        self.eru_fallback_checks = []
+        self.eru_fallback_vars = {}
+        configured = tour.get("eru_fallbacks", [])
+        if tour.get("disable_eru"):
+            self.eru_fallbacks_frame.grid_remove()
+        elif configured:
             self.eru_fallback_check.grid_remove()
+            self.eru_fallbacks_frame.grid()
+            for row, fallback in enumerate(configured):
+                variable = tk.BooleanVar(value=False)
+                check = ttk.Checkbutton(
+                    self.eru_fallbacks_frame,
+                    text=fallback["label"],
+                    variable=variable,
+                    command=self.on_eru_fallback_changed,
+                )
+                check.grid(row=row, column=0, sticky="w", pady=(0, 4))
+                self.eru_fallback_vars[fallback["tour_id"]] = variable
+                self.eru_fallback_checks.append(check)
+        else:
+            self.eru_fallbacks_frame.grid_remove()
+            fallback = eru_fallback_config(tour)
+            if fallback:
+                self.eru_fallback_check.configure(text=fallback["label"])
+                self.eru_fallback_check.grid()
+            else:
+                self.eru_fallback_check.grid_remove()
         self.update_eru_control_states()
 
     def update_eru_control_states(self):
         state = "readonly" if self.eru_mode.get() else "disabled"
         self.eru_rate_combo.configure(state=state)
         self.eru_fallback_check.configure(state="normal" if self.eru_mode.get() else "disabled")
+        for check in self.eru_fallback_checks:
+            check.configure(state="normal" if self.eru_mode.get() else "disabled")
 
     def refresh_setup_code(self):
         setup_key = self.setup_active_key
@@ -1007,6 +1113,15 @@ class AMQTourUI(tk.Tk):
             self.setup_note.configure(text="Does not count for elo.")
         else:
             self.setup_note.configure(text="")
+
+        if TOURS[self.selected_tour_id].get("draft_player_setup"):
+            self.setup_code_text.configure(state="normal")
+            self.setup_code_text.delete("1.0", "end")
+            self.setup_code_text.insert("1.0", self.current_setup_code)
+            self.setup_code_text.configure(state="disabled")
+            self.setup_code_frame.grid()
+        else:
+            self.setup_code_frame.grid_remove()
 
     def current_setup_key(self):
         return SETUP_TOURS.get(self.selected_tour_id)
@@ -1247,12 +1362,15 @@ class AMQTourUI(tk.Tk):
             self.clear_rank_assignment()
             return
         tour_id = self.selected_tour_id
+        if TOURS[tour_id].get("draft_player_setup"):
+            self.hide_rank_assignment()
+            return
         if self.do_not_autoload and not self.is_tour_loaded(tour_id):
             self.hide_rank_assignment()
             return
         manual_ratings = self.manual_ratings()
         eru_enabled = self.balance_mode == "eru"
-        fallback = eru_fallback_config(TOURS[tour_id]) if eru_enabled and self.eru_use_fallback.get() else None
+        fallback_configs = self.selected_eru_fallbacks(TOURS[tour_id]) if eru_enabled else []
         manual_guess_rates = self.manual_guess_rates() if eru_enabled else {}
         threading.Thread(
             target=self.rank_assignment_check_in_background,
@@ -1263,7 +1381,7 @@ class AMQTourUI(tk.Tk):
                 manual_ratings,
                 eru_enabled,
                 self.eru_rate_source.get(),
-                fallback,
+                fallback_configs,
                 manual_guess_rates,
             ),
             daemon=True,
@@ -1277,7 +1395,7 @@ class AMQTourUI(tk.Tk):
         manual_ratings,
         eru_enabled,
         rate_source,
-        fallback_config,
+        fallback_configs,
         manual_guess_rates,
     ):
         try:
@@ -1295,16 +1413,16 @@ class AMQTourUI(tk.Tk):
                 from utils import get_player_stats
 
                 player_stats, idtable = load_solver_stats(tour, get_player_stats)
-                fallback = None
-                if fallback_config:
+                fallbacks = []
+                for fallback_config in fallback_configs:
                     fallback_stats, fallback_idtable = load_solver_stats(TOURS[fallback_config["tour_id"]], get_player_stats)
-                    fallback = (fallback_stats, fallback_idtable, fallback_config["rate_source"])
+                    fallbacks.append((fallback_stats, fallback_idtable, fallback_config["rate_source"]))
                 player_guess_rates(
                     [name for name, _rating in players],
                     player_stats,
                     idtable,
                     rate_source=rate_source,
-                    fallback=fallback,
+                    fallbacks=fallbacks,
                     manual_rates=manual_guess_rates,
                 )
             missing = []
@@ -1465,7 +1583,7 @@ class AMQTourUI(tk.Tk):
         for name, var in self.guess_rate_vars.items():
             self.cache_manual_guess_rate(name, var)
 
-    def show_rank_assignment(self, missing):
+    def show_rank_assignment(self, missing, action_label="Make Teams"):
         current_values = {
             name: str(rating)
             for name, rating in self.pending_manual_ratings.items()
@@ -1478,7 +1596,7 @@ class AMQTourUI(tk.Tk):
             child.destroy()
 
         self.rank_assignment_header.configure(text="Assign Missing Ratings")
-        self.rank_assignment_note.configure(text="Enter numeric ratings for these players, then press Make Teams again.")
+        self.rank_assignment_note.configure(text=f"Enter numeric ratings for these players, then press {action_label} again.")
         self.rank_vars = {}
         self.guess_rate_vars = {}
 
@@ -1548,10 +1666,73 @@ class AMQTourUI(tk.Tk):
         self.set_status("Solving...")
         threading.Thread(target=self.solve_in_background, args=(snapshot,), daemon=True).start()
 
+    def run_draft_elo_assignment(self):
+        if self.draft_assign_running:
+            return
+        try:
+            self.capture_assignment_inputs()
+            player_entries = self.parse_player_entries()
+            manual_ratings = self.manual_ratings()
+        except Exception as exc:
+            self.finish_draft_elo_assignment(error=f"{type(exc).__name__}: {exc}")
+            return
+        self.draft_assign_running = True
+        self.draft_assign_button.configure(state="disabled")
+        self.set_status("Assigning Draft elos...")
+        threading.Thread(
+            target=self.draft_elo_assignment_in_background,
+            args=(player_entries, manual_ratings),
+            daemon=True,
+        ).start()
+
+    def draft_elo_assignment_in_background(self, player_entries, manual_ratings):
+        try:
+            from modules.main.draftElo import MissingDraftElosError, MissingDraftPlayerIdsError, assign_draft_elos
+            from modules.support.mvpGenerator import update_dry_elos_for_tour
+            from modules.support.readElos import load_elos
+
+            tour = TOURS[self.selected_tour_id]
+            watched_tour = TOURS["watched"]
+            self.sync_ids_from_sheet_if_available(tour)
+            update_dry_elos_for_tour(watched_tour)
+            watched_elos = load_elos(
+                Path(watched_tour["state_path"]) / "elos.json",
+                Path(watched_tour["state_path"]) / "ids.csv",
+                key_format="id",
+            )
+            added, total = assign_draft_elos(tour, player_entries, manual_ratings, watched_elos)
+        except MissingDraftElosError as exc:
+            self.after(0, lambda names=exc.names: self.finish_draft_elo_assignment(missing=names))
+            return
+        except MissingDraftPlayerIdsError as exc:
+            error = str(exc)
+            self.after(0, lambda error=error: self.finish_draft_elo_assignment(error=error))
+            return
+        except Exception as exc:
+            details = traceback.format_exc()
+            error = f"{type(exc).__name__}: {exc}\n\n{details}"
+            self.after(0, lambda error=error: self.finish_draft_elo_assignment(error=error))
+            return
+        self.after(0, lambda: self.finish_draft_elo_assignment(added=added, total=total))
+
+    def finish_draft_elo_assignment(self, added=0, total=0, missing=None, error=None):
+        self.draft_assign_running = False
+        self.draft_assign_button.configure(state="normal")
+        if missing:
+            self.show_rank_assignment(missing, action_label="Assign Elos")
+            self.set_status("Assign missing Draft elos.")
+            return
+        if error:
+            self.set_status(f"Draft Elo assignment failed: {error}")
+            return
+        self.hide_rank_assignment()
+        self.refresh_elos()
+        self.set_status(f"Assigned {added} new Draft elos. {total} registered players total.")
+
     def solver_snapshot(self):
         player_entries = self.parse_player_entries()
         eru_enabled = self.balance_mode == "eru"
-        fallback = eru_fallback_config(TOURS[self.selected_tour_id]) if eru_enabled and self.eru_use_fallback.get() else None
+        fallback_configs = self.selected_eru_fallbacks(TOURS[self.selected_tour_id]) if eru_enabled else []
         return {
             "tour_id": self.selected_tour_id,
             "team_size": int(self.team_size.get()),
@@ -1565,8 +1746,7 @@ class AMQTourUI(tk.Tk):
             "balance_mode": self.balance_mode,
             "eru_mode": eru_enabled,
             "eru_rate_source": self.eru_rate_source.get(),
-            "eru_fallback_tour_id": fallback["tour_id"] if fallback else None,
-            "eru_fallback_rate_source": fallback["rate_source"] if fallback else None,
+            "eru_fallbacks": fallback_configs,
         }
 
     def solve_in_background(self, snapshot):
@@ -1768,7 +1948,7 @@ class AMQTourUI(tk.Tk):
         threading.Thread(target=self.recalculate_all_in_background, daemon=True).start()
 
     def recalculate_all_in_background(self):
-        tours = [tour for tour in TOURS.values() if tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo")]
+        tours = [tour for tour in TOURS.values() if tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo") or tour.get("draft_elo_store")]
         total = len(tours)
         try:
             for index, tour in enumerate(tours, start=1):
@@ -1783,7 +1963,10 @@ class AMQTourUI(tk.Tk):
                 self.after(0, lambda t=tour, p=base_progress: self.update_eloscrape_progress(p, f"Recalculating: {t['label']}"))
                 try:
                     self.sync_tour_from_sheet(tour)
-                    if tour.get("dry_elo"):
+                    if tour.get("draft_elo_store") and not tour.get("eloscrape"):
+                        if progress_callback:
+                            progress_callback(100, "Draft elos synced")
+                    elif tour.get("dry_elo"):
                         if progress_callback:
                             progress_callback(10, "Refreshing stats and elos")
                         from modules.support.mvpGenerator import update_dry_elos_for_tour
@@ -1870,6 +2053,11 @@ class AMQTourUI(tk.Tk):
             self.after(0, self.refresh_update_info)
 
     def sync_tour_mode_on_boot(self, tour, progress_callback):
+        if tour.get("draft_elo_store") and not tour.get("eloscrape"):
+            self.sync_tour_from_sheet(tour)
+            if progress_callback:
+                progress_callback(100, "Draft elos synced")
+            return
         if tour.get("eloscrape") or tour.get("inhouse"):
             self.sync_tour_from_sheet(tour)
             self.run_tour_eloscrape(tour, progress_callback, use_local_cache=True)
@@ -1885,6 +2073,10 @@ class AMQTourUI(tk.Tk):
 
     def sync_tour_from_sheet(self, tour):
         self.sync_ids_from_sheet_if_available(tour)
+        if tour.get("draft_elo_store"):
+            from modules.main.draftElo import sync_draft_elos
+
+            sync_draft_elos(tour)
         if tour.get("eloscrape"):
             self.sync_tourlist_from_sheet(tour)
 
@@ -1955,14 +2147,15 @@ class AMQTourUI(tk.Tk):
             eloscraper = EloScrape(
                 directory=tour["state_path"],
                 tabEloStorage=scrape_cfg.get("elo_storage_gid", tour["sheet"]["elo_storage_gid"]),
-                tabEloStorageCell=scrape_cfg.get("elo_storage_cell", tour["sheet"]["elo_storage_cell"]),
+                tabEloStorageCell=scrape_cfg.get("elo_storage_cell"),
                 sheetName=scrape_cfg.get("sheet_name", tour["sheet"]["name"]),
                 cache_mode=scrape_cfg.get("cache_mode"),
                 min_games=scrape_cfg.get("min_games", tour.get("tiermaker", {}).get("min_games", 3)),
+                external_elo_store=tour.get("draft_elo_store"),
                 **scrape_cfg["trueskill"],
             )
             asyncio.run(eloscraper.eloscrape(
-                tourlist_cell=scrape_cfg["tourlist_cell"],
+                tourlist_cell=scrape_cfg.get("tourlist_cell"),
                 progress_callback=progress_callback,
                 force_refresh_tour_ids=force_refresh_tour_ids,
                 force_refresh_tour_urls=force_refresh_tour_urls,
