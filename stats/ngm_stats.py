@@ -48,6 +48,8 @@ def run_ngm_sheet_stats(is_local):
     MAIN_SHEET_WATCHED_INS=1177294729
     MAIN_SHEET_WATCHED_EDS=484347985
     MAIN_SHEET_WATCHED_OPEDS=231019448
+    MAIN_SHEET_WATCHED_0100_FL=1545884050
+    MAIN_SHEET_WATCHED_OP_0100=1177310427
 
     TEAM_AVG = 0
     TEAM_SIZE = 0
@@ -97,26 +99,28 @@ def run_ngm_sheet_stats(is_local):
     txtvar = """=== NGMC Stats Calculator ===
 [1]: Random FL
 [2]: Watched FL
-[3]: Watched OPs
-[4]: Watched EDs
-[5]: Watched INs
-[6]: Watched INs -chanting
-[7]: Watched OPEDs
-[8]: Watched FL 2+8s
-[9]: Watched FL 5s
-[10]: Watched -2009
-[11]: Random OPs
-[12]: Random EDs
-[13]: Random INs
-[14]: Random OPEDs
-[15]: Random Chanting
-[16]: Other Random
-[17]: Other Watched
-[18]: Brute-force
+[3]: Watched 0-100 FL
+[4]: Watched OPs
+[5]: Watched OP 0-100
+[6]: Watched EDs
+[7]: Watched INs
+[8]: Watched INs -chanting
+[9]: Watched OPEDs
+[10]: Watched FL 2+8s
+[11]: Watched FL 5s
+[12]: Watched -2009
+[13]: Random OPs
+[14]: Random EDs
+[15]: Random INs
+[16]: Random OPEDs
+[17]: Random Chanting
+[18]: Other Random
+[19]: Other Watched
+[20]: Brute-force
 """
 
     if not is_local:
-        txtvar += "[19]: Masquerade\n"
+        txtvar += "[21]: Masquerade\n"
 
     print(txtvar)
     is_list = False
@@ -147,93 +151,107 @@ def run_ngm_sheet_stats(is_local):
             tour_type_label = "Watched FL"
             orderToSheet.extend(watchedColumns)
         case "3":
+            gamemode = MAIN_SHEET_WATCHED_0100_FL
+            sendToSheet = gamemode
+            is_list = True
+            server_average_mode = "watched_0100_fl"
+            tour_type_label = "Watched 0-100 FL"
+            orderToSheet.extend(watchedColumns)
+        case "4":
             gamemode = "Watched OP"
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_op"
             tour_type_label = "Watched OP"
             orderToSheet.extend(watchedColumns)
-        case "4":
+        case "5":
+            gamemode = MAIN_SHEET_WATCHED_OP_0100
+            sendToSheet = gamemode
+            is_list = True
+            server_average_mode = "watched_op_0100"
+            tour_type_label = "Watched OP 0-100"
+            orderToSheet.extend(watchedColumns)
+        case "6":
             gamemode = MAIN_SHEET_WATCHED_EDS
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_ed"
             tour_type_label = "Watched ED"
             orderToSheet.extend(watchedColumns)
-        case "5":
+        case "7":
             gamemode = MAIN_SHEET_WATCHED_INS
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_in"
             tour_type_label = "Watched IN"
             orderToSheet.extend(watchedColumns)
-        case "6":
+        case "8":
             gamemode = "Watched IN (-chanting)"
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_in_no_chanting"
             tour_type_label = "Watched IN (-chanting)"
             orderToSheet.extend(watchedColumns)
-        case "7":
+        case "9":
             gamemode = MAIN_SHEET_WATCHED_OPEDS
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_oped"
             tour_type_label = "Watched OPED"
             orderToSheet.extend(watchedColumns)
-        case "8":
+        case "10":
             gamemode = MAIN_SHEET_SPEED
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_fl_speed"
             tour_type_label = "Watched FL 2+8s"
             orderToSheet.extend(watchedColumns)
-        case "9":
+        case "11":
             gamemode = MAIN_SHEET_5S
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_fl_5s"
             tour_type_label = "Watched FL 5s"
             orderToSheet.extend(watchedColumns)
-        case "10":
+        case "12":
             gamemode = "Watched -2009"
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_pre_2009"
             tour_type_label = "Watched -2009"
             orderToSheet.extend(watchedColumns)
-        case "11":
+        case "13":
             gamemode = MAIN_SHEET_OPS
             sendToSheet = gamemode
             server_average_mode = "random_op"
             tour_type_label = "Random OP"
-        case "12":
+        case "14":
             gamemode = MAIN_SHEET_EDS
             sendToSheet = gamemode
             server_average_mode = "random_ed"
             tour_type_label = "Random ED"
-        case "13":
+        case "15":
             gamemode = MAIN_SHEET_INS
             sendToSheet = gamemode
             server_average_mode = "random_in"
             tour_type_label = "Random IN"
-        case "14":
+        case "16":
             gamemode = MAIN_SHEET_OPEDS
             sendToSheet = gamemode
             server_average_mode = "random_oped"
             tour_type_label = "Random OPED"
-        case "15":
+        case "17":
             gamemode = "Random Chanting"
             sendToSheet = gamemode
             server_average_mode = "random_chanting"
             tour_type_label = "Random Chanting"
-        case "16":
+        case "18":
             gamemode = MAIN_SHEET_RANDOM
             sendToSheet = MAIN_SHEET_OTHER
             is_other = True
             server_average_mode = "random_fl"
             tour_type_label = "Other Random"
-        case "17":
+        case "19":
             gamemode = MAIN_SHEET_WATCHED
             sendToSheet = MAIN_SHEET_OTHER
             is_list = True
@@ -241,9 +259,9 @@ def run_ngm_sheet_stats(is_local):
             server_average_mode = "watched_fl"
             tour_type_label = "Other Watched"
             orderToSheet.extend(watchedColumns)
-        case "18":
+        case "20":
             brute_force = True
-        case "19":
+        case "21":
             if is_local:
                 print("Masquerade mode requires Challonge and is only available through ngm_stats.py.")
                 _ = input('\npress enter to close')
@@ -800,6 +818,8 @@ def run_ngm_sheet_stats(is_local):
         df_players["Masq name"] = df_players["Player name"].apply(
             lambda name: masquerade_name_by_player.get(name, masquerade_names_by_key.get(str(name).casefold(), ""))
         )
+    if "Total hit" in df_players.columns and "Rigs hit" in df_players.columns:
+        df_players["Offlist hit"] = df_players["Total hit"] - df_players["Rigs hit"]
     order = [ 
         "Rank", 
         "Player name", 
@@ -846,6 +866,7 @@ def run_ngm_sheet_stats(is_local):
         "Rigs hit",
         "Rigs missed",
         "Lives lost on rigs",
+        "Offlist hit",
         "Offlist erigs",
         "avg/8 of your rigs",
         "Avg vintage rig"
@@ -865,8 +886,10 @@ def run_ngm_sheet_stats(is_local):
             detected_song_types.add("IN")
 
     selected_song_types = {
+        "watched_0100_fl": {"OP", "ED", "IN"},
         "watched_in": {"IN"},
         "watched_op": {"OP"},
+        "watched_op_0100": {"OP"},
         "watched_oped": {"OP", "ED"},
         "watched_in_no_chanting": {"IN"},
         "watched_ed": {"ED"},
@@ -968,6 +991,7 @@ def run_ngm_sheet_stats(is_local):
         "Solo rigs",
         "Missed solos",
         "Lives lost on rigs",
+        "Offlist hit",
         "Offlist erigs",
         "avg/8 of your rigs",
         "Avg vintage rig"
@@ -995,6 +1019,23 @@ def run_ngm_sheet_stats(is_local):
     final_df1 = df_players_adj[finalOrder1]
     final_df2 = df_players_adj[finalOrder2]
     final_df3 = df_players_adj[finalOrder3]
+    if is_list:
+        final_df1 = final_df1.copy()
+
+        def watched_rate_with_count(rate, count):
+            count_text = str(int(count)) if pd.notna(count) else "0"
+            return f"{rate} ({count_text})"
+
+        if "Onlist" in final_df1.columns and "Rigs hit" in df_players_adj.columns:
+            final_df1["Onlist"] = [
+                watched_rate_with_count(rate, count)
+                for rate, count in zip(final_df1["Onlist"], df_players_adj["Rigs hit"])
+            ]
+        if "Offlist" in final_df1.columns and "Offlist hit" in df_players_adj.columns:
+            final_df1["Offlist"] = [
+                watched_rate_with_count(rate, count)
+                for rate, count in zip(final_df1["Offlist"], df_players_adj["Offlist hit"])
+            ]
 
     # Song statistics
     current_dir = os.getcwd()
@@ -1058,8 +1099,8 @@ def run_ngm_sheet_stats(is_local):
     print(f"Stats about delta saved at {path2}")
 
     if is_list:
-        exclude_columns = ["Rank"]
-        separators = [name_separator, "Offlist", "Rigs Missed", "Offlist erigs"]
+        exclude_columns = ["Rank", "Offlist erigs"]
+        separators = [name_separator, "Offlist", "Rigs missed", "Offlist hit"]
         additional_reverse = ["avg/8 of your rigs"]
         reverse_columns.extend(additional_reverse)
         path3 = os.path.join(DIRECTORY, "Stats3 - Watched Exclusive.png")
