@@ -166,13 +166,16 @@ def solve_selected_tour(tour, snapshot, aliases_path):
         update_dry_elos_for_tour(tour)
 
     eru_enabled = snapshot.get("balance_mode") == "eru" or snapshot.get("eru_mode")
-    players = resolve_player_ratings(
-        tour,
-        snapshot["player_entries"],
-        snapshot["manual_ratings"],
-        aliases_path,
-        allow_missing=eru_enabled,
-    )
+    if eru_enabled:
+        # Eru balancing is driven entirely by guess rates, so it must not require an Elo file.
+        players = [(name, 0.0) for name, _pasted_rank in snapshot["player_entries"]]
+    else:
+        players = resolve_player_ratings(
+            tour,
+            snapshot["player_entries"],
+            snapshot["manual_ratings"],
+            aliases_path,
+        )
     if not players:
         raise ValueError("Add players first.")
     if len(players) % team_size != 0:

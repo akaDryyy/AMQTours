@@ -1401,13 +1401,15 @@ class AMQTourUI(tk.Tk):
         try:
             self.wait_for_tour_loaded(tour_id)
             tour = TOURS[tour_id]
-            players = resolve_player_ratings(
-                tour,
-                player_entries,
-                manual_ratings,
-                DATA_ROOT / "aliases.txt",
-                allow_missing=eru_enabled,
-            )
+            if eru_enabled:
+                players = [(name, 0.0) for name, _pasted_rank in player_entries]
+            else:
+                players = resolve_player_ratings(
+                    tour,
+                    player_entries,
+                    manual_ratings,
+                    DATA_ROOT / "aliases.txt",
+                )
             if eru_enabled:
                 from modules.main.hostSolver import load_solver_stats
                 from utils import get_player_stats
