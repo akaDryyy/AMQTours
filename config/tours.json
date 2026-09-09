@@ -442,7 +442,8 @@
     "sheet": {
       "name": "NGM Stats Export v2",
       "tab_ids": 1903970832,
-      "elo_storage_gid": 82254993
+      "elo_storage_gid": 82254993,
+      "elo_storage_cell": "A24"
     },
     "tiermaker": {
       "mode": "update_elos",
@@ -450,6 +451,7 @@
     },
     "eloscrape": {
       "cache_mode": "watched-draft",
+      "elo_storage_cell": "A24",
       "tourlist_cell": "C24",
       "min_games": 3,
       "trueskill": {
