@@ -4,6 +4,7 @@ from pathlib import Path
 
 from modules.support.readCredentials import readCredentials
 from modules.support.readElos import load_alias_table, load_elos, normalize_player_id, normalize_player_name, save_elos
+from modules.support.saveElos import saveElos
 
 
 class MissingDraftElosError(ValueError):
@@ -89,6 +90,23 @@ def _save_local_elos(tour, entries):
     return values
 
 
+def _save_storeelos_snapshot(tour):
+    """Mirror the local Draft Elo snapshot to the mode's StoreElos cell."""
+    sheet_config = tour.get("sheet", {})
+    storage_gid = sheet_config.get("elo_storage_gid")
+    storage_cell = sheet_config.get("elo_storage_cell")
+    if not storage_gid or not storage_cell:
+        return
+    state_path = Path(tour["state_path"])
+    saveElos(
+        str(state_path),
+        storage_gid,
+        sheet_config.get("name", "NGM Stats Export v2"),
+        storage_cell,
+        str(state_path / "elos.json"),
+    )
+
+
 def _write_store_entries(tour, entries):
     """Keep the Draft table compact in D:F even when other sheet columns have data below it."""
     config = _store_config(tour)
@@ -162,6 +180,7 @@ def assign_draft_elos(tour, player_entries, manual_ratings, watched_elos):
         _write_store_entries(tour, entries)
 
     _save_local_elos(tour, entries)
+    _save_storeelos_snapshot(tour)
     if missing_elos:
         raise MissingDraftElosError(missing_elos)
     return len(new_entries), len(entries)
