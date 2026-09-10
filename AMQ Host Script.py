@@ -2149,7 +2149,7 @@ class AMQTourUI(tk.Tk):
             eloscraper = EloScrape(
                 directory=tour["state_path"],
                 tabEloStorage=scrape_cfg.get("elo_storage_gid", tour["sheet"]["elo_storage_gid"]),
-                tabEloStorageCell=scrape_cfg.get("elo_storage_cell"),
+                tabEloStorageCell=scrape_cfg.get("elo_storage_cell", tour["sheet"].get("elo_storage_cell")),
                 sheetName=scrape_cfg.get("sheet_name", tour["sheet"]["name"]),
                 cache_mode=scrape_cfg.get("cache_mode"),
                 min_games=scrape_cfg.get("min_games", tour.get("tiermaker", {}).get("min_games", 3)),
