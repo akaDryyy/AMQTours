@@ -31,7 +31,16 @@ LINKS = {
     "Draft Sheet": "https://docs.google.com/spreadsheets/d/1ZMAw30Ctvk_cYK7Dc68UqvyBSaj2NGOg80JLDs2YU34/edit?usp=sharing",
 }
 
-SETUP_TOURS = {"usual": "random", "watched": "watched", "watched_draft": "watched"}
+SETUP_TOURS = {
+    "usual": "random",
+    "watched": "watched",
+    "watched_draft": "watched",
+    "watched_op": "watched_40_50",
+    "watched_ed": "watched_40_50",
+    "watched_ins": "watched_40_50",
+    "watched_ins_no_chanting": "watched_40_50",
+    "watched_oped": "watched_40_50",
+}
 
 CATEGORIES = {
     "Random": [

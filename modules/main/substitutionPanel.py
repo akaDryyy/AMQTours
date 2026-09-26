@@ -19,6 +19,8 @@ class SubstitutionPanel:
         self.snapshots = {}
         self.elos = {}
         self.aliases = {}
+        self.registered_players = []
+        self.assign_elo = None
         self.rows = []
         self.snapshot_key = None
         self.active_tour_id = None
@@ -84,12 +86,16 @@ class SubstitutionPanel:
         self.snapshot_key = None
         self.elos = {}
         self.aliases = {}
+        self.registered_players = []
+        self.assign_elo = None
         self.clear_rows(refresh=False)
         self.refresh_output()
 
-    def update_elo_context(self, elos, aliases):
+    def update_elo_context(self, elos, aliases, registered_players=(), assign_elo=None):
         self.elos = elos
         self.aliases = aliases
+        self.registered_players = list(registered_players)
+        self.assign_elo = assign_elo
         self.refresh_output()
 
     def set_snapshot(self, tour, snapshot):
@@ -160,7 +166,7 @@ class SubstitutionPanel:
         if not player_names:
             self.set_output("No teams were made yet")
             return
-        replacement_names = sorted(self.elos, key=str.lower) or player_names
+        replacement_names = sorted(set(self.elos) | set(self.registered_players), key=str.lower) or player_names
         row_number = len(self.rows) + 1
         player_out = ttk.Combobox(self.rows_frame, values=player_names, state="normal")
         substitute = ttk.Combobox(self.rows_frame, values=replacement_names, state="normal")
@@ -387,6 +393,20 @@ class SubstitutionPanel:
                         parts.append(f"{name} ({rating:.3f})")
                         continue
                     details = substitutions[name]
+                    full_replacement = (
+                        len(details["subs"]) == 1
+                        and set(details["subs"][0][1]) == set(range(1, total_rounds + 1))
+                    )
+                    if full_replacement:
+                        substitute, _rounds = details["subs"][0]
+                        substitute_rating = self.elos.get(substitute)
+                        if substitute_rating is None:
+                            substitute_rating = self.assign_elo(substitute) if self.assign_elo else None
+                            if substitute_rating is None:
+                                raise ValueError(f"Assign an Elo for {substitute} before generating substitute lines.")
+                            self.elos[substitute] = float(substitute_rating)
+                        parts.append(f"{substitute} ({float(substitute_rating):.3f})")
+                        continue
                     remaining = [round_number for round_number in range(1, total_rounds + 1) if round_number not in details["rounds"]]
                     if remaining:
                         rounds_text = ", ".join(str(round_number) for round_number in remaining)
@@ -394,7 +414,10 @@ class SubstitutionPanel:
                     for substitute, rounds in details["subs"]:
                         substitute_rating = self.elos.get(substitute)
                         if substitute_rating is None:
-                            raise ValueError(f"No elo found for {substitute}.")
+                            substitute_rating = self.assign_elo(substitute) if self.assign_elo else None
+                            if substitute_rating is None:
+                                raise ValueError(f"Assign an Elo for {substitute} before generating substitute lines.")
+                            self.elos[substitute] = float(substitute_rating)
                         rounds_text = ", ".join(str(round_number) for round_number in rounds)
                         parts.append(f"{substitute} [{rounds_text}] ({float(substitute_rating):.3f})")
                 total = sum(float(player["rating"]) for player in players)

@@ -12,7 +12,7 @@ import traceback
 import webbrowser
 from datetime import datetime, timezone
 from pathlib import Path
-from tkinter import ttk
+from tkinter import messagebox, simpledialog, ttk
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_ROOT = PROJECT_ROOT / "data"
@@ -97,6 +97,8 @@ class AMQTourUI(tk.Tk):
         self.setup_guess_time = tk.StringVar()
         self.setup_difficulty = tk.StringVar()
         self.setup_quagsual = tk.BooleanVar(value=False)
+        self.maximum_guesses = tk.StringVar(value="4")
+        self.maximum_elo_gap = tk.StringVar()
         self.eru_mode = tk.BooleanVar(value=False)
         self.balance_mode = "elo"
         self.eru_rate_source = tk.StringVar(value="Average GR")
@@ -278,14 +280,14 @@ class AMQTourUI(tk.Tk):
         return [
             tour_id
             for tour_id, tour in TOURS.items()
-            if tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo") or tour.get("draft_elo_store")
+            if tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo") or tour.get("draft_elo_store") or tour.get("eru_only")
         ]
 
     def default_boot_tour_ids(self):
         return self.loadable_tour_ids()
 
     def tour_requires_startup_load(self, tour):
-        return bool(tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo") or tour.get("draft_elo_store"))
+        return bool(tour.get("eloscrape") or tour.get("inhouse") or tour.get("dry_elo") or tour.get("draft_elo_store") or tour.get("eru_only"))
 
     def selected_boot_tour_ids(self):
         selected = set(self.boot_tour_ids)
@@ -611,7 +613,7 @@ class AMQTourUI(tk.Tk):
 
     def _build_setup_tab(self):
         self.setup_tab.columnconfigure(1, weight=1)
-        self.setup_tab.rowconfigure(7, weight=1)
+        self.setup_tab.rowconfigure(9, weight=1)
 
         self.setup_guess_label = ttk.Label(self.setup_tab, text="Guess Time")
         self.setup_guess_label.grid(row=0, column=0, sticky="w", pady=(0, 8))
@@ -629,17 +631,32 @@ class AMQTourUI(tk.Tk):
         self.setup_quagsual_check.grid(row=2, column=0, columnspan=2, sticky="w", pady=(0, 10))
 
         self.setup_note = ttk.Label(self.setup_tab, text="", style="Subtle.TLabel")
-        self.setup_note.grid(row=7, column=0, columnspan=2, sticky="nw", pady=(2, 0))
+        self.setup_note.grid(row=9, column=0, columnspan=2, sticky="nw", pady=(2, 0))
         self.eru_mode_check = ttk.Checkbutton(self.setup_tab, text="Eru Mode", variable=self.eru_mode, command=self.on_eru_mode_changed)
         self.eru_mode_check.grid(row=3, column=0, sticky="w", pady=(0, 8))
         self.eru_rate_combo = ttk.Combobox(self.setup_tab, textvariable=self.eru_rate_source, values=ERU_RATE_OPTIONS, state="readonly", width=16)
         self.eru_rate_combo.grid(row=3, column=1, sticky="w", pady=(0, 8))
+        self.eru_rate_combo.bind("<<ComboboxSelected>>", self.on_eru_rate_source_changed)
         self.eru_fallback_check = ttk.Checkbutton(self.setup_tab, variable=self.eru_use_fallback)
         self.eru_fallback_check.grid(row=4, column=0, columnspan=2, sticky="w", padx=(20, 0), pady=(0, 8))
         self.eru_fallbacks_frame = ttk.Frame(self.setup_tab)
         self.eru_fallbacks_frame.grid(row=5, column=0, columnspan=2, sticky="ew", padx=(20, 0), pady=(0, 8))
+        self.maximum_guesses_label = ttk.Label(self.setup_tab, text="Maximum Guesses")
+        self.maximum_guesses_label.grid(row=6, column=0, sticky="w", pady=(0, 8))
+        self.maximum_guesses_combo = ttk.Combobox(
+            self.setup_tab,
+            textvariable=self.maximum_guesses,
+            values=("4", "5"),
+            state="readonly",
+            width=8,
+        )
+        self.maximum_guesses_combo.grid(row=6, column=1, sticky="w", pady=(0, 8))
+        self.maximum_elo_gap_label = ttk.Label(self.setup_tab, text="Maximum Elo Gap")
+        self.maximum_elo_gap_label.grid(row=7, column=0, sticky="w", pady=(0, 8))
+        self.maximum_elo_gap_input = ttk.Entry(self.setup_tab, textvariable=self.maximum_elo_gap, width=12)
+        self.maximum_elo_gap_input.grid(row=7, column=1, sticky="w", pady=(0, 8))
         self.setup_code_frame = ttk.Frame(self.setup_tab)
-        self.setup_code_frame.grid(row=6, column=0, columnspan=2, sticky="ew", pady=(4, 0))
+        self.setup_code_frame.grid(row=8, column=0, columnspan=2, sticky="ew", pady=(4, 0))
         self.setup_code_frame.columnconfigure(0, weight=1)
         ttk.Label(self.setup_code_frame, text="Game Code").grid(row=0, column=0, sticky="w")
         self.setup_code_text = tk.Text(self.setup_code_frame, height=3, wrap="word", borderwidth=1, relief="solid", font=("Consolas", 9))
@@ -674,7 +691,7 @@ class AMQTourUI(tk.Tk):
 
         self.players_label = ttk.Label(self.solver_tab, text="Players", font=("Segoe UI", 11, "bold"))
         self.players_label.grid(row=1, column=0, sticky="w")
-        self.whitelist_label = ttk.Label(self.solver_tab, text="Whitelist", font=("Segoe UI", 11, "bold"))
+        self.whitelist_label = ttk.Label(self.solver_tab, text="Team Requests", font=("Segoe UI", 11, "bold"))
         self.whitelist_label.grid(row=1, column=1, sticky="w", padx=(14, 0))
 
         self.players_text = tk.Text(self.solver_tab, height=12, wrap="word", borderwidth=1, relief="solid", font=("Segoe UI", 10))
@@ -701,7 +718,7 @@ class AMQTourUI(tk.Tk):
             combobox.bind("<Button-1>", lambda event, box=combobox: self.on_whitelist_click(event, box))
             combobox.bind("<KeyRelease>", lambda event, box=combobox: self.on_whitelist_key_release(event, box))
             combobox.bind("<Return>", lambda _event, box=combobox: self.lock_whitelist_player(box))
-        ttk.Button(self.whitelist_panel, text="Add Pair", command=self.add_whitelist_pair).grid(row=1, column=0, columnspan=2, sticky="ew", pady=8)
+        ttk.Button(self.whitelist_panel, text="Add Request", command=self.add_whitelist_pair).grid(row=1, column=0, columnspan=2, sticky="ew", pady=8)
         list_frame = ttk.Frame(self.whitelist_panel)
         list_frame.grid(row=2, column=0, columnspan=2, sticky="nsew")
         list_frame.columnconfigure(0, weight=1)
@@ -712,7 +729,7 @@ class AMQTourUI(tk.Tk):
         scrollbar = ttk.Scrollbar(list_frame, orient="vertical", command=self.whitelist_list.yview)
         scrollbar.grid(row=0, column=1, sticky="ns")
         self.whitelist_list.configure(yscrollcommand=scrollbar.set)
-        self.remove_pair_button = ttk.Button(self.whitelist_panel, text="Remove Selected Pair", command=self.remove_whitelist_pair)
+        self.remove_pair_button = ttk.Button(self.whitelist_panel, text="Remove Selected Request", command=self.remove_whitelist_pair)
         self.remove_pair_button.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(8, 0))
 
         self.solver_actions = ttk.Frame(self.solver_tab)
@@ -897,6 +914,8 @@ class AMQTourUI(tk.Tk):
         self.balance_mode = "eru" if self.eru_mode.get() else "elo"
         self.eru_rate_source.set("Average GR")
         self.eru_use_fallback.set(False)
+        self.maximum_guesses.set("4")
+        self.maximum_elo_gap.set("")
         self.substitution_panel.select_tour(tour_id)
         if self.ui_ready:
             self.save_ui_settings()
@@ -958,17 +977,23 @@ class AMQTourUI(tk.Tk):
             ):
                 widget.grid_remove()
             self.refresh_eru_controls()
+            self.refresh_team_balance_controls(TOURS[self.selected_tour_id])
             self.setup_note.configure(text="")
             self.setup_code_frame.grid_remove()
             return
 
-        self.setup_guess_label.grid()
-        self.setup_guess_combo.grid()
+        config = SETUP_CODES.get(setup_key, {})
+        if config.get("show_guess_time", True):
+            self.setup_guess_label.grid()
+            self.setup_guess_combo.grid()
+        else:
+            self.setup_guess_label.grid_remove()
+            self.setup_guess_combo.grid_remove()
         self.setup_difficulty_label.grid()
         self.setup_difficulty_combo.grid()
         self.setup_note.grid()
         self.refresh_eru_controls()
-        config = SETUP_CODES.get(setup_key, {})
+        self.refresh_team_balance_controls(TOURS[self.selected_tour_id])
         self.setup_guess_combo.configure(values=config.get("guess_times", []))
         self.setup_difficulty_combo.configure(values=config.get("difficulties", []))
 
@@ -1015,12 +1040,16 @@ class AMQTourUI(tk.Tk):
         if TOURS[self.selected_tour_id].get("disable_eru"):
             self.eru_mode.set(False)
             self.balance_mode = "elo"
+            self.refresh_team_balance_controls(TOURS[self.selected_tour_id])
+            self.refresh_elos()
             return
         self.balance_mode = "eru" if self.eru_mode.get() else "elo"
         if self.ui_ready:
             self.after_idle(self.schedule_rank_assignment_check)
         if self.current_setup_key():
             self.refresh_setup_code()
+            self.refresh_team_balance_controls(TOURS[self.selected_tour_id])
+            self.refresh_elos()
             return
         if self.eru_mode.get():
             self.setup_note.configure(text="Does not count for elo.")
@@ -1028,6 +1057,13 @@ class AMQTourUI(tk.Tk):
         else:
             self.setup_note.grid_remove()
         self.update_eru_control_states()
+        self.refresh_team_balance_controls(TOURS[self.selected_tour_id])
+        self.refresh_elos()
+
+    def on_eru_rate_source_changed(self, _event=None):
+        self.refresh_elos()
+        if self.ui_ready:
+            self.after_idle(self.schedule_rank_assignment_check)
 
     def selected_eru_fallbacks(self, tour):
         configured = tour.get("eru_fallbacks", [])
@@ -1041,6 +1077,7 @@ class AMQTourUI(tk.Tk):
         return [fallback] if fallback and self.eru_use_fallback.get() else []
 
     def on_eru_fallback_changed(self):
+        self.refresh_elos()
         if self.ui_ready:
             self.after_idle(self.schedule_rank_assignment_check)
 
@@ -1096,6 +1133,32 @@ class AMQTourUI(tk.Tk):
         for check in self.eru_fallback_checks:
             check.configure(state="normal" if self.eru_mode.get() else "disabled")
 
+    def refresh_team_balance_controls(self, tour):
+        """Show balance options only where the selected tour can use them."""
+        if tour.get("draft_player_setup"):
+            for widget in (
+                self.maximum_guesses_label,
+                self.maximum_guesses_combo,
+                self.maximum_elo_gap_label,
+                self.maximum_elo_gap_input,
+            ):
+                widget.grid_remove()
+            return
+
+        supports_five_guesses = tour.get("solver", {}).get("guess_mode") in {"random", "random5g"}
+        if supports_five_guesses:
+            self.maximum_guesses_label.grid()
+            self.maximum_guesses_combo.grid()
+            self.maximum_guesses_combo.configure(state="disabled" if self.eru_mode.get() else "readonly")
+        else:
+            self.maximum_guesses.set("4")
+            self.maximum_guesses_label.grid_remove()
+            self.maximum_guesses_combo.grid_remove()
+
+        self.maximum_elo_gap_label.grid()
+        self.maximum_elo_gap_input.grid()
+        self.maximum_elo_gap_input.configure(state="disabled" if self.eru_mode.get() else "normal")
+
     def refresh_setup_code(self):
         setup_key = self.setup_active_key
         self.current_setup_code = self.selected_setup_code()
@@ -1131,7 +1194,10 @@ class AMQTourUI(tk.Tk):
         config = SETUP_CODES.get(setup_key or "", {})
         if setup_key == "random" and self.setup_quagsual.get():
             return config.get("quagsual", "")
-        return config.get("codes", {}).get(self.setup_guess_time.get(), {}).get(self.setup_difficulty.get(), "")
+        code = config.get("codes", {}).get(self.setup_guess_time.get(), {}).get(self.setup_difficulty.get(), "")
+        if isinstance(code, dict):
+            return code.get(self.selected_tour_id, "")
+        return code
 
     def update_setup_control_states(self):
         if (
@@ -1735,6 +1801,16 @@ class AMQTourUI(tk.Tk):
         player_entries = self.parse_player_entries()
         eru_enabled = self.balance_mode == "eru"
         fallback_configs = self.selected_eru_fallbacks(TOURS[self.selected_tour_id]) if eru_enabled else []
+        maximum_gap_text = self.maximum_elo_gap.get().strip()
+        if maximum_gap_text and not eru_enabled:
+            try:
+                maximum_elo_gap = float(maximum_gap_text)
+            except ValueError as exc:
+                raise ValueError("Maximum Elo Gap must be a number.") from exc
+            if maximum_elo_gap < 0:
+                raise ValueError("Maximum Elo Gap cannot be negative.")
+        else:
+            maximum_elo_gap = None
         return {
             "tour_id": self.selected_tour_id,
             "team_size": int(self.team_size.get()),
@@ -1749,13 +1825,15 @@ class AMQTourUI(tk.Tk):
             "eru_mode": eru_enabled,
             "eru_rate_source": self.eru_rate_source.get(),
             "eru_fallbacks": fallback_configs,
+            "maximum_guesses": int(self.maximum_guesses.get()),
+            "maximum_elo_gap": maximum_elo_gap,
         }
 
     def solve_in_background(self, snapshot):
         try:
             self.wait_for_startup_eloscrape(write_solver_note=True)
             self.wait_for_tour_loaded(snapshot["tour_id"])
-            final_code = self.solve_selected_tour(snapshot)
+            final_code, warnings = self.solve_selected_tour(snapshot)
         except MissingRatingsError as exc:
             missing_names = exc.names
             self.after(0, lambda names=missing_names: self.finish_solver(missing=names))
@@ -1769,7 +1847,7 @@ class AMQTourUI(tk.Tk):
             error = f"{type(exc).__name__}: {exc}\n\n{details}"
             self.after(0, lambda error=error: self.finish_solver(error=error))
             return
-        self.after(0, lambda: self.finish_solver(final_code=final_code))
+        self.after(0, lambda: self.finish_solver(final_code=final_code, warnings=warnings))
 
     def wait_for_startup_eloscrape(self, write_solver_note=False):
         if not self.startup_eloscrape_done.is_set():
@@ -1778,7 +1856,7 @@ class AMQTourUI(tk.Tk):
                 self.after(0, lambda: self.codes_text.insert("end", "Waiting for startup eloscrape to finish...\n"))
             self.startup_eloscrape_done.wait()
 
-    def finish_solver(self, final_code=None, error=None, missing=None, missing_guess_rates=None):
+    def finish_solver(self, final_code=None, error=None, missing=None, missing_guess_rates=None, warnings=None):
         self.solver_running = False
         self.solver_button.configure(state="normal")
         self.codes_text.delete("1.0", "end")
@@ -1800,7 +1878,13 @@ class AMQTourUI(tk.Tk):
             if tour.get("supports_inhouse"):
                 self.refresh_inhouse_results_ui(tour)
             self.substitution_panel.reset_after_solver()
-            self.set_status("Solver finished.")
+            warnings = warnings or []
+            if warnings:
+                warning_text = "\n".join(warnings)
+                self.set_status(warning_text)
+                messagebox.showwarning("Maximum Elo Gap exceeded", warning_text, parent=self)
+            else:
+                self.set_status("Solver finished.")
 
     def solve_selected_tour(self, snapshot):
         tour = TOURS[snapshot["tour_id"]]
@@ -1812,7 +1896,7 @@ class AMQTourUI(tk.Tk):
             if tour.get("supports_inhouse"):
                 self.latest_inhouse_teams[tour["id"]] = team_snapshot
             save_latest_team_snapshot(tour, team_snapshot)
-        return final_code
+        return final_code, team_snapshot.get("warnings", []) if team_snapshot else []
 
     def normalize_alias_key(self, name):
         return normalize_alias_key(name)
@@ -2072,6 +2156,16 @@ class AMQTourUI(tk.Tk):
             update_dry_elos_for_tour(tour)
             if progress_callback:
                 progress_callback(100, "Dry elo updated")
+            return
+        if tour.get("eru_only"):
+            if progress_callback:
+                progress_callback(10, "Refreshing guess-rate cache")
+            from modules.main.hostSolver import load_solver_stats
+            from utils import get_player_stats
+
+            load_solver_stats(tour, get_player_stats)
+            if progress_callback:
+                progress_callback(100, "Guess-rate cache updated")
 
     def sync_tour_from_sheet(self, tour):
         self.sync_ids_from_sheet_if_available(tour)
@@ -2846,39 +2940,123 @@ class AMQTourUI(tk.Tk):
 
         tour = TOURS[self.selected_tour_id]
         elos_path = Path(tour["state_path"]) / "elos.json"
-        if not elos_path.exists():
-            self.set_status("No elos.json found for this tour.")
-            return
+        elos = {}
+        if elos_path.exists():
+            try:
+                from modules.support.readElos import load_elos
 
-        try:
-            from modules.support.readElos import load_elos
+                elos = load_elos(elos_path, Path(tour["state_path"]) / "ids.csv", key_format="name")
+            except (OSError, json.JSONDecodeError):
+                self.set_status("Could not read elos.json.")
+                return
 
-            elos = load_elos(elos_path, Path(tour["state_path"]) / "ids.csv", key_format="name")
-        except (OSError, json.JSONDecodeError):
-            self.set_status("Could not read elos.json.")
-            return
+        if self.balance_mode == "eru":
+            try:
+                values = self.cached_eru_rates(tour)
+            except Exception as exc:
+                self.set_status(f"Could not read cached guess rates: {exc}")
+                return
+            if not values:
+                self.set_status("No cached guess-rate data found for this tour.")
+                return
+            self.elos_table.heading("elo", text="GR (%)")
+        else:
+            values = dict(elos)
+            self.elos_table.heading("elo", text="Elo")
 
-        alias_names = self.elo_alias_names(tour, elos)
-        self.substitution_panel.update_elo_context(elos, alias_names)
+        registered_players = self.registered_players(tour)
+        for player in registered_players:
+            values.setdefault(player, None)
+        alias_names = self.elo_alias_names(tour, values)
+        self.substitution_panel.update_elo_context(elos, alias_names, registered_players, self.assign_substitute_elo)
         query = self.normalize_alias_key(self.elos_search_var.get().strip())
-        sorted_elos = sorted(elos.items(), key=lambda item: item[1], reverse=True)
+        sorted_values = sorted(
+            values.items(),
+            key=lambda item: (
+                item[1] is None,
+                -float(item[1]) if item[1] is not None else 0.0,
+                item[0].lower(),
+            ),
+        )
         matched_index = next(
             (
                 index
-                for index, (player, _elo) in enumerate(sorted_elos)
+                for index, (player, _value) in enumerate(sorted_values)
                 if self.elo_matches_search(player, alias_names.get(player, []), query)
             ),
             None,
         ) if query else None
         matched_item = None
-        for player, elo in sorted_elos:
-            item = self.elos_table.insert("", "end", values=(player, elo))
-            if matched_index is not None and player == sorted_elos[matched_index][0]:
+        for player, value in sorted_values:
+            display_value = "N/A" if value is None else (f"{value:.3f}" if self.balance_mode == "eru" else value)
+            item = self.elos_table.insert("", "end", values=(player, display_value))
+            if matched_index is not None and player == sorted_values[matched_index][0]:
                 matched_item = item
         if matched_item:
             self.elos_table.selection_set(matched_item)
             self.elos_table.focus(matched_item)
-            self.after_idle(lambda item=matched_item, index=matched_index, total=len(sorted_elos): self.center_elo_match(item, index, total))
+            self.after_idle(lambda item=matched_item, index=matched_index, total=len(sorted_values): self.center_elo_match(item, index, total))
+
+    def registered_players(self, tour):
+        try:
+            from modules.support.readElos import alias_maps
+
+            _name_to_id, id_to_primary = alias_maps(Path(tour["state_path"]) / "ids.csv")
+            return sorted(id_to_primary.values(), key=str.lower)
+        except Exception:
+            return []
+
+    def assign_substitute_elo(self, player):
+        tour = TOURS[self.selected_tour_id]
+        value = simpledialog.askfloat(
+            "Assign Substitute Elo",
+            f"Enter an Elo for {player}:",
+            parent=self,
+        )
+        if value is None:
+            return None
+        try:
+            from modules.support.readElos import load_elos, save_elos
+
+            state_path = Path(tour["state_path"])
+            ids_path = state_path / "ids.csv"
+            elos_path = state_path / "elos.json"
+            elos = load_elos(elos_path, ids_path, key_format="name") if elos_path.exists() else {}
+            elos[player] = float(value)
+            save_elos(elos, elos_path, ids_path, key_format="composite")
+        except Exception as exc:
+            self.set_status(f"Could not save substitute Elo: {exc}")
+            return None
+        self.after_idle(self.refresh_elos)
+        self.set_status(f"Assigned {player} an Elo of {value:.3f} for substitute use.")
+        return float(value)
+
+    def cached_eru_rates(self, tour):
+        import pandas as pd
+
+        from modules.support.hostGuess import _player_rate_averages
+        from modules.support.readElos import alias_maps
+
+        def load_rates(source_tour, rate_source):
+            state_path = Path(source_tour["state_path"])
+            stats_path = state_path / "stats_clean.csv"
+            ids_path = state_path / "ids.csv"
+            if not stats_path.exists() or not ids_path.exists():
+                return {}
+            player_ids, averages = _player_rate_averages(pd.read_csv(stats_path), ids_path, rate_source)
+            _name_to_id, id_to_primary = alias_maps(ids_path)
+            return {
+                id_to_primary[player_id]: value
+                for player_id, value in averages.items()
+                if player_id in id_to_primary
+            }
+
+        rates = load_rates(tour, self.eru_rate_source.get())
+        for fallback in self.selected_eru_fallbacks(tour):
+            fallback_rates = load_rates(TOURS[fallback["tour_id"]], fallback["rate_source"])
+            for player, value in fallback_rates.items():
+                rates.setdefault(player, value)
+        return rates
 
     def center_elo_match(self, item, index, total):
         if not self.elos_table.exists(item) or not total:
