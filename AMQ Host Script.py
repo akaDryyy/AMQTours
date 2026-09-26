@@ -914,7 +914,7 @@ class AMQTourUI(tk.Tk):
         self.balance_mode = "eru" if self.eru_mode.get() else "elo"
         self.eru_rate_source.set("Average GR")
         self.eru_use_fallback.set(False)
-        self.maximum_guesses.set("4")
+        self.maximum_guesses.set("5" if tour_id == "usual" else "4")
         self.maximum_elo_gap.set("")
         self.substitution_panel.select_tour(tour_id)
         if self.ui_ready:

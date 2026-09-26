@@ -125,7 +125,7 @@ def apply_maximum_guess_distribution(final_code, maximum_guesses, guess_mode):
     if maximum_guesses < 5:
         if guess_mode == "random5g":
             return final_code.replace(
-                "≥40 = 5 guesses\n28% - 40% = 4 guesses",
+                "≥40% = 5 guesses\n28% - 40% = 4 guesses",
                 "≥28% = 4 guesses",
                 1,
             )

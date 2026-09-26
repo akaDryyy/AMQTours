@@ -6,7 +6,7 @@ def generate_codes_usual_gr(gamemode, txtvar):
         case "quag":
             txtvar += "```m0g0z21111110001100000z11110000000z11111111111100f051o000000f152143331110000k012r02i0a46533a11002s011111111111002s0111002s01a111111111102a111111111050017pr11hg1ka03-11111--```\n"
     txtvar += """Distribution of guesses:
-≥40 = 5 guesses
+≥40% = 5 guesses
 28% - 40% = 4 guesses
 19% - 28% = 3 guesses
 8% - 19% = 2 guesses
@@ -19,7 +19,7 @@ def generate_codes_chanting_gr(_, txtvar):
     txtvar += "\n<YOURCHALLONGEURLHERE>\n"
     txtvar += "```m0g0z21111110101100000z11110000000z01000100010000k051o000000f152143331110000k012r02i0a46533a11002s011111111111002s0111002s01a111111111102a111111111050017pr11hg1ka03-11111--```\n"
     txtvar += """Distribution of guesses:
->=40 = 5 guesses
+>=40% = 5 guesses
 28% - 40% = 4 guesses
 19% - 28% = 3 guesses
 8% - 19% = 2 guesses
