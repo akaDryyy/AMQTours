@@ -130,7 +130,7 @@ def get_guess_watched_ui(name, player_stats, idtable, oneg, twog, threeg, fourg)
 
 def get_guess_random_ui(name, player_stats, idtable, oneg, twog, threeg, max_guesses=4):
     avg_gr = player_average_gr(name, player_stats, idtable)
-    if int(max_guesses) >= 5 and avg_gr is not None and avg_gr >= 50:
+    if int(max_guesses) >= 5 and avg_gr is not None and avg_gr >= 40:
         return "5"
     return guess_gr([(threeg, "4"), (twog, "3"), (oneg, "2"), (-float("inf"), "1")], avg_gr)
 
