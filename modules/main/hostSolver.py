@@ -20,6 +20,12 @@ def apply_setup_code(final_code: str, setup_code: str) -> str:
     return f"{replacement}\n\n{final_code}"
 
 
+def omit_guess_distribution(final_code: str) -> str:
+    """Remove the static guess legend from Eru output."""
+    before, marker, _after = final_code.partition("\nDistribution of guesses:")
+    return before.rstrip() + "\n" if marker else final_code
+
+
 def guess_kwargs(tour, player_stats, idtable, snapshot):
     thresholds = tour["solver"]["thresholds"]
     guess_mode = tour["solver"]["guess_mode"]
@@ -119,7 +125,7 @@ def apply_maximum_guess_distribution(final_code, maximum_guesses, guess_mode):
     if maximum_guesses < 5:
         if guess_mode == "random5g":
             return final_code.replace(
-                "≥50 = 5 guesses\n28% - 50% = 4 guesses",
+                "≥40 = 5 guesses\n28% - 40% = 4 guesses",
                 "≥28% = 4 guesses",
                 1,
             )
@@ -128,12 +134,12 @@ def apply_maximum_guess_distribution(final_code, maximum_guesses, guess_mode):
         return final_code
     final_code = final_code.replace(
         "Distribution of guesses:\n",
-        "Distribution of guesses:\n>=50% = 5 guesses\n",
+        "Distribution of guesses:\n>=40% = 5 guesses\n",
         1,
     )
     return re.sub(
         r"(?:>=|≥)28% = 4 guesses",
-        "28% - <50% = 4 guesses",
+        "28% - <40% = 4 guesses",
         final_code,
         count=1,
     )
@@ -201,6 +207,8 @@ def solve_player_group(tour, players, team_size, snapshot):
         guess_mode,
     )
     final_code = apply_setup_code(final_code, snapshot.get("setup_code", ""))
+    if eru_enabled:
+        final_code = omit_guess_distribution(final_code)
     # Escape player-name underscores so pasted output does not trigger Discord emphasis.
     final_code = final_code.replace("_", r"\_")
     Path(tour["state_path"], "codes.txt").write_text(final_code, encoding="utf-8")
