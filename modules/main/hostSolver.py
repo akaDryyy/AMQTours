@@ -20,10 +20,11 @@ def apply_setup_code(final_code: str, setup_code: str) -> str:
     return f"{replacement}\n\n{final_code}"
 
 
-def guess_kwargs(tour, player_stats, idtable):
+def guess_kwargs(tour, player_stats, idtable, snapshot):
     thresholds = tour["solver"]["thresholds"]
+    guess_mode = tour["solver"]["guess_mode"]
     kwargs = {"player_stats": player_stats, "idtable": idtable}
-    if tour["solver"]["guess_mode"] == "watched_28":
+    if guess_mode == "watched_28":
         kwargs.update({
             "zerog": thresholds["zero"],
             "oneg": thresholds["one"],
@@ -31,7 +32,9 @@ def guess_kwargs(tour, player_stats, idtable):
             "threeg": thresholds["three"],
             "fourg": thresholds["four"],
         })
-    elif tour["solver"]["guess_mode"] == "watched" or tour["solver"]["guess_mode"] == "random5g":
+    elif guess_mode == "watched" or (
+        guess_mode == "random5g" and snapshot.get("maximum_guesses", 4) >= 5
+    ):
         kwargs.update({
             "oneg": thresholds["one"],
             "twog": thresholds["two"],
@@ -44,6 +47,8 @@ def guess_kwargs(tour, player_stats, idtable):
             "twog": thresholds["two"],
             "threeg": thresholds["three"],
         })
+        if guess_mode in {"random", "random5g"}:
+            kwargs["max_guesses"] = snapshot.get("maximum_guesses", 4)
     return kwargs
 
 
@@ -92,6 +97,48 @@ def make_latest_inhouse_snapshot(tour, solution, p_values, teams_number, get_gue
     return snapshot
 
 
+def team_total_gap(solution, values, teams_number):
+    totals = [0.0] * teams_number
+    for name, team_index in solution.items():
+        totals[team_index] += float(values[name])
+    return max(totals, default=0.0) - min(totals, default=0.0)
+
+
+def max_elo_gap_warning(solution, values, teams_number, maximum_gap):
+    if maximum_gap is None:
+        return None
+    gap = team_total_gap(solution, values, teams_number)
+    if gap <= maximum_gap:
+        return None
+    return f"Maximum Elo Gap exceeded: team-total gap {gap:.3f} is above the {maximum_gap:.3f} limit."
+
+
+def apply_maximum_guess_distribution(final_code, maximum_guesses, guess_mode):
+    if guess_mode not in {"random", "random5g"}:
+        return final_code
+    if maximum_guesses < 5:
+        if guess_mode == "random5g":
+            return final_code.replace(
+                "≥50 = 5 guesses\n28% - 50% = 4 guesses",
+                "≥28% = 4 guesses",
+                1,
+            )
+        return final_code
+    if guess_mode == "random5g":
+        return final_code
+    final_code = final_code.replace(
+        "Distribution of guesses:\n",
+        "Distribution of guesses:\n>=50% = 5 guesses\n",
+        1,
+    )
+    return re.sub(
+        r"(?:>=|≥)28% = 4 guesses",
+        "28% - <50% = 4 guesses",
+        final_code,
+        count=1,
+    )
+
+
 def solve_player_group(tour, players, team_size, snapshot):
     from utils import create_teams, get_blacklist, get_player_stats
 
@@ -131,8 +178,11 @@ def solve_player_group(tour, players, team_size, snapshot):
         get_blacklist(),
         snapshot["separate_t1"],
     )
-    guess_options = guess_kwargs(tour, player_stats, idtable)
-    get_guesses = GUESS_HANDLERS[solver_cfg["guess_mode"]]
+    guess_options = guess_kwargs(tour, player_stats, idtable, snapshot)
+    guess_mode = solver_cfg["guess_mode"]
+    get_guesses = GUESS_HANDLERS[
+        "random" if guess_mode == "random5g" and snapshot.get("maximum_guesses", 4) < 5 else guess_mode
+    ]
     final_code = handleCodes(
         foundSolutions=teams,
         p_values=display_values,
@@ -145,10 +195,29 @@ def solve_player_group(tour, players, team_size, snapshot):
         value_precision=2 if eru_enabled else 3,
         include_guesses=not eru_enabled,
     )
+    final_code = apply_maximum_guess_distribution(
+        final_code,
+        snapshot.get("maximum_guesses", 4),
+        guess_mode,
+    )
     final_code = apply_setup_code(final_code, snapshot.get("setup_code", ""))
+    # Escape player-name underscores so pasted output does not trigger Discord emphasis.
+    final_code = final_code.replace("_", r"\_")
     Path(tour["state_path"], "codes.txt").write_text(final_code, encoding="utf-8")
 
     team_snapshot = make_latest_team_snapshot(tour, teams[0], display_values, teams_number, get_guesses, guess_options)
+    team_snapshot["team_requests"] = snapshot.get("whitelist_pairs", [])
+    team_snapshot["balance_metric"] = "guess rate" if eru_enabled else "elo"
+    team_snapshot["balance_gap"] = round(team_total_gap(teams[0], display_values, teams_number), 3)
+    if not eru_enabled:
+        warning = max_elo_gap_warning(
+            teams[0],
+            display_values,
+            teams_number,
+            snapshot.get("maximum_elo_gap"),
+        )
+        if warning:
+            team_snapshot["warnings"] = [warning]
     if tour.get("supports_inhouse"):
         team_snapshot["inhouse_type"] = tour["inhouse"]["inhouse_type"]
     return final_code, team_snapshot
@@ -203,7 +272,12 @@ def solve_selected_tour(tour, snapshot, aliases_path):
         for group, group_snapshot in (("first", lower_snapshot), ("second", higher_snapshot)):
             for team_id, team in group_snapshot["teams"].items():
                 combined_teams[f"{group}_{team_id}"] = team
-        return "# First Tour\n" + lower_code + "\n\n# Second Tour\n" + higher_code, {"tour_id": tour["id"], "teams": combined_teams}
+        warnings = lower_snapshot.get("warnings", []) + higher_snapshot.get("warnings", [])
+        return "# First Tour\n" + lower_code + "\n\n# Second Tour\n" + higher_code, {
+            "tour_id": tour["id"],
+            "teams": combined_teams,
+            "warnings": warnings,
+        }
 
     return solve_player_group(tour, players, team_size, snapshot)
 

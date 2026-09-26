@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from modules.support.readElos import normalize_player_id
+
 
 ERU_RATE_OPTIONS = ("Average GR", "OP", "ED", "IN", "OPED", "EDIN", "OPIN")
 ERU_RATE_COLUMNS = {
@@ -54,9 +56,11 @@ def _player_rate_averages(player_stats, idtable, rate_source):
         raise ValueError(f"Unknown Eru guess-rate source: {rate_source}")
     aliases = pd.read_csv(idtable, dtype=str).fillna("")
     aliases["Player Name"] = aliases["Player Name"].str.strip().str.lower()
-    player_ids = dict(zip(aliases["Player Name"], aliases["Player ID"].str.strip()))
+    aliases["Player ID"] = aliases["Player ID"].map(normalize_player_id)
+    player_ids = dict(zip(aliases["Player Name"], aliases["Player ID"]))
     stats = player_stats.copy()
-    stats["Player ID"] = stats["Player ID"].astype(str).str.strip()
+    stats["Player ID"] = stats["Player ID"].map(normalize_player_id)
+    stats = stats.dropna(subset=["Player ID"])
     averages = {}
     for player_id, group in stats.groupby("Player ID"):
         values = []
@@ -115,18 +119,8 @@ def guess_gr(thresholds, avg_gr):
 
 
 def player_average_gr(name, player_stats, idtable):
-    import pandas as pd
-
-    try:
-        alias_df = pd.read_csv(idtable)
-        alias_df["Player Name"] = alias_df["Player Name"].str.strip().str.lower()
-        player_id = alias_df.loc[alias_df["Player Name"] == name, "Player ID"].iloc[0]
-        avg_gr = player_stats.loc[player_stats["Player ID"] == player_id, "Guess rate"].mean()
-        if pd.isna(avg_gr):
-            avg_gr = None
-    except IndexError:
-        avg_gr = None
-    return avg_gr
+    player_ids, averages = _player_rate_averages(player_stats, idtable, "Average GR")
+    return averages.get(player_ids.get(name.strip().lower()))
 
 
 def get_guess_watched_ui(name, player_stats, idtable, oneg, twog, threeg, fourg):
@@ -134,8 +128,10 @@ def get_guess_watched_ui(name, player_stats, idtable, oneg, twog, threeg, fourg)
     return guess_gr([(fourg, "5"), (threeg, "4"), (twog, "3"), (oneg, "2"), (-float("inf"), "1")], avg_gr)
 
 
-def get_guess_random_ui(name, player_stats, idtable, oneg, twog, threeg):
+def get_guess_random_ui(name, player_stats, idtable, oneg, twog, threeg, max_guesses=4):
     avg_gr = player_average_gr(name, player_stats, idtable)
+    if int(max_guesses) >= 5 and avg_gr is not None and avg_gr >= 50:
+        return "5"
     return guess_gr([(threeg, "4"), (twog, "3"), (oneg, "2"), (-float("inf"), "1")], avg_gr)
 
 
