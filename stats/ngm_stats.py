@@ -27,11 +27,25 @@ except ImportError:
     Image = None
 
 
-def run_ngm_sheet_stats(is_local):
-    DIRECTORY = os.path.dirname(os.path.abspath(__file__))
-    ASSETS = os.path.join(DIRECTORY, "assets")
+def run_ngm_sheet_stats(
+    is_local,
+    *,
+    selection=None,
+    workspace_dir=None,
+    codes_path=None,
+    local_scores=None,
+    substitute_team_labels=None,
+    return_data=False,
+    include_extra_stats=None,
+):
+    """Run the stats generator interactively or from the Host Script's local workspace."""
+    STATS_ROOT = os.path.dirname(os.path.abspath(__file__))
+    if include_extra_stats is None:
+        include_extra_stats = not is_local
+    DIRECTORY = os.path.abspath(workspace_dir) if workspace_dir else STATS_ROOT
+    ASSETS = os.path.join(STATS_ROOT, "assets")
     JSONS = os.path.join(DIRECTORY, "jsons")
-    TEAMS = find_codes_path(DIRECTORY)
+    TEAMS = codes_path or find_codes_path(DIRECTORY)
     TEAMS_RE = r"(\S+)\s*\((-?[\d.]+)\)"
     REGEX = r"\D*(\d{1,2})\s*(\(.*?\))?\.json$"
     os.makedirs(ASSETS, exist_ok=True)
@@ -48,6 +62,8 @@ def run_ngm_sheet_stats(is_local):
     MAIN_SHEET_WATCHED_INS=1177294729
     MAIN_SHEET_WATCHED_EDS=484347985
     MAIN_SHEET_WATCHED_OPEDS=231019448
+    MAIN_SHEET_WATCHED_0100_FL=1545884050
+    MAIN_SHEET_WATCHED_OP_0100=1177310427
 
     TEAM_AVG = 0
     TEAM_SIZE = 0
@@ -97,39 +113,45 @@ def run_ngm_sheet_stats(is_local):
     txtvar = """=== NGMC Stats Calculator ===
 [1]: Random FL
 [2]: Watched FL
-[3]: Watched OPs
-[4]: Watched EDs
-[5]: Watched INs
-[6]: Watched INs -chanting
-[7]: Watched OPEDs
-[8]: Watched FL 2+8s
-[9]: Watched FL 5s
-[10]: Watched -2009
-[11]: Random OPs
-[12]: Random EDs
-[13]: Random INs
-[14]: Random OPEDs
-[15]: Random Chanting
-[16]: Other Random
-[17]: Other Watched
-[18]: Brute-force
+[3]: Watched 0-100 FL
+[4]: Watched OPs
+[5]: Watched OP 0-100
+[6]: Watched EDs
+[7]: Watched INs
+[8]: Watched INs -chanting
+[9]: Watched OPEDs
+[10]: Watched FL 2+8s
+[11]: Watched FL 5s
+[12]: Watched -2009
+[13]: Random OPs
+[14]: Random EDs
+[15]: Random INs
+[16]: Random OPEDs
+[17]: Random Chanting
+[18]: Other Random
+[19]: Other Watched
+[20]: Brute-force
 """
 
     if not is_local:
-        txtvar += "[19]: Masquerade\n"
+        txtvar += "[21]: Masquerade\n"
+    txtvar += "[a]: Eru Mode (append a to a mode, for example 1a)\n"
 
     print(txtvar)
     is_list = False
     is_other = False
     brute_force = False
     masquerade_mode = False
+    eru_mode = False
     masquerade_name_by_player = {}
     masquerade_mapping = {}
     server_average_mode = "random_fl"
     tour_type_label = "Random FL"
     while True:
         try:
-            gamemode = input("Select game mode [#]:")
+            selection = str(selection).strip() if selection is not None else input("Select game mode [#]:").strip()
+            eru_mode = selection.casefold().endswith("a")
+            gamemode = selection[:-1].strip() if eru_mode else selection
         except (ValueError, IndexError):
             print("Please input a valid choice")
         break
@@ -147,93 +169,107 @@ def run_ngm_sheet_stats(is_local):
             tour_type_label = "Watched FL"
             orderToSheet.extend(watchedColumns)
         case "3":
+            gamemode = MAIN_SHEET_WATCHED_0100_FL
+            sendToSheet = gamemode
+            is_list = True
+            server_average_mode = "watched_0100_fl"
+            tour_type_label = "Watched 0-100 FL"
+            orderToSheet.extend(watchedColumns)
+        case "4":
             gamemode = "Watched OP"
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_op"
             tour_type_label = "Watched OP"
             orderToSheet.extend(watchedColumns)
-        case "4":
+        case "5":
+            gamemode = MAIN_SHEET_WATCHED_OP_0100
+            sendToSheet = gamemode
+            is_list = True
+            server_average_mode = "watched_op_0100"
+            tour_type_label = "Watched OP 0-100"
+            orderToSheet.extend(watchedColumns)
+        case "6":
             gamemode = MAIN_SHEET_WATCHED_EDS
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_ed"
             tour_type_label = "Watched ED"
             orderToSheet.extend(watchedColumns)
-        case "5":
+        case "7":
             gamemode = MAIN_SHEET_WATCHED_INS
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_in"
             tour_type_label = "Watched IN"
             orderToSheet.extend(watchedColumns)
-        case "6":
+        case "8":
             gamemode = "Watched IN (-chanting)"
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_in_no_chanting"
             tour_type_label = "Watched IN (-chanting)"
             orderToSheet.extend(watchedColumns)
-        case "7":
+        case "9":
             gamemode = MAIN_SHEET_WATCHED_OPEDS
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_oped"
             tour_type_label = "Watched OPED"
             orderToSheet.extend(watchedColumns)
-        case "8":
+        case "10":
             gamemode = MAIN_SHEET_SPEED
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_fl_speed"
             tour_type_label = "Watched FL 2+8s"
             orderToSheet.extend(watchedColumns)
-        case "9":
+        case "11":
             gamemode = MAIN_SHEET_5S
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_fl_5s"
             tour_type_label = "Watched FL 5s"
             orderToSheet.extend(watchedColumns)
-        case "10":
+        case "12":
             gamemode = "Watched -2009"
             sendToSheet = gamemode
             is_list = True
             server_average_mode = "watched_pre_2009"
             tour_type_label = "Watched -2009"
             orderToSheet.extend(watchedColumns)
-        case "11":
+        case "13":
             gamemode = MAIN_SHEET_OPS
             sendToSheet = gamemode
             server_average_mode = "random_op"
             tour_type_label = "Random OP"
-        case "12":
+        case "14":
             gamemode = MAIN_SHEET_EDS
             sendToSheet = gamemode
             server_average_mode = "random_ed"
             tour_type_label = "Random ED"
-        case "13":
+        case "15":
             gamemode = MAIN_SHEET_INS
             sendToSheet = gamemode
             server_average_mode = "random_in"
             tour_type_label = "Random IN"
-        case "14":
+        case "16":
             gamemode = MAIN_SHEET_OPEDS
             sendToSheet = gamemode
             server_average_mode = "random_oped"
             tour_type_label = "Random OPED"
-        case "15":
+        case "17":
             gamemode = "Random Chanting"
             sendToSheet = gamemode
             server_average_mode = "random_chanting"
             tour_type_label = "Random Chanting"
-        case "16":
+        case "18":
             gamemode = MAIN_SHEET_RANDOM
             sendToSheet = MAIN_SHEET_OTHER
             is_other = True
             server_average_mode = "random_fl"
             tour_type_label = "Other Random"
-        case "17":
+        case "19":
             gamemode = MAIN_SHEET_WATCHED
             sendToSheet = MAIN_SHEET_OTHER
             is_list = True
@@ -241,9 +277,9 @@ def run_ngm_sheet_stats(is_local):
             server_average_mode = "watched_fl"
             tour_type_label = "Other Watched"
             orderToSheet.extend(watchedColumns)
-        case "18":
+        case "20":
             brute_force = True
-        case "19":
+        case "21":
             if is_local:
                 print("Masquerade mode requires Challonge and is only available through ngm_stats.py.")
                 _ = input('\npress enter to close')
@@ -253,6 +289,20 @@ def run_ngm_sheet_stats(is_local):
             sendToSheet = gamemode
             server_average_mode = "random_fl"
             tour_type_label = "Masquerade"
+
+    if eru_mode:
+        if brute_force or masquerade_mode:
+            common_error(
+                "Eru Mode is not available for this selection.",
+                ["Choose one of the regular Random or Watched modes, then add 'a' to its number."],
+                ["For example, enter 1a for Random FL Eru Mode or 2a for Watched FL Eru Mode."],
+            )
+        is_other = True
+        sendToSheet = MAIN_SHEET_OTHER
+        tour_type_label = "Other Watched" if is_list else "Other Random"
+        if "Lives saved" in orderToSheet:
+            orderToSheet.remove("Lives saved")
+        print(f"Eru Mode enabled: results will be sent to {tour_type_label}.")
 
     if brute_force:
         run_bruteforce_stats(DIRECTORY, JSONS, TEAMS, TEAMS_RE, REGEX)
@@ -265,7 +315,9 @@ def run_ngm_sheet_stats(is_local):
     preflight_json_files(JSONS, REGEX)
 
     sheet_context = load_sheet_context(
-        directory=DIRECTORY,
+        # A Host Script session stores only codes and uploaded JSONs.  The
+        # shared stats root owns its credentials and sheet helper assets.
+        directory=STATS_ROOT,
         sheet_id=NGM_STATS_SHEET_ID,
         worksheet_ref=gamemode,
         is_list=is_list,
@@ -372,7 +424,7 @@ def run_ngm_sheet_stats(is_local):
     playerDB.build_lookups()
     USEFULNESS = Usefulness(TEAM_SIZE, TEAM_AVG)
 
-    # W-L-T is Challonge-derived and intentionally unavailable in local mode.
+    # W-L-T is normally Challonge-derived. The Host Script can supply local scores.
     data = {"matches_by_round": {}}
     if not is_local:
         if not html:
@@ -443,21 +495,54 @@ def run_ngm_sheet_stats(is_local):
                             ],
                         )
 
-    # Handle sub placement
+    # The Host Script supplies each substitute's team from Elos/Subs. This
+    # replaces the standalone script's old terminal question.
     if teamDB.subs:
-        print("Subs have been found. Please assign to correct team:")
+        assignments = {
+            normalize_player_name(name): normalize_player_name(team_label)
+            for name, team_label in (substitute_team_labels or {}).items()
+        }
+        unresolved = []
         for sub in teamDB.subs:
-            print(f"Which of the following teams did {sub.name} sub for?")
-            options = (teamDB.teams)
-            for i, team in enumerate(options, start=1):
-                print(f"[{i}] {team.team_string}")
-            while True:
-                try:
-                    num_choice = int(input("Choice: "))
-                except (ValueError, IndexError):
-                    print("Please input a valid choice")
-                options[num_choice-1].add_sub(sub)
-                break
+            team_label = assignments.get(normalize_player_name(sub.name))
+            team = next(
+                (
+                    candidate for candidate in teamDB.teams
+                    if re.findall(TEAMS_RE, candidate.team_string)
+                    and normalize_player_name(re.findall(TEAMS_RE, candidate.team_string)[0][0]) == team_label
+                ),
+                None,
+            )
+            if team is None:
+                unresolved.append(sub.name)
+            else:
+                team.add_sub(sub)
+        teamDB.subs = []
+        if unresolved:
+            raise ValueError(
+                "Assign each substitute in Elos / Subs before generating stats: "
+                + ", ".join(unresolved)
+            )
+
+    if is_local and local_scores:
+        for score in local_scores:
+            team1_anchor = str(score.get("team1", "")).strip()
+            team2_anchor = str(score.get("team2", "")).strip()
+            if not team1_anchor or not team2_anchor:
+                continue
+            player1 = playerDB.lookup_player_name(team1_anchor)
+            player2 = playerDB.lookup_player_name(team2_anchor)
+            team1 = teamDB.get_team_by_player(player1) if player1 else None
+            team2 = teamDB.get_team_by_player(player2) if player2 else None
+            if team1 is None or team2 is None or team1 is team2:
+                raise ValueError(f"Could not match local score teams: {team1_anchor} vs {team2_anchor}.")
+            score1, score2 = int(score["score1"]), int(score["score2"])
+            result1 = "WIN" if score1 > score2 else "LOSE" if score1 < score2 else "TIE"
+            result2 = {"WIN": "LOSE", "LOSE": "WIN", "TIE": "TIE"}[result1]
+            for player in team1.players + team1.subs:
+                player.add(result1)
+            for player in team2.players + team2.subs:
+                player.add(result2)
 
     preflight_json_files(JSONS, REGEX, teamDB, playerDB, alias_to_id, id_to_aliases, masquerade_mapping)
 
@@ -467,10 +552,11 @@ def run_ngm_sheet_stats(is_local):
     for file_name in sorted(os.listdir(JSONS)):
         if not file_name.lower().endswith(".json"):
             continue
-        if file_name.startswith('amq_song_export'):
+        source_name = file_name.split(" [game-", 1)[0]
+        if source_name.startswith('amq_song_export'):
             songs_played = None
         else:
-            reg_match = re.search(REGEX, file_name)
+            reg_match = re.search(REGEX, source_name)
             if reg_match is None:
                 songs_played = None
             else:
@@ -667,13 +753,16 @@ def run_ngm_sheet_stats(is_local):
 
             team_ids = [p.player_team for p in game_song.playerHit]
 
-            # If your name is the only one from your team, you saved a life
-            lifesavers = [p for p in game_song.playerHit if team_ids.count(p.player_team) == 1 and num_hitters > 1]
-            for p in lifesavers:
-                p.add("livesSaved")
+            if eru_mode:
+                lifetakers = get_eru_life_takers(game, game_song, teamDB)
+            else:
+                # If your name is the only one from your team, you saved a life
+                lifesavers = [p for p in game_song.playerHit if team_ids.count(p.player_team) == 1 and num_hitters > 1]
+                for p in lifesavers:
+                    p.add("livesSaved")
 
-            # If nobody on the enemy team blocked, everyone took a life
-            lifetakers = [p for p in game_song.playerHit if len(set(team_ids)) == 1]
+                # If nobody on the enemy team blocked, everyone took a life
+                lifetakers = [p for p in game_song.playerHit if len(set(team_ids)) == 1]
             for p in lifetakers:
                 p.add("livesTaken")
 
@@ -800,6 +889,8 @@ def run_ngm_sheet_stats(is_local):
         df_players["Masq name"] = df_players["Player name"].apply(
             lambda name: masquerade_name_by_player.get(name, masquerade_names_by_key.get(str(name).casefold(), ""))
         )
+    if "Total hit" in df_players.columns and "Rigs hit" in df_players.columns:
+        df_players["Offlist hit"] = df_players["Total hit"] - df_players["Rigs hit"]
     order = [ 
         "Rank", 
         "Player name", 
@@ -846,6 +937,7 @@ def run_ngm_sheet_stats(is_local):
         "Rigs hit",
         "Rigs missed",
         "Lives lost on rigs",
+        "Offlist hit",
         "Offlist erigs",
         "avg/8 of your rigs",
         "Avg vintage rig"
@@ -865,8 +957,10 @@ def run_ngm_sheet_stats(is_local):
             detected_song_types.add("IN")
 
     selected_song_types = {
+        "watched_0100_fl": {"OP", "ED", "IN"},
         "watched_in": {"IN"},
         "watched_op": {"OP"},
+        "watched_op_0100": {"OP"},
         "watched_oped": {"OP", "ED"},
         "watched_in_no_chanting": {"IN"},
         "watched_ed": {"ED"},
@@ -929,6 +1023,8 @@ def run_ngm_sheet_stats(is_local):
         "Onlist",
         "Offlist",
     ])
+    if eru_mode:
+        finalOrder1.remove("Lives saved")
 
     finalOrder2 = mode_columns([
         "Rank", 
@@ -953,7 +1049,7 @@ def run_ngm_sheet_stats(is_local):
         "Avg answer time",
         "W-L-T",
     ])
-    if is_local:
+    if is_local and not local_scores:
         finalOrder2.remove("W-L-T")
 
     finalOrder3 = [
@@ -968,6 +1064,7 @@ def run_ngm_sheet_stats(is_local):
         "Solo rigs",
         "Missed solos",
         "Lives lost on rigs",
+        "Offlist hit",
         "Offlist erigs",
         "avg/8 of your rigs",
         "Avg vintage rig"
@@ -995,6 +1092,23 @@ def run_ngm_sheet_stats(is_local):
     final_df1 = df_players_adj[finalOrder1]
     final_df2 = df_players_adj[finalOrder2]
     final_df3 = df_players_adj[finalOrder3]
+    if is_list:
+        final_df1 = final_df1.copy()
+
+        def watched_rate_with_count(rate, count):
+            count_text = str(int(count)) if pd.notna(count) else "0"
+            return f"{rate} ({count_text})"
+
+        if "Onlist" in final_df1.columns and "Rigs hit" in df_players_adj.columns:
+            final_df1["Onlist"] = [
+                watched_rate_with_count(rate, count)
+                for rate, count in zip(final_df1["Onlist"], df_players_adj["Rigs hit"])
+            ]
+        if "Offlist" in final_df1.columns and "Offlist hit" in df_players_adj.columns:
+            final_df1["Offlist"] = [
+                watched_rate_with_count(rate, count)
+                for rate, count in zip(final_df1["Offlist"], df_players_adj["Offlist hit"])
+            ]
 
     # Song statistics
     current_dir = os.getcwd()
@@ -1003,6 +1117,7 @@ def run_ngm_sheet_stats(is_local):
         songDB.post_process()
     finally:
         os.chdir(current_dir)
+    song_stats_path = os.path.join(DIRECTORY, "Stats Songs.png")
     saveSongStats(songDB=songDB, path=DIRECTORY, filename="Stats Songs.png")
 
     # Save to sheet
@@ -1058,19 +1173,46 @@ def run_ngm_sheet_stats(is_local):
     print(f"Stats about delta saved at {path2}")
 
     if is_list:
-        exclude_columns = ["Rank"]
-        separators = [name_separator, "Offlist", "Rigs Missed", "Offlist erigs"]
+        exclude_columns = ["Rank", "Offlist erigs"]
+        separators = [name_separator, "Offlist", "Rigs missed", "Offlist hit"]
         additional_reverse = ["avg/8 of your rigs"]
         reverse_columns.extend(additional_reverse)
         path3 = os.path.join(DIRECTORY, "Stats3 - Watched Exclusive.png")
         df_to_png(df=final_df3, path=DIRECTORY, filename="Stats3 - Watched Exclusive.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
         print(f"Stats about watched saved at {path3}")
 
-    if not masquerade_mode:
-        export_extra_stats_screenshot(server_average_mode, gc=gc, teamDB=teamDB)
+    extra_stats_path = None
+    if not masquerade_mode and include_extra_stats:
+        eru_lives_taken = None
+        if eru_mode:
+            eru_lives_taken = {
+                p.name: p.livesTaken
+                for team in teamDB.teams
+                for p in team.players + team.subs
+            }
+        extra_stats_path = export_extra_stats_screenshot(
+            server_average_mode,
+            gc=gc,
+            teamDB=teamDB,
+            eru_lives_taken=eru_lives_taken,
+            workspace_dir=DIRECTORY,
+            codes_path=TEAMS,
+        )
 
     if wks_send is not None:
         print(f"{wks_send.url}?range={len_send + 2}:{len_send + 2}")
+    if return_data:
+        image_paths = [path, path2, song_stats_path]
+        if is_list:
+            image_paths.append(path3)
+        if extra_stats_path:
+            image_paths.append(extra_stats_path)
+        return {
+            "players": df_players_adj,
+            "images": image_paths,
+            "tour_type": tour_type_label,
+            "eru_mode": eru_mode,
+        }
     _ = input('\npress enter to close')
 
 

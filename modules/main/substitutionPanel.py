@@ -133,6 +133,35 @@ class SubstitutionPanel:
             players.extend(team.get("players", []))
         return players
 
+    def stats_team_aliases(self, tour=None, snapshot=None):
+        """Map active substitutes to the team of the player they replace."""
+        snapshot = snapshot or self.load_snapshot(tour or self.get_tour())
+        if not snapshot:
+            return {}
+        team_by_player = {
+            self.normalize_key(player["name"]): team_id
+            for team_id, team in snapshot.get("teams", {}).items()
+            for player in team.get("players", [])
+        }
+        aliases = {}
+        for row in self.rows:
+            player_out = self.resolve_player(row["player_out"])
+            substitute = self.resolve_player(row["substitute"])
+            team_id = team_by_player.get(self.normalize_key(player_out or ""))
+            if substitute and team_id:
+                aliases[self.normalize_key(substitute)] = team_id
+        return aliases
+
+    def stats_substitute_players(self):
+        """Return the active substitutes in the codes.txt format's data shape."""
+        players = {}
+        for row in self.rows:
+            substitute = self.resolve_player(row["substitute"])
+            rating = self.elos.get(substitute) if substitute else None
+            if substitute and rating is not None:
+                players[self.normalize_key(substitute)] = (substitute, float(rating))
+        return list(players.values())
+
     def default_round_count(self, snapshot):
         player_count = len(self.team_players(snapshot))
         if player_count >= 24:
