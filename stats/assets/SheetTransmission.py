@@ -54,6 +54,8 @@ JSON_FILE_NAME_COLUMN_INDEX = 3
 JSON_CODES_COLUMN_INDEX = 41
 JSON_DATA_COLUMN_FIELDS = [field for field in JSON_DATA_FIELDS if field != "codesText"]
 JSON_PACKED_COLUMN_LABELS = ["songLabel"] + JSON_DATA_COLUMN_FIELDS
+JSON_TRAILING_PACKED_COLUMN_FIELDS = ["samplePoint"]
+JSON_ALL_PACKED_COLUMN_LABELS = JSON_PACKED_COLUMN_LABELS + JSON_TRAILING_PACKED_COLUMN_FIELDS
 JSON_CELL_TEXT_LIMIT = 40000
 
 NGM_STATS_SHEET_NAME = "NGM Stats Export v2"
@@ -63,7 +65,9 @@ SHEET_PLAYER_IDS = 1903970832
 SERVER_AVERAGE_SHEET_CANDIDATES = {
     "random_fl": ("Random FL (usual)",),
     "watched_fl": ("Watched FL",),
+    "watched_0100_fl": ("Watched 0-100 FL", "Watched FL 0-100"),
     "watched_op": ("Watched OP",),
+    "watched_op_0100": ("Watched OP 0-100", "Watched 0-100 OP"),
     "watched_oped": ("Watched OPED",),
     "watched_in": ("Watched IN",),
     "watched_in_no_chanting": ("Watched IN (-chanting)",),
@@ -128,6 +132,21 @@ def get_nested_json_value(data, path):
     return value
 
 
+def get_sample_point_value(song):
+    for field in (
+        "samplePoint",
+        "sample_point",
+        "startPoint",
+        "start_point",
+        "songInfo.samplePoint",
+        "songInfo.sample_point",
+    ):
+        value = get_nested_json_value(song, field)
+        if value != "":
+            return value
+    return ""
+
+
 def normalized_name_for_log(name):
     return str(name).strip().casefold()
 
@@ -182,6 +201,7 @@ def compact_json_song_record(song_label, song, game_player_names, alias_to_id):
         if field == "codesText":
             continue
         song_record[field] = value
+    song_record["samplePoint"] = get_sample_point_value(song)
     return song_record
 
 
@@ -199,12 +219,16 @@ def build_packed_column_cells(song_records):
         packed_cells.append(
             packed_json_cell([song_record.get(field, "") for song_record in song_records])
         )
+    for field in JSON_TRAILING_PACKED_COLUMN_FIELDS:
+        packed_cells.append(
+            packed_json_cell([song_record.get(field, "") for song_record in song_records])
+        )
     return packed_cells
 
 
 def overflowing_packed_columns(packed_cells):
     return [
-        label for label, cell in zip(JSON_PACKED_COLUMN_LABELS, packed_cells)
+        label for label, cell in zip(JSON_ALL_PACKED_COLUMN_LABELS, packed_cells)
         if len(cell) > JSON_CELL_TEXT_LIMIT
     ]
 
@@ -260,9 +284,12 @@ def build_compact_json_rows(tour_type, export_time, raw_json_songs, alias_to_id,
     compact_rows = []
     for file_name, song_records in songs_by_file.items():
         for packed_cells in split_song_records_for_sheet(song_records, file_name, tour_type, export_time):
-            compact_row = [tour_type, export_time, packed_cells[0], file_name]
-            compact_row.extend(packed_cells[1:])
+            trailing_cells = packed_cells[-len(JSON_TRAILING_PACKED_COLUMN_FIELDS):]
+            data_cells = packed_cells[:-len(JSON_TRAILING_PACKED_COLUMN_FIELDS)]
+            compact_row = [tour_type, export_time, data_cells[0], file_name]
+            compact_row.extend(data_cells[1:])
             compact_row.append(codes_text)
+            compact_row.extend(trailing_cells)
             compact_rows.append(compact_row)
     return compact_rows
 
@@ -472,4 +499,3 @@ def sync_chanting_ids_file(gc, assets_dir):
     with open(os.path.join(assets_dir, "chanting.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(sorted(chanting_ids)))
     return chanting_ids
-

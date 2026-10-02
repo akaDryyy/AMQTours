@@ -226,16 +226,35 @@ def df_to_png(df, path, filename="table.png", reverse_cols=None, exclude_columns
         html += f"<th>{col}</th>"
     html += "</tr></thead><tbody>"
 
-    # Precompute numeric min/max per column
-    numeric_cols = df.select_dtypes(include=["number"]).columns
+    # Precompute numeric min/max per column. Some screenshot-only values include
+    # extra context, such as "90.0 (12)", so color those by the leading number.
+    numeric_cols = list(df.select_dtypes(include=["number"]).columns)
+    numeric_values = {
+        col: pd.to_numeric(df[col], errors="coerce")
+        for col in numeric_cols
+    }
+    for col in df.columns:
+        if col in numeric_values:
+            continue
+        text_values = df[col].astype(str)
+        if not text_values.str.contains(r"\(").any():
+            continue
+        parsed_values = pd.to_numeric(
+            text_values.str.extract(r"^\s*(-?\d+(?:\.\d+)?)", expand=False),
+            errors="coerce",
+        )
+        if parsed_values.notna().any():
+            numeric_cols.append(col)
+            numeric_values[col] = parsed_values
     if exclude_columns:
         numeric_cols = [c for c in numeric_cols if c not in exclude_columns]
+        numeric_values = {c: values for c, values in numeric_values.items() if c in numeric_cols}
 
     top3 = {}
     bottom3 = {}
 
     for col in numeric_cols:
-        sorted_vals = df[col].sort_values()
+        sorted_vals = numeric_values[col].dropna().sort_values()
 
         bottom3[col] = set(sorted_vals.head(3).values)
 
@@ -249,7 +268,7 @@ def df_to_png(df, path, filename="table.png", reverse_cols=None, exclude_columns
 
             if col in numeric_cols:
                 try:
-                    val_num = float(val)
+                    val_num = float(numeric_values[col].loc[row.name])
 
                     if col in reverse_cols:
                         if val_num in bottom3[col]:
