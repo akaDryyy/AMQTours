@@ -27,11 +27,25 @@ except ImportError:
     Image = None
 
 
-def run_ngm_sheet_stats(is_local):
-    DIRECTORY = os.path.dirname(os.path.abspath(__file__))
-    ASSETS = os.path.join(DIRECTORY, "assets")
+def run_ngm_sheet_stats(
+    is_local,
+    *,
+    selection=None,
+    workspace_dir=None,
+    codes_path=None,
+    local_scores=None,
+    substitute_team_labels=None,
+    return_data=False,
+    include_extra_stats=None,
+):
+    """Run the stats generator interactively or from the Host Script's local workspace."""
+    STATS_ROOT = os.path.dirname(os.path.abspath(__file__))
+    if include_extra_stats is None:
+        include_extra_stats = not is_local
+    DIRECTORY = os.path.abspath(workspace_dir) if workspace_dir else STATS_ROOT
+    ASSETS = os.path.join(STATS_ROOT, "assets")
     JSONS = os.path.join(DIRECTORY, "jsons")
-    TEAMS = find_codes_path(DIRECTORY)
+    TEAMS = codes_path or find_codes_path(DIRECTORY)
     TEAMS_RE = r"(\S+)\s*\((-?[\d.]+)\)"
     REGEX = r"\D*(\d{1,2})\s*(\(.*?\))?\.json$"
     os.makedirs(ASSETS, exist_ok=True)
@@ -121,19 +135,23 @@ def run_ngm_sheet_stats(is_local):
 
     if not is_local:
         txtvar += "[21]: Masquerade\n"
+    txtvar += "[a]: Eru Mode (append a to a mode, for example 1a)\n"
 
     print(txtvar)
     is_list = False
     is_other = False
     brute_force = False
     masquerade_mode = False
+    eru_mode = False
     masquerade_name_by_player = {}
     masquerade_mapping = {}
     server_average_mode = "random_fl"
     tour_type_label = "Random FL"
     while True:
         try:
-            gamemode = input("Select game mode [#]:")
+            selection = str(selection).strip() if selection is not None else input("Select game mode [#]:").strip()
+            eru_mode = selection.casefold().endswith("a")
+            gamemode = selection[:-1].strip() if eru_mode else selection
         except (ValueError, IndexError):
             print("Please input a valid choice")
         break
@@ -272,6 +290,20 @@ def run_ngm_sheet_stats(is_local):
             server_average_mode = "random_fl"
             tour_type_label = "Masquerade"
 
+    if eru_mode:
+        if brute_force or masquerade_mode:
+            common_error(
+                "Eru Mode is not available for this selection.",
+                ["Choose one of the regular Random or Watched modes, then add 'a' to its number."],
+                ["For example, enter 1a for Random FL Eru Mode or 2a for Watched FL Eru Mode."],
+            )
+        is_other = True
+        sendToSheet = MAIN_SHEET_OTHER
+        tour_type_label = "Other Watched" if is_list else "Other Random"
+        if "Lives saved" in orderToSheet:
+            orderToSheet.remove("Lives saved")
+        print(f"Eru Mode enabled: results will be sent to {tour_type_label}.")
+
     if brute_force:
         run_bruteforce_stats(DIRECTORY, JSONS, TEAMS, TEAMS_RE, REGEX)
         _ = input('\npress enter to close')
@@ -283,7 +315,9 @@ def run_ngm_sheet_stats(is_local):
     preflight_json_files(JSONS, REGEX)
 
     sheet_context = load_sheet_context(
-        directory=DIRECTORY,
+        # A Host Script session stores only codes and uploaded JSONs.  The
+        # shared stats root owns its credentials and sheet helper assets.
+        directory=STATS_ROOT,
         sheet_id=NGM_STATS_SHEET_ID,
         worksheet_ref=gamemode,
         is_list=is_list,
@@ -390,7 +424,7 @@ def run_ngm_sheet_stats(is_local):
     playerDB.build_lookups()
     USEFULNESS = Usefulness(TEAM_SIZE, TEAM_AVG)
 
-    # W-L-T is Challonge-derived and intentionally unavailable in local mode.
+    # W-L-T is normally Challonge-derived. The Host Script can supply local scores.
     data = {"matches_by_round": {}}
     if not is_local:
         if not html:
@@ -461,21 +495,54 @@ def run_ngm_sheet_stats(is_local):
                             ],
                         )
 
-    # Handle sub placement
+    # The Host Script supplies each substitute's team from Elos/Subs. This
+    # replaces the standalone script's old terminal question.
     if teamDB.subs:
-        print("Subs have been found. Please assign to correct team:")
+        assignments = {
+            normalize_player_name(name): normalize_player_name(team_label)
+            for name, team_label in (substitute_team_labels or {}).items()
+        }
+        unresolved = []
         for sub in teamDB.subs:
-            print(f"Which of the following teams did {sub.name} sub for?")
-            options = (teamDB.teams)
-            for i, team in enumerate(options, start=1):
-                print(f"[{i}] {team.team_string}")
-            while True:
-                try:
-                    num_choice = int(input("Choice: "))
-                except (ValueError, IndexError):
-                    print("Please input a valid choice")
-                options[num_choice-1].add_sub(sub)
-                break
+            team_label = assignments.get(normalize_player_name(sub.name))
+            team = next(
+                (
+                    candidate for candidate in teamDB.teams
+                    if re.findall(TEAMS_RE, candidate.team_string)
+                    and normalize_player_name(re.findall(TEAMS_RE, candidate.team_string)[0][0]) == team_label
+                ),
+                None,
+            )
+            if team is None:
+                unresolved.append(sub.name)
+            else:
+                team.add_sub(sub)
+        teamDB.subs = []
+        if unresolved:
+            raise ValueError(
+                "Assign each substitute in Elos / Subs before generating stats: "
+                + ", ".join(unresolved)
+            )
+
+    if is_local and local_scores:
+        for score in local_scores:
+            team1_anchor = str(score.get("team1", "")).strip()
+            team2_anchor = str(score.get("team2", "")).strip()
+            if not team1_anchor or not team2_anchor:
+                continue
+            player1 = playerDB.lookup_player_name(team1_anchor)
+            player2 = playerDB.lookup_player_name(team2_anchor)
+            team1 = teamDB.get_team_by_player(player1) if player1 else None
+            team2 = teamDB.get_team_by_player(player2) if player2 else None
+            if team1 is None or team2 is None or team1 is team2:
+                raise ValueError(f"Could not match local score teams: {team1_anchor} vs {team2_anchor}.")
+            score1, score2 = int(score["score1"]), int(score["score2"])
+            result1 = "WIN" if score1 > score2 else "LOSE" if score1 < score2 else "TIE"
+            result2 = {"WIN": "LOSE", "LOSE": "WIN", "TIE": "TIE"}[result1]
+            for player in team1.players + team1.subs:
+                player.add(result1)
+            for player in team2.players + team2.subs:
+                player.add(result2)
 
     preflight_json_files(JSONS, REGEX, teamDB, playerDB, alias_to_id, id_to_aliases, masquerade_mapping)
 
@@ -485,10 +552,11 @@ def run_ngm_sheet_stats(is_local):
     for file_name in sorted(os.listdir(JSONS)):
         if not file_name.lower().endswith(".json"):
             continue
-        if file_name.startswith('amq_song_export'):
+        source_name = file_name.split(" [game-", 1)[0]
+        if source_name.startswith('amq_song_export'):
             songs_played = None
         else:
-            reg_match = re.search(REGEX, file_name)
+            reg_match = re.search(REGEX, source_name)
             if reg_match is None:
                 songs_played = None
             else:
@@ -685,13 +753,16 @@ def run_ngm_sheet_stats(is_local):
 
             team_ids = [p.player_team for p in game_song.playerHit]
 
-            # If your name is the only one from your team, you saved a life
-            lifesavers = [p for p in game_song.playerHit if team_ids.count(p.player_team) == 1 and num_hitters > 1]
-            for p in lifesavers:
-                p.add("livesSaved")
+            if eru_mode:
+                lifetakers = get_eru_life_takers(game, game_song, teamDB)
+            else:
+                # If your name is the only one from your team, you saved a life
+                lifesavers = [p for p in game_song.playerHit if team_ids.count(p.player_team) == 1 and num_hitters > 1]
+                for p in lifesavers:
+                    p.add("livesSaved")
 
-            # If nobody on the enemy team blocked, everyone took a life
-            lifetakers = [p for p in game_song.playerHit if len(set(team_ids)) == 1]
+                # If nobody on the enemy team blocked, everyone took a life
+                lifetakers = [p for p in game_song.playerHit if len(set(team_ids)) == 1]
             for p in lifetakers:
                 p.add("livesTaken")
 
@@ -952,6 +1023,8 @@ def run_ngm_sheet_stats(is_local):
         "Onlist",
         "Offlist",
     ])
+    if eru_mode:
+        finalOrder1.remove("Lives saved")
 
     finalOrder2 = mode_columns([
         "Rank", 
@@ -976,7 +1049,7 @@ def run_ngm_sheet_stats(is_local):
         "Avg answer time",
         "W-L-T",
     ])
-    if is_local:
+    if is_local and not local_scores:
         finalOrder2.remove("W-L-T")
 
     finalOrder3 = [
@@ -1044,6 +1117,7 @@ def run_ngm_sheet_stats(is_local):
         songDB.post_process()
     finally:
         os.chdir(current_dir)
+    song_stats_path = os.path.join(DIRECTORY, "Stats Songs.png")
     saveSongStats(songDB=songDB, path=DIRECTORY, filename="Stats Songs.png")
 
     # Save to sheet
@@ -1107,11 +1181,38 @@ def run_ngm_sheet_stats(is_local):
         df_to_png(df=final_df3, path=DIRECTORY, filename="Stats3 - Watched Exclusive.png", reverse_cols=reverse_columns, exclude_columns=exclude_columns, separators=separators)
         print(f"Stats about watched saved at {path3}")
 
-    if not masquerade_mode:
-        export_extra_stats_screenshot(server_average_mode, gc=gc, teamDB=teamDB)
+    extra_stats_path = None
+    if not masquerade_mode and include_extra_stats:
+        eru_lives_taken = None
+        if eru_mode:
+            eru_lives_taken = {
+                p.name: p.livesTaken
+                for team in teamDB.teams
+                for p in team.players + team.subs
+            }
+        extra_stats_path = export_extra_stats_screenshot(
+            server_average_mode,
+            gc=gc,
+            teamDB=teamDB,
+            eru_lives_taken=eru_lives_taken,
+            workspace_dir=DIRECTORY,
+            codes_path=TEAMS,
+        )
 
     if wks_send is not None:
         print(f"{wks_send.url}?range={len_send + 2}:{len_send + 2}")
+    if return_data:
+        image_paths = [path, path2, song_stats_path]
+        if is_list:
+            image_paths.append(path3)
+        if extra_stats_path:
+            image_paths.append(extra_stats_path)
+        return {
+            "players": df_players_adj,
+            "images": image_paths,
+            "tour_type": tour_type_label,
+            "eru_mode": eru_mode,
+        }
     _ = input('\npress enter to close')
 
 

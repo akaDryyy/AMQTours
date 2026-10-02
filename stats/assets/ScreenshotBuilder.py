@@ -579,10 +579,19 @@ class ManualMatchDialog(tk.Toplevel):
         if sel: self.result = self.listbox.get(sel[0]); self.destroy()
 
 
-def export_extra_stats_screenshot(server_average_mode, gc=None, ask_cleanup=False, teamDB=None):
+def export_extra_stats_screenshot(
+    server_average_mode,
+    gc=None,
+    ask_cleanup=False,
+    teamDB=None,
+    eru_lives_taken=None,
+    workspace_dir=None,
+    codes_path=None,
+):
     script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     assets_dir = os.path.join(script_dir, "assets")
-    json_dir = os.path.join(script_dir, "jsons")
+    output_dir = workspace_dir or script_dir
+    json_dir = os.path.join(output_dir, "jsons")
     os.makedirs(assets_dir, exist_ok=True)
     if tk._default_root is None:
         root = tk.Tk()
@@ -629,7 +638,7 @@ def export_extra_stats_screenshot(server_average_mode, gc=None, ask_cleanup=Fals
     chanting_ids = load_chanting_ids(gc)
     alias_to_id, id_to_aliases = load_player_aliases(gc)
 
-    codes_path = find_codes_path(script_dir)
+    codes_path = codes_path or find_codes_path(script_dir)
     codes_valid = False
     if os.path.exists(codes_path):
         with open(codes_path, "r", encoding="utf-8") as f:
@@ -844,6 +853,14 @@ def export_extra_stats_screenshot(server_average_mode, gc=None, ask_cleanup=Fals
             song_participation[name] += max_songs
             for t in [1, 2, 3]: player_type_seen[name][t] += type_totals_this_file[t]
 
+    if eru_lives_taken is not None:
+        normalized_eru_points = {
+            normalize_player_name(name): value
+            for name, value in eru_lives_taken.items()
+        }
+        for name in song_participation:
+            player_points[name] = normalized_eru_points.get(normalize_player_name(name), 0)
+
     p_rows = []
     for name in song_participation:
         total, correct = song_participation[name], correct_counts[name]
@@ -978,7 +995,7 @@ def export_extra_stats_screenshot(server_average_mode, gc=None, ask_cleanup=Fals
     image_name = "Stats4.png"
     image_status = f"Extra stats image exported to {image_name}."
     try:
-        save_extra_stats_image(extra_image_data, script_dir, image_name)
+        save_extra_stats_image(extra_image_data, output_dir, image_name)
     except Exception as exc:
         image_status = f"Extra stats image could not be exported: {exc}"
         print(image_status)
@@ -992,5 +1009,5 @@ def export_extra_stats_screenshot(server_average_mode, gc=None, ask_cleanup=Fals
             except Exception:
                 pass
         messagebox.showinfo("Cleanup", "JSON files deleted.")
-    return os.path.join(script_dir, image_name)
+    return os.path.join(output_dir, image_name)
 

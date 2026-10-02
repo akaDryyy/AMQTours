@@ -36,6 +36,7 @@ from modules.support.hostGuess import ERU_RATE_OPTIONS, MissingGuessRatesError, 
 from modules.support.playerRatings import MissingRatingsError, normalize_alias_key, resolve_player_ratings
 from modules.main.substitutionPanel import SubstitutionPanel
 from modules.main.hostUpdater import HostScriptUpdater
+from modules.main.statsIntegration import StatsPanel
 from tour_config import TOURS
 
 
@@ -66,6 +67,7 @@ class AMQTourUI(tk.Tk):
         self.pending_manual_ratings: dict[str, float] = {}
         self.guess_rate_vars: dict[str, tk.StringVar] = {}
         self.pending_manual_guess_rates: dict[str, float] = {}
+        self.stats_newly_rated_players: set[str] = set()
         self.rank_check_generation = 0
         self.startup_eloscrape_done = threading.Event()
         self.startup_eloscrape_running = False
@@ -156,6 +158,15 @@ class AMQTourUI(tk.Tk):
         self.style.configure("TEntry", fieldbackground=self.colors["field"], foreground=self.colors["text"], bordercolor=self.colors["border"])
         self.style.configure("TCombobox", fieldbackground=self.colors["field"], foreground=self.colors["text"], background=self.colors["button"], bordercolor=self.colors["border"], arrowcolor=self.colors["text"])
         self.style.configure("TSpinbox", fieldbackground=self.colors["field"], foreground=self.colors["text"], bordercolor=self.colors["border"])
+        self.style.configure(
+            "Stats.TLabelframe",
+            background=self.colors["bg"],
+            foreground=self.colors["text"],
+            bordercolor=self.colors["border"],
+            lightcolor=self.colors["border"],
+            darkcolor=self.colors["border"],
+        )
+        self.style.configure("Stats.TLabelframe.Label", background=self.colors["bg"], foreground=self.colors["text"])
         self.style.configure("TNotebook", background=self.colors["bg"], borderwidth=0, tabmargins=(0, 0, 0, 0))
         self.style.configure("TNotebook.Tab", padding=(14, 8), width=18, font=("Segoe UI", 10), background=self.colors["button"], foreground=self.colors["text"], borderwidth=1)
         self.style.configure("Horizontal.TProgressbar", troughcolor=self.colors["progress_track"], background=self.colors["accent"], bordercolor=self.colors["border"], lightcolor=self.colors["accent"], darkcolor=self.colors["accent"])
@@ -605,11 +616,13 @@ class AMQTourUI(tk.Tk):
         self.solver_tab = ttk.Frame(self.main_notebook, padding=14)
         self.update_tab = ttk.Frame(self.main_notebook, padding=14)
         self.elos_tab = ttk.Frame(self.main_notebook, padding=14)
+        self.stats_tab = ttk.Frame(self.main_notebook, padding=14)
 
         self._build_setup_tab()
         self._build_solver_tab()
         self._build_update_tab()
         self._build_elos_tab()
+        self._build_stats_tab()
 
     def _build_setup_tab(self):
         self.setup_tab.columnconfigure(1, weight=1)
@@ -734,11 +747,11 @@ class AMQTourUI(tk.Tk):
 
         self.solver_actions = ttk.Frame(self.solver_tab)
         self.solver_actions.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(0, 12))
-        self.solver_button = ttk.Button(self.solver_actions, text="Make Teams", style="Tool.TButton", command=self.run_solver)
+        self.solver_button = ttk.Button(self.solver_actions, text="Make Teams", style="Tool.TButton", width=12, command=self.run_solver)
         self.solver_button.pack(side="left")
-        self.copy_codes_button = ttk.Button(self.solver_actions, text="Copy Codes", command=lambda: self.clipboard_from_text(self.codes_text))
+        self.copy_codes_button = ttk.Button(self.solver_actions, text="Copy Codes", style="Tool.TButton", width=12, command=lambda: self.clipboard_from_text(self.codes_text))
         self.copy_codes_button.pack(side="left")
-        self.draft_assign_button = ttk.Button(self.solver_actions, text="Assign Elos", style="Tool.TButton", command=self.run_draft_elo_assignment)
+        self.draft_assign_button = ttk.Button(self.solver_actions, text="Assign Elos", style="Tool.TButton", width=12, command=self.run_draft_elo_assignment)
 
         self.rank_assignment_frame = ttk.Frame(self.solver_tab)
         self.rank_assignment_frame.grid(row=4, column=0, columnspan=2, sticky="ew", pady=(0, 12))
@@ -863,6 +876,9 @@ class AMQTourUI(tk.Tk):
             colors=self.colors,
         )
 
+    def _build_stats_tab(self):
+        self.stats_panel = StatsPanel(self, self.stats_tab, PROJECT_ROOT)
+
     def select_category(self, category: str, select_first=True):
         self.selected_category = category
         for name, button in self.category_buttons.items():
@@ -909,9 +925,11 @@ class AMQTourUI(tk.Tk):
 
     def select_tour(self, tour_id: str):
         self.selected_tour_id = tour_id
+        self.stats_newly_rated_players.clear()
         tour = TOURS[tour_id]
         self.eru_mode.set(bool(tour.get("eru_only")))
         self.balance_mode = "eru" if self.eru_mode.get() else "elo"
+        self.separate_t1.set(self.eru_mode.get())
         self.eru_rate_source.set("Average GR")
         self.eru_use_fallback.set(False)
         self.maximum_guesses.set("5" if tour_id == "usual" else "4")
@@ -933,6 +951,7 @@ class AMQTourUI(tk.Tk):
         self.update_elos_button_visibility()
         self.refresh_elos()
         self.refresh_update_info()
+        self.stats_panel.refresh_context()
         self.set_status(f"Selected {tour['label']}.")
         if self.ui_ready and not self.do_not_autoload and self.tour_requires_startup_load(tour):
             with self.tour_load_lock:
@@ -956,6 +975,7 @@ class AMQTourUI(tk.Tk):
         if not TOURS[self.selected_tour_id].get("eru_only"):
             self.main_notebook.add(self.update_tab, text="Eloscrape")
         self.main_notebook.add(self.elos_tab, text="Elos / Subs")
+        self.main_notebook.add(self.stats_tab, text="Stats")
 
     def _set_update_tab_title(self, tour):
         update_title = "Results" if tour.get("supports_inhouse") else ("MVPs / Changelog" if tour.get("dry_elo") else "Eloscrape")
@@ -1044,6 +1064,8 @@ class AMQTourUI(tk.Tk):
             self.refresh_elos()
             return
         self.balance_mode = "eru" if self.eru_mode.get() else "elo"
+        if self.eru_mode.get():
+            self.separate_t1.set(True)
         if self.ui_ready:
             self.after_idle(self.schedule_rank_assignment_check)
         if self.current_setup_key():
@@ -1847,7 +1869,15 @@ class AMQTourUI(tk.Tk):
             error = f"{type(exc).__name__}: {exc}\n\n{details}"
             self.after(0, lambda error=error: self.finish_solver(error=error))
             return
-        self.after(0, lambda: self.finish_solver(final_code=final_code, warnings=warnings))
+        newly_rated = tuple(snapshot["manual_ratings"]) if not snapshot.get("eru_mode") else ()
+        self.after(
+            0,
+            lambda: self.finish_solver(
+                final_code=final_code,
+                warnings=warnings,
+                newly_rated_players=newly_rated,
+            ),
+        )
 
     def wait_for_startup_eloscrape(self, write_solver_note=False):
         if not self.startup_eloscrape_done.is_set():
@@ -1856,7 +1886,15 @@ class AMQTourUI(tk.Tk):
                 self.after(0, lambda: self.codes_text.insert("end", "Waiting for startup eloscrape to finish...\n"))
             self.startup_eloscrape_done.wait()
 
-    def finish_solver(self, final_code=None, error=None, missing=None, missing_guess_rates=None, warnings=None):
+    def finish_solver(
+        self,
+        final_code=None,
+        error=None,
+        missing=None,
+        missing_guess_rates=None,
+        warnings=None,
+        newly_rated_players=(),
+    ):
         self.solver_running = False
         self.solver_button.configure(state="normal")
         self.codes_text.delete("1.0", "end")
@@ -1874,10 +1912,12 @@ class AMQTourUI(tk.Tk):
         else:
             self.hide_rank_assignment()
             self.codes_text.insert("1.0", final_code)
+            self.stats_newly_rated_players.update(newly_rated_players)
             tour = TOURS[self.selected_tour_id]
             if tour.get("supports_inhouse"):
                 self.refresh_inhouse_results_ui(tour)
             self.substitution_panel.reset_after_solver()
+            self.stats_panel.refresh_context()
             warnings = warnings or []
             if warnings:
                 warning_text = "\n".join(warnings)

@@ -94,6 +94,58 @@ def observed_players_from_songs(songs):
     return observed
 
 
+def build_eru_tier_map(game, team_db):
+    """Map each active player to their team roster tier for an Eru Mode game."""
+    active_ids = {player.player_id for player in game.players}
+    tier_map = {}
+
+    for team in team_db.teams:
+        active_regulars = [player for player in team.players if player.player_id in active_ids]
+        active_subs = [player for player in team.subs if player.player_id in active_ids]
+        if not active_regulars and not active_subs:
+            continue
+
+        occupied_tiers = set()
+        for tier, player in enumerate(team.players):
+            if player.player_id in active_ids:
+                tier_map[player.player_id] = (team.team_string, tier)
+                occupied_tiers.add(tier)
+
+        open_tiers = [tier for tier in range(len(team.players)) if tier not in occupied_tiers]
+        active_subs.sort(key=lambda player: player.rank, reverse=True)
+        for player, tier in zip(active_subs, open_tiers):
+            tier_map[player.player_id] = (team.team_string, tier)
+
+    return tier_map
+
+
+def get_eru_life_takers(game, song, team_db):
+    """Return correct players whose same-tier opponent missed the song."""
+    tier_map = build_eru_tier_map(game, team_db)
+    correct_ids = {player.player_id for player in song.playerHit}
+    players_by_tier = defaultdict(list)
+    for player in game.players:
+        assignment = tier_map.get(player.player_id)
+        if assignment is not None:
+            _, tier = assignment
+            players_by_tier[tier].append(player)
+
+    life_takers = []
+    for player in song.playerHit:
+        assignment = tier_map.get(player.player_id)
+        if assignment is None:
+            continue
+        team_name, tier = assignment
+        opponents = [
+            opponent
+            for opponent in players_by_tier[tier]
+            if tier_map[opponent.player_id][0] != team_name
+        ]
+        if opponents and all(opponent.player_id not in correct_ids for opponent in opponents):
+            life_takers.append(player)
+    return life_takers
+
+
 def resolve_bruteforce_rosters(json_payloads, codes_path, teams_re):
     teams, average_rank, error = parse_bruteforce_codes(codes_path, teams_re)
     if error:
@@ -595,8 +647,9 @@ def preflight_json_files(json_dir, regex, teamDB=None, playerDB=None, alias_to_i
 
     for file_name in json_files:
         songs_played = None
-        if not file_name.startswith("amq_song_export"):
-            reg_match = re.search(regex, file_name)
+        source_name = file_name.split(" [game-", 1)[0]
+        if not source_name.startswith("amq_song_export"):
+            reg_match = re.search(regex, source_name)
             if reg_match is not None:
                 songs_played = int(reg_match.group(1))
 
