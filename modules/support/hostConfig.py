@@ -43,6 +43,9 @@ SETUP_TOURS = {
 }
 
 CATEGORIES = {
+    "Eru": [
+        ("Eru", "eru"),
+    ],
     "Random": [
         ("Usual", "usual"),
         ("OP", "random_op"),

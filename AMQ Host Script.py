@@ -27,12 +27,13 @@ ensure_dependencies(REQUIREMENTS_PATH)
 
 from modules.support.hostConfig import (
     CATEGORIES,
+    CODE_GENERATORS,
     LINKS,
     SETUP_TOURS,
     load_setup_codes,
 )
 from modules.support import hostHistory
-from modules.support.hostGuess import ERU_RATE_OPTIONS, MissingGuessRatesError, eru_fallback_config, player_guess_rates
+from modules.support.hostGuess import ERU_RATE_OPTIONS, MissingGuessRatesError, eru_fallback_config, pasted_guess_rates, player_guess_rates
 from modules.support.playerRatings import MissingRatingsError, normalize_alias_key, resolve_player_ratings
 from modules.main.substitutionPanel import SubstitutionPanel
 from modules.main.hostUpdater import HostScriptUpdater
@@ -45,6 +46,67 @@ HOST_VERSION_PATH = PROJECT_ROOT / "config" / "host_script_version.json"
 SETUP_CODES_PATH = PROJECT_ROOT / "config" / "setup_codes.json"
 SETUP_CODES = load_setup_codes(SETUP_CODES_PATH)
 PLAYER_PATTERN = re.compile(r"^(.*?)\s*(?:\(([^()]*)\))?\s*$")
+
+
+def standalone_eru_code_options(setup_codes, tours):
+    """Flatten the maintained Setup-code catalogue for the standalone Eru tour."""
+    options = {"None": ""}
+    random_codes = setup_codes.get("random", {})
+    if random_codes.get("quagsual"):
+        options["Quagsual"] = random_codes["quagsual"]
+    for guess_time, difficulties in random_codes.get("codes", {}).items():
+        for difficulty, code in difficulties.items():
+            if isinstance(code, str):
+                options[f"Random {guess_time}s {difficulty}"] = code
+
+    watched_codes = setup_codes.get("watched", {})
+    for guess_time, difficulties in watched_codes.get("codes", {}).items():
+        for difficulty, code in difficulties.items():
+            if isinstance(code, str):
+                options[f"Watched {guess_time}s {difficulty}"] = code
+
+    tour_titles = {
+        "watched_op": "Watched OP",
+        "watched_ed": "Watched ED",
+        "watched_ins": "Watched IN",
+        "watched_ins_no_chanting": "Watched IN -Chanting",
+        "watched_oped": "Watched OPED",
+    }
+    for _guess_time, difficulties in setup_codes.get("watched_40_50", {}).get("codes", {}).items():
+        for difficulty, modes in difficulties.items():
+            for tour_id, code in modes.items():
+                title = tour_titles.get(tour_id, tour_id)
+                options[f"{title} {difficulty}"] = code
+
+    # Include the default code for every existing tour that supplies one but
+    # does not have a configurable entry in setup_codes.json.
+    default_titles = {
+        "random_op": "Random OP",
+        "random_ed": "Random ED",
+        "random_ins": "Random IN",
+        "random_oped": "Random OPED",
+        "watched_ins": "Watched IN",
+        "watched_ins_no_chanting": "Watched IN -Chanting",
+        "watched_x_2009": "Watched -2009",
+    }
+    for tour in tours.values():
+        if tour.get("standalone_eru"):
+            continue
+        solver = tour.get("solver", {})
+        generator = CODE_GENERATORS.get(solver.get("code_generator"))
+        if generator is None:
+            continue
+        try:
+            generated = generator(solver.get("gamemode"), "")
+        except TypeError:
+            generated = generator("")
+        except KeyError:
+            continue
+        match = re.search(r"```([^`]+)```", generated)
+        if match:
+            title = default_titles.get(tour["id"], tour["label"])
+            options.setdefault(f"{title} (default)", match.group(1))
+    return options
 
 
 class AMQTourUI(tk.Tk):
@@ -99,6 +161,8 @@ class AMQTourUI(tk.Tk):
         self.setup_guess_time = tk.StringVar()
         self.setup_difficulty = tk.StringVar()
         self.setup_quagsual = tk.BooleanVar(value=False)
+        self.standalone_eru_code = tk.StringVar(value="None")
+        self.standalone_eru_codes = standalone_eru_code_options(SETUP_CODES, TOURS)
         self.maximum_guesses = tk.StringVar(value="4")
         self.maximum_elo_gap = tk.StringVar()
         self.eru_mode = tk.BooleanVar(value=False)
@@ -337,7 +401,7 @@ class AMQTourUI(tk.Tk):
 
         vars_by_tour = {}
         row = 4
-        for category in ["Random", "Watched", "Speed", "Inhouse"]:
+        for category in ["Random", "Watched", "Speed", "Inhouse", "Eru"]:
             available = [(label, tour_id) for label, tour_id in CATEGORIES.get(category, []) if tour_id in TOURS and tour_id in self.loadable_tour_ids()]
             if not available:
                 continue
@@ -577,19 +641,22 @@ class AMQTourUI(tk.Tk):
         sidebar.configure(width=190, height=600)
         sidebar.grid_propagate(False)
         sidebar.columnconfigure(0, weight=1)
-        sidebar.rowconfigure(7, weight=1)
+        category_names = ["Random", "Watched", "Speed", "Inhouse", "Eru"]
+        tour_list_row = len(category_names) + 3
+        sidebar.rowconfigure(tour_list_row, weight=1)
         ttk.Label(sidebar, text="Categories", style="Panel.TLabel", font=("Segoe UI", 11, "bold")).grid(row=0, column=0, sticky="w", pady=(0, 8))
 
-        for index, category in enumerate(["Random", "Watched", "Speed", "Inhouse"], start=1):
+        for index, category in enumerate(category_names, start=1):
             button = ttk.Button(sidebar, text=category, width=18, command=lambda c=category: self.select_category(c))
             button.grid(row=index, column=0, sticky="ew", pady=3)
             self.category_buttons[category] = button
 
-        ttk.Separator(sidebar).grid(row=5, column=0, sticky="ew", pady=12)
-        ttk.Label(sidebar, text="Tour Types", style="Panel.TLabel", font=("Segoe UI", 11, "bold")).grid(row=6, column=0, sticky="w", pady=(0, 8))
+        separator_row = len(category_names) + 1
+        ttk.Separator(sidebar).grid(row=separator_row, column=0, sticky="ew", pady=12)
+        ttk.Label(sidebar, text="Tour Types", style="Panel.TLabel", font=("Segoe UI", 11, "bold")).grid(row=separator_row + 1, column=0, sticky="w", pady=(0, 8))
 
         self.tour_list_canvas = tk.Canvas(sidebar, borderwidth=0, highlightthickness=0, height=260)
-        self.tour_list_canvas.grid(row=7, column=0, columnspan=2, sticky="nsew")
+        self.tour_list_canvas.grid(row=tour_list_row, column=0, columnspan=2, sticky="nsew")
         self.tour_list = ttk.Frame(self.tour_list_canvas, style="Panel.TFrame")
         self.tour_list_window = self.tour_list_canvas.create_window((0, 0), window=self.tour_list, anchor="nw")
         self.tour_list.columnconfigure(0, weight=1, minsize=166)
@@ -599,7 +666,7 @@ class AMQTourUI(tk.Tk):
         self.bind_tour_list_scroll(self.tour_list)
 
         self.recalculate_button = ttk.Button(sidebar, text="Recalculate All", width=18, command=self.confirm_recalculate_all)
-        self.recalculate_button.grid(row=8, column=0, columnspan=2, sticky="sew", pady=(12, 0))
+        self.recalculate_button.grid(row=tour_list_row + 1, column=0, columnspan=2, sticky="sew", pady=(12, 0))
 
         content = ttk.Frame(root)
         content.grid(row=1, column=1, sticky="nsew")
@@ -642,6 +709,20 @@ class AMQTourUI(tk.Tk):
 
         self.setup_quagsual_check = ttk.Checkbutton(self.setup_tab, text="Quagsual", variable=self.setup_quagsual, command=self.on_setup_changed)
         self.setup_quagsual_check.grid(row=2, column=0, columnspan=2, sticky="w", pady=(0, 10))
+
+        self.standalone_eru_code_label = ttk.Label(self.setup_tab, text="Code")
+        self.standalone_eru_code_label.grid(row=0, column=0, sticky="w", pady=(0, 8))
+        self.standalone_eru_code_combo = ttk.Combobox(
+            self.setup_tab,
+            textvariable=self.standalone_eru_code,
+            values=tuple(self.standalone_eru_codes),
+            state="readonly",
+            width=30,
+        )
+        self.standalone_eru_code_combo.grid(row=0, column=1, sticky="w", pady=(0, 8))
+        self.standalone_eru_code_combo.bind("<<ComboboxSelected>>", self.on_setup_changed)
+        self.standalone_eru_code_label.grid_remove()
+        self.standalone_eru_code_combo.grid_remove()
 
         self.setup_note = ttk.Label(self.setup_tab, text="", style="Subtle.TLabel")
         self.setup_note.grid(row=9, column=0, columnspan=2, sticky="nw", pady=(2, 0))
@@ -881,6 +962,10 @@ class AMQTourUI(tk.Tk):
 
     def select_category(self, category: str, select_first=True):
         self.selected_category = category
+        if category == "Eru":
+            self.recalculate_button.grid_remove()
+        else:
+            self.recalculate_button.grid()
         for name, button in self.category_buttons.items():
             button.configure(style="Selected.TButton" if name == category else "TButton")
 
@@ -927,7 +1012,7 @@ class AMQTourUI(tk.Tk):
         self.selected_tour_id = tour_id
         self.stats_newly_rated_players.clear()
         tour = TOURS[tour_id]
-        self.eru_mode.set(bool(tour.get("eru_only")))
+        self.eru_mode.set(bool(tour.get("eru_only") or tour.get("standalone_eru")))
         self.balance_mode = "eru" if self.eru_mode.get() else "elo"
         self.separate_t1.set(self.eru_mode.get())
         self.eru_rate_source.set("Average GR")
@@ -962,7 +1047,7 @@ class AMQTourUI(tk.Tk):
                     self.set_status(f"{tour['label']} is loading during startup sync.")
                 else:
                     self.start_lazy_load_tour(tour, f"Loading {tour['label']} before use...")
-        if self.ui_ready and (not self.do_not_autoload or self.is_tour_loaded(tour_id)):
+        if self.ui_ready and (tour.get("standalone_eru") or not self.do_not_autoload or self.is_tour_loaded(tour_id)):
             self.after_idle(self.schedule_rank_assignment_check)
 
     def _show_tour_tabs(self):
@@ -972,10 +1057,11 @@ class AMQTourUI(tk.Tk):
         self.main_notebook.add(self.setup_tab, text="Setup")
         solver_title = "Player Setup" if TOURS[self.selected_tour_id].get("draft_player_setup") else "Make Teams"
         self.main_notebook.add(self.solver_tab, text=solver_title)
-        if not TOURS[self.selected_tour_id].get("eru_only"):
+        if not (TOURS[self.selected_tour_id].get("eru_only") or TOURS[self.selected_tour_id].get("standalone_eru")):
             self.main_notebook.add(self.update_tab, text="Eloscrape")
-        self.main_notebook.add(self.elos_tab, text="Elos / Subs")
-        self.main_notebook.add(self.stats_tab, text="Stats")
+        if not TOURS[self.selected_tour_id].get("standalone_eru"):
+            self.main_notebook.add(self.elos_tab, text="Elos / Subs")
+            self.main_notebook.add(self.stats_tab, text="Stats")
 
     def _set_update_tab_title(self, tour):
         update_title = "Results" if tour.get("supports_inhouse") else ("MVPs / Changelog" if tour.get("dry_elo") else "Eloscrape")
@@ -983,6 +1069,33 @@ class AMQTourUI(tk.Tk):
             self.main_notebook.tab(str(self.update_tab), text=update_title)
 
     def refresh_setup_tab(self):
+        tour = TOURS[self.selected_tour_id]
+        if tour.get("standalone_eru"):
+            self.setup_active_key = None
+            for widget in (
+                self.setup_guess_label,
+                self.setup_guess_combo,
+                self.setup_difficulty_label,
+                self.setup_difficulty_combo,
+                self.setup_quagsual_check,
+                self.setup_note,
+                self.eru_mode_check,
+                self.eru_rate_combo,
+                self.eru_fallback_check,
+                self.eru_fallbacks_frame,
+                self.maximum_guesses_label,
+                self.maximum_guesses_combo,
+                self.maximum_elo_gap_label,
+                self.maximum_elo_gap_input,
+            ):
+                widget.grid_remove()
+            self.standalone_eru_code_label.grid()
+            self.standalone_eru_code_combo.grid()
+            self.refresh_setup_code()
+            return
+
+        self.standalone_eru_code_label.grid_remove()
+        self.standalone_eru_code_combo.grid_remove()
         setup_key = self.current_setup_key()
         self.setup_active_key = setup_key
         if not setup_key:
@@ -1105,6 +1218,15 @@ class AMQTourUI(tk.Tk):
 
     def refresh_eru_controls(self):
         tour = TOURS[self.selected_tour_id]
+        if tour.get("standalone_eru"):
+            for widget in (
+                self.eru_mode_check,
+                self.eru_rate_combo,
+                self.eru_fallback_check,
+                self.eru_fallbacks_frame,
+            ):
+                widget.grid_remove()
+            return
         if tour.get("disable_eru"):
             self.eru_mode_check.grid_remove()
             self.eru_rate_combo.grid_remove()
@@ -1182,6 +1304,17 @@ class AMQTourUI(tk.Tk):
         self.maximum_elo_gap_input.configure(state="disabled" if self.eru_mode.get() else "normal")
 
     def refresh_setup_code(self):
+        tour = TOURS[self.selected_tour_id]
+        if tour.get("standalone_eru"):
+            self.current_setup_code = self.selected_setup_code()
+            self.setup_code_text.configure(state="normal")
+            self.setup_code_text.delete("1.0", "end")
+            self.setup_code_text.insert("1.0", self.current_setup_code)
+            self.setup_code_text.configure(state="disabled")
+            self.setup_code_frame.grid_configure(row=1)
+            self.setup_code_frame.grid()
+            return
+
         setup_key = self.setup_active_key
         self.current_setup_code = self.selected_setup_code()
         self.update_setup_control_states()
@@ -1212,6 +1345,8 @@ class AMQTourUI(tk.Tk):
         return SETUP_TOURS.get(self.selected_tour_id)
 
     def selected_setup_code(self):
+        if TOURS[self.selected_tour_id].get("standalone_eru"):
+            return self.standalone_eru_codes.get(self.standalone_eru_code.get(), "")
         setup_key = self.setup_active_key
         config = SETUP_CODES.get(setup_key or "", {})
         if setup_key == "random" and self.setup_quagsual.get():
@@ -1222,6 +1357,8 @@ class AMQTourUI(tk.Tk):
         return code
 
     def update_setup_control_states(self):
+        if TOURS[self.selected_tour_id].get("standalone_eru"):
+            return
         if (
             (self.setup_active_key == "random" and self.setup_quagsual.get())
         ):
@@ -1489,6 +1626,17 @@ class AMQTourUI(tk.Tk):
         try:
             self.wait_for_tour_loaded(tour_id)
             tour = TOURS[tour_id]
+            if tour.get("standalone_eru"):
+                pasted_guess_rates(player_entries, manual_guess_rates)
+                missing = []
+                assignment_type = None
+                error = None
+                self.after(
+                    0,
+                    lambda g=generation, m=missing, kind=assignment_type, e=error:
+                    self.finish_rank_assignment_check(g, m, kind, e),
+                )
+                return
             if eru_enabled:
                 players = [(name, 0.0) for name, _pasted_rank in player_entries]
             else:
@@ -2979,6 +3127,8 @@ class AMQTourUI(tk.Tk):
             self.elos_table.delete(item)
 
         tour = TOURS[self.selected_tour_id]
+        if tour.get("standalone_eru"):
+            return
         elos_path = Path(tour["state_path"]) / "elos.json"
         elos = {}
         if elos_path.exists():
