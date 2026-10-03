@@ -6,7 +6,7 @@ from pathlib import Path
 
 from modules.support.handleCodes import handleCodes
 from modules.support.hostConfig import CODE_GENERATORS
-from modules.support.hostGuess import GUESS_HANDLERS, player_guess_rates
+from modules.support.hostGuess import GUESS_HANDLERS, pasted_guess_rates, player_guess_rates
 from modules.support.playerRatings import resolve_player_ratings
 from tour_config import TOURS
 
@@ -151,31 +151,48 @@ def solve_player_group(tour, players, team_size, snapshot):
     solver_cfg = tour["solver"]
     teams_number = len(players) // team_size
     p_values = {name: rating for name, rating in players}
-    player_stats, idtable = load_solver_stats(tour, get_player_stats)
+    standalone_eru = tour.get("standalone_eru", False)
+    player_stats = idtable = None
+    if not standalone_eru:
+        player_stats, idtable = load_solver_stats(tour, get_player_stats)
     balance_players = players
     display_values = p_values
     eru_enabled = snapshot.get("balance_mode") == "eru" or snapshot.get("eru_mode")
     if eru_enabled:
-        fallback_configs = list(snapshot.get("eru_fallbacks", []))
-        if not fallback_configs and snapshot.get("eru_fallback_tour_id"):
-            fallback_configs.append({
-                "tour_id": snapshot["eru_fallback_tour_id"],
-                "rate_source": snapshot.get("eru_fallback_rate_source", "Average GR"),
-            })
-        fallbacks = []
-        for fallback_config in fallback_configs:
-            fallback_stats, fallback_idtable = load_solver_stats(TOURS[fallback_config["tour_id"]], get_player_stats)
-            fallbacks.append((fallback_stats, fallback_idtable, fallback_config["rate_source"]))
-        guess_rates = player_guess_rates(
-            [name for name, _rating in players],
-            player_stats,
-            idtable,
-            rate_source=snapshot.get("eru_rate_source", "Average GR"),
-            fallbacks=fallbacks,
-            manual_rates=snapshot.get("manual_guess_rates"),
-        )
+        if standalone_eru:
+            guess_rates = pasted_guess_rates(
+                snapshot["player_entries"],
+                snapshot.get("manual_guess_rates"),
+            )
+        else:
+            fallback_configs = list(snapshot.get("eru_fallbacks", []))
+            if not fallback_configs and snapshot.get("eru_fallback_tour_id"):
+                fallback_configs.append({
+                    "tour_id": snapshot["eru_fallback_tour_id"],
+                    "rate_source": snapshot.get("eru_fallback_rate_source", "Average GR"),
+                })
+            fallbacks = []
+            for fallback_config in fallback_configs:
+                fallback_stats, fallback_idtable = load_solver_stats(TOURS[fallback_config["tour_id"]], get_player_stats)
+                fallbacks.append((fallback_stats, fallback_idtable, fallback_config["rate_source"]))
+            guess_rates = player_guess_rates(
+                [name for name, _rating in players],
+                player_stats,
+                idtable,
+                rate_source=snapshot.get("eru_rate_source", "Average GR"),
+                fallbacks=fallbacks,
+                manual_rates=snapshot.get("manual_guess_rates"),
+            )
         balance_players = [(name, guess_rates[name]) for name, _rating in players]
         display_values = guess_rates
+    if standalone_eru:
+        # The shared team solver resolves aliases through ids.csv. Standalone
+        # Eru uses pasted names only, so an empty table enables its name fallback.
+        state_path = Path(tour["state_path"])
+        state_path.mkdir(parents=True, exist_ok=True)
+        ids_path = state_path / "ids.csv"
+        if not ids_path.exists():
+            ids_path.write_text("Player Name,Player ID\n", encoding="utf-8")
     teams = create_teams(
         tour["state_path"],
         balance_players,
@@ -184,9 +201,9 @@ def solve_player_group(tour, players, team_size, snapshot):
         get_blacklist(),
         snapshot["separate_t1"],
     )
-    guess_options = guess_kwargs(tour, player_stats, idtable, snapshot)
+    guess_options = {} if standalone_eru else guess_kwargs(tour, player_stats, idtable, snapshot)
     guess_mode = solver_cfg["guess_mode"]
-    get_guesses = GUESS_HANDLERS[
+    get_guesses = None if standalone_eru else GUESS_HANDLERS[
         "random" if guess_mode == "random5g" and snapshot.get("maximum_guesses", 4) < 5 else guess_mode
     ]
     final_code = handleCodes(
@@ -209,6 +226,8 @@ def solve_player_group(tour, players, team_size, snapshot):
     final_code = apply_setup_code(final_code, snapshot.get("setup_code", ""))
     if eru_enabled:
         final_code = omit_guess_distribution(final_code)
+    if standalone_eru and not snapshot.get("setup_code"):
+        final_code = re.sub(r"```.*?```\s*\n?", "", final_code, count=1, flags=re.S)
     # Escape player-name underscores so pasted output does not trigger Discord emphasis.
     final_code = final_code.replace("_", r"\_")
     Path(tour["state_path"], "codes.txt").write_text(final_code, encoding="utf-8")

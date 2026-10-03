@@ -1,4 +1,25 @@
 {
+  "eru": {
+    "label": "Eru",
+    "group": "Eru",
+    "route": "eru",
+    "tour_type": "eru",
+    "state_dir": "data/tours/eru",
+    "dry_elo": false,
+    "standalone_eru": true,
+    "solver": {
+      "stats_type": "watched",
+      "guess_mode": "watched",
+      "code_generator": "watched_gr",
+      "gamemode": "40",
+      "thresholds": {
+        "one": 6,
+        "two": 12,
+        "three": 18,
+        "four": 28
+      }
+    }
+  },
   "usual": {
     "label": "Usual",
     "group": "Random",

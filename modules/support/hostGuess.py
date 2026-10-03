@@ -110,6 +110,27 @@ def player_guess_rates(names, player_stats, idtable, rate_source="Average GR", f
     return rates
 
 
+def pasted_guess_rates(player_entries, manual_rates=None):
+    """Use positive bracketed values as Eru rates, with UI overrides for gaps."""
+    overrides = {
+        name.strip().lower(): float(value)
+        for name, value in (manual_rates or {}).items()
+    }
+    rates, missing = {}, []
+    for name, pasted_rate in player_entries:
+        key = name.strip().lower()
+        rate = overrides.get(key, pasted_rate)
+        if rate is None or rate <= 0:
+            missing.append(name)
+            continue
+        if rate > 100:
+            raise ValueError(f"Guess rate for {name} must be between 0 and 100.")
+        rates[name] = float(rate)
+    if missing:
+        raise MissingGuessRatesError(missing)
+    return rates
+
+
 def guess_gr(thresholds, avg_gr):
     if avg_gr:
         for threshold, result in thresholds:
