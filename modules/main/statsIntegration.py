@@ -60,6 +60,10 @@ class HostStatsService:
             return 12
         if player_count <= 24:
             return 15
+        if player_count >= 32:
+            # Swiss: five rounds, with one game for each pair of teams.
+            # An odd team count has one bye per round and no JSON for it.
+            return (len(snapshot.get("teams", {})) // 2) * 5
         return 20
 
     @staticmethod
