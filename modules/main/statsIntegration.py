@@ -582,11 +582,12 @@ class StatsPanel:
 
         def save():
             try:
-                score1, score2 = int(score1_var.get().strip()), int(score2_var.get().strip())
+                score1 = int(score1_var.get().strip() or 0)
+                score2 = int(score2_var.get().strip() or 0)
                 if score1 < 0 or score2 < 0:
                     raise ValueError
             except ValueError:
-                messagebox.showerror("Enter Score", "Enter non-negative whole numbers for both teams.", parent=dialog)
+                messagebox.showerror("Enter Score", "Enter non-negative whole numbers, or leave a field blank for 0.", parent=dialog)
                 return
             if current_score.get("score1") == score1 and current_score.get("score2") == score2:
                 dialog.destroy()

@@ -495,34 +495,49 @@ def run_ngm_sheet_stats(
                             ],
                         )
 
-    # The Host Script supplies each substitute's team from Elos/Subs. This
-    # replaces the standalone script's old terminal question.
     if teamDB.subs:
-        assignments = {
-            normalize_player_name(name): normalize_player_name(team_label)
-            for name, team_label in (substitute_team_labels or {}).items()
-        }
-        unresolved = []
-        for sub in teamDB.subs:
-            team_label = assignments.get(normalize_player_name(sub.name))
-            team = next(
-                (
-                    candidate for candidate in teamDB.teams
-                    if re.findall(TEAMS_RE, candidate.team_string)
-                    and normalize_player_name(re.findall(TEAMS_RE, candidate.team_string)[0][0]) == team_label
-                ),
-                None,
-            )
-            if team is None:
-                unresolved.append(sub.name)
-            else:
-                team.add_sub(sub)
-        teamDB.subs = []
-        if unresolved:
-            raise ValueError(
-                "Assign each substitute in Elos / Subs before generating stats: "
-                + ", ".join(unresolved)
-            )
+        if substitute_team_labels is None:
+            # Preserve the standalone Stats script's interactive workflow.
+            print("Subs have been found. Please assign to correct team:")
+            for sub in teamDB.subs:
+                print(f"Which of the following teams did {sub.name} sub for?")
+                options = teamDB.teams
+                for index, team in enumerate(options, start=1):
+                    print(f"[{index}] {team.team_string}")
+                while True:
+                    try:
+                        choice = int(input("Choice: "))
+                        options[choice - 1].add_sub(sub)
+                        break
+                    except (ValueError, IndexError):
+                        print("Please input a valid choice")
+        else:
+            # Host Script runs use the team selected in Elos / Subs.
+            assignments = {
+                normalize_player_name(name): normalize_player_name(team_label)
+                for name, team_label in substitute_team_labels.items()
+            }
+            unresolved = []
+            for sub in teamDB.subs:
+                team_label = assignments.get(normalize_player_name(sub.name))
+                team = next(
+                    (
+                        candidate for candidate in teamDB.teams
+                        if re.findall(TEAMS_RE, candidate.team_string)
+                        and normalize_player_name(re.findall(TEAMS_RE, candidate.team_string)[0][0]) == team_label
+                    ),
+                    None,
+                )
+                if team is None:
+                    unresolved.append(sub.name)
+                else:
+                    team.add_sub(sub)
+            teamDB.subs = []
+            if unresolved:
+                raise ValueError(
+                    "Assign each substitute in Elos / Subs before generating stats: "
+                    + ", ".join(unresolved)
+                )
 
     if is_local and local_scores:
         for score in local_scores:
