@@ -812,7 +812,7 @@ class EloScrape:
                     missing_urls.append(url)
                 else:
                     ordered_cache[url] = tour
-            async with AsyncSession(impersonate='chrome123', max_clients=2) as session:
+            async with AsyncSession(impersonate='chrome', max_clients=2) as session:
                 try:
                     missing_tours = []
                     missing_total = len(missing_urls)
