@@ -122,7 +122,7 @@ class HostStatsService:
                 or lower.startswith(("average", "avg", "sub:"))
                 or stripped.startswith("http")
             ):
-                lines.append(line.replace("\\_", "_"))
+                lines.append(line)
         if substitute_players:
             sub_text = ", ".join(f"{name} ({rating:.3f})" for name, rating in substitute_players)
             lines.append(f"subs: {sub_text}")
