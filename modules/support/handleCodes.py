@@ -22,7 +22,7 @@ def handleCodes(
             total = sum(v for _, v in team)
             print(f"{members} | Total = {total:.{value_precision}f}")
 
-    txtvar = ""
+    team_lines = []
 
     #header = f"{'#'*25} Discord {'#'*25}\n"
     #print(header)
@@ -48,9 +48,8 @@ def handleCodes(
                 team_msg += f" | Guesses = [{guess_str}]"
             team_msg += "\n"
             print(team_msg)
-            txtvar += team_msg
+            team_lines.append(team_msg.rstrip())
             avg += round(total, 4)
-        txtvar += "\n"
         print()
 
     try:
@@ -59,7 +58,7 @@ def handleCodes(
         input("Someone is missing their rating. Try to add to ranks.txt and run again. Press Enter to exit.")
         exit()
     print(footer)
-    txtvar += footer
+    txtvar = "```\n" + "\n".join(team_lines) + "\n```\n\n" + footer
 
     if gamemode:
         final_code = get_codes(gamemode, txtvar)

@@ -15,8 +15,8 @@ def apply_setup_code(final_code: str, setup_code: str) -> str:
     if not setup_code:
         return final_code
     replacement = f"```{setup_code}```"
-    if re.search(r"```.*?```", final_code, flags=re.S):
-        return re.sub(r"```.*?```", replacement, final_code, count=1, flags=re.S)
+    if re.search(r"```[^\n`]+```", final_code):
+        return re.sub(r"```[^\n`]+```", replacement, final_code, count=1)
     return f"{replacement}\n\n{final_code}"
 
 
@@ -227,9 +227,7 @@ def solve_player_group(tour, players, team_size, snapshot):
     if eru_enabled:
         final_code = omit_guess_distribution(final_code)
     if standalone_eru and not snapshot.get("setup_code"):
-        final_code = re.sub(r"```.*?```\s*\n?", "", final_code, count=1, flags=re.S)
-    # Escape player-name underscores so pasted output does not trigger Discord emphasis.
-    final_code = final_code.replace("_", r"\_")
+        final_code = re.sub(r"```[^\n`]+```\s*\n?", "", final_code, count=1)
     Path(tour["state_path"], "codes.txt").write_text(final_code, encoding="utf-8")
 
     team_snapshot = make_latest_team_snapshot(tour, teams[0], display_values, teams_number, get_guesses, guess_options)

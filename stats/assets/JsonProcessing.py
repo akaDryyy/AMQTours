@@ -60,6 +60,8 @@ def parse_bruteforce_codes(codes_path, teams_re):
                 line = raw_line.strip()
                 if not line:
                     continue
+                if line == "```":
+                    continue
                 if line.lower().startswith(("average", "avg")):
                     match = re.search(r"(-?\d+(?:\.\d+)?)", line)
                     if match:
@@ -445,6 +447,8 @@ def validate_codes_file(codes_path, teams_re, require_challonge=True):
 
     for raw_line in nonempty_lines:
         line = raw_line.strip()
+        if line == "```":
+            continue
         lower = line.casefold()
         if lower.startswith(("average", "avg")):
             average_found = re.search(r"-?\d+(?:\.\d+)?", line) is not None
