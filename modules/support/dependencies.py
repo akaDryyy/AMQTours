@@ -13,7 +13,7 @@ PACKAGE_IMPORTS = {
     "python-dateutil": "dateutil",
     "lxml": "lxml",
     "curl-cffi": "curl_cffi",
-    "PuLP": "pulp",
+    "ortools": "ortools",
     "pandas": "pandas",
     "gspread": "gspread",
     "numpy": "numpy",

@@ -20,6 +20,11 @@ def apply_setup_code(final_code: str, setup_code: str) -> str:
     return f"{replacement}\n\n{final_code}"
 
 
+def apply_challonge_link(final_code: str, challonge_link: str) -> str:
+    link = str(challonge_link or "").strip()
+    return final_code.replace("<YOURCHALLONGEURLHERE>", link) if link else final_code
+
+
 def omit_guess_distribution(final_code: str) -> str:
     """Remove the static guess legend from Eru output."""
     before, marker, _after = final_code.partition("\nDistribution of guesses:")
@@ -224,6 +229,7 @@ def solve_player_group(tour, players, team_size, snapshot):
         guess_mode,
     )
     final_code = apply_setup_code(final_code, snapshot.get("setup_code", ""))
+    final_code = apply_challonge_link(final_code, snapshot.get("challonge_link", ""))
     if eru_enabled:
         final_code = omit_guess_distribution(final_code)
     if standalone_eru and not snapshot.get("setup_code"):
