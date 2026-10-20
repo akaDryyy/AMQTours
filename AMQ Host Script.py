@@ -692,19 +692,19 @@ class AMQTourUI(tk.Tk):
         self._build_stats_tab()
 
     def _build_setup_tab(self):
-        self.setup_tab.columnconfigure(1, weight=1)
+        self.setup_tab.columnconfigure(1, weight=0)
         self.setup_tab.rowconfigure(9, weight=1)
 
         self.setup_guess_label = ttk.Label(self.setup_tab, text="Guess Time")
         self.setup_guess_label.grid(row=0, column=0, sticky="w", pady=(0, 8))
         self.setup_guess_combo = ttk.Combobox(self.setup_tab, textvariable=self.setup_guess_time, state="readonly", width=12)
-        self.setup_guess_combo.grid(row=0, column=1, sticky="w", pady=(0, 8))
+        self.setup_guess_combo.grid(row=0, column=1, sticky="ew", pady=(0, 8))
         self.setup_guess_combo.bind("<<ComboboxSelected>>", self.on_setup_changed)
 
         self.setup_difficulty_label = ttk.Label(self.setup_tab, text="Difficulty")
         self.setup_difficulty_label.grid(row=1, column=0, sticky="w", pady=(0, 8))
         self.setup_difficulty_combo = ttk.Combobox(self.setup_tab, textvariable=self.setup_difficulty, state="readonly", width=12)
-        self.setup_difficulty_combo.grid(row=1, column=1, sticky="w", pady=(0, 8))
+        self.setup_difficulty_combo.grid(row=1, column=1, sticky="ew", pady=(0, 8))
         self.setup_difficulty_combo.bind("<<ComboboxSelected>>", self.on_setup_changed)
 
         self.setup_quagsual_check = ttk.Checkbutton(self.setup_tab, text="Quagsual", variable=self.setup_quagsual, command=self.on_setup_changed)
@@ -719,7 +719,7 @@ class AMQTourUI(tk.Tk):
             state="readonly",
             width=12,
         )
-        self.standalone_eru_code_combo.grid(row=0, column=1, sticky="w", pady=(0, 8))
+        self.standalone_eru_code_combo.grid(row=0, column=1, sticky="ew", pady=(0, 8))
         self.standalone_eru_code_combo.bind("<<ComboboxSelected>>", self.on_setup_changed)
         self.standalone_eru_code_label.grid_remove()
         self.standalone_eru_code_combo.grid_remove()
@@ -729,7 +729,7 @@ class AMQTourUI(tk.Tk):
         self.eru_mode_check = ttk.Checkbutton(self.setup_tab, text="Eru Mode", variable=self.eru_mode, command=self.on_eru_mode_changed)
         self.eru_mode_check.grid(row=3, column=0, sticky="w", pady=(0, 8))
         self.eru_rate_combo = ttk.Combobox(self.setup_tab, textvariable=self.eru_rate_source, values=ERU_RATE_OPTIONS, state="readonly", width=12)
-        self.eru_rate_combo.grid(row=3, column=1, sticky="w", pady=(0, 8))
+        self.eru_rate_combo.grid(row=3, column=1, sticky="ew", pady=(0, 8))
         self.eru_rate_combo.bind("<<ComboboxSelected>>", self.on_eru_rate_source_changed)
         self.eru_fallback_check = ttk.Checkbutton(self.setup_tab, variable=self.eru_use_fallback)
         self.eru_fallback_check.grid(row=4, column=0, columnspan=2, sticky="w", padx=(20, 0), pady=(0, 8))
@@ -744,11 +744,11 @@ class AMQTourUI(tk.Tk):
             state="readonly",
             width=12,
         )
-        self.maximum_guesses_combo.grid(row=6, column=1, sticky="w", pady=(0, 8))
+        self.maximum_guesses_combo.grid(row=6, column=1, sticky="ew", pady=(0, 8))
         self.maximum_elo_gap_label = ttk.Label(self.setup_tab, text="Maximum Elo Gap")
         self.maximum_elo_gap_label.grid(row=7, column=0, sticky="w", pady=(0, 8))
         self.maximum_elo_gap_input = ttk.Entry(self.setup_tab, textvariable=self.maximum_elo_gap, width=12)
-        self.maximum_elo_gap_input.grid(row=7, column=1, sticky="w", pady=(0, 8))
+        self.maximum_elo_gap_input.grid(row=7, column=1, sticky="ew", pady=(0, 8))
         self.setup_code_frame = ttk.Frame(self.setup_tab)
         self.setup_code_frame.grid(row=8, column=0, columnspan=2, sticky="ew", pady=(4, 0))
         self.setup_code_frame.columnconfigure(0, weight=1)
@@ -759,6 +759,13 @@ class AMQTourUI(tk.Tk):
         self.tk_text_widgets.append(self.setup_code_text)
         ttk.Button(self.setup_code_frame, text="Copy Code", command=lambda: self.clipboard_from_text(self.setup_code_text)).grid(row=2, column=0, sticky="w", pady=(6, 0))
         self.setup_code_frame.grid_remove()
+        self.after_idle(self.sync_setup_field_widths)
+
+    def sync_setup_field_widths(self):
+        """Use Guess Time's rendered width for every compact Setup field."""
+        if not self.setup_guess_combo.winfo_exists():
+            return
+        self.setup_tab.columnconfigure(1, minsize=self.setup_guess_combo.winfo_reqwidth(), weight=0)
 
     def _build_solver_tab(self):
         self.solver_tab.columnconfigure(1, weight=1)
