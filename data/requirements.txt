@@ -4,7 +4,7 @@ mpmath
 python-dateutil
 lxml
 curl-cffi
-PuLP
+ortools
 pandas
 gspread
 numpy

@@ -692,19 +692,19 @@ class AMQTourUI(tk.Tk):
         self._build_stats_tab()
 
     def _build_setup_tab(self):
-        self.setup_tab.columnconfigure(1, weight=1)
+        self.setup_tab.columnconfigure(1, weight=0)
         self.setup_tab.rowconfigure(9, weight=1)
 
         self.setup_guess_label = ttk.Label(self.setup_tab, text="Guess Time")
         self.setup_guess_label.grid(row=0, column=0, sticky="w", pady=(0, 8))
         self.setup_guess_combo = ttk.Combobox(self.setup_tab, textvariable=self.setup_guess_time, state="readonly", width=12)
-        self.setup_guess_combo.grid(row=0, column=1, sticky="w", pady=(0, 8))
+        self.setup_guess_combo.grid(row=0, column=1, sticky="ew", pady=(0, 8))
         self.setup_guess_combo.bind("<<ComboboxSelected>>", self.on_setup_changed)
 
         self.setup_difficulty_label = ttk.Label(self.setup_tab, text="Difficulty")
         self.setup_difficulty_label.grid(row=1, column=0, sticky="w", pady=(0, 8))
         self.setup_difficulty_combo = ttk.Combobox(self.setup_tab, textvariable=self.setup_difficulty, state="readonly", width=12)
-        self.setup_difficulty_combo.grid(row=1, column=1, sticky="w", pady=(0, 8))
+        self.setup_difficulty_combo.grid(row=1, column=1, sticky="ew", pady=(0, 8))
         self.setup_difficulty_combo.bind("<<ComboboxSelected>>", self.on_setup_changed)
 
         self.setup_quagsual_check = ttk.Checkbutton(self.setup_tab, text="Quagsual", variable=self.setup_quagsual, command=self.on_setup_changed)
@@ -717,9 +717,9 @@ class AMQTourUI(tk.Tk):
             textvariable=self.standalone_eru_code,
             values=tuple(self.standalone_eru_codes),
             state="readonly",
-            width=30,
+            width=12,
         )
-        self.standalone_eru_code_combo.grid(row=0, column=1, sticky="w", pady=(0, 8))
+        self.standalone_eru_code_combo.grid(row=0, column=1, sticky="ew", pady=(0, 8))
         self.standalone_eru_code_combo.bind("<<ComboboxSelected>>", self.on_setup_changed)
         self.standalone_eru_code_label.grid_remove()
         self.standalone_eru_code_combo.grid_remove()
@@ -728,8 +728,8 @@ class AMQTourUI(tk.Tk):
         self.setup_note.grid(row=9, column=0, columnspan=2, sticky="nw", pady=(2, 0))
         self.eru_mode_check = ttk.Checkbutton(self.setup_tab, text="Eru Mode", variable=self.eru_mode, command=self.on_eru_mode_changed)
         self.eru_mode_check.grid(row=3, column=0, sticky="w", pady=(0, 8))
-        self.eru_rate_combo = ttk.Combobox(self.setup_tab, textvariable=self.eru_rate_source, values=ERU_RATE_OPTIONS, state="readonly", width=16)
-        self.eru_rate_combo.grid(row=3, column=1, sticky="w", pady=(0, 8))
+        self.eru_rate_combo = ttk.Combobox(self.setup_tab, textvariable=self.eru_rate_source, values=ERU_RATE_OPTIONS, state="readonly", width=12)
+        self.eru_rate_combo.grid(row=3, column=1, sticky="ew", pady=(0, 8))
         self.eru_rate_combo.bind("<<ComboboxSelected>>", self.on_eru_rate_source_changed)
         self.eru_fallback_check = ttk.Checkbutton(self.setup_tab, variable=self.eru_use_fallback)
         self.eru_fallback_check.grid(row=4, column=0, columnspan=2, sticky="w", padx=(20, 0), pady=(0, 8))
@@ -742,13 +742,13 @@ class AMQTourUI(tk.Tk):
             textvariable=self.maximum_guesses,
             values=("4", "5"),
             state="readonly",
-            width=8,
+            width=12,
         )
-        self.maximum_guesses_combo.grid(row=6, column=1, sticky="w", pady=(0, 8))
+        self.maximum_guesses_combo.grid(row=6, column=1, sticky="ew", pady=(0, 8))
         self.maximum_elo_gap_label = ttk.Label(self.setup_tab, text="Maximum Elo Gap")
         self.maximum_elo_gap_label.grid(row=7, column=0, sticky="w", pady=(0, 8))
         self.maximum_elo_gap_input = ttk.Entry(self.setup_tab, textvariable=self.maximum_elo_gap, width=12)
-        self.maximum_elo_gap_input.grid(row=7, column=1, sticky="w", pady=(0, 8))
+        self.maximum_elo_gap_input.grid(row=7, column=1, sticky="ew", pady=(0, 8))
         self.setup_code_frame = ttk.Frame(self.setup_tab)
         self.setup_code_frame.grid(row=8, column=0, columnspan=2, sticky="ew", pady=(4, 0))
         self.setup_code_frame.columnconfigure(0, weight=1)
@@ -759,6 +759,13 @@ class AMQTourUI(tk.Tk):
         self.tk_text_widgets.append(self.setup_code_text)
         ttk.Button(self.setup_code_frame, text="Copy Code", command=lambda: self.clipboard_from_text(self.setup_code_text)).grid(row=2, column=0, sticky="w", pady=(6, 0))
         self.setup_code_frame.grid_remove()
+        self.after_idle(self.sync_setup_field_widths)
+
+    def sync_setup_field_widths(self):
+        """Use Guess Time's rendered width for every compact Setup field."""
+        if not self.setup_guess_combo.winfo_exists():
+            return
+        self.setup_tab.columnconfigure(1, minsize=self.setup_guess_combo.winfo_reqwidth(), weight=0)
 
     def _build_solver_tab(self):
         self.solver_tab.columnconfigure(1, weight=1)
@@ -827,11 +834,16 @@ class AMQTourUI(tk.Tk):
         self.remove_pair_button.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(8, 0))
 
         self.solver_actions = ttk.Frame(self.solver_tab)
-        self.solver_actions.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(0, 12))
+        self.solver_actions.grid(row=3, column=0, sticky="ew", padx=(0, 14), pady=(0, 12))
+        self.solver_actions.columnconfigure(1, weight=1)
+        self.solver_challonge_label = ttk.Label(self.solver_actions, text="Challonge Link")
+        self.solver_challonge_label.grid(row=0, column=0, sticky="w", padx=(0, 8))
+        self.solver_challonge_link = ttk.Entry(self.solver_actions, width=24)
+        self.solver_challonge_link.grid(row=0, column=1, sticky="ew", padx=(0, 12))
         self.solver_button = ttk.Button(self.solver_actions, text="Make Teams", style="Tool.TButton", width=12, command=self.run_solver)
-        self.solver_button.pack(side="left")
+        self.solver_button.grid(row=0, column=2, sticky="e")
         self.copy_codes_button = ttk.Button(self.solver_actions, text="Copy Codes", style="Tool.TButton", width=12, command=lambda: self.clipboard_from_text(self.codes_text))
-        self.copy_codes_button.pack(side="left")
+        self.copy_codes_button.grid(row=0, column=3, sticky="e", padx=(8, 0))
         self.draft_assign_button = ttk.Button(self.solver_actions, text="Assign Elos", style="Tool.TButton", width=12, command=self.run_draft_elo_assignment)
 
         self.rank_assignment_frame = ttk.Frame(self.solver_tab)
@@ -1148,9 +1160,11 @@ class AMQTourUI(tk.Tk):
             self.whitelist_panel.grid_remove()
             self.players_label.grid_configure(columnspan=2)
             self.players_text.grid_configure(columnspan=2, padx=(0, 0))
-            self.solver_button.pack_forget()
-            self.copy_codes_button.pack_forget()
-            self.draft_assign_button.pack(side="left")
+            self.solver_button.grid_remove()
+            self.copy_codes_button.grid_remove()
+            self.solver_challonge_label.grid_remove()
+            self.solver_challonge_link.grid_remove()
+            self.draft_assign_button.grid(row=0, column=0, sticky="w")
             self.codes_label.grid_remove()
             self.codes_text.grid_remove()
             return
@@ -1160,9 +1174,11 @@ class AMQTourUI(tk.Tk):
         self.whitelist_panel.grid()
         self.players_label.grid_configure(columnspan=1)
         self.players_text.grid_configure(columnspan=1, padx=(0, 14))
-        self.draft_assign_button.pack_forget()
-        self.solver_button.pack(side="left")
-        self.copy_codes_button.pack(side="left")
+        self.draft_assign_button.grid_remove()
+        self.solver_challonge_label.grid()
+        self.solver_challonge_link.grid()
+        self.solver_button.grid()
+        self.copy_codes_button.grid()
         self.codes_label.grid()
         self.codes_text.grid()
 
@@ -1997,6 +2013,7 @@ class AMQTourUI(tk.Tk):
             "eru_fallbacks": fallback_configs,
             "maximum_guesses": int(self.maximum_guesses.get()),
             "maximum_elo_gap": maximum_elo_gap,
+            "challonge_link": self.solver_challonge_link.get().strip(),
         }
 
     def solve_in_background(self, snapshot):
@@ -2024,6 +2041,7 @@ class AMQTourUI(tk.Tk):
                 final_code=final_code,
                 warnings=warnings,
                 newly_rated_players=newly_rated,
+                generated_challonge_link=snapshot.get("challonge_link", ""),
             ),
         )
 
@@ -2042,6 +2060,7 @@ class AMQTourUI(tk.Tk):
         missing_guess_rates=None,
         warnings=None,
         newly_rated_players=(),
+        generated_challonge_link="",
     ):
         self.solver_running = False
         self.solver_button.configure(state="normal")
@@ -2062,6 +2081,11 @@ class AMQTourUI(tk.Tk):
             self.codes_text.insert("1.0", final_code)
             self.stats_newly_rated_players.update(newly_rated_players)
             tour = TOURS[self.selected_tour_id]
+            if generated_challonge_link and not tour.get("dry_elo") and not tour.get("supports_inhouse"):
+                self.challonge_link.delete(0, "end")
+                self.challonge_link.insert(0, generated_challonge_link)
+            if generated_challonge_link:
+                self.stats_panel.set_challonge_link(generated_challonge_link)
             if tour.get("supports_inhouse"):
                 self.refresh_inhouse_results_ui(tour)
             self.substitution_panel.reset_after_solver()

@@ -6,7 +6,7 @@ from modules.support.cleanData import clean_data
 from modules.support.readCredentials import readCredentials
 from modules.support.getAliases import getAliasesDF, getAliasesID
 from modules.support.getRanks import getRanks
-from modules.support.LPProblem import LPProblem
+from modules.support.ortoolsLPProblem import LPProblem
 from modules.support.readElos import normalize_player_id
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -41,7 +41,7 @@ def create_teams(path, players, team_size, whitelist, blacklist, separateT1):
 
     blacklist_ids = [[solver_key(player1), solver_key(player2)] for (player1, player2) in blacklist]
     whitelist_ids = [[solver_key(player1), solver_key(player2)] for (player1, player2) in whitelist]
-    solution = LPProblem(players_ids_ranks, team_size, blacklist_ids, whitelist_ids, max_solutions=1, think_time=15000, separateT1=separateT1)[0]
+    solution = LPProblem(players_ids_ranks, team_size, blacklist_ids, whitelist_ids, max_solutions=1, time_limit_seconds=15, separateT1=separateT1)[0]
     teams = [{players_ids[player_id]: solution[player_id] for player_id in solution}]
     return teams
 

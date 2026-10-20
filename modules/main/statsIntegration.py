@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import re
 import shutil
 import sys
 import threading
@@ -11,6 +12,7 @@ from datetime import datetime
 from pathlib import Path
 import tkinter as tk
 from tkinter import filedialog, messagebox, simpledialog, ttk
+from urllib.parse import urlsplit, urlunsplit
 
 from tour_config import TOURS
 
@@ -193,6 +195,184 @@ class HostStatsService:
             if len(ranked) == 2 or ranked[1][1] > ranked[2][1]:
                 return tuple(sorted((ranked[0][0], ranked[1][0])))
         return None
+
+    @staticmethod
+    def _normalize_challonge_link(link: str) -> str:
+        value = str(link or "").strip()
+        if not value:
+            return ""
+        parsed = urlsplit(value if "://" in value else f"https://{value}")
+        netloc = parsed.netloc.casefold()
+        if netloc.startswith("www."):
+            netloc = netloc[4:]
+        return urlunsplit((parsed.scheme.casefold() or "https", netloc, parsed.path.rstrip("/"), "", ""))
+
+    @staticmethod
+    def _challonge_score(value) -> int | None:
+        if value is None or str(value).strip() == "":
+            return None
+        try:
+            score = int(str(value).strip())
+        except (TypeError, ValueError):
+            return None
+        return score if score >= 0 else None
+
+    def fetch_challonge_matches(self, challonge_link: str) -> list[dict]:
+        """Fetch the current Challonge matches once for an upload batch."""
+        link = self._normalize_challonge_link(challonge_link)
+        if not link:
+            return []
+        try:
+            from curl_cffi.requests import Session
+
+            with Session(impersonate="chrome123") as session:
+                response = session.get(link, timeout=20)
+        except Exception as exc:
+            raise ValueError(f"Could not fetch Challonge scores: {exc}") from exc
+        if getattr(response, "status_code", 200) >= 400:
+            raise ValueError(f"Could not fetch Challonge scores: HTTP {response.status_code}.")
+
+        store_marker = "['TournamentStore'] = "
+        theme_marker = "; window._initialStoreState['ThemeStore'] = "
+        text = response.text
+        if store_marker not in text or theme_marker not in text:
+            raise ValueError("Could not read match data from the supplied Challonge link.")
+        try:
+            match_info = json.loads(text.split(store_marker, 1)[1].split(theme_marker, 1)[0])
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"Could not parse Challonge match data: {exc}") from exc
+
+        matches_by_round = match_info.get("matches_by_round", {})
+        if not isinstance(matches_by_round, dict):
+            raise ValueError("The supplied Challonge page does not contain match data.")
+
+        def round_sort_key(value):
+            try:
+                return (0, int(value))
+            except (TypeError, ValueError):
+                return (1, str(value))
+
+        records = []
+        for round_key in sorted(matches_by_round, key=round_sort_key):
+            matches = matches_by_round[round_key]
+            if isinstance(matches, dict):
+                matches = list(matches.values())
+            if not isinstance(matches, list):
+                continue
+            for index, match in enumerate(matches, start=1):
+                if not isinstance(match, dict):
+                    continue
+                first = match.get("player1") or {}
+                second = match.get("player2") or {}
+                if not isinstance(first, dict) or not isinstance(second, dict):
+                    continue
+                first_id = str(first.get("id") or "")
+                second_id = str(second.get("id") or "")
+                scores = match.get("scores") or {}
+
+                def score_for(player_id):
+                    if not isinstance(scores, dict):
+                        return None
+                    for key in (player_id, str(player_id)):
+                        if key in scores:
+                            return self._challonge_score(scores[key])
+                    try:
+                        numeric_key = int(player_id)
+                    except (TypeError, ValueError):
+                        return None
+                    return self._challonge_score(scores.get(numeric_key))
+
+                match_id = str(match.get("id") or f"{round_key}:{index}:{first_id}:{second_id}")
+                records.append({
+                    "id": match_id,
+                    "round": round_key,
+                    "index": index,
+                    "players": (first, second),
+                    "scores": (score_for(first_id), score_for(second_id)),
+                })
+        return records
+
+    @staticmethod
+    def _participant_key(value) -> str:
+        return re.sub(r"[^a-z0-9]+", "", str(value or "").casefold())
+
+    def _challonge_participant_team(self, participant: dict, snapshot: dict, substitute_teams: dict) -> str | None:
+        display_key = self._participant_key(participant.get("display_name"))
+        if not display_key:
+            return None
+        for team_id in snapshot.get("teams", {}):
+            if display_key == self._participant_key(self._team_label(snapshot, team_id)):
+                return team_id
+
+        player_teams = {
+            self._participant_key(player.get("name")): team_id
+            for team_id, team in snapshot.get("teams", {}).items()
+            for player in team.get("players", [])
+            if self._participant_key(player.get("name"))
+        }
+        player_teams.update({
+            self._participant_key(name): team_id
+            for name, team_id in (substitute_teams or {}).items()
+            if team_id in snapshot.get("teams", {}) and self._participant_key(name)
+        })
+        counts = Counter(
+            team_id
+            for name, team_id in player_teams.items()
+            if len(name) >= 3 and name in display_key
+        )
+        if not counts:
+            return None
+        best = counts.most_common(2)
+        return best[0][0] if len(best) == 1 or best[0][1] > best[1][1] else None
+
+    def claim_challonge_score(
+        self,
+        tour: dict,
+        snapshot: dict,
+        game_id: str,
+        challonge_matches: list[dict],
+        substitute_teams: dict | None = None,
+    ) -> tuple[int, int] | None:
+        """Claim one Challonge match for a game and return its score when present.
+
+        A claim is persisted even before a score is entered, so repeat pairings in
+        double or triple round robin events retain their own future result.
+        """
+        if not challonge_matches:
+            return None
+        state = self.load_state(tour)
+        game = next((item for item in state["games"] if item["id"] == game_id), None)
+        if game is None or len(game.get("teams", [])) != 2:
+            return None
+        game_teams = tuple(game["teams"])
+        claimed = {
+            other.get("challonge_match_id")
+            for other in state["games"]
+            if other["id"] != game_id and other.get("challonge_match_id")
+        }
+        matched = []
+        for match in challonge_matches:
+            team_ids = tuple(
+                self._challonge_participant_team(participant, snapshot, substitute_teams or {})
+                for participant in match["players"]
+            )
+            if None not in team_ids and set(team_ids) == set(game_teams):
+                matched.append((match, team_ids))
+
+        selected = next((item for item in matched if item[0]["id"] == game.get("challonge_match_id")), None)
+        if selected is None:
+            selected = next((item for item in matched if item[0]["id"] not in claimed), None)
+        if selected is None:
+            return None
+
+        match, team_ids = selected
+        if game.get("challonge_match_id") != match["id"]:
+            game["challonge_match_id"] = match["id"]
+            self.save_state(tour, state)
+        first_score, second_score = match["scores"]
+        if first_score is None or second_score is None:
+            return None
+        return (first_score, second_score) if team_ids[0] == game_teams[0] else (second_score, first_score)
 
     @staticmethod
     def _team_label(snapshot: dict, team_id: str) -> str:
@@ -462,6 +642,11 @@ class StatsPanel:
             for name, team_id in self._substitute_teams(tour, snapshot).items()
         }
 
+    def set_challonge_link(self, challonge_link: str) -> None:
+        link = str(challonge_link or "").strip()
+        if link:
+            self.challonge_var.set(link)
+
     def refresh_context(self):
         try:
             tour, snapshot = self._tour_and_snapshot()
@@ -521,7 +706,17 @@ class StatsPanel:
         state = self.service.load_state(tour)
         selected_game_id = self._selected_round_id()
         selected_game = next((game for game in state["games"] if game["id"] == selected_game_id), None)
+        challonge_matches = []
+        challonge_link = self.challonge_var.get().strip()
+        if challonge_link:
+            self.status_var.set("Checking Challonge scores...")
+            self.host.update_idletasks()
+            try:
+                challonge_matches = self.service.fetch_challonge_matches(challonge_link)
+            except ValueError as exc:
+                self.status_var.set(f"Could not check Challonge scores: {exc}")
         added_any = False
+        imported_scores = 0
         for file_name in files:
             source = Path(file_name)
             substitute_teams = self._substitute_teams(tour, snapshot)
@@ -552,10 +747,23 @@ class StatsPanel:
             if not game.get("teams"):
                 game = self.choose_game_teams(tour, snapshot, game)
             if game and game.get("teams") and not game.get("score"):
-                self.prompt_score(tour, snapshot, game)
+                challonge_score = self.service.claim_challonge_score(
+                    tour,
+                    snapshot,
+                    game["id"],
+                    challonge_matches,
+                    substitute_teams,
+                )
+                if challonge_score is not None:
+                    self.service.set_score(tour, game["id"], snapshot, *challonge_score)
+                    imported_scores += 1
+                else:
+                    self.prompt_score(tour, snapshot, game)
         self._refresh_games(tour, snapshot)
         if added_any:
             self.regenerate()
+            if imported_scores:
+                self.status_var.set(f"Imported {imported_scores} score(s) from Challonge and regenerated local stats.")
 
     def prompt_score(self, tour, snapshot, game):
         teams = game.get("teams", [])
