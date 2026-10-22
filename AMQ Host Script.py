@@ -38,6 +38,7 @@ from modules.support.playerRatings import MissingRatingsError, normalize_alias_k
 from modules.main.substitutionPanel import SubstitutionPanel
 from modules.main.hostUpdater import HostScriptUpdater
 from modules.main.statsIntegration import StatsPanel
+from modules.main.eruAnalysisPanel import EruAnalysisPanel
 from tour_config import TOURS
 
 
@@ -265,6 +266,8 @@ class AMQTourUI(tk.Tk):
                 ("!selected", self.colors["field"]),
             ],
         )
+        self.style.configure("TRadiobutton", **self.style.configure("TCheckbutton"))
+        self.style.map("TRadiobutton", **self.style.map("TCheckbutton"))
         self.style.map(
             "TCombobox",
             fieldbackground=[("readonly", self.colors["field"])],
@@ -378,8 +381,20 @@ class AMQTourUI(tk.Tk):
         dialog.grab_set()
         dialog.resizable(False, False)
 
+        appearance = ttk.Frame(dialog, padding=(16, 12, 16, 0))
+        appearance.grid(row=0, column=0, sticky="ew")
+        ttk.Label(appearance, text="Appearance", font=("Segoe UI", 11, "bold")).pack(side="left")
+
+        def toggle_dialog_theme():
+            self.toggle_theme()
+            dialog.configure(bg=self.colors["bg"])
+
+        ttk.Checkbutton(
+            appearance, text="Dark Mode", variable=self.dark_mode, command=toggle_dialog_theme,
+        ).pack(side="left", padx=(20, 0))
+
         frame = ttk.Frame(dialog, padding=16)
-        frame.grid(row=0, column=0, sticky="nsew")
+        frame.grid(row=1, column=0, sticky="nsew")
         ttk.Label(frame, text="Load On Startup", font=("Segoe UI", 11, "bold")).grid(row=0, column=0, columnspan=3, sticky="w", pady=(0, 8))
         ttk.Label(
             frame,
@@ -441,6 +456,28 @@ class AMQTourUI(tk.Tk):
         ttk.Button(button_row, text="Clear", command=clear_all).grid(row=0, column=1, padx=(0, 8))
         ttk.Button(button_row, text="Cancel", command=dialog.destroy).grid(row=0, column=2, padx=(0, 8))
         ttk.Button(button_row, text="Save", command=save).grid(row=0, column=3)
+
+    def open_help_dialog(self):
+        dialog = tk.Toplevel(self)
+        dialog.title("Help")
+        dialog.configure(bg=self.colors["bg"])
+        dialog.transient(self)
+        dialog.grab_set()
+        dialog.geometry("620x400")
+        dialog.minsize(560, 320)
+        dialog.columnconfigure(0, weight=1)
+        dialog.rowconfigure(0, weight=1)
+
+        notebook = ttk.Notebook(dialog)
+        notebook.grid(row=0, column=0, sticky="nsew", padx=16, pady=(16, 8))
+        for title in ("Getting Started", "Making Teams", "Stats"):
+            page = ttk.Frame(notebook, padding=20)
+            notebook.add(page, text=title)
+            ttk.Label(page, text="Tutorial coming soon.").pack(anchor="w")
+        ttk.Button(dialog, text="Close", command=dialog.destroy).grid(
+            row=1, column=0, sticky="e", padx=16, pady=(0, 16),
+        )
+        dialog.bind("<Escape>", lambda _event: dialog.destroy())
 
     def tour_load_event(self, tour_id):
         with self.tour_load_lock:
@@ -617,18 +654,32 @@ class AMQTourUI(tk.Tk):
         header = ttk.Frame(root)
         header.grid(row=0, column=0, columnspan=2, sticky="ew", pady=(0, 12))
         header.columnconfigure(0, weight=1)
-        ttk.Label(header, text="AMQ Host Script", style="Title.TLabel").grid(row=0, column=0, sticky="w")
-        ttk.Button(header, text="Settings", command=self.open_settings_dialog).grid(row=0, column=1, sticky="e", padx=(8, 0))
-        self.update_script_button = ttk.Button(header, text="Update", command=self.run_host_script_update)
+        title = ttk.Label(header, text="AMQ Host Script", style="Title.TLabel")
+        title.grid(row=0, column=0, sticky="w")
+        actions = ttk.Frame(header)
+        actions.grid(row=0, column=1, sticky="e")
+        header_button = {"width": 14}
+        ttk.Button(actions, text="Settings", command=self.open_settings_dialog, **header_button).grid(row=0, column=1, sticky="e", padx=(8, 0))
+        self.update_script_button = ttk.Button(actions, text="Update", command=self.run_host_script_update, **header_button)
         self.update_script_button.grid(row=0, column=2, sticky="e", padx=(8, 0))
         self.update_script_button.grid_remove()
         for index, (label, url) in enumerate(LINKS.items(), start=3):
-            ttk.Button(header, text=label, command=lambda u=url: webbrowser.open(u)).grid(row=0, column=index, sticky="e", padx=(8, 0))
-        ttk.Checkbutton(header, text="Dark Mode", variable=self.dark_mode, command=self.toggle_theme).grid(row=0, column=len(LINKS) + 3, sticky="e", padx=(14, 0))
+            ttk.Button(actions, text=label, command=lambda u=url: webbrowser.open(u), **header_button).grid(row=0, column=index, sticky="e", padx=(8, 0))
+        ttk.Button(actions, text="Help", command=self.open_help_dialog, **header_button).grid(row=0, column=len(LINKS) + 3, sticky="e", padx=(8, 0))
+
+        def arrange_header(_event=None):
+            compact = header.winfo_width() < title.winfo_reqwidth() + actions.winfo_reqwidth() + 8
+            actions.grid_configure(
+                row=1 if compact else 0, column=0 if compact else 1,
+                columnspan=2 if compact else 1, pady=(8, 0) if compact else 0,
+            )
+
+        header.bind("<Configure>", arrange_header)
+        actions.bind("<Configure>", arrange_header)
         self.elo_status_var = tk.StringVar(value="Eloscrape: waiting to start")
-        ttk.Label(header, textvariable=self.elo_status_var).grid(row=1, column=0, columnspan=len(LINKS) + 4, sticky="w", pady=(4, 0))
+        ttk.Label(header, textvariable=self.elo_status_var).grid(row=2, column=0, columnspan=2, sticky="w", pady=(4, 0))
         progress_row = ttk.Frame(header)
-        progress_row.grid(row=2, column=0, columnspan=len(LINKS) + 4, sticky="ew", pady=(6, 0))
+        progress_row.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(6, 0))
         progress_row.columnconfigure(0, weight=1)
         self.elo_progress_var = tk.DoubleVar(value=0)
         self.elo_progress_text_var = tk.StringVar(value="0%")
@@ -684,6 +735,8 @@ class AMQTourUI(tk.Tk):
         self.update_tab = ttk.Frame(self.main_notebook, padding=14)
         self.elos_tab = ttk.Frame(self.main_notebook, padding=14)
         self.stats_tab = ttk.Frame(self.main_notebook, padding=14)
+        self.eru_analysis_tab = ttk.Frame(self.main_notebook, padding=14)
+        self.eru_analysis_panel = EruAnalysisPanel(self, self.eru_analysis_tab, PROJECT_ROOT, CATEGORIES)
 
         self._build_setup_tab()
         self._build_solver_tab()
@@ -1074,6 +1127,8 @@ class AMQTourUI(tk.Tk):
         if not TOURS[self.selected_tour_id].get("standalone_eru"):
             self.main_notebook.add(self.elos_tab, text="Elos / Subs")
             self.main_notebook.add(self.stats_tab, text="Stats")
+        else:
+            self.main_notebook.add(self.eru_analysis_tab, text="Player Stats")
 
     def _set_update_tab_title(self, tour):
         update_title = "Results" if tour.get("supports_inhouse") else ("MVPs / Changelog" if tour.get("dry_elo") else "Eloscrape")
