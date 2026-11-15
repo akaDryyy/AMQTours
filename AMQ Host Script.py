@@ -35,6 +35,7 @@ from modules.support.hostConfig import (
 from modules.support import hostHistory
 from modules.support.hostGuess import ERU_RATE_OPTIONS, MissingGuessRatesError, eru_fallback_config, pasted_guess_rates, player_guess_rates
 from modules.support.playerRatings import MissingRatingsError, normalize_alias_key, resolve_player_ratings
+from modules.support.ortoolsLPProblem import TeamSolverError
 from modules.main.substitutionPanel import SubstitutionPanel
 from modules.main.hostUpdater import HostScriptUpdater
 from modules.main.statsIntegration import StatsPanel
@@ -2083,6 +2084,9 @@ class AMQTourUI(tk.Tk):
         except MissingGuessRatesError as exc:
             missing_names = exc.names
             self.after(0, lambda names=missing_names: self.finish_solver(missing_guess_rates=names))
+            return
+        except TeamSolverError as exc:
+            self.after(0, lambda error=str(exc): self.finish_solver(error=error))
             return
         except Exception as exc:
             details = traceback.format_exc()
